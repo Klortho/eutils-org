@@ -44,21 +44,9 @@ Since the E-utilities, and the databases behind them, are vast and
 complicated, the scope of this project will be limited to providing the
 framework and a small set of samples.
 
-The work will be done in the open, as a project on GitHub, and I will
-attempt to engage various stakeholders, both inside and outside NCBI,
-and others in the Semantic Web community.
-
-I believe that this project has the potential to benefit the
-bioinformatics community.  More and more bioinformatics resources are being made
-available as linked open data, and it is my hope that this project
-will help to catalyze NCBI's taking steps in the direction of providing
-more data in RDF format, and thereby more tightly integrate our resources
-with the rest of the Semantic Web, which would, in turn, make them easier
-to use, and quicken the pace of scientific discovery.
-
 ## Scope
 
-In the initial part of this project (already begun) I will work with
+In the initial part of this project (already begun) we will work with
 people inside and outside of NCBI to develop some simple standards for
 RDF URIs for NCBI Entrez database entities (which will be used as
 RDF subjects and objects) and Entrez filters and links (which will be
@@ -70,37 +58,34 @@ Data Space" (Heath and Bizer, 2011).
 As mentioned above, the scope will be limited to a small set of samples:
 at least two, and more if time permits.
 
-The first sample will be the "by id" variant of the ELink utility (see the
-E-utilities Quick Start,
-[Finding Related Data Through Entrez
-Links](http://www.ncbi.nlm.nih.gov/books/NBK25500/#_chapter1_Finding_Related_Data_Through_En_)),
-for example, [this
-query](http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&db=gene&id=312836839&id=24475906).  Note that the "batch
-mode" response from ELink (for example,
-[here](http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&db=gene&id=312836839,24475906)) would not lend itself
-to conversion to RDF, because, while the response indicates a list of
-"objects" (in the RDF sense), there is no indication of which object
-is associated with which of possibly many subjects.  This illustrates
-an important limitation of this project:  that not every E-utility
-request/response is amenable to conversion into RDF.
+* The first sample will be the "by id" variant of the ELink utility (see the
+  E-utilities Quick Start,
+  [Finding Related Data Through Entrez
+  Links](http://www.ncbi.nlm.nih.gov/books/NBK25500/#_chapter1_Finding_Related_Data_Through_En_)),
+  for example, [this
+  query](http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&db=gene&id=312836839&id=24475906).
+  Note that the "batch mode" response from ELink (for example,
+  [here](http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&db=gene&id=312836839,24475906))
+  would not lend itself to conversion to RDF, because, while the response
+  indicates a list of "objects" (in the RDF sense), there is no indication
+  of which object is associated with which of possibly many subjects.
+  This illustrates an important limitation of this project:  that not every
+  E-utility request/response is amenable to conversion into RDF.
 
-The second sample will be the PMC ESummary result, for example, [this
-query](http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&id=3159421&version=2.0).  The ESummary service provides
-"document summaries", or "docsums" of an entry within any Entrez
-database.  For PMC, the entry is a full-text journal article,
-and the docsum comprises
-detailed bibliographic information about that article.  Within the scope of this
-project will be to
-transform the PMC docsum output into RDF, using, where appropriate,
-established, standard ontologies, such as [Dublin
-Core](http://dublincore.org/) and [SPAR](http://sempublishing.sourceforge.net/).
+* The second sample will be the PMC ESummary result, for example, [this
+  query](http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&id=3159421&version=2.0).
+  The ESummary service provides "document summaries", or "docsums" of an entry
+  within any Entrez database.  For PMC, the entry is a full-text journal article,
+  and the docsum comprises detailed bibliographic information about that article.
+  Within the scope of this project will be to transform the PMC docsum output
+  into RDF, using, where appropriate, established, standard ontologies, such as
+  [Dublin Core](http://dublincore.org/) and [SPAR](http://sempublishing.sourceforge.net/).
 
-Finally, I will deploy a web
-service, in the form of a Perl CGI script, that mimics the E-utilities
-API, and provides valid RDF data for the samples described above.
-It will be extensible, in that others could contribute XSLT stylesheets
-for other E-utilities responses, in the form of pull requests on GitHub,
-and, if accepted, they would be available in the proxy service.
+Finally, we will deploy a web service, implemented as a Perl CGI script, that
+mimics the E-utilities API, and provides valid RDF data for the samples
+described above.  It will be extensible, in that others could contribute XSLT
+stylesheets for other E-utilities responses, in the form of pull requests on
+GitHub, and, if accepted, they would be available in the proxy service.
 
 ## Strategy
 
