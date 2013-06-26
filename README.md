@@ -24,21 +24,21 @@ including text and XML, but not in RDF.
 
 ## Core idea
 
-In this project, I will create a framework for the enhancement of NCBI
+In this project, we will create a framework for the enhancement of NCBI
 E-utilities to provide an RDF response format.  In this format,
 the data from the
 NCBI databases will be presented as RDF triples, using a mixture of a
 standardized NCBI vocabulary (new URI patterns) and existing
 ontologies.
 
-To demonstrate the results, I will create a simple Perl CGI server
+To demonstrate the results, we will create a simple Perl CGI server
 that will proxy HTTP requests that mimic the calling convention
 (CGI parameters) of E-utilities, send them to NCBI E-utilities to
 retrieve XML results, and then pass those results through an XSLT
 transformation, to produce RDF.  This is illustrated in the following
 figure.
 
-[SemWebProject.png](http://chrismaloney.org/notes_s/JHU,%20Summer%202013%20-%20Semantic%20Web_/SemWebProject.png)
+![Block diagram](SemWebProject.png)
 
 Since the E-utilities, and the databases behind them, are vast and
 complicated, the scope of this project will be limited to providing the
@@ -104,22 +104,13 @@ and, if accepted, they would be available in the proxy service.
 
 ## Strategy
 
-The following will be the concrete steps taken in the development of this project.
+Here's the plan:
 
-1.  Initializing a GitHub repository.  This has already been done; the
-  repository is [https://github.com/Klortho/EutilsRDF]()
-
-2.  Work with stakeholders to standardize the forms for the relevant
+1.  Work with stakeholders to standardize the forms for the relevant
   newly-defined NCBI RDF URIs.  This work has already begun.
 
-3.  Initialize the project’s GitHub wiki with project notes and design
-  information.
-  As mentioned above, I will do this project in an open way, so as to get
-  feedback from stakeholders and the community.  Having the project on GitHub
-  with an editable wiki is part of this strategy.
-
-4.  Implement and deploy the Entrez proxy / transformer Perl CGI.
-  During the development of this project, I’ll be using a continuous
+2.  Implement and deploy the Entrez proxy / transformer Perl CGI.
+  During the development of this project, we’ll be using a continuous
   integration methodology, and so the deployment of the proxy server
   will happen first. Initially, the service will simply reverse-proxy
   most E-utilities requests.  It will also include a simple URL
@@ -128,33 +119,19 @@ The following will be the concrete steps taken in the development of this projec
   if the request for an RDF format can’t be fulfilled, because no XSLT
   mapping yet exists for that request.
 
-5.  Provide a transformation of ELink XML into RDF.  This step depends
-  on the establishment of the standard NCBI URI formats.
+3.  Provide a transformation of ELink XML into RDF.
 
-6.  Provide a transformation from PMC ESummary into RDF.  This will involve
-  some research, to identify ontologies that would be appropriate for use
+4.  Provide a transformation from PMC ESummary into RDF.  This will involve
+  identifying ontologies that would be appropriate for use
   with this data.
 
 Insofar as time permits, the following additional steps will also be done:
 
-7.  Work with NCBI Entrez group to get this result format integrated into
-  Entrez.
-
-8.  Integrate this work with outside resources,
+5.  Integrate this work with outside resources,
   such as (if appropriate) freebase, identifiers.org, BioPortal, and/or
   Bio2RDF, for easier discovery and greater interoperability.
 
-9.  Provide transformations for other types of responses.
-
-## Tools and components
-
-Among the tools, components, and standards that will be used for this project are:
-
-* Git and GitHub
-* Perl
-* XSLT
-* NCBI E-utilities
-* Existing scholarly publishing and bibliographic ontologies (for PMC docsums)
+6.  Provide transformations for other types of responses.
 
 ## References
 
