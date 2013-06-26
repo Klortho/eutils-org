@@ -7,6 +7,11 @@ This is a project being done for the class [The Semantic
 Web](https://apps.ep.jhu.edu/course-homepages/3394-605-443-the-semantic-web-cost), at Johns Hopkins,
 Summer, 2013.  The following is the project proposal, as recently submitted.
 
+Documentation will on [the GitHub wiki here](https://github.com/Klortho/EutilsRDF/wiki).
+
+To discuss or send suggestions, please join the [EutilsRDF Google
+group](https://groups.google.com/d/forum/eutilsrdf).
+
 ----
 
 The NCBI E-utilities are a set of APIs that provide programmatic search-and-
