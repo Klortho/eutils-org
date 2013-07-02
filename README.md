@@ -118,6 +118,15 @@ Insofar as time permits, the following additional steps will also be done:
 
 6.  Provide transformations for other types of responses.
 
+## Next steps
+
+Out of scope for this project, but anticipated, are:
+
+* ESearch, for example,  [this
+  query](http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=science%5bjournal%5d+AND+breast+cancer+AND+2008%5bpdat%5d).
+  This requires some way to map specific filter names or field-name/value pairs into RDF
+  predicate/objects.
+
 ## References
 
 * NCBI.  [Entrez Programming Utilities Help](http://www.ncbi.nlm.nih.gov/books/NBK25501/). 2010.
@@ -134,3 +143,7 @@ Insofar as time permits, the following additional steps will also be done:
 * [Biohackathon 2013 Wiki pages](https://github.com/dbcls/bh13/wiki) (on GitHub)
 
 * [Identifiers.org](http://identifiers.org/)
+
+* [Resource description framework technologies in
+  chemistry](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3118380/) -
+  paper by Egon Willighagen
