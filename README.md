@@ -1,7 +1,11 @@
 EutilsRDF
 =========
 
-Project to produce RDF output for some NCBI E-utilities
+Project to produce RDF output for some NCBI E-utilities.
+
+Documentation, including a [to do
+list](https://github.com/Klortho/EutilsRDF/wiki/To-do) is on
+[the wiki](https://github.com/Klortho/EutilsRDF/wiki).
 
 This is a project being done for the class [The Semantic
 Web](https://apps.ep.jhu.edu/course-homepages/3394-605-443-the-semantic-web-cost), at Johns Hopkins,
@@ -11,6 +15,9 @@ Documentation will on [the GitHub wiki here](https://github.com/Klortho/EutilsRD
 
 To discuss or send suggestions, please join the [EutilsRDF Google
 group](https://groups.google.com/d/forum/eutilsrdf).
+
+This project is registered with BioPortal
+[here](http://bioportal.bioontology.org/projects/257).
 
 ----
 
