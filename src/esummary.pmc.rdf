@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+  <!ENTITY pmc "http://rdf.ncbi.nlm.nih.gov/pmc/">
+]>
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:pmc="&pmc;">
+
+  <pmc:article rdf:about="&pmc;PMC3159421">
+    
+    <!-- From PubDate -->
+    <dcterms:created>2011</dcterms:created>
+    
+    <!-- From Authors[AuthType = "Author"] -->
+    <dcterms:creator>Maloney C</dcterms:creator>
+    
+    <!-- From Title -->
+    <dcterms:title xml:lang="en">JATSPack and JATSPAN, a packaging format and 
+      infrastructure for the NLM/NISO Journal Archiving Tag Suite (JATS)</dcterms:title>
+    
+    <!-- From ArticleId[IdType = "doi"] -->
+    <dcterms:identifier>10.4242/BalisageVol7.Maloney01</dcterms:identifier>
+    
+    <!-- From PmcLiveDate -->
+    <dcterms:available>2011/08/22 00:00</dcterms:available>
+  </pmc:article>
+  
+</rdf:RDF>
