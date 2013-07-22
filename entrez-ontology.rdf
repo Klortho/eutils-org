@@ -2,6 +2,8 @@
 <!DOCTYPE rdf:RDF [
   <!ENTITY ncbi "http://rdf.ncbi.nlm.nih.gov/">
   <!ENTITY entrez "&ncbi;entrez/">
+  <!ENTITY gene "&ncbi;gene/">
+  <!ENTITY nuccore "&ncbi;nuccore/">
   <!ENTITY pmc "&ncbi;pmc/">
 ]>
 
@@ -16,17 +18,46 @@
   <owl:Ontology rdf:about='http://chrismaloney.org/test/ontology'
                 dc:title="Sample ontology for Semantic Web class"/>
 
-  <!-- Entrez databases -->
+  <!-- A class for Entrez databases -->
   <rdfs:Class rdf:about="&entrez;db"
               rdfs:label="database"
               rdfs:comment="NCBI Entrez database"/>
 
+  <!-- A class for individual entries within an Entrez database -->
+  <rdfs:Class rdf:about="&entrez;dbrecord"
+              rdfs:label="record"
+              rdfs:comment="Entrez database record"/>
+
   <!-- A class for Entrez links -->
   <rdfs:Class rdf:about="&entrez;link"
               rdfs:label="link"
+              rdfs:comment="Entrez link">
+    <rdfs:domain rdf:resource="&entrez;dbrecord"/>
+    <rdfs:range rdf:resource="&entrez;dbrecord"/>
+  </rdfs:Class>
+
+  <!-- A class for an Entrez nuccore record -->
+  <rdfs:Class rdf:about="&nuccore;sequence">
+    <rdfs:subClassOf rdf:resource="&entrez;dbrecord"/>
+  </rdfs:Class>
+
+  <!-- A class for an Entrez gene record -->
+  <rdfs:Class rdf:about="&gene;sequence">
+    <rdfs:subClassOf rdf:resource="&entrez;dbrecord"/>
+  </rdfs:Class>
   
+  <!-- An Entrez link from nuccore to gene -->
+  <entrez:link rdf:about="&entrez;nuccore_gene">
+    <rdfs:subPropertyOf rdf:resource="&entrez;link"/>
+    <rdfs:domain rdf:resource="&nuccore;sequence"/>
+    <rdfs:range rdf:resource="&gene;record"/>
+  </entrez:link>
+
+  <!-- A class for a PMC article -->
   <rdfs:Class rdf:about="&pmc;article"
               rdfs:label="article"
-              rdfs:comment="PMC article"/>
+              rdfs:comment="PMC article">
+    <rdfs:subClassOf rdf:resource="&entrez;dbrecord"/>
+  </rdfs:Class>
   
 </rdf:RDF>
