@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <!ENTITY ncbi "http://rdf.ncbi.nlm.nih.gov/">
   <!ENTITY entrez "&ncbi;entrez/">
   <!ENTITY gene "&ncbi;gene/">
@@ -7,7 +8,7 @@
   <!ENTITY pmc "&ncbi;pmc/">
 ]>
 
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+<rdf:RDF xmlns:rdf="&rdf;"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
          xmlns:owl="http://www.w3.org/2002/07/owl#"
          xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -32,6 +33,7 @@
   <rdfs:Class rdf:about="&entrez;link"
               rdfs:label="link"
               rdfs:comment="Entrez link">
+    <rdfs:subClassOf rdf:resource="&rdf;Property"/>
     <rdfs:domain rdf:resource="&entrez;dbrecord"/>
     <rdfs:range rdf:resource="&entrez;dbrecord"/>
   </rdfs:Class>
@@ -53,6 +55,15 @@
     <rdfs:range rdf:resource="&gene;record"/>
   </entrez:link>
 
+  <!-- A reciprocal Entrez link from gene to nuccore -->
+  <entrez:link rdf:about="&entrez;gene_nuccore">
+    <rdfs:subPropertyOf rdf:resource="&entrez;link"/>
+    <rdfs:domain rdf:resource="&gene;record"/>
+    <rdfs:range rdf:resource="&nuccore;sequence"/>
+    <owl:inverseOf rdf:resource="&entrez;nuccore_gene"/>
+  </entrez:link>
+  
+  
   <!-- A class for a PMC article -->
   <rdfs:Class rdf:about="&pmc;article"
               rdfs:label="article"
