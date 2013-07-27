@@ -1,0 +1,10 @@
+<config>
+  <project name='pubchem'>
+    <redirect pattern='/compound/(\d+)'
+              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/$1'/>
+    <redirect pattern='/protein-target/(([A-Z][0-9])+)'
+              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/protein-target/$1'/>
+
+  </project>
+</config>
+
