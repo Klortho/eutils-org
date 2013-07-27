@@ -72,6 +72,7 @@ sub process_request {
 
     # Parse the request URL.  This script should work identically in any of
     # several different environments (for debugging purposes).  E.g.
+    #     http://ipmc-dev1/cfm/web/rdf/index.cgi/project/resource
     #     http://mwebdev2/rdf/project/resource
     #     http://mwebdev2/rdf/index.fcgi/project/resource
     #     http://mwebdev2/rdf/index.cgi/project/resource
@@ -86,10 +87,10 @@ sub process_request {
     my $requestUri = $self->{requestUri} = $ENV{REQUEST_URI};
     if ($requestUri !~ m/
           (                        # capture the whole match
-            \/                     # always has a leading slash, I think
-            (                      # start of the script url (which might be empty)
-              (rdf\/)?             # optional rdf prefix
-              (index\.f?cgi\/)?    # optional name of the script
+            (                      # start of the script url (which might be just a slash)
+              \/                   # always has a leading slash
+              (rdf\/)?             # optional 'rdf' path prefix
+              (.*index\.f?cgi\/)?  # optional path-to-script
             )
             ([A-Za-z0-9_\-.]+)     # project
             (\/.*)                 # resource
