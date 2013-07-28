@@ -1,7 +1,36 @@
 <config>
+
+  <!-- 'example' project used for demo/testing -->
+  <project name='example'>
+
+    <!-- Redirect that doesn't depend on content type -->
+    <redirect pattern='/1/(\d+)'
+              target='http://rdf.ncbi.nlm.nih.gov/example/target/1.html?id=$1'/>
+
+    <!-- Redirect depends on content type.  Top-level target is the default -->
+    <redirect pattern='/2/(\d+)'
+              target='http://rdf.ncbi.nlm.nih.gov/example/target/2.html?id=$1'>
+      <!-- Each @values attribute can take a list of mime types, separated by commas. -->
+      <accept values='application/rdf+xml'
+              target='http://rdf.ncbi.nlm.nih.gov/example/target/2.rdf?id=$1'/>
+      <accept values='application/json'
+              target='http://rdf.ncbi.nlm.nih.gov/example/target/2.json?id=$1'/>
+      <accept values='text/html'
+              target='http://rdf.ncbi.nlm.nih.gov/example/target/2a.html?id=$1'/>
+    </redirect>
+  </project>
+
   <project name='pubchem'>
-    <redirect pattern='/compound/(\d+)'
-              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/$1'/>
+    <!-- default for pubchem is RDF/XML -->
+    <redirect pattern='/compound/([A-Z0-9]+)'
+              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/$1'>
+      <accept values='application/json'
+              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/$1.json'/>
+      <accept values='text/html'
+              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/$1.html'/>
+      <accept values='text/turtle'
+              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/$1.turtle'/>
+    </redirect>
     <redirect pattern='/protein-target/(([A-Z][0-9])+)'
               target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/protein-target/$1'/>
 
