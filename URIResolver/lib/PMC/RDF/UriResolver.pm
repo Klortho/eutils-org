@@ -41,7 +41,7 @@ has config => (
 
 # Set to 1 to enable debugging (turns off redirects, produces text/plain, and
 # prints out a debug message).
-my $debug = 1;
+my $debug = 0;
 
 
 
