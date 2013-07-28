@@ -18,22 +18,34 @@
       <accept values='text/html'
               target='http://rdf.ncbi.nlm.nih.gov/example/target/2a.html?id=$1'/>
     </redirect>
+
+    <!-- Similar to (2), but uses the syntactic shortcut of @target-mime-extensions.
+      Note, this is very primitive, and couldn't handle the query string that is used
+      in (2) (it would append the extension after the query string).
+      Extensions I understand:
+        html, rdf, xml, json, ttl, turtle
+    -->
+    <redirect pattern='/3/(\d+)'
+              target='http://rdf.ncbi.nlm.nih.gov/example/target/3/$1'
+              target-mime-extensions='rdf,json,html'/>
+
   </project>
 
   <project name='pubchem'>
-    <!-- default for pubchem is RDF/XML -->
-    <redirect pattern='/compound/([A-Z0-9]+)'
-              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/$1'>
-      <accept values='application/json'
-              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/$1.json'/>
-      <accept values='text/html'
-              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/$1.html'/>
-      <accept values='text/turtle'
-              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/$1.turtle'/>
-    </redirect>
+    <!-- Default for pubchem is RDF/XML -->
+
+    <!-- For example, /compound/CID2244 -->
+    <redirect pattern='/compound/(CID[0-9]+)'
+              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/$1'
+              target-mime-extensions='json,html,turtle'/>
+
+    <!-- For example, /substance/SID2244 -->
+    <redirect pattern='/substance/(SID[0-9]+)'
+              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/substance/$1'
+              target-mime-extensions='json,html,turtle'/>
+
     <redirect pattern='/protein-target/(([A-Z][0-9])+)'
               target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/protein-target/$1'/>
-
   </project>
 </config>
 

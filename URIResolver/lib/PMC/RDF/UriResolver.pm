@@ -5,7 +5,19 @@ package PMC::RDF::UriResolver;
 use Moose;
 use MooseX::StrictConstructor;
 
+# Set to 1 to enable debugging (turns off redirects, produces text/plain, and
+# prints out a debug message).
+my $debug = 0;
+
 my $READ_CONFIG_INTERVAL = 10;
+my %mimeTypes = (
+    'rdf'    => 'application/rdf+xml,application/xml,text/xml',
+    'xml'    => 'application/rdf+xml,application/xml,text/xml',
+    'json'   => 'application/json',
+    'ttl'    => 'text/turtle',
+    'turtle' => 'text/turtle',
+    'html'   => 'application/xhtml+xml,text/html',
+);
 
 with qw(
     PMC::MooseX::FastCGI
@@ -39,9 +51,6 @@ has config => (
     isa => 'HashRef'
 );
 
-# Set to 1 to enable debugging (turns off redirects, produces text/plain, and
-# prints out a debug message).
-my $debug = 0;
 
 
 
@@ -105,6 +114,7 @@ sub process_request {
         //x)
     {
         $self->badUrl($q, "Empty URL path");
+        print $d if $debug;
         return;
     }
     my $scriptUrl = $1;
@@ -116,6 +126,7 @@ sub process_request {
         /x)
     {
         $self->badUrl($q, "Missing project or resource");
+        print $d if $debug;
         return;
     }
     my $project   = $1;
@@ -125,6 +136,7 @@ sub process_request {
     if ( $resource =~ /\?/ )         # query strings are not allowed
     {
         $self->badUrl($q, "Query strings are not allowed");
+        print $d if $debug;
         return;
     }
 
@@ -136,6 +148,7 @@ sub process_request {
     my $projConfig = $config->{project}{$project};
     if (!$projConfig) {
         $self->badUrl($q, "Can't find project $project.");
+        print $d if $debug;
         return;
     }
 
@@ -143,13 +156,28 @@ sub process_request {
     foreach my $redirect (@{$projConfig->{redirect}}) {
         # Check if the URL matches the pattern
         my $pattern = $redirect->{pattern};
-        if ($resource =~ m/$pattern/) {
-            my $one = $1;
-            my $two = $2;
-            my $three = $3;
+        if ($resource =~ m/^$pattern/) {
+            my $_1 = $1;
+            my $_2 = $2;
+            my $_3 = $3;
 
             # Default target is the one on the main <redirect> element
             my $target = $redirect->{target};
+
+            # The 'target-mime-extensions' attribute is shorthand for a set of
+            # accept children.  Implement that here.
+            if ($redirect->{'target-mime-extensions'}) {
+                my @tmes = split /,/, $redirect->{'target-mime-extensions'};
+                my @newAccepts;
+                foreach my $tme (@tmes) {
+                    push @newAccepts, {
+                        'target' => $target . '.' . $tme,
+                        'values' => $mimeTypes{$tme},
+                    };
+                }
+                $redirect->{accept} = \@newAccepts;
+            }
+            #$d .= Dumper($config) if $debug;
 
             # If there are <accept> children, then we'll try to do a match on
             # HTTP accept header
@@ -173,17 +201,19 @@ sub process_request {
                 }
             }
 
-            $target =~ s/\$1/$one/;
-            $target =~ s/\$2/$two/;
-            $target =~ s/\$3/$three/;
+            $target =~ s/\$1/$_1/;
+            $target =~ s/\$2/$_2/;
+            $target =~ s/\$3/$_3/;
             #print "  target = $target\n";
             print $q->redirect(
                 -uri => $target,
                 -status => '303 See Other');
+            print $d if $debug;
             return;
         }
     }
 
+    $self->badUrl($q, "No match found for this URL.");
     if ($debug) {
         $d .= "config was last read at " . $self->config_read_at . "\n";
         $d .= Dumper($self->config);
@@ -192,8 +222,10 @@ sub process_request {
         $d .= "scriptUrl  = $scriptUrl\n";
         $d .= "project    = $project\n";
         $d .= "resource   = $resource\n";
-        #$d .= Dumper(\%ENV);
+        $d .= Dumper(\%ENV);
+        print $d;
     }
+    return;
 }
 
 sub badUrl {
