@@ -19,3 +19,27 @@ Push this to the target directory with
     rsync -av --delete ./ \
       /net/mwebdev2/export/home/web/public/htdocs/rdf
 
+## Testing
+
+Verify that each of these works as expected
+
+* curl -v -L -H "Accept: application/rdf+xml" -o CID2244.rdf \
+  http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID2244
+
+* curl -v -L -H "Accept: text/html" -o CID2244.html \
+  http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID2244 
+
+* curl -v -L -H "Accept: text/turtle" -o CID2244.ttl \
+  http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID2244 
+ 
+* curl -v -L -H "Accept: application/json" -o CID2244.json \
+  http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID2244 
+
+* curl -v -L -H "Accept: text/plain" -o CID2244.ntriples \
+  http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID2244
+ 
+The default is RDF/XML:
+ 
+* curl -v -L -o CID2244 \
+  http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID2244 
+
