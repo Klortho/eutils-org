@@ -34,16 +34,14 @@
   <project name='pubchem'>
     <!-- Default for pubchem is RDF/XML -->
 
-    <!-- For example, /compound/CID2244 -->
-    <redirect pattern='/compound/(CID[0-9]+)'
-              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/$1'
+    <!-- pubchem, generic pattern sends everything to their server -->
+    <redirect pattern='/(.+)'
+              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/$1'
               target-mime-extensions='json,html,turtle'/>
 
-    <!-- For example, /substance/SID2244 -->
-    <redirect pattern='/substance/(SID[0-9]+)'
-              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/substance/$1'
-              target-mime-extensions='json,html,turtle'/>
-
+    <!-- FIXME:  See GitHub issue #3.  This next rule doesn't do anything,
+      since the generic one above will catch all URIs.  But for now, we need
+      to keep at least two rules.  -->
     <redirect pattern='/protein-target/(([A-Z][0-9])+)'
               target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/protein-target/$1'/>
   </project>
