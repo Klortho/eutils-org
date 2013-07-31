@@ -17,6 +17,7 @@ my %mimeTypes = (
     'ttl'    => 'text/turtle',
     'turtle' => 'text/turtle',
     'html'   => 'application/xhtml+xml,text/html',
+    'ntriples' => 'text/plain',
 );
 
 with qw(

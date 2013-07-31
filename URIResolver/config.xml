@@ -37,7 +37,7 @@
     <!-- pubchem, generic pattern sends everything to their server -->
     <redirect pattern='/(.+)'
               target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/$1'
-              target-mime-extensions='json,html,turtle'/>
+              target-mime-extensions='json,html,turtle,ntriples,rdf'/>
 
     <!-- FIXME:  See GitHub issue #3.  This next rule doesn't do anything,
       since the generic one above will catch all URIs.  But for now, we need
