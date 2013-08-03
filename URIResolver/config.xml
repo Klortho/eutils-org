@@ -1,0 +1,49 @@
+<config>
+
+  <!-- 'example' project used for demo/testing -->
+  <project name='example'>
+
+    <!-- Redirect that doesn't depend on content type -->
+    <redirect pattern='/1/(\d+)'
+              target='http://rdf.ncbi.nlm.nih.gov/example/target/1.html?id=$1'/>
+
+    <!-- Redirect depends on content type.  Top-level target is the default -->
+    <redirect pattern='/2/(\d+)'
+              target='http://rdf.ncbi.nlm.nih.gov/example/target/2.html?id=$1'>
+      <!-- Each @values attribute can take a list of mime types, separated by commas. -->
+      <accept values='application/rdf+xml'
+              target='http://rdf.ncbi.nlm.nih.gov/example/target/2.rdf?id=$1'/>
+      <accept values='application/json'
+              target='http://rdf.ncbi.nlm.nih.gov/example/target/2.json?id=$1'/>
+      <accept values='text/html'
+              target='http://rdf.ncbi.nlm.nih.gov/example/target/2a.html?id=$1'/>
+    </redirect>
+
+    <!-- Similar to (2), but uses the syntactic shortcut of @target-mime-extensions.
+      Note, this is very primitive, and couldn't handle the query string that is used
+      in (2) (it would append the extension after the query string).
+      Extensions I understand:
+        html, rdf, xml, json, ttl, turtle
+    -->
+    <redirect pattern='/3/(\d+)'
+              target='http://rdf.ncbi.nlm.nih.gov/example/target/3/$1'
+              target-mime-extensions='rdf,json,html'/>
+
+  </project>
+
+  <project name='pubchem'>
+    <!-- Default for pubchem is RDF/XML -->
+
+    <!-- pubchem, generic pattern sends everything to their server -->
+    <redirect pattern='/(.+)'
+              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/$1'
+              target-mime-extensions='json,html,turtle,ntriples,rdf'/>
+
+    <!-- FIXME:  See GitHub issue #3.  This next rule doesn't do anything,
+      since the generic one above will catch all URIs.  But for now, we need
+      to keep at least two rules.  -->
+    <redirect pattern='/protein-target/(([A-Z][0-9])+)'
+              target='http://pubchem.ncbi.nlm.nih.gov/rest/rdf/protein-target/$1'/>
+  </project>
+</config>
+
