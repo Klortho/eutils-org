@@ -34,3 +34,9 @@ a:hover {
   text-decoration: none;
 }
 
+table {
+  border-collapse:collapse;
+}
+td {
+  padding: 5px;
+}

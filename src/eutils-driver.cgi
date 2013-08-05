@@ -66,8 +66,8 @@ if (!grep(/$scriptName/, @scripts)) {
 
 # Replace retmode=rdf with retmode=xml in the query string, and construct the NCBI
 # E-utilities URL
-# Fixme:  add tool and email here
 (my $newQs = $qs) =~ s/retmode=rdf/retmode=xml/;
+$newQs .= "&tool=eutilsrdf&email=voldrani\@gmail.com";
 my $eutilsUri = $eutilsUriPath . ($newQs ? '?' . $newQs : '');
 
 
