@@ -49,11 +49,19 @@
   <project name='pmc'>
     <redirect pattern='/articles/(PMC\d+)$'
               target='http://www.ncbi.nlm.nih.gov/pmc/articles/$1/'/>
+
+    <!-- FIXME:  See GitHub issue #3.  Dummy rule.  -->
+    <redirect pattern='/foo'
+              target='http://icanhascheezburger.com'/>
   </project>
 
   <project name='pubmed'>
     <redirect pattern='/(\d+)$'
               target='http://www.ncbi.nlm.nih.gov/pubmed/$1/'/>
+
+    <!-- FIXME:  See GitHub issue #3.  Dummy rule.  -->
+    <redirect pattern='/foo'
+              target='http://icanhascheezburger.com'/>
   </project>
 
 
