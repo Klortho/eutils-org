@@ -1,36 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
   <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY dc "http://purl.org/dc/elements/1.1/">
   <!ENTITY ncbi "http://rdf.ncbi.nlm.nih.gov/">
   <!ENTITY entrez "&ncbi;entrez/">
+
   <!ENTITY gene "&ncbi;gene/">
   <!ENTITY nuccore "&ncbi;nuccore/">
   <!ENTITY pmc "&ncbi;pmc/">
 ]>
 
 <rdf:RDF xmlns:rdf="&rdf;"
-         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-         xmlns:owl="http://www.w3.org/2002/07/owl#"
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdfs="&rdfs;"
+         xmlns:owl="&owl;"
+         xmlns:dc="&dc;"
          xmlns:ncbi="&ncbi;"
          xmlns:entrez="&entrez;"
+         xmlns:gene="&gene;"
+         xmlns:nuccore="&nuccore;"
          xmlns:pmc="&pmc;">
   
   <owl:Ontology rdf:about='http://chrismaloney.org/test/ontology'
                 dc:title="Sample ontology for Semantic Web class"/>
 
+  <!-- DBINFO -->
+	
   <!-- A class for Entrez databases -->
-  <rdfs:Class rdf:about="&entrez;db"
+  <rdfs:Class rdf:about="&entrez;Db"
               rdfs:label="database"
               rdfs:comment="NCBI Entrez database"/>
 
+  <!-- dbname property -->
+	<owl:DatatypeProperty rdf:about="&entrez;dbname"
+		                    rdfs:label="database name"
+		                    rdfs:comment="Name of an Entrez database"
+	                      rdfs:subClassOf="&rdfs;label"/>
+
+	<!-- menuname property -->
+	<owl:DatatypeProperty rdf:about="&entrez;menuname"
+                        rdfs:label="database menu name"
+                        rdfs:comment="Name of an Entrez database, as it should appear in a menu"
+                        rdfs:subClassOf="&rdfs;label"/>
+	
+	<!-- description property -->
+	<owl:DatatypeProperty rdf:about="&entrez;description"
+                        rdfs:label="description"
+                        rdfs:comment="Description of a thing"
+                        rdfs:subClassOf="&rdfs;label"/>
+	
+	<!-- dbbuild property -->
+	<owl:DatatypeProperty rdf:about="&entrez;dbbuild"
+		                    rdfs:label="database build identifier"
+		                    rdfs:comment="Database build identifier"/>
+	
+	<!-- dbbuild property -->
+	<owl:DatatypeProperty rdf:about="&entrez;count"
+                        rdfs:label="count"
+                        rdfs:comment="Current number of records"/>
+
+
   <!-- A class for individual entries within an Entrez database -->
-  <rdfs:Class rdf:about="&entrez;dbrecord"
+  <rdfs:Class rdf:about="&entrez;DbRecord"
               rdfs:label="record"
               rdfs:comment="Entrez database record"/>
 
+
+
+
+
+
+
   <!-- A class for Entrez links -->
-  <rdfs:Class rdf:about="&entrez;link"
+  <rdfs:Class rdf:about="&entrez;Link"
               rdfs:label="link"
               rdfs:comment="Entrez link">
     <rdfs:subClassOf rdf:resource="&rdf;Property"/>

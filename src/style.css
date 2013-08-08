@@ -1,0 +1,42 @@
+/*
+  CSS styles for EutilsRDF
+*/
+
+
+body
+{
+  padding: 35px 0px 35px 0px;
+}
+
+body, input
+{
+  font-size: 10pt;
+  font-family: "georgia", "times new roman", serif;
+  color: #333333;
+}
+
+p {
+  line-height: 1.5em;
+  margin-bottom: 1.0em;
+}
+
+fieldset {
+  border: 0px;
+}
+
+a {
+  color: #006DB9;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #6DB900;
+  text-decoration: none;
+}
+
+table {
+  border-collapse:collapse;
+}
+td {
+  padding: 5px;
+}
