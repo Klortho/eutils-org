@@ -80,7 +80,7 @@ This work is published from:
           </xsl:when>
           <xsl:when test='expected/rdf'>
             Good RDF translated from 
-            <a href='{eutils-rdf}'>Eutils</a>
+            <a href='{eutils-url}'>Eutils</a>
           </xsl:when>
           <xsl:when test='expected/error'>
             Error (<xsl:value-of select='expected/error/@status'/>)
