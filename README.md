@@ -9,7 +9,7 @@ list](https://github.com/Klortho/EutilsRDF/wiki/To-do) is on
 describes implementation and deployment details.
 
 To discuss or send suggestions, please join the [EutilsRDF Google
-group](https://groups.google.com/d/forum/eutilsrdf).
+group](https://groups.google.com/d/forum/eutilsrdf) (mailing list).
 
 This project is registered with BioPortal
 [here](http://bioportal.bioontology.org/projects/257).

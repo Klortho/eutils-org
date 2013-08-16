@@ -31,6 +31,8 @@
 					for information on how to use it.
 				</p>
 				<h2>Sample links</h2>
+				<p>These sample links are pulled from the tests.xml file, and could be used for
+				  automated testing, if we ever get that far.</p>
 				<table border='1'>
 					<tr>
 						<th>URL</th>
