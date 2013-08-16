@@ -1,167 +1,170 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <!--
-	<expected> will contain one of:
-	  - <redirect-to>... redirect url ...</redirect-to>
-	  - <error status='404'/>
-	  - <rdf/> - for good responses
+  <expected> will contain one of:
+    - <redirect-to>... redirect url ...</redirect-to>
+    - <error status='404'/>
+    - <rdf/> - for good responses
 -->
 <tests>
-	<test>
-		<cfm-url>einfo.cgi?retmode=txt</cfm-url>
-		<expected>
-			<redirect-to>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?retmode=txt</redirect-to>
-		</expected>
-		<description>
-		</description>
-	</test>
-	
-	<test>
-		<cfm-url>eutils-driver.cgi?retmode=rdf</cfm-url>
-		<expected>
-			<error status='404'/>
-		</expected>
-		<description>
-			Script isn't supported.  This would be a bizarre way of accessing the service.
-		</description>
-	</test>
+  <test sample='yes'>
+    <cfm-url>einfo.cgi?retmode=rdf</cfm-url>
+    <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?retmode=xml</eutils-url>
+    <expected>
+      <rdf/>
+    </expected>
+    <description>
+      EInfo top-level database listing.
+    </description>
+  </test>
 
   <test sample='yes'>
-  	<cfm-url>einfo.cgi</cfm-url>
-  	<expected>
-			<redirect-to>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi</redirect-to>
-  	</expected>
-		<description>
-			When there is no retmode, or retmode is not "rdf", just redirect to NCBI.
-  	</description>
+    <cfm-url>einfo.cgi?retmode=rdf&amp;db=pmc</cfm-url>
+    <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?retmode=xml&amp;db=pmc</eutils-url>
+    <expected>
+      <rdf/>
+    </expected>
+    <description>
+      EInfo individual database information.
+    </description>
   </test>
-	
-	<test sample='yes'>
-		<cfm-url>einfo.cgi?retmode=rdf</cfm-url>
-		<eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?retmode=xml</eutils-url>
-		<expected>
-			<rdf/>
-		</expected>
-		<description>
-			EInfo top-level database listing.
-		</description>
-	</test>
 
-	<test sample='yes'>
-		<cfm-url>einfo.cgi?retmode=rdf&amp;db=pmc</cfm-url>
-		<eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?retmode=xml&amp;db=pmc</eutils-url>
-		<expected>
-			<rdf/>
-		</expected>
-		<description>
-			EInfo individual database information.
-		</description>
-	</test>
-	
-	<test>
-		<cfm-url>elink.cgi</cfm-url>
-		<expected>
-			<redirect-to>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi</redirect-to>
-		</expected>
-		<description>
-			No retmode, so redirect.
-		</description>
-	</test>
-	
-	<test>
-		<cfm-url>elink.cgi?retmode=xml</cfm-url>
-		<expected>
-			<redirect-to>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?retmode=xml</redirect-to>
-		</expected>
-		<description>
-			retmode=xml, so redirect.
-		</description>
-	</test>
-	
-	<test>
-		<cfm-url>elink.cgi?retmode=rdf</cfm-url>
-		<expected>
-			<rdf/>
-		</expected>
-		<description>
-			Empty response from NCBI, produce empty RDF
-		</description>
-	</test>
-	
-	<test sample='yes'>
-		<cfm-url>elink.cgi?retmode=rdf&amp;dbfrom=nuccore&amp;db=gene&amp;id=312836839,24475906</cfm-url>
-		<expected>
-			<error status='200'/>
-		</expected>
-		<description>
-			Error:  can't translate ELink batch mode response.  Status is 200 because the call to E-utilities was
-			successful (it's just that we don't know what to do with it).
-		</description>
-	</test>
-	
-	<test sample='yes'>
-		<cfm-url>elink.cgi?retmode=rdf&amp;dbfrom=nuccore&amp;db=gene&amp;id=312836839&amp;id=24475906</cfm-url>
-		<eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?retmode=xml&amp;dbfrom=nuccore&amp;db=gene&amp;id=312836839&amp;id=24475906</eutils-url>
-		<expected>
-			<rdf/>
-		</expected>
-		<description>
-			Good ELink response.
-		</description>
-	</test>
-	
-	<test sample='yes'>
-		<cfm-url>elink.cgi?retmode=rdf&amp;dbfrom=gene&amp;db=nuccore&amp;id=22018</cfm-url>
-		<eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?retmode=xml&amp;dbfrom=gene&amp;db=nuccore&amp;id=22018</eutils-url>
-		<expected>
-			<rdf/>
-		</expected>
-		<description>
-			Another good response.
-		</description>
-	</test>
-	
-	<test>
-		<cfm-url>esummary.cgi</cfm-url>
-		<expected>
-			<redirect-to>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi</redirect-to>
-		</expected>
-		<description>
-			No retmode, redirect to NCBI.
-		</description>
-	</test>
-	
-	<test sample='yes'>
-		<cfm-url>esummary.cgi?retmode=rdf</cfm-url>
-		<eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?retmode=xml</eutils-url>
-		<expected>
-			<error status='200'/>
-		</expected>
-		<description>
-			Error response conveyed from E-utilities.
-		</description>
-	</test>
-	
-	<test sample='yes'>
-		<cfm-url>esummary.cgi?retmode=rdf&amp;db=pmc&amp;id=3159421&amp;version=2.0</cfm-url>
-		<eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;id=3159421&amp;version=2.0</eutils-url>
-		<expected>
-			<rdf/>
-		</expected>
-		<description>
-			Good ESummary result (PMC)
-		</description>
-	</test>
-	
-	<test sample='yes'>
-		<cfm-url>esummary.cgi?retmode=rdf&amp;db=pmc&amp;id=3159421</cfm-url>
-		<eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;id=3159421</eutils-url>
-		<expected>
-			<error status='200'/>
-		</expected>
-		<description>
-			Error:  can't handle version 1.0 esummary results.
-		</description>
-	</test>
-	
+  <test sample='yes'>
+    <cfm-url>elink.cgi?retmode=rdf&amp;dbfrom=nuccore&amp;db=gene&amp;id=312836839&amp;id=24475906</cfm-url>
+    <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?retmode=xml&amp;dbfrom=nuccore&amp;db=gene&amp;id=312836839&amp;id=24475906</eutils-url>
+    <expected>
+      <rdf/>
+    </expected>
+    <description>
+      Good ELink response.
+    </description>
+  </test>
+  
+  <test sample='yes'>
+    <cfm-url>elink.cgi?retmode=rdf&amp;dbfrom=gene&amp;db=nuccore&amp;id=22018</cfm-url>
+    <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?retmode=xml&amp;dbfrom=gene&amp;db=nuccore&amp;id=22018</eutils-url>
+    <expected>
+      <rdf/>
+    </expected>
+    <description>
+      Another good response.
+    </description>
+  </test>
+  
+  <test sample='yes'>
+    <cfm-url>esummary.cgi?retmode=rdf&amp;db=pmc&amp;id=3159421&amp;version=2.0</cfm-url>
+    <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;id=3159421&amp;version=2.0</eutils-url>
+    <expected>
+      <rdf/>
+    </expected>
+    <description>
+      Good ESummary result (PMC)
+    </description>
+  </test>
+  
+<!-- -->  
+
+  <test>
+    <cfm-url>einfo.cgi?retmode=txt</cfm-url>
+    <expected>
+      <redirect-to>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?retmode=txt</redirect-to>
+    </expected>
+    <description>
+    </description>
+  </test>
+  
+  <test>
+    <cfm-url>eutils-driver.cgi?retmode=rdf</cfm-url>
+    <expected>
+      <error status='404'/>
+    </expected>
+    <description>
+      Script isn't supported.  This would be a bizarre way of accessing the service.
+    </description>
+  </test>
+
+  <test sample='yes'>
+    <cfm-url>einfo.cgi</cfm-url>
+    <expected>
+      <redirect-to>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi</redirect-to>
+    </expected>
+    <description>
+      When there is no retmode, or retmode is not "rdf", just redirect to NCBI.
+    </description>
+  </test>
+  
+  <test>
+    <cfm-url>elink.cgi</cfm-url>
+    <expected>
+      <redirect-to>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi</redirect-to>
+    </expected>
+    <description>
+      No retmode, so redirect.
+    </description>
+  </test>
+  
+  <test>
+    <cfm-url>elink.cgi?retmode=xml</cfm-url>
+    <expected>
+      <redirect-to>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?retmode=xml</redirect-to>
+    </expected>
+    <description>
+      retmode=xml, so redirect.
+    </description>
+  </test>
+  
+  <test>
+    <cfm-url>elink.cgi?retmode=rdf</cfm-url>
+    <expected>
+      <rdf/>
+    </expected>
+    <description>
+      Empty response from NCBI, produce empty RDF
+    </description>
+  </test>
+  
+  <test>
+    <cfm-url>esummary.cgi</cfm-url>
+    <expected>
+      <redirect-to>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi</redirect-to>
+    </expected>
+    <description>
+      No retmode, redirect to NCBI.
+    </description>
+  </test>
+  
+  <test sample='yes'>
+    <cfm-url>esummary.cgi?retmode=rdf</cfm-url>
+    <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?retmode=xml</eutils-url>
+    <expected>
+      <error status='200'/>
+    </expected>
+    <description>
+      Error response conveyed from E-utilities.
+    </description>
+  </test>
+  
+  <test sample='yes'>
+    <cfm-url>esummary.cgi?retmode=rdf&amp;db=pmc&amp;id=3159421</cfm-url>
+    <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;id=3159421</eutils-url>
+    <expected>
+      <error status='200'/>
+    </expected>
+    <description>
+      Error:  can't handle version 1.0 esummary results.
+    </description>
+  </test>
+
+  <test sample='yes'>
+    <cfm-url>elink.cgi?retmode=rdf&amp;dbfrom=nuccore&amp;db=gene&amp;id=312836839,24475906</cfm-url>
+    <expected>
+      <error status='200'/>
+    </expected>
+    <description>
+      Error:  can't translate ELink batch mode response.  Status is 200 because the call to E-utilities was
+      successful (it's just that we don't know what to do with it).
+    </description>
+  </test>
+  
 </tests>
+
