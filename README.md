@@ -36,5 +36,3 @@ To test this from the command line, do something like this:
     ./eutils-driver.cgi retmode=rdf
 
 
-
-
