@@ -94,7 +94,11 @@ my $xsltDoc = XML::LibXML->load_xml(
 );
 
 my $xslt = $xsltProcessor->parse_stylesheet($xsltDoc);
-my $eutilsRdf = $xslt->transform($eutilsXml);
+
+# Do the transformation.
+# Pass the db from the query string into the XSLT parameter.  Note that it needs
+# quote marks around it.
+my $eutilsRdf = $xslt->transform($eutilsXml, db => '"' . $q->param('db') . '"');
 
 my $docElem = $eutilsRdf->documentElement();
 my $status = $docElem->getAttribute('status');

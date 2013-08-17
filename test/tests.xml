@@ -52,8 +52,8 @@
   </test>
   
   <test sample='yes'>
-    <cfm-url>esummary.cgi?retmode=rdf&amp;db=pmc&amp;id=3159421&amp;version=2.0</cfm-url>
-    <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;id=3159421&amp;version=2.0</eutils-url>
+    <cfm-url>esummary.cgi?retmode=rdf&amp;db=pmc&amp;id=3531190&amp;version=2.0</cfm-url>
+    <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;id=3531190&amp;version=2.0</eutils-url>
     <expected>
       <rdf/>
     </expected>
@@ -61,8 +61,20 @@
       Good ESummary result (PMC)
     </description>
   </test>
+
+  <test sample='yes'>
+    <cfm-url>esummary.cgi?retmode=rdf&amp;db=pmc&amp;id=3531190,3159421&amp;version=2.0</cfm-url>
+    <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;id=3531190,3159421&amp;version=2.0</eutils-url>
+    <expected>
+      <rdf/>
+    </expected>
+    <description>
+      Good ESummary result (PMC), multiple docsums
+    </description>
+  </test>
   
-<!-- -->  
+  
+
 
   <test>
     <cfm-url>einfo.cgi?retmode=txt</cfm-url>
@@ -145,8 +157,8 @@
   </test>
   
   <test sample='yes'>
-    <cfm-url>esummary.cgi?retmode=rdf&amp;db=pmc&amp;id=3159421</cfm-url>
-    <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;id=3159421</eutils-url>
+    <cfm-url>esummary.cgi?retmode=rdf&amp;db=pmc&amp;id=3531190</cfm-url>
+    <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;id=3531190</eutils-url>
     <expected>
       <error status='404'/>
     </expected>
@@ -155,6 +167,18 @@
     </description>
   </test>
 
+  <test sample='yes'>
+    <cfm-url>esummary.cgi?retmode=rdf&amp;db=nucest&amp;id=3159421&amp;version=2.0</cfm-url>
+    <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=nucest&amp;id=3159421&amp;version=2.0</eutils-url>
+    <expected>
+      <error status='404'/>
+    </expected>
+    <description>
+      Error:  no ESummary transformation defined for "nucest" database.
+    </description>
+  </test>
+  
+  
   <test sample='yes'>
     <cfm-url>elink.cgi?retmode=rdf&amp;dbfrom=nuccore&amp;db=gene&amp;id=312836839,24475906</cfm-url>
     <expected>
