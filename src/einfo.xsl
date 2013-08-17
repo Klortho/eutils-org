@@ -115,25 +115,25 @@
   
   <xsl:template match='FieldList'>
     <xsl:param name='dbname'/>
-    <entrez:hasFields rdf:parseType="Collection">
-      <xsl:apply-templates>
-        <xsl:with-param name='dbname' select='$dbname'/>
-      </xsl:apply-templates>
-    </entrez:hasFields>
+    <xsl:apply-templates>
+      <xsl:with-param name='dbname' select='$dbname'/>
+    </xsl:apply-templates>
   </xsl:template>
   
   <xsl:template match='Field'>
     <xsl:param name='dbname'/>
     <xsl:variable name='fieldname' select='Name'/>
-    <entrez:Field rdf:about='&entrez;db/{$dbname}/fields/{$fieldname}'>
-      <xsl:apply-templates/>
-    </entrez:Field>
+    <entrez:hasField>
+      <entrez:Field rdf:about='&entrez;db/{$dbname}/fields/{$fieldname}'>
+        <xsl:apply-templates/>
+      </entrez:Field>
+    </entrez:hasField>
   </xsl:template>  
 
   <xsl:template match='FullName'>
-    <entrez:fullname>
+    <entrez:fullName>
       <xsl:value-of select="."/>
-    </entrez:fullname>
+    </entrez:fullName>
   </xsl:template>
 
   <!-- non-negative integer -->
@@ -178,22 +178,17 @@
     </entrez:isHidden>
   </xsl:template>
   
-
-
-
-
-
   <xsl:template match='LinkList'>
-    <entrez:hasLinks rdf:parseType="Collection">
-      <xsl:apply-templates/>
-    </entrez:hasLinks>
+    <xsl:apply-templates/>
   </xsl:template>
   
   <xsl:template match='Link'>
     <xsl:variable name='linkname' select='Name'/>
-    <entrez:Link rdf:about='&entrez;link/{$linkname}'>
-      <xsl:apply-templates/>
-    </entrez:Link>
+    <entrez:hasLink>
+      <entrez:Link rdf:about='&entrez;link/{$linkname}'>
+        <xsl:apply-templates/>
+      </entrez:Link>
+    </entrez:hasLink>
   </xsl:template>  
   
   <!-- Throw away whitespace and other random stuff -->

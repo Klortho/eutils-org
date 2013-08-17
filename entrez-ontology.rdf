@@ -29,79 +29,118 @@
 	
   <!-- A class for Entrez databases -->
   <rdfs:Class rdf:about="&entrez;Db"
-              rdfs:label="database"
+              rdfs:label="entrez:Db"
               rdfs:comment="NCBI Entrez database"/>
 
   <!-- dbName property -->
 	<owl:DatatypeProperty rdf:about="&entrez;dbName"
-		                    rdfs:label="database name"
+		                    rdfs:label="entrez:dbName"
 		                    rdfs:comment="Name of an Entrez database"
 	                      rdfs:subClassOf="&rdfs;label"/>
 
 	<!-- menuname property -->
 	<owl:DatatypeProperty rdf:about="&entrez;menuName"
-                        rdfs:label="database menu name"
+                        rdfs:label="entrez:menuName"
                         rdfs:comment="Name of an Entrez database, as it should appear in a menu"
                         rdfs:subClassOf="&rdfs;label"/>
 	
 	<!-- description property -->
 	<owl:DatatypeProperty rdf:about="&entrez;description"
-                        rdfs:label="description"
+                        rdfs:label="entrez:description"
                         rdfs:comment="Description of a thing"
                         rdfs:subClassOf="&rdfs;label"/>
 	
 	<!-- dbbuild property -->
 	<owl:DatatypeProperty rdf:about="&entrez;dbBuild"
-		                    rdfs:label="database build identifier"
+		                    rdfs:label="entrez:dbBuild"
 		                    rdfs:comment="Database build identifier"/>
 	
 	<!-- recordCount property -->
 	<owl:DatatypeProperty rdf:about="&entrez;recordCount"
-                        rdfs:label="number of records"
+                        rdfs:label="entrez:recordCount"
                         rdfs:comment="Current number of records"/>
 
   <!-- lastUpdated property -->
   <owl:DatatypeProperty rdf:about="&entrez;lastUpdated"
-                        rdfs:label="last updated"
+                        rdfs:label="entrez:lastUpdated"
                         rdfs:comment="Last date/time this database was updated"/>
 
-  <!-- hasFields property -->
+  <!-- hasField property -->
+  <owl:ObjectProperty rdf:about="&entrez;hasField"
+                      rdfs:label="entrez:hasField"
+                      rdfs:comment="A search field of an Entrez database"
+                      rdfs:range="&entrez;Field"/>
+
+  <!-- A class for fields, as described in the einfo database details -->
+  <rdfs:Class rdf:about="&entrez;Field"
+              rdfs:label="entrez:Field"
+              rdfs:comment="Entrez search field"/>
+
+  <owl:DatatypeProperty rdf:about="&entrez;fullName"
+                        rdfs:label="entrez:fullName"
+                        rdfs:comment="Full name of the search field"/>
+
+  <owl:DatatypeProperty rdf:about="&entrez;termCount"
+                        rdfs:label="entrez:termCount"
+                        rdfs:comment="Current number of database records that have a value for a search field"/>
+
+  <owl:DatatypeProperty rdf:about="&entrez;isDate"
+    rdfs:label="entrez:isDate"
+    rdfs:comment="Is a search field is of date type?"/>
+  
+  <owl:DatatypeProperty rdf:about="&entrez;isNumerical"
+    rdfs:label="entrez:isNumerical"
+    rdfs:comment="Is a search field of numeric type?"/>
+  
+  <owl:DatatypeProperty rdf:about="&entrez;singleToken"
+    rdfs:label="entrez:singleToken"
+    rdfs:comment="Are the search field values single-token?"/>
+  
+  <owl:DatatypeProperty rdf:about="&entrez;isHierarchical"
+    rdfs:label="entrez:isHierarchical"
+    rdfs:comment="Are the search field values hierarchical?"/>
+  
+  <owl:DatatypeProperty rdf:about="&entrez;isHidden"
+    rdfs:label="entrez:isHidden"
+    rdfs:comment="Are the search field values hidden?"/>
   
 
 
-
-
-
-
-  <!-- A class for individual entries within an Entrez database -->
-  <rdfs:Class rdf:about="&entrez;DbRecord"
-              rdfs:label="record"
-              rdfs:comment="Entrez database record"/>
-
-  <!-- A class for fields, as described in the einfo database details -->
-  <rdfs:Class rdf:about="&entrez;Field">
-    
-  </rdfs:Class>
-
-
-
+  <!-- hasLink property -->
+  <owl:ObjectProperty rdf:about="&entrez;hasLink"
+    rdfs:label="entrez:hasLink"
+    rdfs:comment="A link associated with an Entrez database"
+    rdfs:range="&entrez;Link"/>
 
   <!-- A class for Entrez links -->
   <rdfs:Class rdf:about="&entrez;Link"
-              rdfs:label="link"
-              rdfs:comment="Entrez link">
+    rdfs:label="entrez:link"
+    rdfs:comment="Entrez link">
     <rdfs:subClassOf rdf:resource="&rdf;Property"/>
-    <rdfs:domain rdf:resource="&entrez;dbrecord"/>
-    <rdfs:range rdf:resource="&entrez;dbrecord"/>
+    <rdfs:domain rdf:resource="&entrez;DbRecord"/>
+    <rdfs:range rdf:resource="&entrez;DbRecord"/>
   </rdfs:Class>
+  
+  <!-- A class for individual entries within an Entrez database -->
+  <rdfs:Class rdf:about="&entrez;DbRecord"
+              rdfs:label="entrez:DbRecord"
+              rdfs:comment="Entrez database record"/>
+
+  <!-- DONE TO HERE -->
+
+
 
   <!-- A class for an Entrez nuccore record -->
-  <rdfs:Class rdf:about="&nuccore;sequence">
+  <rdfs:Class rdf:about="&nuccore;sequence"
+              rdfs:label="nuccord:sequence"
+              rdfs:comment="Nucleotide sequence">
     <rdfs:subClassOf rdf:resource="&entrez;dbrecord"/>
   </rdfs:Class>
 
   <!-- A class for an Entrez gene record -->
-  <rdfs:Class rdf:about="&gene;sequence">
+  <rdfs:Class rdf:about="&gene;sequence"
+              rdfs:label='gene:sequence'
+              rdfs:comment="Gene sequence">
     <rdfs:subClassOf rdf:resource="&entrez;dbrecord"/>
   </rdfs:Class>
   
