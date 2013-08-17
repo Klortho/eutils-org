@@ -137,7 +137,7 @@
     <cfm-url>esummary.cgi?retmode=rdf</cfm-url>
     <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?retmode=xml</eutils-url>
     <expected>
-      <error status='200'/>
+      <error status='404'/>
     </expected>
     <description>
       Error response conveyed from E-utilities.
@@ -148,7 +148,7 @@
     <cfm-url>esummary.cgi?retmode=rdf&amp;db=pmc&amp;id=3159421</cfm-url>
     <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;id=3159421</eutils-url>
     <expected>
-      <error status='200'/>
+      <error status='404'/>
     </expected>
     <description>
       Error:  can't handle version 1.0 esummary results.
@@ -158,7 +158,7 @@
   <test sample='yes'>
     <cfm-url>elink.cgi?retmode=rdf&amp;dbfrom=nuccore&amp;db=gene&amp;id=312836839,24475906</cfm-url>
     <expected>
-      <error status='200'/>
+      <error status='404'/>
     </expected>
     <description>
       Error:  can't translate ELink batch mode response.  Status is 200 because the call to E-utilities was

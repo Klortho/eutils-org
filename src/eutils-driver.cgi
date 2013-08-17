@@ -96,6 +96,14 @@ my $xsltDoc = XML::LibXML->load_xml(
 my $xslt = $xsltProcessor->parse_stylesheet($xsltDoc);
 my $eutilsRdf = $xslt->transform($eutilsXml);
 
+my $docElem = $eutilsRdf->documentElement();
+my $status = $docElem->getAttribute('status');
+if ($status eq 'error') {
+    error404($docElem->textContent())
+}
+
+
+
 print contentType() . "\n" .
       $eutilsRdf->serialize();
 
