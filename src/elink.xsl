@@ -6,23 +6,22 @@
   <!ENTITY dc "http://purl.org/dc/elements/1.1/">
   <!ENTITY ncbi "http://rdf.ncbi.nlm.nih.gov/">
   <!ENTITY entrez "&ncbi;entrez/">
-  
   <!ENTITY gene "&ncbi;gene/">
   <!ENTITY nuccore "&ncbi;nuccore/">
   <!ENTITY pmc "&ncbi;pmc/">
 ]>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:rdf="&rdf;"
-	xmlns:rdfs="&rdfs;"
-	xmlns:owl="&owl;"
-	xmlns:dc="&dc;"
-	xmlns:ncbi="&ncbi;"
-	xmlns:entrez="&entrez;"
-	xmlns:gene="&gene;"
-	xmlns:nuccore="&nuccore;"
-	xmlns:pmc="&pmc;"
-	version='1.0'>
+                xmlns:rdf="&rdf;"
+                xmlns:rdfs="&rdfs;"
+                xmlns:owl="&owl;"
+                xmlns:dc="&dc;"
+                xmlns:ncbi="&ncbi;"
+                xmlns:entrez="&entrez;"
+                xmlns:gene="&gene;"
+                xmlns:nuccore="&nuccore;"
+                xmlns:pmc="&pmc;"
+                version='1.0'>
 	
   <xsl:output method='xml' indent='yes'/>
 

@@ -6,7 +6,6 @@
   <!ENTITY dc "http://purl.org/dc/elements/1.1/">
   <!ENTITY ncbi "http://rdf.ncbi.nlm.nih.gov/">
   <!ENTITY entrez "&ncbi;entrez/">
-
   <!ENTITY gene "&ncbi;gene/">
   <!ENTITY nuccore "&ncbi;nuccore/">
   <!ENTITY pmc "&ncbi;pmc/">
