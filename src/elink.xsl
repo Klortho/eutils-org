@@ -27,8 +27,6 @@
 
   <xsl:template match='/'>
   	<!-- Validate the response a bit -->
-
-
   	<xsl:choose>
 	  	<xsl:when test="eLinkResult/ERROR">
 	  		<response status='error'>
