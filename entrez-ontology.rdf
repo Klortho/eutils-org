@@ -32,14 +32,14 @@
               rdfs:label="database"
               rdfs:comment="NCBI Entrez database"/>
 
-  <!-- dbname property -->
-	<owl:DatatypeProperty rdf:about="&entrez;dbname"
+  <!-- dbName property -->
+	<owl:DatatypeProperty rdf:about="&entrez;dbName"
 		                    rdfs:label="database name"
 		                    rdfs:comment="Name of an Entrez database"
 	                      rdfs:subClassOf="&rdfs;label"/>
 
 	<!-- menuname property -->
-	<owl:DatatypeProperty rdf:about="&entrez;menuname"
+	<owl:DatatypeProperty rdf:about="&entrez;menuName"
                         rdfs:label="database menu name"
                         rdfs:comment="Name of an Entrez database, as it should appear in a menu"
                         rdfs:subClassOf="&rdfs;label"/>
@@ -51,14 +51,26 @@
                         rdfs:subClassOf="&rdfs;label"/>
 	
 	<!-- dbbuild property -->
-	<owl:DatatypeProperty rdf:about="&entrez;dbbuild"
+	<owl:DatatypeProperty rdf:about="&entrez;dbBuild"
 		                    rdfs:label="database build identifier"
 		                    rdfs:comment="Database build identifier"/>
 	
-	<!-- dbbuild property -->
-	<owl:DatatypeProperty rdf:about="&entrez;count"
-                        rdfs:label="count"
+	<!-- recordCount property -->
+	<owl:DatatypeProperty rdf:about="&entrez;recordCount"
+                        rdfs:label="number of records"
                         rdfs:comment="Current number of records"/>
+
+  <!-- lastUpdated property -->
+  <owl:DatatypeProperty rdf:about="&entrez;lastUpdated"
+                        rdfs:label="last updated"
+                        rdfs:comment="Last date/time this database was updated"/>
+
+  <!-- hasFields property -->
+  
+
+
+
+
 
 
   <!-- A class for individual entries within an Entrez database -->
@@ -66,8 +78,10 @@
               rdfs:label="record"
               rdfs:comment="Entrez database record"/>
 
-
-
+  <!-- A class for fields, as described in the einfo database details -->
+  <rdfs:Class rdf:about="&entrez;Field">
+    
+  </rdfs:Class>
 
 
 
