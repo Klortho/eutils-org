@@ -173,7 +173,6 @@
       <xsl:value-of select='.'/>
     </dct:date>
   </xsl:template>
-  
 
   <xsl:template match='Authors'>
     <bibo:authorList rdf:parseType="Collection">
