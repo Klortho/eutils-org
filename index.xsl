@@ -56,7 +56,7 @@
             <td>
                 <a rel="license"
                    href="http://creativecommons.org/publicdomain/zero/1.0/">
-                  <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" 
+                  <img src="cc0.png" 
                        style="border-style: none;" alt="CC0" />
                 </a>
             </td>
@@ -77,7 +77,7 @@
           <tr>
             <td style='vertical-align: top'>
               <a href='http://www.w3.org/DesignIssues/LinkedData.html'>
-                <img src="http://lab.linkeddata.deri.ie/2010/lod-badges/img/data-badge-5.png" 
+                <img src="5star.png" 
                   alt="five star open Web data" />
               </a>
             </td>
