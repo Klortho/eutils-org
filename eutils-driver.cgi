@@ -1,6 +1,8 @@
-#! /usr/bin/env perl
+#!/opt/perl-5.8.8/bin/perl
 
 use strict;
+use warnings;
+
 use LWP::Simple;
 use XML::LibXML;
 use XML::LibXSLT;

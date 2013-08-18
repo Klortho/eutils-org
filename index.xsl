@@ -2,9 +2,13 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">
-  
+
+  <!-- script_url, for example, http://chrismaloney.org/eutils/.
+    Let's try to keep it blank (resulting in relative URLs -->
+  <xsl:variable name='script_url' select='""'/>
+
   <xsl:template match='/'>
-    <html xml:lang="en">  
+    <html xml:lang="en">
       <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>EutilsRDF Service</title>
@@ -31,7 +35,7 @@
           for information on how to use it.
         </p>
         <h2>Sample links</h2>
-        <p>These sample links are pulled from the 
+        <p>These sample links are pulled from the
           <a href='https://github.com/Klortho/EutilsRDF/blob/master/test/tests.xml'>tests.xml</a> file, and could be used for
           automated testing, if we ever get that far.</p>
         <table border='1'>
@@ -65,11 +69,11 @@ This work is published from:
       </body>
     </html>
   </xsl:template>
-  
+
   <xsl:template match='test'>
     <tr>
       <td>
-        <a href='http://chrismaloney.org/eutils/{cfm-url}'>
+        <a href='{$script_url}{cfm-url}'>
           <xsl:value-of select='cfm-url'/>
         </a>
       </td>
@@ -79,7 +83,7 @@ This work is published from:
             Redirect to <a href='{expected/redirect-to}'>Eutils</a>
           </xsl:when>
           <xsl:when test='expected/rdf'>
-            Good RDF translated from 
+            Good RDF translated from
             <a href='{eutils-url}'>Eutils</a>
           </xsl:when>
           <xsl:when test='expected/error'>
@@ -92,5 +96,5 @@ This work is published from:
       </td>
     </tr>
   </xsl:template>
-  
+
 </xsl:stylesheet>
