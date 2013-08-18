@@ -23,16 +23,16 @@
           RDF, Semantic Web" />
         <link rel="stylesheet" type="text/css" href="style.css" />
         <link rel="shortcut icon" type="image/png" href="er-icon.png" />  </head>
-      <body>
+      <body style='margin-left: 10%; margin-right: 10%'>
         <h1>EutilsRDF Service</h1>
         <p>
           Welcome!
         </p>
         <p>
           This is an installation of the
-          <a href='https://github.com/Klortho/EutilsRDF'>EutilsRDF project</a>.
-          See the <a href='https://github.com/Klortho/EutilsRDF/wiki'>documentation</a>
-          for information on how to use it.
+          <a href='https://github.com/Klortho/eutilsrdf'>eutilsrdf project</a> (GitHub).
+          See the <a href='https://github.com/Klortho/eutilsrdf/wiki'>documentation</a>
+          for information on what it is and how to use it.
         </p>
         <h2>Sample links</h2>
         <p>These sample links are pulled from the
@@ -46,26 +46,51 @@
           </tr>
           <xsl:apply-templates select='//test[@sample="yes"]'/>
         </table>
-<p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
-  <a rel="license"
-     href="http://creativecommons.org/publicdomain/zero/1.0/">
-    <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" />
-  </a>
-  <br />
-  To the extent possible under law,
-  <a rel="dct:publisher"
-     href="http://chrismaloney.org">
-    <span property="dct:title">Christopher Maloney</span></a>
-  has waived all copyright and related or neighboring rights to
-  <em><span property="dct:title">NCBI E-utilities in RDF</span></em>
-  and its related site content and source files.
-This work is published from:
-<span property="vcard:Country" datatype="dct:ISO3166"
-      content="US" about="http://chrismaloney.org">
-  United States</span>.
-</p>
-
-
+        
+        <hr style='margin-top: 2em; width: 50%; align: center;'/>
+        
+        <table style='width: 75%; margin-left: 12%; border:none; vertical-align: top'
+               xmlns:dct="http://purl.org/dc/terms/" 
+               xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
+          <tr>
+            <td>
+                <a rel="license"
+                   href="http://creativecommons.org/publicdomain/zero/1.0/">
+                  <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" 
+                       style="border-style: none;" alt="CC0" />
+                </a>
+            </td>
+            <td>
+              To the extent possible under law,
+              <a rel="dct:publisher"
+                 href="http://chrismaloney.org">
+                <span property="dct:title">Christopher Maloney</span></a>
+              has waived all copyright and related or neighboring rights to
+              <em><span property="dct:title">NCBI E-utilities in RDF</span></em>
+              and its related site content and source files.
+              This work is published from:
+              <span property="vcard:Country" datatype="dct:ISO3166"
+                    content="US" about="http://chrismaloney.org">
+              United States</span>.
+            </td>
+          </tr>
+          <tr>
+            <td style='vertical-align: top'>
+              <a href='http://www.w3.org/DesignIssues/LinkedData.html'>
+                <img src="http://lab.linkeddata.deri.ie/2010/lod-badges/img/data-badge-5.png" 
+                  alt="five star open Web data" />
+              </a>
+            </td>
+            <td>
+              Five-star data:
+              1. Available on the Web under an open license,
+              2. Available as machine-readable structured data,
+              3. In an open format,
+              4. Uses URIs to identify things,
+              5. Linked to other data to provide context.
+            </td>
+          </tr>
+        </table>
       </body>
     </html>
   </xsl:template>
