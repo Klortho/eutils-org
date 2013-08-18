@@ -6,10 +6,7 @@
   <!ENTITY dc "http://purl.org/dc/elements/1.1/">
   <!ENTITY ncbi "http://rdf.ncbi.nlm.nih.gov/">
   <!ENTITY entrez "&ncbi;entrez/">
-
-  <!ENTITY gene "&ncbi;gene/">
-  <!ENTITY nuccore "&ncbi;nuccore/">
-  <!ENTITY pmc "&ncbi;pmc/">
+  <!ENTITY link "&entrez;link/">
 ]>
 
 <rdf:RDF xmlns:rdf="&rdf;"
@@ -18,12 +15,10 @@
          xmlns:dc="&dc;"
          xmlns:ncbi="&ncbi;"
          xmlns:entrez="&entrez;"
-         xmlns:gene="&gene;"
-         xmlns:nuccore="&nuccore;"
-         xmlns:pmc="&pmc;">
+         xmlns:link="&link;">
   
-  <owl:Ontology rdf:about='http://chrismaloney.org/test/ontology'
-                dc:title="Sample ontology for Semantic Web class"/>
+  <owl:Ontology rdf:about='http://rdf.ncbi.nlm.nih.gov/entrez/'
+                dc:title="EutilRDF ontology"/>
 
   <!-- DBINFO -->
 	
@@ -126,45 +121,15 @@
               rdfs:label="entrez:DbRecord"
               rdfs:comment="Entrez database record"/>
 
-  <!-- DONE TO HERE -->
-
-
-
-  <!-- A class for an Entrez nuccore record -->
-  <rdfs:Class rdf:about="&nuccore;sequence"
-              rdfs:label="nuccord:sequence"
-              rdfs:comment="Nucleotide sequence">
-    <rdfs:subClassOf rdf:resource="&entrez;dbrecord"/>
-  </rdfs:Class>
-
-  <!-- A class for an Entrez gene record -->
-  <rdfs:Class rdf:about="&gene;sequence"
-              rdfs:label='gene:sequence'
-              rdfs:comment="Gene sequence">
-    <rdfs:subClassOf rdf:resource="&entrez;dbrecord"/>
-  </rdfs:Class>
   
-  <!-- An Entrez link from nuccore to gene -->
-  <entrez:link rdf:about="&entrez;nuccore_gene">
-    <rdfs:subPropertyOf rdf:resource="&entrez;link"/>
-    <rdfs:domain rdf:resource="&nuccore;sequence"/>
-    <rdfs:range rdf:resource="&gene;record"/>
-  </entrez:link>
-
-  <!-- A reciprocal Entrez link from gene to nuccore -->
-  <entrez:link rdf:about="&entrez;gene_nuccore">
-    <rdfs:subPropertyOf rdf:resource="&entrez;link"/>
-    <rdfs:domain rdf:resource="&gene;record"/>
-    <rdfs:range rdf:resource="&nuccore;sequence"/>
-    <owl:inverseOf rdf:resource="&entrez;nuccore_gene"/>
+  <!-- A sample of a reciprocal Entrez link from gene to nuccore.
+    These will have to be auto-generated from the data somehow.
+  -->
+  <entrez:link rdf:about="&link;gene_nuccore">
+    <rdf:type rdf:resource="&entrez;Link"/>
+    <owl:inverseOf rdf:resource="&link;nuccore_gene"/>
   </entrez:link>
   
   
-  <!-- A class for a PMC article -->
-  <rdfs:Class rdf:about="&pmc;article"
-              rdfs:label="article"
-              rdfs:comment="PMC article">
-    <rdfs:subClassOf rdf:resource="&entrez;dbrecord"/>
-  </rdfs:Class>
   
 </rdf:RDF>
