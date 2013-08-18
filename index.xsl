@@ -34,6 +34,11 @@
           See the <a href='https://github.com/Klortho/eutilsrdf/wiki'>documentation</a>
           for information on what it is and how to use it.
         </p>
+        <p>
+          From here, you can download the
+          <a href='entrez-ontology.rdf'>Entrez ontology</a>, or access the RDF interface
+          to the Entrez Programming utilities (see samples below).
+        </p>
         <h2>Sample links</h2>
         <p>These sample links are pulled from the
           <a href='https://github.com/Klortho/EutilsRDF/blob/master/test/tests.xml'>tests.xml</a> file, and could be used for
