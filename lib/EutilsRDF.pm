@@ -10,110 +10,104 @@ use CGI;
 
 # Base URL of NCBI E-utilities
 my $eutilsBase = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/';
+
+# Set this to 1 to turn on debugging.
 my $debug = 0;
 
 
+#------------------------------------------------------------------
+# Start here.
+
 sub run {
 
-# Set this to 1 to turn on debugging.
-if ($debug) {
-    print "Content-type: text/plain\n\n";
-    print "Environment:\n";
-    foreach my $env (sort keys %ENV) {
-        print "    " . $env . ": '" . $ENV{$env} . "'\n";
+    if ($debug) {
+        print "Content-type: text/plain\n\n";
+        print "Environment:\n";
+        foreach my $env (sort keys %ENV) {
+            print "    " . $env . ": '" . $ENV{$env} . "'\n";
+        }
+        print "\n";
     }
-    print "\n";
-}
 
-# Get the CGI params I care about
-my $q = CGI->new();
-my $retmode = $q->param('retmode');
-if ($debug) {
-    print "CGI parameters:\n";
-    print "    retmode: '$retmode'\n";
-}
+    # Get the CGI params I care about
+    my $q = CGI->new();
+    my $retmode = $q->param('retmode');
+    if ($debug) {
+        print "CGI parameters:\n";
+        print "    retmode: '$retmode'\n";
+    }
 
+    # Figure out what Eutilities script we are emulating
+    # The complete set of allowed scripts (efetch not done yet)
+    my @scripts = qw( einfo elink esummary );
 
-# Check retmode.  It must be 'rdf'
-if ($retmode ne 'rdf') {
-}
+    my $scriptPath = $ENV{SCRIPT_NAME};    # E.g. /eutils/einfo.cgi
 
-# Figure out what Eutilities script we are emulating
-# The complete set of allowed scripts
-my @scripts = qw( einfo elink esummary );
+    # If we can't decipher the URL at all, then 404
+    if ($scriptPath !~ m{.*/.+\.f?cgi$}) {
+        error404("Can't find a script name in '$scriptPath'");
+    }
+    (my $scriptName = $scriptPath) =~ s|.*/(.+?)\.f?cgi$|$1|;  # E.g. einfo
 
-my $scriptPath = $ENV{SCRIPT_NAME};                       # E.g. /eutils/einfo.cgi
+    # Figure out the NCBI E-utilities URL corresponding to this request
+    my $eutilsUriPath = $eutilsBase . $scriptName . '.fcgi';
 
-# If we can't decipher the URL at all, then 404
-if ($scriptPath !~ m{.*/.+\.f?cgi$}) {
-    error404("Can't find a script name in '$scriptPath'");
-}
+    # If the request is not for rdf, then do a 303 redirect to NCBI, with no munging of the
+    # query string
+    my $qs = $ENV{QUERY_STRING};
+    if ($retmode ne 'rdf') {
+        my $eutilsUri = $eutilsUriPath . ($qs ? '?' . $qs : '');
+        redirect303("Format not supported", $eutilsUri);
+    }
 
-(my $scriptName = $scriptPath) =~ s|.*/(.+?)\.f?cgi$|$1|;  # E.g. einfo
+    # Now we know that the user is requesting RDF, so for any other problems, from now on,
+    # we'll do a 404.
 
-# Figure out the NCBI E-utilities URL corresponding to this request
-my $eutilsUriPath = $eutilsBase . $scriptName . '.fcgi';
-my $qs = $ENV{QUERY_STRING};
+    # If the script is not supported, do a 404
+    if (!grep(/$scriptName/, @scripts)) {
+        error404("Script not supported:  $scriptName");
+    }
 
-# If the request is not for rdf, then do a 303 redirect to NCBI, with no munging of the
-# query string
-if ($retmode ne 'rdf') {
-    my $eutilsUri = $eutilsUriPath . ($qs ? '?' . $qs : '');
-    redirect303("Format not supported", $eutilsUri);
-}
+    # Replace retmode=rdf with retmode=xml in the query string, and construct the NCBI
+    # E-utilities URL
+    (my $newQs = $qs) =~ s/retmode=rdf/retmode=xml/;
+    $newQs .= "&tool=eutilsrdf&email=voldrani\@gmail.com";
+    my $eutilsUri = $eutilsUriPath . ($newQs ? '?' . $newQs : '');
 
-# Now we know that the user is requesting RDF, so for any other problems, do a 404.
+    # Make the request to NCBI
+    my $eutilsResponse = get $eutilsUri;
+    if (!defined $eutilsResponse) {
+        error502("Bad response from NCBI E-utilities");
+    }
+    if ($debug) {
+        print "NCBI E-utilities response:\n" . $eutilsResponse . "\n\n";
+    }
+    my $eutilsXml = XML::LibXML->load_xml(string => $eutilsResponse);
 
-# If the script is not supported, do a 404
-if (!grep(/$scriptName/, @scripts)) {
-    error404("Script not supported:  $scriptName");
-}
+    # Read and initialize the XSLT stylesheet
+    # No extra error handling here.  If this fails, the user should get a 500 Internal
+    # server error, because that's what happened.
+    my $xsltProcessor = XML::LibXSLT->new();
+    my $xsltDoc = XML::LibXML->load_xml(
+        location => $scriptName . '.xsl',
+        no_cdata => 1,
+    );
 
-# Replace retmode=rdf with retmode=xml in the query string, and construct the NCBI
-# E-utilities URL
-(my $newQs = $qs) =~ s/retmode=rdf/retmode=xml/;
-$newQs .= "&tool=eutilsrdf&email=voldrani\@gmail.com";
-my $eutilsUri = $eutilsUriPath . ($newQs ? '?' . $newQs : '');
+    my $xslt = $xsltProcessor->parse_stylesheet($xsltDoc);
 
+    # Do the transformation.
+    # Pass the db from the query string into the XSLT parameter.  Note that it needs
+    # quote marks around it.
+    my $eutilsRdf = $xslt->transform($eutilsXml, db => '"' . $q->param('db') . '"');
 
+    my $docElem = $eutilsRdf->documentElement();
+    my $status = $docElem->getAttribute('status');
+    if ($status eq 'error') {
+        error404($docElem->textContent())
+    }
 
-
-# Make the request to NCBI
-# FIXME:  Need to do some error handling here
-my $eutilsResponse = get $eutilsUri;
-if (!defined $eutilsResponse) {
-    error502("Bad response from NCBI E-utilities");
-}
-if ($debug) {
-    print "NCBI E-utilities response:\n" . $eutilsResponse . "\n\n";
-}
-my $eutilsXml = XML::LibXML->load_xml(string => $eutilsResponse);
-
-# Read and initialize the XSLT stylesheet
-# No extra error handling here.  If this fails, the user should get a 500 Internal
-# server error, because that's what happened.
-my $xsltProcessor = XML::LibXSLT->new();
-my $xsltDoc = XML::LibXML->load_xml(
-    location => $scriptName . '.xsl',
-    no_cdata => 1,
-);
-
-my $xslt = $xsltProcessor->parse_stylesheet($xsltDoc);
-
-# Do the transformation.
-# Pass the db from the query string into the XSLT parameter.  Note that it needs
-# quote marks around it.
-my $eutilsRdf = $xslt->transform($eutilsXml, db => '"' . $q->param('db') . '"');
-
-my $docElem = $eutilsRdf->documentElement();
-my $status = $docElem->getAttribute('status');
-if ($status eq 'error') {
-    error404($docElem->textContent())
-}
-
-print contentType() . "\n" .
-      $eutilsRdf->serialize();
-
+    print contentType() . "\n" .
+          $eutilsRdf->serialize();
 }
 
 #------------------------------------------------------------------
@@ -164,8 +158,6 @@ sub error502
     print errorDocument('error', $msg);
     exit 0;
 }
-
-
 
 #------------------------------------------------------------------
 # errorDocument
