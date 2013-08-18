@@ -107,7 +107,7 @@
 
   <!-- A class for Entrez links -->
   <rdfs:Class rdf:about="&entrez;Link"
-              rdfs:label="entrez:link"
+              rdfs:label="entrez:Link"
               rdfs:comment="Entrez link">
     <rdfs:subClassOf rdf:resource="&rdf;Property"/>
     <rdfs:domain rdf:resource="&entrez;DbRecord"/>
@@ -123,9 +123,9 @@
   <!-- A sample of a reciprocal Entrez link from gene to nuccore.
     These will have to be auto-generated from the data somehow.
   -->
-  <entrez:link rdf:about="&link;gene_nuccore">
+  <entrez:Link rdf:about="&link;gene_nuccore">
     <rdf:type rdf:resource="&entrez;Link"/>
     <owl:inverseOf rdf:resource="&link;nuccore_gene"/>
-  </entrez:link>
+  </entrez:Link>
   
 </rdf:RDF>
