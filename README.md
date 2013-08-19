@@ -1,15 +1,20 @@
-EutilsRDF
-=========
+EutilsRDF Service
+=================
 
 NCBI E-utilities in RDF for the Semantic Web.
 
-This is installed to my staff directory at NCBI, at
+This service is currently deployed to
 [http://www.ncbi.nlm.nih.gov/staff/maloneyc/eutilsrdf/]().
 
 Documentation, including instructions on how to use the service, and a [to do
 list](https://github.com/Klortho/EutilsRDF/wiki/To-do) is on
 [the wiki](https://github.com/Klortho/EutilsRDF/wiki).  This README page
 describes implementation and deployment details.
+
+You can also read a draft of a paper describing the service, the rationale
+behind it, and details about how it works:
+[EutilsRDF Web Service: an RDF interface to NCBI Entrez
+Utilities](http://www.ncbi.nlm.nih.gov/staff/maloneyc/EutilsRDFWebService.docx).
 
 To discuss or send suggestions, please join the [EutilsRDF Google
 group](https://groups.google.com/d/forum/eutilsrdf) (mailing list).
