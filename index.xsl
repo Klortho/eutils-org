@@ -31,14 +31,25 @@
         <p>
           This is an installation of the
           <a href='https://github.com/Klortho/eutilsrdf'>eutilsrdf project</a> (GitHub).
+          This is just in the proof-of-concept stage; there is very little in the way of
+          useful data you can get at this stage.
+        </p>
+        <p>
           See the <a href='https://github.com/Klortho/eutilsrdf/wiki'>documentation</a>
           for information on what it is and how to use it.
         </p>
         <p>
           From here, you can download the
-          <a href='entrez-ontology.rdf'>Entrez ontology</a>, or access the RDF interface
+          <a href='entrez-ontology.xml'>Entrez ontology</a>, or access the RDF interface
           to the Entrez Programming utilities (see samples below).
         </p>
+        <p>
+          The RDF URIs used here conform to the unofficial <a 
+          href='https://github.com/Klortho/rdf-uri-resolver/wiki/NCBI-RDF-URI-Standards'>NCBI 
+          RDF URI Standards</a>, and are dereferenced, to provide useful RDF data,
+          by the <a href='https://github.com/Klortho/rdf-uri-resolver'>rdf-uri-resolver</a>.
+        </p>
+        
         <h2>Sample links</h2>
         <p>These sample links are pulled from the
           <a href='https://github.com/Klortho/EutilsRDF/blob/master/test/tests.xml'>tests.xml</a> file, and could be used for
