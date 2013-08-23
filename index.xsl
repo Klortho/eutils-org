@@ -37,6 +37,10 @@
         <p>
           See the <a href='https://github.com/Klortho/eutilsrdf/wiki'>documentation</a>
           for information on what it is and how to use it.
+          You can also read a draft of a paper describing the service, the rationale
+          behind it, and details about how it works: <a
+          href='http://www.ncbi.nlm.nih.gov/staff/maloneyc/EutilsRDFWebService.docx'>EutilsRDF
+          Web Service: an RDF interface to NCBI Entrez Utilities</a>.
         </p>
         <p>
           From here, you can download the
@@ -62,17 +66,17 @@
           </tr>
           <xsl:apply-templates select='//test[@sample="yes"]'/>
         </table>
-        
+
         <hr style='margin-top: 2em; width: 50%; align: center;'/>
-        
+
         <table style='width: 75%; margin-left: 12%; border:none; vertical-align: top'
-               xmlns:dct="http://purl.org/dc/terms/" 
+               xmlns:dct="http://purl.org/dc/terms/"
                xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
           <tr>
             <td>
                 <a rel="license"
                    href="http://creativecommons.org/publicdomain/zero/1.0/">
-                  <img src="cc0.png" 
+                  <img src="cc0.png"
                        style="border-style: none;" alt="CC0" />
                 </a>
             </td>
@@ -93,7 +97,7 @@
           <tr>
             <td style='vertical-align: top'>
               <a href='http://www.w3.org/DesignIssues/LinkedData.html'>
-                <img src="5star.png" 
+                <img src="5star.png"
                   alt="five star open Web data" />
               </a>
             </td>
