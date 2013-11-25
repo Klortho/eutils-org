@@ -22,6 +22,12 @@ group](https://groups.google.com/d/forum/eutilsrdf) (mailing list).
 This project is registered with BioPortal
 [here](http://bioportal.bioontology.org/projects/257).
 
+
+## To do list
+
+See [GitHub issues](https://github.com/Klortho/eutilsrdf/issues).
+
+
 ## Installation
 
 To install this to a web server, clone the repository to a Unix machine,
