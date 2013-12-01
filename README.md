@@ -4,7 +4,7 @@ EutilsRDF Service
 NCBI E-utilities in RDF for the Semantic Web.
 
 This service is currently deployed to
-[http://www.ncbi.nlm.nih.gov/staff/maloneyc/eutilsrdf/]().
+[http://www.ncbi.nlm.nih.gov/staff/maloneyc/eutilsrdf/](http://www.ncbi.nlm.nih.gov/staff/maloneyc/eutilsrdf/).
 
 Documentation, including instructions on how to use the service, and a [to do
 list](https://github.com/Klortho/EutilsRDF/wiki/To-do) is on
