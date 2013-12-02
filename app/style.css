@@ -35,7 +35,13 @@ a:hover {
 }
 
 table {
-  border-collapse:collapse;
+  border-collapse: collapse;
+  width: 75%;
+  margin-left: 12%;
+  vertical-align: top;
+}
+tr:nth-child(odd) {
+  background: #ddd;
 }
 td {
   padding: 5px;
