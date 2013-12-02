@@ -143,12 +143,12 @@
           <tr>
             <td>/pubmed/24108202/links/pubmed_pubmed_five?report=idlist</td>
             <td>esearch pubmed 24108202 | elink pubmed_pubmed_five</td>
-            <td>&nbsp;</td>
+            <td>&#160;</td>
           </tr>
           <tr>
             <td>/pubmed/24108202/links/pubmed_pubmed_five?report=full</td>
             <td>esearch pubmed 24108202 | elink pubmed_pubmed_five | efetch</td>
-            <td>&nbsp;</td>
+            <td>&#160;</td>
           </tr>
           <tr>
             <td>/gene/672/links/gene_nuccore</td>
