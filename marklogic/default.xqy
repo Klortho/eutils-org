@@ -8,7 +8,12 @@ xdmp:set-response-content-type("text/xml"),
   The second node of the response is the payload from the web service.
 :)
 
-xdmp:http-get(
-  "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi"
-)[2]
+let $format := xdmp:get-request-field("format")
+let $results := xdmp:http-get("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi")[2]
+
+return
+  if ($format = 'rdf') then
+    xdmp:xslt-invoke("einfo.xsl", document{$results})
+  else
+    $results
 
