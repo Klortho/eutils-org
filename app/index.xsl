@@ -38,9 +38,20 @@
         <p>
           This is an installation of the
           <a href='https://github.com/Klortho/eutils-org'>eutils-org project</a> (GitHub).
-          This is just in the proof-of-concept stage; there is very little in the way of
-          useful data right now.
+          It is implemented as an XQuery application on a MarkLogic Server instance,
+          hosted on Amazon Web Services. See the
+          <a href='https://github.com/Klortho/eutils-org'>README file</a> in the GitHub repository 
+          for more details about implementation.
         </p>
+        <p>
+          This is just in the proof-of-concept stage:
+        </p>
+        <ul>
+          <li>There is not much in the way of useful data yet,</li>
+          <li>It would not be able to handle any serious loads, and</li>
+          <li>Robust error handling has not yet been implemented.</li>
+        </ul>
+        
         <p>
           See the <a href='https://github.com/Klortho/eutils-org/wiki'>documentation</a>
           on the GitHub wiki, for information on what it is and how to use it, and an
