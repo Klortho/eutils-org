@@ -94,26 +94,26 @@
           <tr>
             <td>✓</td>
             <td><a href='/data'>/</a></td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/einfo.fcgi">einfo.fcgi</a></td>
+            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi">einfo.fcgi</a></td>
             <td>What databases are available?</td>
           </tr>
           <tr>
             <td>✓</td>
             <td><a href='/data?format=rdf'>/?format=rdf</a></td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/einfo.fcgi">einfo.fcgi</a></td>
+            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi">einfo.fcgi</a></td>
             <td>Same, RDF format</td>
           </tr>
 
           <tr>
             <td>✓</td>
             <td><a href='/data/pubmed'>/pubmed</a></td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/einfo.fcgi?db=pubmed">einfo.fcgi?db=pubmed</a></td>
+            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=pubmed">einfo.fcgi?db=pubmed</a></td>
             <td>Tell me about this database</td>
           </tr>
           <tr>
             <td>✓</td>
             <td><a href='/data/pubmed?format=rdf'>/pubmed?format=rdf</a></td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/einfo.fcgi?db=pubmed">einfo.fcgi?db=pubmed</a></td>
+            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=pubmed">einfo.fcgi?db=pubmed</a></td>
             <td>Same, RDF format</td>
           </tr>
 
@@ -127,7 +127,7 @@
           <tr>
             <td>&#160;</td>
             <td>/pubmed?term=cat&amp;report=idlist</td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/esearch.fcgi?term=cat">esearch.fcgi?term=cat</a></td>
+            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?term=cat">esearch.fcgi?term=cat</a></td>
             <td>Edge case: give me ids</td>
           </tr>
           <tr>
@@ -140,13 +140,13 @@
           <tr>
             <td>✓</td>
             <td><a href='/data/pmc/14900'>/pmc/14900</a></td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900">esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</a></td>
+            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900">esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</a></td>
             <td>ESummary for a particular record</td>
           </tr>
           <tr>
             <td>✓</td>
             <td><a href='/data/pmc/14900?format=rdf'>/pmc/14900?format=rdf</a></td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900">esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</a></td>
+            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900">esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</a></td>
             <td>Same, RDF format</td>
           </tr>
 
@@ -154,26 +154,26 @@
           <tr>
             <td>✓</td>
             <td><a href='/data/pubmed/24006159'>/pubmed/24006159</a></td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159</a></td>
+            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159</a></td>
             <td>ESummary for a particular record</td>
           </tr>
           <tr>
             <td>&#160;</td>
             <td>/pubmed/24006159?format=rdf</td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159</a></td>
+            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159</a></td>
             <td>Same, RDF format</td>
           </tr>
 
           <tr>
             <td>&#160;</td>
             <td><a href='/data/pubmed/24006159,24006160'>/pubmed/24006159,24006160</a></td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159,24006160</a></td>
+            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159,24006160</a></td>
             <td>ESummary for multiple IDs</td>
           </tr>
           <tr>
             <td>&#160;</td>
             <td>/pubmed/24006159,24006160?format=rdf</td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159,24006160</a></td>
+            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159,24006160</a></td>
             <td>Same, RDF format</td>
           </tr>
 
@@ -182,7 +182,7 @@
           <tr>
             <td>&#160;</td>
             <td>/pubmed/24006159?report=full</td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/efetch.fcgi?db=pubmed&amp;retmode=xml&amp;id=24006159">efetch.fcgi?db=pubmed&amp;retmode=xml&amp;id=24006159</a></td>
+            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;retmode=xml&amp;id=24006159">efetch.fcgi?db=pubmed&amp;retmode=xml&amp;id=24006159</a></td>
             <td>Less common full record</td>
           </tr>
           <tr>
