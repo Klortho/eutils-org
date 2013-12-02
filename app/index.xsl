@@ -24,10 +24,10 @@
         <link rel="stylesheet" type="text/css" href="style.css" />
         <link rel="shortcut icon" type="image/png" href="er-icon.png" />  </head>
       <body style='margin-left: 10%; margin-right: 10%'>
-        <h1>Eutils.org Service</h1>
+        <h1>Eutils.org</h1>
         <p>
-          This site hosts a RESTful interface to NCBI's Entrez Utilities (E-utilities).
-          In it's present state, it is the combination of two project:
+          This site hosts a RESTful API to NCBI's Entrez Utilities (E-utilities).
+          It is the combination of two projects:
         </p>
         <ol>
           <li>An effort to provide an RDF output format for E-utilities (started by
@@ -36,48 +36,56 @@
             Mark Johnson).</li>
         </ol>
         <p>
-          This is an installation of the
-          <a href='https://github.com/Klortho/eutils-org'>eutils-org project</a> (GitHub).
-          It is implemented as an XQuery application on a MarkLogic Server instance,
-          hosted on Amazon Web Services. See the
-          <a href='https://github.com/Klortho/eutils-org'>README file</a> in the GitHub repository 
-          for more details about implementation.
+          The project is hosted on GitHub at
+          <a href='https://github.com/Klortho/eutils-org'>Klortho/eutils-org</a>.
+          It is implemented as an XQuery application on the <a
+          href='http://developer.marklogic.com/learn/technical-overview'>MarkLogic Server</a>,
+          hosted on Amazon Web Services (AWS) on
+          <a href='http://ec2-54-204-255-139.compute-1.amazonaws.com/'>this AMI</a>.
+          See the <a href='https://github.com/Klortho/eutils-org'>README file</a> in the GitHub repository
+          for more details.
         </p>
+
+        <h2>Proof of concept only!</h2>
         <p>
-          This is just in the proof-of-concept stage:
+          <em><b>This is just a the proof-of-concept, and should not be used for production
+          applications!</b></em>  In particular:
         </p>
         <ul>
           <li>There is not much in the way of useful data yet,</li>
           <li>It would not be able to handle any serious loads, and</li>
           <li>Robust error handling has not yet been implemented.</li>
         </ul>
-        
+
         <p>
-          See the <a href='https://github.com/Klortho/eutils-org/wiki'>documentation</a>
-          on the GitHub wiki, for information on what it is and how to use it, and an
-          all-important to-do list.
+          See the <a href='https://github.com/Klortho/eutils-org/issues'>GitHub issues</a>
+          for the current to-do list.
+        </p>
+
+        <h2>RDF data</h2>
+        <p>
+          Part of the focus of this project is to provide RDF output for NCBI E-utilities
+          data.  In addition to RDF formatted outputs, you can download a draft
+          <a href='entrez-ontology.xml'>Entrez ontology</a>.  This ontology is currently very
+          sparse, and feedback is solicited.
         </p>
         <p>
-          From here, you can download the
-          <a href='entrez-ontology.xml'>Entrez ontology</a>, or access the RDF interface
-          to the Entrez Programming utilities (see samples below).
-        </p>
-        <p>
-          The RDF URIs used here conform to the unofficial <a 
-          href='https://github.com/Klortho/rdf-uri-resolver/wiki/NCBI-RDF-URI-Standards'>NCBI 
+          The RDF URIs used here conform to the unofficial <a
+          href='https://github.com/Klortho/rdf-uri-resolver/wiki/NCBI-RDF-URI-Standards'>NCBI
           RDF URI Standards</a>, and are dereferenced, to provide useful RDF data,
           by the <a href='https://github.com/Klortho/rdf-uri-resolver'>rdf-uri-resolver</a>.
         </p>
-        
+
+        <h2>API Examples</h2>
         <p>
           In the following table, "RESTful URL"s are relative to the "/data" directory
           of this application,
-          and "Eutilities URL" are relative to http://eutils.ncbi.nlm.nih.gov/eutils/.          
+          and "Eutilities URL" are relative to http://eutils.ncbi.nlm.nih.gov/entrez/eutils/.
         </p>
         <table>
           <tr>
-            <th>RESTful URL</th>
-            <th>Equivalent Eutilities URL (or pipeline)</th>
+            <th>Eutils.org URL</th>
+            <th>Equivalent E-utilities URL or pipeline</th>
             <th>Comments</th></tr>
           <tr>
             <td>✓ <a href='/data'>/</a></td>
@@ -89,7 +97,7 @@
             <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/einfo.fcgi">einfo.fcgi</a></td>
             <td>Same, RDF format</td>
           </tr>
-          
+
           <tr>
             <td>✓ <a href='/data/pubmed'>/pubmed</a></td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/einfo.fcgi?db=pubmed">einfo.fcgi?db=pubmed</a></td>
@@ -100,7 +108,7 @@
             <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/einfo.fcgi?db=pubmed">einfo.fcgi?db=pubmed</a></td>
             <td>Same, RDF format</td>
           </tr>
-          
+
 
           <tr>
             <td>/pubmed?term=cat</td>
@@ -119,12 +127,24 @@
           </tr>
 
           <tr>
-            <td><a href='/data/pubmed/24006159'>/pubmed/24006159</a></td>
+            <td>✓ <a href='/data/pmc/14900'>/pmc/14900</a></td>
+            <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900">esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</a></td>
+            <td>ESummary for a particular record</td>
+          </tr>
+          <tr>
+            <td>✓ <a href='/data/pmc/14900?format=rdf'>/pmc/14900?format=rdf</a></td>
+            <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900">esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</a></td>
+            <td>Same, RDF format</td>
+          </tr>
+
+
+          <tr>
+            <td>✓ <a href='/data/pubmed/24006159'>/pubmed/24006159</a></td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159</a></td>
             <td>ESummary for a particular record</td>
           </tr>
           <tr>
-            <td><a href='/data/pubmed/24006159?format=rdf'>/pubmed/24006159?format=rdf</a></td>
+            <td>/pubmed/24006159?format=rdf</td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159</a></td>
             <td>Same, RDF format</td>
           </tr>
@@ -135,11 +155,11 @@
             <td>ESummary for multiple IDs</td>
           </tr>
           <tr>
-            <td><a href='/data/pubmed/24006159,24006160?format=rdf'>/pubmed/24006159,24006160?format=rdf</a></td>
+            <td>/pubmed/24006159,24006160?format=rdf</td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159,24006160</a></td>
             <td>Same, RDF format</td>
           </tr>
-          
+
 
 
           <tr>
@@ -165,22 +185,22 @@
           <tr>
             <td>/pubmed?term=cat&amp;page=5&amp;report=idlist</td>
             <td><a href="http://iwebdev2/staff/mjohnson/proj/eutilities/eutils.cgi?CMD=esearch+pubmed+cat+retstart=100+retmax=20">esearch pubmed cat retstart=100 retmax=20</a></td>
-            <td>Note that first line is database, second line is list of IDs. 
+            <td>Note that first line is database, second line is list of IDs.
               A list of ids without db is meaningless.</td>
           </tr>
 
 
           <tr>
-            <td><a 
+            <td><a
               href='/data/pubmed/24108202/links/pubmed_pubmed_five'>/pubmed/24108202/links/pubmed_pubmed_five</a></td>
             <td>
               <a href='http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&amp;id=24108202&amp;linkname=pubmed_pubmed_five'>elink.fcgi?dbfrom=pubmed&amp;id=24108202&amp;linkname=pubmed_pubmed_five</a>
               | esummary
             </td>
-            <td>Does esummary by default</td>
+            <td>Does esummary by default.  (Right now, it just returns the link, so this is not finished)</td>
           </tr>
           <tr>
-            <td><a 
+            <td><a
               href='/data/pubmed/24108202/links/pubmed_pubmed_five?format=rdf'>/pubmed/24108202/links/pubmed_pubmed_five?format=rdf</a></td>
             <td>elink pubmed_pubmed_five | esummary</td>
             <td>Same, RDF format</td>
@@ -196,25 +216,25 @@
             <td>esearch pubmed 24108202 | elink pubmed_pubmed_five | efetch</td>
             <td>&#160;</td>
           </tr>
-          
+
           <tr>
             <td><a href='/data/gene/672/links/gene_nuccore'>/gene/672/links/gene_nuccore</a></td>
             <td>esearch gene 672 | elink ids gene_nuccore | esummary</td>
-            <td>Link returns summaries by default</td>
+            <td>Link returns summaries by default.   (Right now, it just returns the link, so this is not finished)</td>
           </tr>
           <tr>
             <td><a href='/data/gene/672/links/gene_nuccore?format=rdf'>/gene/672/links/gene_nuccore?format=rdf</a></td>
             <td>esearch gene 672 | elink ids gene_nuccore | esummary</td>
             <td>Same, RDF format</td>
           </tr>
-          
+
           <tr>
             <td><a href='/data/gene/672,22018/links/gene_nuccore?format=rdf'>/data/gene/672,22018/links/gene_nuccore?format=rdf</a></td>
             <td>esearch gene 672 | elink ids gene_nuccore | esummary</td>
             <td>Link from multiple IDs</td>
           </tr>
-          
-          
+
+
 
           <tr>
             <td>/gene/672/links/gene_nuccore?report=full</td>
@@ -267,13 +287,13 @@
             <td>Search field "journal" for index values containing query string</td>
           </tr>
         </table>
-        
-               
-        
-        
+
+
+
+
         <h2>Return values and format</h2>
-        <p>        
-        This utility will always return a well formed XML document. 
+        <p>
+        This utility will always return a well formed XML document.
         Depending on whether or not the script is able to parse and handle the URL,
         it will return one of the following:
         </p>
@@ -293,8 +313,8 @@
             200 OK, with a valid RDF/XML document.
           </li>
         </ul>
-        
-        
+
+
 
         <hr style='margin-top: 2em; width: 50%; align: center;'/>
 
@@ -315,7 +335,7 @@
                  href="http://chrismaloney.org">
                 <span property="dct:title">Christopher Maloney</span></a>
               has waived all copyright and related or neighboring rights to
-              <em><span property="dct:title">NCBI E-utilities in RDF</span></em>
+              <em><span property="dct:title">Eutils.org</span></em>
               and its related site content and source files.
               This work is published from:
               <span property="vcard:Country" datatype="dct:ISO3166"
