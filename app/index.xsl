@@ -27,7 +27,14 @@
         <h1>Eutils.org Service</h1>
         <p>
           This site hosts a RESTful interface to NCBI's Entrez Utilities (E-utilities).
+          In it's present state, it is the combination of two project:
         </p>
+        <ol>
+          <li>An effort to provide an RDF output format for E-utilities (started by
+            Chris Maloney), and</li>
+          <li>A proof-of-concept to provide a RESTful interface (designed and led by
+            Mark Johnson).</li>
+        </ol>
         <p>
           This is an installation of the
           <a href='https://github.com/Klortho/eutils-org'>eutils-org project</a> (GitHub).
@@ -36,7 +43,8 @@
         </p>
         <p>
           See the <a href='https://github.com/Klortho/eutils-org/wiki'>documentation</a>
-          on the GitHub wiki, for information on what it is and how to use it.
+          on the GitHub wiki, for information on what it is and how to use it, and an
+          all-important to-do list.
         </p>
         <p>
           From here, you can download the
@@ -207,7 +215,30 @@
           </tr>
         </table>
         
-       
+        <h2>Return values and format</h2>
+        <p>        
+        This utility will always return a well formed XML document. 
+        Depending on whether or not the script is able to parse and handle the URL,
+        it will return one of the following:
+        </p>
+        <ul>
+          <li>
+            404 Not found - for cases where it doesn't understand the request, or if the retmode
+            is 'rdf' but the service doesn't support the requested transformation.
+          </li>
+          <li>
+            303 See Other redirect to the NCBI Eutilities URL - if the request is not for RDF
+            (retmode is not given or is not 'rdf')
+          </li>
+          <li>
+            502 Bad gateway - if this service received a bad response from the NCBI E-utilities.
+          </li>
+          <li>
+            200 OK, with a valid RDF/XML document.
+          </li>
+        </ul>
+        
+        
 
         <hr style='margin-top: 2em; width: 50%; align: center;'/>
 
