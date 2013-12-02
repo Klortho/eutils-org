@@ -1,12 +1,14 @@
-xdmp:set-response-content-type("text/html"),
+xquery version "1.0-ml";
 
-('<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-                 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">',
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-  <head>
-    <title>My first Mark Logic web page</title>
-  </head>
-  <body>
-    <p>Hello World!</p>
-  </body>
-</html>)
+xdmp:set-response-content-type("text/xml"),
+
+(:
+  This example demonstrates how to get XML from a web service using
+  xdmp:http-get (http://docs.marklogic.com/xdmp:http-get).
+  The second node of the response is the payload from the web service.
+:)
+
+xdmp:http-get(
+  "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi"
+)[2]
+
