@@ -49,7 +49,10 @@
         <h2>Proof of concept only!</h2>
         <p>
           <em><b>This is just a the proof-of-concept, and should not be used for production
-          applications!</b></em>  In particular:
+          applications!</b></em>
+        </p>
+        <p>
+          In particular:
         </p>
         <ul>
           <li>There is not much in the way of useful data yet,</li>

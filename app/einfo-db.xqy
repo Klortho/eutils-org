@@ -14,7 +14,7 @@ return
 :)
 
 let $results := xdmp:http-get(
-  concat("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=", $db)
+  concat("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?tool=eutils.org&amp;email=voldrani@gmail.com&amp;db=", $db)
 )[2]
 
 return

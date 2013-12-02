@@ -8,7 +8,7 @@ let $id := xdmp:get-request-field("id")
 
 
 let $results := xdmp:http-get(
-  concat("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=", $db, 
+  concat("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?tool=eutils.org&amp;email=voldrani@gmail.com&amp;db=", $db, 
          "&amp;id=", $id, "&amp;version=2.0")
 )[2]
 

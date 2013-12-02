@@ -19,7 +19,7 @@ let $id_params_str := string-join($id_params, "&amp;")
 
 
 let $results := xdmp:http-get(
-  concat("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=", $dbfrom,
+  concat("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?tool=eutils.org&amp;email=voldrani@gmail.com&amp;dbfrom=", $dbfrom,
          "&amp;", $id_params_str, "&amp;linkname=", $linkname)
 )[2]
 
