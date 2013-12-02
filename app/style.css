@@ -36,13 +36,13 @@ a:hover {
 
 table {
   border-collapse: collapse;
-  width: 75%;
-  margin-left: 12%;
+  border: solid grey 1px;
   vertical-align: top;
 }
 tr:nth-child(odd) {
   background: #ddd;
 }
-td {
+td, th {
   padding: 5px;
+  border: solid grey 1px;
 }
