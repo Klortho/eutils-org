@@ -8,6 +8,14 @@
 -->
 <tests>
   <test sample='yes'>
+    <cfm-url>/</cfm-url>
+    <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?retmode=xml</eutils-url>
+    <description>
+      EInfo top-level database listing.
+    </description>
+  </test>
+  
+  <test sample='yes'>
     <cfm-url>einfo.cgi?retmode=rdf</cfm-url>
     <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?retmode=xml</eutils-url>
     <expected>
@@ -17,7 +25,7 @@
       EInfo top-level database listing.
     </description>
   </test>
-
+  
   <test sample='yes'>
     <cfm-url>einfo.cgi?retmode=rdf&amp;db=pmc</cfm-url>
     <eutils-url>http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?retmode=xml&amp;db=pmc</eutils-url>
@@ -72,9 +80,6 @@
       Good ESummary result (PMC), multiple docsums
     </description>
   </test>
-  
-  
-
 
   <test>
     <cfm-url>einfo.cgi?retmode=txt</cfm-url>

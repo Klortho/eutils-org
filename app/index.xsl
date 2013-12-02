@@ -11,35 +11,35 @@
     <html xml:lang="en">
       <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>EutilsRDF Service</title>
+        <title>Eutils.org Service</title>
         <meta name="DC.language" scheme="ISO 639-2/T" content="eng" />
         <meta name="DC.publisher" content="Chris Maloney" />
         <meta name="DC.creator" content="Chris Maloney" />
         <meta name="Author" content="Chris Maloney" />
         <meta name="DC.title"
-          content="EutilsRDF Service" />
+          content="Eutils.org Service" />
         <meta name="keywords"
           content="Open Source, GitHub, NCBI, E-utilities
-          RDF, Semantic Web" />
+          RDF, Semantic Web, REST, API" />
         <link rel="stylesheet" type="text/css" href="style.css" />
         <link rel="shortcut icon" type="image/png" href="er-icon.png" />  </head>
       <body style='margin-left: 10%; margin-right: 10%'>
-        <h1>EutilsRDF Service</h1>
+        <h1>Eutils.org Service</h1>
         <p>
           Welcome!
         </p>
         <p>
           This is an installation of the
-          <a href='https://github.com/Klortho/eutilsrdf'>eutilsrdf project</a> (GitHub).
+          <a href='https://github.com/Klortho/eutils-org'>eutils-org project</a> (GitHub).
           This is just in the proof-of-concept stage; there is very little in the way of
           useful data you can get at this stage.
         </p>
         <p>
-          See the <a href='https://github.com/Klortho/eutilsrdf/wiki'>documentation</a>
+          See the <a href='https://github.com/Klortho/eutils-org/wiki'>documentation</a>
           for information on what it is and how to use it.
           You can also read a draft of a paper describing the service, the rationale
-          behind it, and details about how it works: <a
-          href='http://www.ncbi.nlm.nih.gov/staff/maloneyc/EutilsRDFWebService.docx'>EutilsRDF
+          behind it, and details about how it worked: <a
+            href='https://github.com/Klortho/eutils-org/raw/master/docs/EutilsRDFWebService.docx'>EutilsRDF
           Web Service: an RDF interface to NCBI Entrez Utilities</a>.
         </p>
         <p>
@@ -56,7 +56,8 @@
         
         <h2>Sample links</h2>
         <p>These sample links are pulled from the
-          <a href='https://github.com/Klortho/EutilsRDF/blob/master/test/tests.xml'>tests.xml</a> file, and could be used for
+          <a href='https://github.com/Klortho/eutils-org/blob/master/app/tests.xml'>tests.xml</a> 
+          file, and could be used for
           automated testing, if we ever get that far.</p>
         <table border='1'>
           <tr>
