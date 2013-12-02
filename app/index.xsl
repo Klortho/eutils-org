@@ -85,7 +85,7 @@
           of this application,
           and "Eutilities URL" are relative to http://eutils.ncbi.nlm.nih.gov/entrez/eutils/.
         </p>
-        <table border-collapse='collapse' borders>
+        <table>
           <tr>
             <th/>
             <th>Eutils.org URL</th>
