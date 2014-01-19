@@ -36,13 +36,13 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <!ENTITY prov "http://www.w3.org/ns/prov#">
     <!ENTITY pso "http://purl.org/spar/pso/">
     <!ENTITY pwo "http://purl.org/spar/pwo/">
-    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
     <!ENTITY scoro "http://purl.org/spar/scoro/">
     <!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
+    <!ENTITY swanrel "http://purl.org/swan/2.0/discourse-relationships/">
     <!ENTITY swc "http://data.semanticweb.org/ns/swc/ontology#">
     <!ENTITY swrc "http://swrc.ontoware.org/ontology#">
-    <!ENTITY swanrel "http://purl.org/swan/2.0/discourse-relationships/">
     <!ENTITY trait "http://contextus.net/ontology/ontomedia/ext/common/trait#">
     <!ENTITY tvc "http://www.essepuntato.it/2012/04/tvc/">
     <!ENTITY vcard "http://www.w3.org/2006/vcard/ns#">
@@ -62,8 +62,8 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     xmlns:foaf="&foaf;"
     xmlns:frapo="&frapo;"
     xmlns:frbr="&frbr;"
-    xmlns:lmm="&lmm;"
     xmlns:literal="&literal;"
+    xmlns:lmm="&lmm;"
     xmlns:mediatypes="&mediatypes;"
     xmlns:owl="&owl;"
     xmlns:prism="&prism;"
@@ -71,13 +71,13 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     xmlns:prov="&prov;"
     xmlns:pso="&pso;"
     xmlns:pwo="&pwo;"
-    xmlns:rdfs="&rdfs;"
     xmlns:rdf="&rdf;"
+    xmlns:rdfs="&rdfs;"
     xmlns:scoro="&scoro;"
     xmlns:skos="&skos;"
+    xmlns:swanrel="&swanrel;"
     xmlns:swc="&swc;"
     xmlns:swrc="&swrc;"
-    xmlns:swanrel="&swanrel;"
     xmlns:trait="&trait;"
     xmlns:tvc="&tvc;"
     xmlns:vcard="&vcard;"
@@ -87,7 +87,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     exclude-result-prefixes="xs f xlink"
     version="2.0">
 
+    <xsl:output encoding="UTF-8" indent="yes"/>
     <xsl:param name="default" select="'http://www.essepuntato.it/resource/'" />
+
+    <xsl:variable name='prefixes'
+        select='tokenize("biro cito co datacite dc dcterms deo dqm fabio foaf frapo frbr literal lmm mediatypes owl prism pro prov pso pwo rdf rdfs scoro skos swanrel swc swrc trait tvc vcard xsd", " ")'/>
 
     <xsl:template match="/">
         <rdf:RDF xml:base="{$default}">
@@ -3025,40 +3029,55 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:variable name="predicate" select="$triples[2]" as="xs:string" />
         <xsl:variable name="object" select="$triples[3]" as="xs:string" />
 
-        <!-- Create the predicate -->
-        <xsl:element name="{$predicate}">
-            <xsl:choose>
-                <!-- Create the object as a literal -->
-                <xsl:when test="starts-with($object,'&quot;')">
-                    <xsl:variable name="value" select="substring-before(substring-after($object,'&quot;'),'&quot;')" />
-                    <xsl:variable name="lang" select="substring-after($object,'@')" />
-                    <xsl:variable name="type" select="substring-after($object,'^^')" />
-                    <xsl:if test="$lang">
-                        <xsl:attribute name="xml:lang">
-                            <xsl:value-of select="$lang" />
-                        </xsl:attribute>
-                    </xsl:if>
-                    <xsl:if test="$type">
-                        <xsl:attribute name="rdf:datatype" select="$type" />
-                    </xsl:if>
-                    <xsl:value-of select="$value" />
-                </xsl:when>
-                <!-- Create the object as a resource -->
-                <xsl:when test="$object">
-                    <xsl:attribute name="rdf:resource">
-                        <xsl:value-of select="$object" />
-                    </xsl:attribute>
-                </xsl:when>
-                <!-- Create a reification (i.e. the object is an empty string) -->
-                <xsl:otherwise>
-                    <xsl:call-template name="assert">
-                        <xsl:with-param name="triples" select="('',subsequence($triples,4))" as="xs:string*" />
-                        <xsl:with-param name="prev-subject" select="$subject" />
-                        <xsl:with-param name="reification" select="true()" />
-                    </xsl:call-template>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:element>
+        <xsl:variable name='prefix' select='substring-before($predicate, ":")'/>
+        <xsl:choose>
+            <xsl:when test='not($prefix = $prefixes)'>
+                <xsl:message>
+                    Warning:  unrecognized prefix '<xsl:value-of select='$prefix'/>'
+                </xsl:message>
+            </xsl:when>
+            
+            <xsl:otherwise>
+                <!-- Create the predicate -->
+                <!-- This resulted in an invalid QName error ("101566482") when run against PMC3159421,
+                so I amended it. 
+              <xsl:element name="{$predicate}"> -->
+                <xsl:element name='{$predicate}'>
+                    <xsl:choose>
+                        <!-- Create the object as a literal -->
+                        <xsl:when test="starts-with($object,'&quot;')">
+                            <xsl:variable name="value" select="substring-before(substring-after($object,'&quot;'),'&quot;')" />
+                            <xsl:variable name="lang" select="substring-after($object,'@')" />
+                            <xsl:variable name="type" select="substring-after($object,'^^')" />
+                            <xsl:if test="$lang">
+                                <xsl:attribute name="xml:lang">
+                                    <xsl:value-of select="$lang" />
+                                </xsl:attribute>
+                            </xsl:if>
+                            <xsl:if test="$type">
+                                <xsl:attribute name="rdf:datatype" select="$type" />
+                            </xsl:if>
+                            <xsl:value-of select="$value" />
+                        </xsl:when>
+                        <!-- Create the object as a resource -->
+                        <xsl:when test="$object">
+                            <xsl:attribute name="rdf:resource">
+                                <xsl:value-of select="$object" />
+                            </xsl:attribute>
+                        </xsl:when>
+                        <!-- Create a reification (i.e. the object is an empty string) -->
+                        <xsl:otherwise>
+                            <xsl:call-template name="assert">
+                                <xsl:with-param name="triples" select="('',subsequence($triples,4))" as="xs:string*" />
+                                <xsl:with-param name="prev-subject" select="$subject" />
+                                <xsl:with-param name="reification" select="true()" />
+                            </xsl:call-template>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:element>
+            </xsl:otherwise>
+        </xsl:choose>
+
         <!-- If the object exists, create another statement (according to $triples) using the same subject -->
         <xsl:if test="$object">
             <xsl:call-template name="assert">
