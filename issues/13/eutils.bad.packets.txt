@@ -1,0 +1,108 @@
+In each of these two sets of examples, there were two requests.  The first one completed
+successfully, but the second one failed.
+
+In each of these, the next request starts before the three second gap has completed.
+
+
+
+  0.000000 MarkLogic -> Eutils TCP 74 48856 > http [SYN] Seq=0 Win=14600 Len=0 MSS=1460 SACK_PERM=1 TSval=1092860972 TSecr=0 WS=2
+  0.003569 Eutils -> MarkLogic TCP 74 http > 48856 [SYN, ACK] Seq=0 Ack=1 Win=14480 Len=0 MSS=1460 SACK_PERM=1 TSval=1813087902 TSecr=1092860972 WS=512
+  0.003589 MarkLogic -> Eutils TCP 66 48856 > http [ACK] Seq=1 Ack=1 Win=14600 Len=0 TSval=1092860973 TSecr=1813087902
+  0.003686 MarkLogic -> Eutils HTTP 269 GET /entrez/eutils/einfo.fcgi?tool=eutils.org&email=voldrani@gmail.com&db=pubmed HTTP/1.1
+  0.006860 Eutils -> MarkLogic TCP 66 http > 48856 [ACK] Seq=1 Ack=204 Win=15872 Len=0 TSval=1813087905 TSecr=1092860973
+  0.009988 Eutils -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+  0.010005 MarkLogic -> Eutils TCP 66 48856 > http [ACK] Seq=204 Ack=1449 Win=17496 Len=0 TSval=1092860974 TSecr=1813087908
+  0.010014 Eutils -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+  0.010021 MarkLogic -> Eutils TCP 66 48856 > http [ACK] Seq=204 Ack=2897 Win=20392 Len=0 TSval=1092860974 TSecr=1813087908
+  0.010023 Eutils -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+  0.010028 MarkLogic -> Eutils TCP 66 48856 > http [ACK] Seq=204 Ack=4345 Win=23288 Len=0 TSval=1092860974 TSecr=1813087908
+  0.010055 Eutils -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+  0.010062 MarkLogic -> Eutils TCP 66 48856 > http [ACK] Seq=204 Ack=5793 Win=26184 Len=0 TSval=1092860974 TSecr=1813087908
+  0.010067 Eutils -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+  0.010070 MarkLogic -> Eutils TCP 66 48856 > http [ACK] Seq=204 Ack=7241 Win=29080 Len=0 TSval=1092860974 TSecr=1813087908
+  0.010073 Eutils -> MarkLogic TCP 835 [TCP segment of a reassembled PDU]
+  0.010076 MarkLogic -> Eutils TCP 66 48856 > http [ACK] Seq=204 Ack=8010 Win=31976 Len=0 TSval=1092860974 TSecr=1813087908
+  0.010088 Eutils -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+  0.010092 MarkLogic -> Eutils TCP 66 48856 > http [ACK] Seq=204 Ack=9458 Win=34872 Len=0 TSval=1092860974 TSecr=1813087908
+  0.010094 Eutils -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+  0.013265 Eutils -> MarkLogic HTTP 1514 [TCP Previous segment not captured] Continuation or non-HTTP traffic
+  0.013277 MarkLogic -> Eutils TCP 66 [TCP ACKed unseen segment] 48856 > http [ACK] Seq=204 Ack=15250 Win=46456 Len=0 TSval=1092860975 TSecr=1813087911
+  0.013286 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+  0.013290 MarkLogic -> Eutils TCP 66 48856 > http [ACK] Seq=204 Ack=16698 Win=49352 Len=0 TSval=1092860975 TSecr=1813087911
+  0.013322 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+  0.013326 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+  0.013333 MarkLogic -> Eutils TCP 66 48856 > http [ACK] Seq=204 Ack=18146 Win=52248 Len=0 TSval=1092860975 TSecr=1813087911
+  0.013339 MarkLogic -> Eutils TCP 66 48856 > http [ACK] Seq=204 Ack=19594 Win=55144 Len=0 TSval=1092860975 TSecr=1813087911
+  0.013353 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+  0.013359 MarkLogic -> Eutils TCP 66 48856 > http [ACK] Seq=204 Ack=21042 Win=58040 Len=0 TSval=1092860975 TSecr=1813087911
+  0.013361 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+  0.013364 MarkLogic -> Eutils TCP 66 48856 > http [ACK] Seq=204 Ack=22490 Win=60460 Len=0 TSval=1092860975 TSecr=1813087911
+  0.013388 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+  0.013393 MarkLogic -> Eutils TCP 66 48856 > http [ACK] Seq=204 Ack=23938 Win=63832 Len=0 TSval=1092860975 TSecr=1813087911
+  0.013397 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+  0.013692 MarkLogic -> Eutils TCP 66 [TCP ACKed unseen segment] 48856 > http [ACK] Seq=204 Ack=33012 Win=64088 Len=0 TSval=1092860975 TSecr=1813087911
+  1.011537 Eutils -> MarkLogic TCP 66 [TCP Previous segment not captured] http > 48856 [FIN, ACK] Seq=33012 Ack=204 Win=15872 Len=0 TSval=1813088908 TSecr=1092860975
+  1.051469 MarkLogic -> Eutils TCP 66 [TCP ACKed unseen segment] 48856 > http [ACK] Seq=204 Ack=33013 Win=64088 Len=0 TSval=1092861235 TSecr=1813088908
+  2.141265 MarkLogic -> Eutils HTTP 269 GET /entrez/eutils/einfo.fcgi?tool=eutils.org&email=voldrani@gmail.com&db=pubmed HTTP/1.1
+  2.141384 MarkLogic -> Eutils TCP 66 48856 > http [FIN, ACK] Seq=407 Ack=33013 Win=64088 Len=0 TSval=1092861507 TSecr=1813088908
+  2.144201 Eutils -> MarkLogic TCP 66 http > 48856 [ACK] Seq=33013 Ack=408 Win=16896 Len=0 TSval=1813090043 TSecr=1092861507
+
+
+
+
+
+
+
+
+ 13.944652 MarkLogic -> Eutils TCP 74 48857 > http [SYN] Seq=0 Win=14600 Len=0 MSS=1460 SACK_PERM=1 TSval=1092864458 TSecr=0 WS=2
+ 13.948317 Eutils -> MarkLogic TCP 74 http > 48857 [SYN, ACK] Seq=0 Ack=1 Win=14480 Len=0 MSS=1460 SACK_PERM=1 TSval=1818576459 TSecr=1092864458 WS=512
+ 13.948335 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=1 Ack=1 Win=14600 Len=0 TSval=1092864459 TSecr=1818576459
+ 13.948394 MarkLogic -> Eutils HTTP 269 GET /entrez/eutils/einfo.fcgi?tool=eutils.org&email=voldrani@gmail.com&db=pubmed HTTP/1.1
+ 13.951656 Eutils -> MarkLogic TCP 66 http > 48857 [ACK] Seq=1 Ack=204 Win=15872 Len=0 TSval=1818576462 TSecr=1092864459
+ 13.954179 Eutils -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+ 13.954191 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=1449 Win=17496 Len=0 TSval=1092864460 TSecr=1818576465
+ 13.954201 Eutils -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+ 13.954209 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=2897 Win=20392 Len=0 TSval=1092864460 TSecr=1818576465
+ 13.954214 Eutils -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+ 13.954218 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=4345 Win=23288 Len=0 TSval=1092864460 TSecr=1818576465
+ 13.954241 Eutils -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+ 13.954247 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=5793 Win=26184 Len=0 TSval=1092864460 TSecr=1818576465
+ 13.954252 Eutils -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+ 13.954256 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=7241 Win=29080 Len=0 TSval=1092864460 TSecr=1818576465
+ 13.954273 Eutils -> MarkLogic TCP 1401 [TCP segment of a reassembled PDU]
+ 13.954277 Eutils -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+ 13.954280 Eutils -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+ 13.954297 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=8576 Win=31976 Len=0 TSval=1092864460 TSecr=1818576465
+ 13.954304 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=10024 Win=34872 Len=0 TSval=1092864460 TSecr=1818576465
+ 13.957518 Eutils -> MarkLogic HTTP 1514 [TCP Previous segment not captured] Continuation or non-HTTP traffic
+ 13.957529 MarkLogic -> Eutils TCP 66 [TCP ACKed unseen segment] 48857 > http [ACK] Seq=204 Ack=15816 Win=46456 Len=0 TSval=1092864461 TSecr=1818576468
+ 13.957545 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+ 13.957549 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=17264 Win=49352 Len=0 TSval=1092864461 TSecr=1818576468
+ 13.957551 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+ 13.957553 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=18712 Win=52248 Len=0 TSval=1092864461 TSecr=1818576468
+ 13.957577 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+ 13.957583 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=20160 Win=55144 Len=0 TSval=1092864461 TSecr=1818576468
+ 13.957585 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+ 13.957589 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=21608 Win=58040 Len=0 TSval=1092864461 TSecr=1818576468
+ 13.957606 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+ 13.957611 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=23056 Win=57922 Len=0 TSval=1092864461 TSecr=1818576468
+ 13.957614 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+ 13.957617 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=24504 Win=56654 Len=0 TSval=1092864461 TSecr=1818576468
+ 13.957775 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+ 13.957782 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=25952 Win=55384 Len=0 TSval=1092864461 TSecr=1818576468
+ 13.957808 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+ 13.957814 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=27400 Win=54116 Len=0 TSval=1092864461 TSecr=1818576468
+ 13.957818 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+ 13.957840 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+ 13.957844 Eutils -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+ 13.957870 Eutils -> MarkLogic HTTP 1348 Continuation or non-HTTP traffic
+ 13.957960 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=33026 Win=58040 Len=0 TSval=1092864461 TSecr=1818576468
+ 14.954956 Eutils -> MarkLogic TCP 66 http > 48857 [FIN, ACK] Seq=33026 Ack=204 Win=15872 Len=0 TSval=1818577466 TSecr=1092864461
+ 14.991467 MarkLogic -> Eutils TCP 66 48857 > http [ACK] Seq=204 Ack=33027 Win=58040 Len=0 TSval=1092864720 TSecr=1818577466
+ 16.085673 MarkLogic -> Eutils HTTP 269 GET /entrez/eutils/einfo.fcgi?tool=eutils.org&email=voldrani@gmail.com&db=pubmed HTTP/1.1
+ 16.085792 MarkLogic -> Eutils TCP 66 48857 > http [FIN, ACK] Seq=407 Ack=33027 Win=58040 Len=0 TSval=1092864993 TSecr=1818577466
+ 16.089003 Eutils -> MarkLogic TCP 66 http > 48857 [ACK] Seq=33027 Ack=408 Win=16896 Len=0 TSval=1818578600 TSecr=1092864993
+
+
+
+
