@@ -1,0 +1,234 @@
+﻿In these sets, the real eutils was substituted with a mockup from chrisbaloney.com, that
+returned the same XML.  These never fail.
+
+In the first two sets, you can see that there is still a long delay at the end (almost
+five seconds) before a final handshake takes place.  But it doesn't seem to matter --
+in the final set, the second request starts before that five seconds is over, and it
+still completes successfully.
+
+
+    0.000000 MarkLogic -> chrisbaloney TCP 74 33971 > http [SYN] Seq=0 Win=14600 Len=0 MSS=1460 SACK_PERM=1 TSval=1093002702 TSecr=0 WS=2
+    0.014299 chrisbaloney -> MarkLogic TCP 74 http > 33971 [SYN, ACK] Seq=0 Ack=1 Win=14480 Len=0 MSS=1460 SACK_PERM=1 TSval=870834050 TSecr=1093002702 WS=16
+    0.014354 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=1 Ack=1 Win=14600 Len=0 TSval=1093002706 TSecr=870834050
+    0.014529 MarkLogic -> chrisbaloney HTTP 252 GET /einfo-mock.cgi?tool=eutils.org&email=voldrani@gmail.com&db=pubmed HTTP/1.1
+    0.028638 chrisbaloney -> MarkLogic TCP 66 http > 33971 [ACK] Seq=1 Ack=187 Win=15552 Len=0 TSval=870834054 TSecr=1093002706
+    0.036285 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.036304 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=1449 Win=17496 Len=0 TSval=1093002711 TSecr=870834056
+    0.043497 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.043510 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=2897 Win=20392 Len=0 TSval=1093002713 TSecr=870834056
+    0.050643 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.050654 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=4345 Win=23288 Len=0 TSval=1093002715 TSecr=870834056
+    0.051138 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.051149 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=5793 Win=26184 Len=0 TSval=1093002715 TSecr=870834056
+    0.051648 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.051658 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=7241 Win=29080 Len=0 TSval=1093002715 TSecr=870834056
+    0.051917 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.051928 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=8689 Win=31976 Len=0 TSval=1093002715 TSecr=870834056
+    0.052451 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.052461 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=10137 Win=34872 Len=0 TSval=1093002715 TSecr=870834056
+    0.052933 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.052943 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=11585 Win=37768 Len=0 TSval=1093002715 TSecr=870834056
+    0.053452 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.053463 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=13033 Win=40664 Len=0 TSval=1093002715 TSecr=870834056
+    0.057787 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.057798 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=14481 Win=43560 Len=0 TSval=1093002717 TSecr=870834056
+    0.065017 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.065030 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=15929 Win=46456 Len=0 TSval=1093002718 TSecr=870834059
+    0.065507 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.065518 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=17377 Win=49352 Len=0 TSval=1093002718 TSecr=870834059
+    0.072387 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.072399 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=18825 Win=52248 Len=0 TSval=1093002720 TSecr=870834061
+    0.072619 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.072630 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=20273 Win=55144 Len=0 TSval=1093002720 TSecr=870834061
+    0.079550 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.079562 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=21721 Win=58040 Len=0 TSval=1093002722 TSecr=870834062
+    0.086765 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.086785 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=23169 Win=60936 Len=0 TSval=1093002724 TSecr=870834062
+    0.093880 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.093898 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=24617 Win=63832 Len=0 TSval=1093002726 TSecr=870834063
+    0.101035 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.101049 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=26065 Win=64088 Len=0 TSval=1093002727 TSecr=870834063
+    0.108474 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.108489 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=27513 Win=64088 Len=0 TSval=1093002729 TSecr=870834064
+    0.108881 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.108891 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=28961 Win=64088 Len=0 TSval=1093002729 TSecr=870834064
+    0.109485 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.109496 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=30409 Win=64088 Len=0 TSval=1093002729 TSecr=870834064
+    0.110010 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.110020 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=31857 Win=64088 Len=0 TSval=1093002730 TSecr=870834064
+    0.110510 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.110766 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+    0.110776 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=34753 Win=64088 Len=0 TSval=1093002730 TSecr=870834064
+    0.111039 chrisbaloney -> MarkLogic TCP 1173 [TCP segment of a reassembled PDU]
+    0.111066 chrisbaloney -> MarkLogic HTTP/XML 71 HTTP/1.1 200 OK
+    0.111087 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=35865 Win=64088 Len=0 TSval=1093002730 TSecr=870834064
+→   5.075414 chrisbaloney -> MarkLogic TCP 66 http > 33971 [FIN, ACK] Seq=35865 Ack=187 Win=15552 Len=0 TSval=870835315 TSecr=1093002730
+    5.113596 MarkLogic -> chrisbaloney TCP 66 33971 > http [ACK] Seq=187 Ack=35866 Win=64088 Len=0 TSval=1093003981 TSecr=870835315
+    5.205217 MarkLogic -> chrisbaloney TCP 66 33971 > http [FIN, ACK] Seq=187 Ack=35866 Win=64088 Len=0 TSval=1093004003 TSecr=870835315
+    5.219471 chrisbaloney -> MarkLogic TCP 66 http > 33971 [ACK] Seq=35866 Ack=188 Win=15552 Len=0 TSval=870835351 TSecr=1093004003
+
+
+
+
+
+   19.394085 MarkLogic -> chrisbaloney TCP 74 33972 > http [SYN] Seq=0 Win=14600 Len=0 MSS=1460 SACK_PERM=1 TSval=1093007551 TSecr=0 WS=2
+   19.408584 chrisbaloney -> MarkLogic TCP 74 http > 33972 [SYN, ACK] Seq=0 Ack=1 Win=14480 Len=0 MSS=1460 SACK_PERM=1 TSval=870838899 TSecr=1093007551 WS=16
+   19.408603 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=1 Ack=1 Win=14600 Len=0 TSval=1093007554 TSecr=870838899
+   19.408676 MarkLogic -> chrisbaloney HTTP 252 GET /einfo-mock.cgi?tool=eutils.org&email=voldrani@gmail.com&db=pubmed HTTP/1.1
+   19.422943 chrisbaloney -> MarkLogic TCP 66 http > 33972 [ACK] Seq=1 Ack=187 Win=15552 Len=0 TSval=870838902 TSecr=1093007554
+   19.435553 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   19.435565 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=1449 Win=17496 Len=0 TSval=1093007561 TSecr=870838904
+   19.464342 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   19.464359 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=2897 Win=20392 Len=0 TSval=1093007568 TSecr=870838904
+   19.464368 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   19.464377 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=4345 Win=23288 Len=0 TSval=1093007568 TSecr=870838904
+   19.464381 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   19.464388 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=5793 Win=26184 Len=0 TSval=1093007568 TSecr=870838904
+   19.464392 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   19.464399 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=7241 Win=29080 Len=0 TSval=1093007568 TSecr=870838904
+   19.464405 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   19.464413 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=8689 Win=31976 Len=0 TSval=1093007568 TSecr=870838904
+   19.464417 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   19.464421 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=10137 Win=34872 Len=0 TSval=1093007568 TSecr=870838904
+   19.464424 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   19.464427 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=11585 Win=37768 Len=0 TSval=1093007568 TSecr=870838905
+   19.464430 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   19.478777 chrisbaloney -> MarkLogic HTTP 1514 [TCP Previous segment not captured] Continuation or non-HTTP traffic
+   19.478789 MarkLogic -> chrisbaloney TCP 66 [TCP ACKed unseen segment] 33972 > http [ACK] Seq=187 Ack=18825 Win=52248 Len=0 TSval=1093007572 TSecr=870838916
+   19.486204 chrisbaloney -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+   19.486216 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=20273 Win=55144 Len=0 TSval=1093007574 TSecr=870838916
+   19.493267 chrisbaloney -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+   19.493279 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=21721 Win=58040 Len=0 TSval=1093007575 TSecr=870838916
+   19.493646 chrisbaloney -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+   19.493659 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=23169 Win=60936 Len=0 TSval=1093007576 TSecr=870838916
+   19.500523 chrisbaloney -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+   19.500536 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=24617 Win=63832 Len=0 TSval=1093007577 TSecr=870838916
+   19.500788 chrisbaloney -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+   19.500801 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=26065 Win=64088 Len=0 TSval=1093007577 TSecr=870838916
+   19.501313 chrisbaloney -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+   19.501325 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=27513 Win=64088 Len=0 TSval=1093007577 TSecr=870838916
+   19.501818 chrisbaloney -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+   19.501830 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=28961 Win=64088 Len=0 TSval=1093007578 TSecr=870838916
+   19.502347 chrisbaloney -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+   19.502358 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=30409 Win=64088 Len=0 TSval=1093007578 TSecr=870838917
+   19.502812 chrisbaloney -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+   19.502824 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=31857 Win=64088 Len=0 TSval=1093007578 TSecr=870838917
+   19.503349 chrisbaloney -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+   19.503870 chrisbaloney -> MarkLogic HTTP 1514 Continuation or non-HTTP traffic
+   19.503884 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=34753 Win=64088 Len=0 TSval=1093007578 TSecr=870838917
+   19.503898 chrisbaloney -> MarkLogic HTTP 1173 Continuation or non-HTTP traffic
+   19.503923 chrisbaloney -> MarkLogic HTTP 71 Continuation or non-HTTP traffic
+   19.503942 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=187 Ack=35865 Win=64088 Len=0 TSval=1093007578 TSecr=870838917
+→  24.214342 MarkLogic -> chrisbaloney TCP 66 33972 > http [FIN, ACK] Seq=187 Ack=35865 Win=64088 Len=0 TSval=1093008756 TSecr=870838917
+   24.227834 chrisbaloney -> MarkLogic TCP 66 http > 33972 [FIN, ACK] Seq=35865 Ack=188 Win=15552 Len=0 TSval=870840103 TSecr=1093008756
+   24.227862 MarkLogic -> chrisbaloney TCP 66 33972 > http [ACK] Seq=188 Ack=35866 Win=64088 Len=0 TSval=1093008759 TSecr=870840103
+
+
+
+
+
+
+   31.719591 MarkLogic -> chrisbaloney TCP 74 33973 > http [SYN] Seq=0 Win=14600 Len=0 MSS=1460 SACK_PERM=1 TSval=1093010632 TSecr=0 WS=2
+   31.732843 chrisbaloney -> MarkLogic TCP 74 http > 33973 [SYN, ACK] Seq=0 Ack=1 Win=14480 Len=0 MSS=1460 SACK_PERM=1 TSval=870841980 TSecr=1093010632 WS=16
+   31.732861 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=1 Ack=1 Win=14600 Len=0 TSval=1093010635 TSecr=870841980
+   31.732922 MarkLogic -> chrisbaloney HTTP 252 GET /einfo-mock.cgi?tool=eutils.org&email=voldrani@gmail.com&db=pubmed HTTP/1.1
+   31.744619 chrisbaloney -> MarkLogic TCP 66 http > 33973 [ACK] Seq=1 Ack=187 Win=15552 Len=0 TSval=870841983 TSecr=1093010635
+   31.757462 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.757476 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=1449 Win=17496 Len=0 TSval=1093010641 TSecr=870841985
+   31.764862 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.764875 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=2897 Win=20392 Len=0 TSval=1093010643 TSecr=870841986
+   31.772020 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.772033 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=4345 Win=23288 Len=0 TSval=1093010645 TSecr=870841986
+   31.772555 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.772567 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=5793 Win=26184 Len=0 TSval=1093010645 TSecr=870841986
+   31.773037 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.773049 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=7241 Win=29080 Len=0 TSval=1093010645 TSecr=870841986
+   31.773592 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.773603 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=8689 Win=31976 Len=0 TSval=1093010646 TSecr=870841986
+   31.774055 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.774066 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=10137 Win=34872 Len=0 TSval=1093010646 TSecr=870841986
+   31.774565 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.774577 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=11585 Win=37768 Len=0 TSval=1093010646 TSecr=870841986
+   31.775075 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.775086 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=13033 Win=40664 Len=0 TSval=1093010646 TSecr=870841986
+   31.775328 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.775341 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=14481 Win=43560 Len=0 TSval=1093010646 TSecr=870841986
+   31.779187 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.779199 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=15929 Win=46456 Len=0 TSval=1093010647 TSecr=870841989
+   31.786371 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.786383 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=17377 Win=49352 Len=0 TSval=1093010649 TSecr=870841989
+   31.786865 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.786876 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=18825 Win=52248 Len=0 TSval=1093010649 TSecr=870841991
+   31.787375 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.787387 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=20273 Win=55144 Len=0 TSval=1093010649 TSecr=870841991
+   31.793523 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.793534 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=21721 Win=58040 Len=0 TSval=1093010651 TSecr=870841993
+   31.800738 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.800751 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=23169 Win=60936 Len=0 TSval=1093010652 TSecr=870841993
+   31.801489 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.801502 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=24617 Win=63832 Len=0 TSval=1093010652 TSecr=870841993
+   31.801513 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.801520 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=26065 Win=62998 Len=0 TSval=1093010652 TSecr=870841993
+   31.801997 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.802009 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=27513 Win=64088 Len=0 TSval=1093010653 TSecr=870841993
+   31.802510 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.802521 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=28961 Win=64088 Len=0 TSval=1093010653 TSecr=870841993
+   31.803025 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.803036 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=30409 Win=64088 Len=0 TSval=1093010653 TSecr=870841993
+   31.803527 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.804084 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.804095 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=33305 Win=64088 Len=0 TSval=1093010653 TSecr=870841993
+   31.804569 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   31.804599 chrisbaloney -> MarkLogic HTTP/XML 1178 HTTP/1.1 200 OK
+   31.804620 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=187 Ack=35865 Win=64088 Len=0 TSval=1093010653 TSecr=870841993
+→  33.040728 MarkLogic -> chrisbaloney HTTP 252 GET /einfo-mock.cgi?tool=eutils.org&email=voldrani@gmail.com&db=pubmed HTTP/1.1
+   33.065485 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.065506 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=37313 Win=64088 Len=0 TSval=1093010968 TSecr=870842313
+   33.072684 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.072697 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=38761 Win=64088 Len=0 TSval=1093010970 TSecr=870842313
+   33.079892 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.079905 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=40209 Win=64088 Len=0 TSval=1093010972 TSecr=870842313
+   33.080376 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.080388 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=41657 Win=64088 Len=0 TSval=1093010972 TSecr=870842313
+   33.081079 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.081091 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=43105 Win=64088 Len=0 TSval=1093010972 TSecr=870842313
+   33.081355 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.081367 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=44553 Win=64088 Len=0 TSval=1093010972 TSecr=870842313
+   33.081897 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.081908 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=46001 Win=64088 Len=0 TSval=1093010973 TSecr=870842313
+   33.082414 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.082426 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=47449 Win=64088 Len=0 TSval=1093010973 TSecr=870842313
+   33.083014 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.083028 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=48897 Win=64088 Len=0 TSval=1093010973 TSecr=870842313
+   33.083038 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.083044 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=50345 Win=62998 Len=0 TSval=1093010973 TSecr=870842313
+   33.087012 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.087028 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=51793 Win=64088 Len=0 TSval=1093010974 TSecr=870842316
+   33.094190 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.094201 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=53241 Win=64088 Len=0 TSval=1093010976 TSecr=870842316
+   33.094769 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.094780 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=54689 Win=64088 Len=0 TSval=1093010976 TSecr=870842318
+   33.095222 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.095233 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=56137 Win=64088 Len=0 TSval=1093010976 TSecr=870842318
+   33.101570 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.101580 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=57585 Win=64088 Len=0 TSval=1093010978 TSecr=870842320
+   33.108768 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.108779 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=59033 Win=64088 Len=0 TSval=1093010979 TSecr=870842320
+   33.109245 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.109749 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.109760 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=61929 Win=64088 Len=0 TSval=1093010980 TSecr=870842320
+   33.110030 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.110546 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.110557 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=64825 Win=64088 Len=0 TSval=1093010980 TSecr=870842320
+   33.115956 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.116468 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.116480 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=67721 Win=64088 Len=0 TSval=1093010981 TSecr=870842320
+   33.116943 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.117462 chrisbaloney -> MarkLogic TCP 1514 [TCP segment of a reassembled PDU]
+   33.117475 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=70617 Win=64088 Len=0 TSval=1093010981 TSecr=870842320
+   33.117487 chrisbaloney -> MarkLogic HTTP/XML 1178 HTTP/1.1 200 OK
+   33.117554 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=71729 Win=64088 Len=0 TSval=1093010981 TSecr=870842320
+   38.071329 chrisbaloney -> MarkLogic TCP 66 http > 33973 [FIN, ACK] Seq=71729 Ack=373 Win=16624 Len=0 TSval=870843564 TSecr=1093010981
+   38.109545 MarkLogic -> chrisbaloney TCP 66 33973 > http [ACK] Seq=373 Ack=71730 Win=64088 Len=0 TSval=1093012230 TSecr=870843564
+   38.218783 MarkLogic -> chrisbaloney TCP 66 33973 > http [FIN, ACK] Seq=373 Ack=71730 Win=64088 Len=0 TSval=1093012257 TSecr=870843564
+   38.232142 chrisbaloney -> MarkLogic TCP 66 http > 33973 [ACK] Seq=71730 Ack=374 Win=16624 Len=0 TSval=870843604 TSecr=1093012257
