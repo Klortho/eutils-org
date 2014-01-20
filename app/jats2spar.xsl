@@ -3029,6 +3029,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:variable name="predicate" select="$triples[2]" as="xs:string" />
         <xsl:variable name="object" select="$triples[3]" as="xs:string" />
 
+        <!-- Create the predicate -->
+        <!--
+          There were some problems here, so I [cfm] added this choose.
+        -->
+        
         <xsl:variable name='prefix' select='substring-before($predicate, ":")'/>
         <xsl:choose>
             <xsl:when test='not($prefix = $prefixes)'>
@@ -3038,10 +3043,6 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
             </xsl:when>
             
             <xsl:otherwise>
-                <!-- Create the predicate -->
-                <!-- This resulted in an invalid QName error ("101566482") when run against PMC3159421,
-                so I amended it. 
-              <xsl:element name="{$predicate}"> -->
                 <xsl:element name='{$predicate}'>
                     <xsl:choose>
                         <!-- Create the object as a literal -->
