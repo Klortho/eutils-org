@@ -1983,7 +1983,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="s" tunnel="yes" />
         <xsl:call-template name="assert">
             <xsl:with-param name="triples" select="(
-                $s,'datacide:hasIdentifier','',
+                $s,'datacite:hasIdentifier','',
                     'rdf:type','&datacite;Identifier',
                     'literal:hasLiteralValue',concat('&quot;',..,'&quot;'),
                     'datacite:usesIdentifierScheme','',
@@ -1996,7 +1996,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="s" tunnel="yes" />
         <xsl:call-template name="assert">
             <xsl:with-param name="triples" select="(
-                $s,'datacide:hasIdentifier','',
+                $s,'datacite:hasIdentifier','',
                 'rdf:type','&datacite;Identifier',
                 'literal:hasLiteralValue',concat('&quot;',..,'&quot;'),
                 'datacite:usesIdentifierScheme','&datacite;orcid')" />
@@ -2007,7 +2007,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="s" tunnel="yes" />
         <xsl:call-template name="assert">
             <xsl:with-param name="triples" select="(
-                $s,'datacide:hasIdentifier','',
+                $s,'datacite:hasIdentifier','',
                 'rdf:type','&datacite;Identifier',
                 'literal:hasLiteralValue',concat('&quot;',..,'&quot;'),
                 'datacite:usesIdentifierScheme','&datacite;jst')" />
