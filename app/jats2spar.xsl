@@ -89,15 +89,24 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:output encoding="UTF-8" indent="yes"/>
     <xsl:param name="default" select="'http://www.essepuntato.it/resource/'" />
+  
+    <!--
+      The full URI of the Semantic Web resource that this JATS document is a representation of.
+      This will be the URI used for the primary resource to which the RDF triples in the
+      generated document will apply.
+    -->
+    <xsl:param name='this' select='"textual-entity"'/>
 
     <xsl:variable name='prefixes'
-        select='tokenize("biro cito co datacite dc dcterms deo dqm fabio foaf frapo frbr literal lmm mediatypes owl prism pro prov pso pwo rdf rdfs scoro skos swanrel swc swrc trait tvc vcard xsd", " ")'/>
+        select='tokenize("biro cito co datacite dc dcterms deo dqm fabio foaf frapo frbr literal 
+                          lmm mediatypes owl prism pro prov pso pwo rdf rdfs scoro skos swanrel 
+                          swc swrc trait tvc vcard xsd", "\s+")'/>
 
     <xsl:template match="/">
         <rdf:RDF xml:base="{$default}">
             <xsl:call-template name="goahead">
                 <xsl:with-param name="w" select="'conceptual-work'" tunnel="yes" />
-                <xsl:with-param name="e" select="'textual-entity'" tunnel="yes" />
+                <xsl:with-param name="e" select="$this" tunnel="yes" />
                 <xsl:with-param name="m" select="'digital-embodiment'" tunnel="yes" />
                 <xsl:with-param name="i" select="'digital-item'" tunnel="yes" />
                 <xsl:with-param name="issue" select="'periodical-issue'" tunnel="yes" />
