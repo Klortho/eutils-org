@@ -18,8 +18,10 @@ try {
   
   return
     if ($response/xh:code = 200) then
-      let $params := map:map()
-      let $_put := map:put($params, "db", $db)
+        let $params := map:map()
+      (:
+        let $_put := map:put($params, "db", $db)
+      :)
       return
         xdmp:xslt-invoke("jats2spar.xsl", document{$content}, $params)
 
