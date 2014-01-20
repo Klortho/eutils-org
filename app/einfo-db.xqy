@@ -22,7 +22,7 @@ try {
       $results
 }
 catch ($e) {
-  <caught-error>{ $e }</caught-error>
+  <error>{ $e }</error>
 }
 
 (:
