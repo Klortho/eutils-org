@@ -63,11 +63,10 @@
          </rdf:Description>
       </frbr:realizationOf>
    </rdf:Description>
-   <s>_:journal</s>
    <rdf:Description rdf:nodeID="journal">
       <datacite:hasIdentifier>
          <rdf:Description>
-            <rdf:type rdf:resource="datacite:Identifier"/>
+            <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
             <literal:hasLiteralValue>101566482</literal:hasLiteralValue>
             <datacite:usesIdentifierScheme>
                <rdf:Description>
@@ -78,11 +77,10 @@
          </rdf:Description>
       </datacite:hasIdentifier>
    </rdf:Description>
-   <s>_:journal</s>
    <rdf:Description rdf:nodeID="journal">
       <datacite:hasIdentifier>
          <rdf:Description>
-            <rdf:type rdf:resource="datacite:Identifier"/>
+            <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
             <literal:hasLiteralValue>39470</literal:hasLiteralValue>
             <datacite:usesIdentifierScheme>
                <rdf:Description>

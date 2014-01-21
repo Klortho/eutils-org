@@ -1687,14 +1687,13 @@
     <xsl:param name="s" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="(
-                $s,'fabio:hasShortTitle','',
-                'rdf:type',datacite:Identifier,
-                'literal:hasLiteralValue',concat('&quot;',..,'&quot;'),
-                '&prov;wasAttributedTo','',
-                'rdf:type','&prov;Agent',
-                'rdfs:label',concat('&quot;',.,'&quot;'))"
-      />
+        select="($s,
+          'fabio:hasShortTitle', '',
+          'rdf:type', '&datacite;Identifier',
+          'literal:hasLiteralValue', concat('&quot;', .., '&quot;'),
+          '&prov;wasAttributedTo', '',
+          'rdf:type', '&prov;Agent',
+          'rdfs:label', concat('&quot;', ., '&quot;'))"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -1702,8 +1701,10 @@
     <xsl:param name="s" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="($s,'rdf:type','&fabio;Abstract','frbr:summarizationOf','','rdf:type','&fabio;Expression')"
-      />
+        select="($s,
+          'rdf:type', '&fabio;Abstract',
+          'frbr:summarizationOf', '',
+          'rdf:type', '&fabio;Expression')"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -1727,7 +1728,10 @@
     <xsl:param name="s" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="($s,'rdf:type','&fabio;Comment','cito:discusses','','rdf:type','&fabio;Article')"/>
+        select="($s,
+          'rdf:type', '&fabio;Comment',
+          'cito:discusses', '',
+          'rdf:type', '&fabio;Article')"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -1735,7 +1739,10 @@
     <xsl:param name="s" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="($s,'rdf:type','&fabio;BookReview','cito:reviews','','rdf:type','&fabio;Book')"/>
+        select="($s, 
+          'rdf:type','&fabio;BookReview',
+          'cito:reviews', '',
+          'rdf:type', '&fabio;Book')"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -1743,8 +1750,10 @@
     <xsl:param name="w" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="($w,'rdf:type','&fabio;NotificationOfReceipt','swanrel:relatesTo','','rdf:type','&fabio;Book')"
-      />
+        select="($w,
+          'rdf:type', '&fabio;NotificationOfReceipt',
+          'swanrel:relatesTo', '',
+          'rdf:type','&fabio;Book')"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -2439,7 +2448,7 @@
       <xsl:with-param name="triples"
         select="($s,
           'datacite:hasIdentifier', '',
-          'rdf:type', 'datacite:Identifier',
+          'rdf:type', '&datacite;Identifier',
           'literal:hasLiteralValue', concat('&quot;', .., '&quot;'),
           'datacite:usesIdentifierScheme', '',
           'rdf:type', '&datacite;IdentifierScheme',
