@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Copyright (c) 2010-2013, Silvio Peroni <essepuntato@gmail.com>
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+  Copyright (c) 2010-2013, Silvio Peroni <essepuntato@gmail.com>
+  
+  Permission to use, copy, modify, and/or distribute this software for any
+  purpose with or without fee is hereby granted, provided that the above
+  copyright notice and this permission notice appear in all copies.
+  
+  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 -->
 <!DOCTYPE xsl:stylesheet [
   <!ENTITY biro "http://purl.org/spar/biro/">
@@ -236,7 +236,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
           'dcterms:description', concat('&quot;', ., '&quot;'))"/>
     </xsl:call-template>
 
-    <xsl:variable name="contact-info" select="concat('contact-info-',$organization)"/>
+    <xsl:variable name="contact-info" select="concat('contact-info-', $organization)"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($organization,
@@ -2119,14 +2119,13 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <xsl:param name="s" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="(
-                $s,'datacite:hasIdentifier','',
-                    'rdf:type','&datacite;Identifier',
-                    'literal:hasLiteralValue',concat('&quot;',..,'&quot;'),
-                    'datacite:usesIdentifierScheme','',
-                        'rdf:type','&datacite;IdentifierScheme',
-                        'rdfs:label',concat('&quot;',.,'&quot;'))"
-      />
+        select="($s,
+          'datacite:hasIdentifier', '',
+          'rdf:type', '&datacite;Identifier',
+          'literal:hasLiteralValue', concat('&quot;', .., '&quot;'),
+          'datacite:usesIdentifierScheme', '',
+          'rdf:type', '&datacite;IdentifierScheme',
+          'rdfs:label', concat('&quot;', ., '&quot;'))"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -2134,12 +2133,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <xsl:param name="s" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="(
-                $s,'datacite:hasIdentifier','',
-                'rdf:type','&datacite;Identifier',
-                'literal:hasLiteralValue',concat('&quot;',..,'&quot;'),
-                'datacite:usesIdentifierScheme','&datacite;orcid')"
-      />
+        select="($s,
+          'datacite:hasIdentifier', '',
+          'rdf:type', '&datacite;Identifier',
+          'literal:hasLiteralValue', concat('&quot;', .., '&quot;'),
+          'datacite:usesIdentifierScheme', '&datacite;orcid')"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -2147,12 +2145,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <xsl:param name="s" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="(
-                $s,'datacite:hasIdentifier','',
-                'rdf:type','&datacite;Identifier',
-                'literal:hasLiteralValue',concat('&quot;',..,'&quot;'),
-                'datacite:usesIdentifierScheme','&datacite;jst')"
-      />
+        select="($s,
+          'datacite:hasIdentifier', '',
+          'rdf:type', '&datacite;Identifier',
+          'literal:hasLiteralValue', concat('&quot;', .., '&quot;'),
+          'datacite:usesIdentifierScheme', '&datacite;jst')"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -2440,32 +2437,31 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <xsl:param name="s" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="(
-                $s,'datacite:hasIdentifier','',
-                'rdf:type',datacite:Identifier,
-                'literal:hasLiteralValue',concat('&quot;',..,'&quot;'),
-                'datacite:usesIdentifierScheme','',
-                'rdf:type','&datacite;IdentifierScheme',
-                'rdfs:label',concat('&quot;',.,'&quot;'))"
-      />
+        select="($s,
+          'datacite:hasIdentifier', '',
+          'rdf:type', 'datacite:Identifier',
+          'literal:hasLiteralValue', concat('&quot;', .., '&quot;'),
+          'datacite:usesIdentifierScheme', '',
+          'rdf:type', '&datacite;IdentifierScheme',
+          'rdfs:label', concat('&quot;', ., '&quot;'))"/>
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template
-    match="@journal-id-type[some $l in ('archive','aggregator','doaj','index','nlm-ta','pmc','publisher-id') satisfies . = $l]">
+    match="@journal-id-type[some $l in ('archive', 'aggregator', 'doaj', 'index','nlm-ta', 'pmc', 'publisher-id') 
+                            satisfies . = $l]">
     <xsl:param name="s" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="(
-                $s,'datacite:hasIdentifier','',
-                'rdf:type','&datacite;Identifier',
-                'datacite:usesIdentifierScheme','&datacite;local-resource-identifier-scheme',
-                'literal:hasLiteralValue',concat('&quot;',..,'&quot;'),
-                'prov:wasAttributedTo','',
-                'rdf:type','&prov;Agent',
-                'rdf:type','&foaf;Organization',
-                'rdfs:label',f:getLabelForId(.))"
-      />
+        select="($s,
+          'datacite:hasIdentifier', '',
+          'rdf:type', '&datacite;Identifier',
+          'datacite:usesIdentifierScheme', '&datacite;local-resource-identifier-scheme',
+          'literal:hasLiteralValue', concat('&quot;',..,'&quot;'),
+          'prov:wasAttributedTo', '',
+          'rdf:type', '&prov;Agent',
+          'rdf:type', '&foaf;Organization',
+          'rdfs:label', f:getLabelForId(.))"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -2480,11 +2476,12 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <xsl:param name="e" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="(
-                $e,'frbr:embodiment','',
-                    'rdf:type','&fabio;DigitalManifestation',
-                    'dcterms:format',concat('&mediatypes;',.,if (../@mime-subtype) then concat('/',../@mime-subtype) else ''))"
-      />
+        select="($e,
+          'frbr:embodiment', '',
+          'rdf:type', '&fabio;DigitalManifestation',
+          'dcterms:format',
+            concat('&mediatypes;', .,
+                   if (../@mime-subtype) then concat('/',../@mime-subtype) else ''))"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -2502,12 +2499,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="(
-                $s,'rdf:type','&foaf;Group',
-                'pro:holdsRoleInTime','',
-                'pro:withRole','&pro;translator',
-                'pro:relatesToDocument',$e)"
-      />
+        select="($s,
+          'rdf:type', '&foaf;Group',
+          'pro:holdsRoleInTime', '',
+          'pro:withRole', '&pro;translator',
+          'pro:relatesToDocument', $e)"/>
     </xsl:call-template>
 
     <xsl:if test="empty(../name)">
@@ -2525,12 +2521,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="(
-                $s,'rdf:type','&foaf;Group',
-                'pro:holdsRoleInTime','',
-                'pro:withRole','&pro;author',
-                'pro:relatesToDocument',$e)"
-      />
+        select="($s,
+          'rdf:type','&foaf;Group',
+          'pro:holdsRoleInTime','',
+          'pro:withRole','&pro;author',
+          'pro:relatesToDocument',$e)"/>
     </xsl:call-template>
 
     <xsl:if test="empty(../name)">
@@ -2796,15 +2791,14 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <xsl:param name="s" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="(
-                $s,'datacite:hasIdentifier','',
-                    'rdf:type','&datacite;Identifier',
-                    'datacite:usesIdentifierScheme','&datacite;local-resource-identifier-scheme',
-                    'literal:hasLiteralValue',concat('&quot;',..,'&quot;'),
-                    'prov:wasAttributedTo','',
-                        'rdf:type','&prov;Agent',
-                        'rdfs:label',concat('&quot;','An archive','&quot;'))"
-      />
+        select="($s,
+          'datacite:hasIdentifier', '',
+          'rdf:type', '&datacite;Identifier',
+          'datacite:usesIdentifierScheme', '&datacite;local-resource-identifier-scheme',
+          'literal:hasLiteralValue', concat('&quot;',..,'&quot;'),
+          'prov:wasAttributedTo', '',
+          'rdf:type', '&prov;Agent',
+          'rdfs:label', concat('&quot;', 'An archive', '&quot;'))"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -2833,15 +2827,14 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <xsl:param name="s" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="(
-                $s,'datacite:hasIdentifier','',
-                    'rdf:type','&datacite;Identifier',
-                    'datacite:usesIdentifierScheme','&datacite;local-resource-identifier-scheme',
-                    'literal:hasLiteralValue',concat('&quot;',..,'&quot;'),
-                    'prov:wasAttributedTo','',
-                        'rdf:type','&prov;Agent',
-                        'rdfs:label',concat('&quot;','DOAJ','&quot;'))"
-      />
+        select="($s,
+          'datacite:hasIdentifier','',
+          'rdf:type','&datacite;Identifier',
+          'datacite:usesIdentifierScheme','&datacite;local-resource-identifier-scheme',
+          'literal:hasLiteralValue',concat('&quot;',..,'&quot;'),
+          'prov:wasAttributedTo','',
+          'rdf:type','&prov;Agent',
+          'rdfs:label',concat('&quot;','DOAJ','&quot;'))"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -2857,12 +2850,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <xsl:param name="s" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="(
-                $s,'datacite:hasIdentifier','',
-                    'rdf:type','&datacite;Identifier',
-                    'datacite:usesIdentifierScheme','&datacite;local-resource-identifier-scheme',
-                    'literal:hasLiteralValue',concat('&quot;',..,'&quot;'))"
-      />
+        select="($s,
+          'datacite:hasIdentifier','',
+          'rdf:type','&datacite;Identifier',
+          'datacite:usesIdentifierScheme','&datacite;local-resource-identifier-scheme',
+          'literal:hasLiteralValue',concat('&quot;',..,'&quot;'))"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -2905,16 +2897,15 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <xsl:param name="s" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="(
-                $s,'datacite:hasIdentifier','',
-                    'rdf:type','&datacite;Identifier',
-                    'datacite:usesIdentifierScheme','&datacite;local-resource-identifier-scheme',
-                    'literal:hasLiteralValue',concat('&quot;',..,'&quot;'),
-                    'prov:wasAttributedTo','',
-                        'rdf:type','&prov;Agent',
-                        'rdf:type','&foaf;Organization',
-                        'rdfs:label',concat('&quot;','A publisher','&quot;'))"
-      />
+        select="($s,
+          'datacite:hasIdentifier','',
+          'rdf:type','&datacite;Identifier',
+          'datacite:usesIdentifierScheme','&datacite;local-resource-identifier-scheme',
+          'literal:hasLiteralValue',concat('&quot;',..,'&quot;'),
+          'prov:wasAttributedTo','',
+          'rdf:type','&prov;Agent',
+          'rdf:type','&foaf;Organization',
+          'rdfs:label',concat('&quot;','A publisher','&quot;'))"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -3084,14 +3075,13 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="(
-                $w,'frbr:realization','',
-                    'rdf:type','&fabio;Expression',
-                    'frbr:revision','',
-                        'rdf:type','&fabio;Expression',
-                        'frbr:embodiment','',
-                            'rdf:type','&fabio;DigitalManifestation')"
-      />
+        select="($w,
+          'frbr:realization','',
+          'rdf:type','&fabio;Expression',
+          'frbr:revision','',
+          'rdf:type','&fabio;Expression',
+          'frbr:embodiment','',
+          'rdf:type','&fabio;DigitalManifestation')"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -3106,14 +3096,13 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="(
-                $w,'frbr:realization','',
-                'rdf:type','&fabio;Expression',
-                'frbr:revision','',
-                'rdf:type','&fabio;Expression',
-                'frbr:embodiment','',
-                'rdf:type','&fabio;PrintObject')"
-      />
+        select="($w,
+          'frbr:realization','',
+          'rdf:type','&fabio;Expression',
+          'frbr:revision','',
+          'rdf:type','&fabio;Expression',
+          'frbr:embodiment','',
+          'rdf:type','&fabio;PrintObject')"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -3234,13 +3223,21 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <!-- Create the predicate -->
     <!--
-          There were some problems here, so I [cfm] added this choose.
-        -->
-
+      There were some problems here, so I [cfm] added this choose.
+    -->
     <xsl:variable name="prefix" select='substring-before($predicate, ":")'/>
     <xsl:choose>
       <xsl:when test="not($prefix = $prefixes)">
         <xsl:message> Warning: unrecognized prefix '<xsl:value-of select="$prefix"/>' </xsl:message>
+        <!--
+          <warning>
+            <prefix><xsl:value-of select='$prefix'/></prefix>
+            <subject><xsl:copy-of select='$subject'/></subject>
+            <predicate><xsl:copy-of select='$predicate'/></predicate>
+            <object><xsl:copy-of select='$object'/></object>
+            <triples><xsl:value-of select='string-join($triples, ", ")'/></triples>
+          </warning>
+        -->
       </xsl:when>
 
       <xsl:otherwise>
