@@ -91,11 +91,19 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <xsl:param name="default" select="'http://www.essepuntato.it/resource/'" />
   
     <!--
-      The full URI of the Semantic Web resource that this JATS document is a representation of.
-      This will be the URI used for the primary resource to which the RDF triples in the
-      generated document will apply.
+      The full URI of the Semantic Web resource that this JATS document is a representation of,
+      if known.  This should be the URI of the FRBR expression, which corresponds to, for example,
+      a specific article version.
+      The default is to use a 'blank node', and this option is signalled by using the "_:" prefix
+      followed by a text string.  This is translated into the @rdf:nodeID attribute (instead of
+      @rdf:about) on <rdf:Description> elements.
     -->
-    <xsl:param name='this' select='"textual-entity"'/>
+    <xsl:param name='this-expression' select='"_:this-expression"'/>
+  
+    <!--
+      Similarly, this is the URI of the FRBR work, if known.
+    -->
+    <xsl:param name='this-work' select='"_:this-work"'/>
 
     <xsl:variable name='prefixes'
         select='tokenize("biro cito co datacite dc dcterms deo dqm fabio foaf frapo frbr literal 
@@ -105,14 +113,14 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <xsl:template match="/">
         <rdf:RDF xml:base="{$default}">
             <xsl:call-template name="goahead">
-                <xsl:with-param name="w" select="'conceptual-work'" tunnel="yes" />
-                <xsl:with-param name="e" select="$this" tunnel="yes" />
+                <xsl:with-param name="w" select="$this-work" tunnel="yes" />
+                <xsl:with-param name="e" select="$this-expression" tunnel="yes" />
                 <xsl:with-param name="m" select="'digital-embodiment'" tunnel="yes" />
                 <xsl:with-param name="i" select="'digital-item'" tunnel="yes" />
                 <xsl:with-param name="issue" select="'periodical-issue'" tunnel="yes" />
                 <xsl:with-param name="collection" select="'conceptual-papers-collection'" tunnel="yes" />
-                <xsl:with-param name="volume" select="'periodical-volume'" tunnel="yes" />
-                <xsl:with-param name="journal" select="'journal'" tunnel="yes" />
+                <xsl:with-param name="volume" select="'_:volume'" tunnel="yes" />
+                <xsl:with-param name="journal" select="'_:journal'" tunnel="yes" />
                 <xsl:with-param name="s" select="''" tunnel="yes" />
                 <xsl:with-param name="p" select="''" tunnel="yes" />
                 <xsl:with-param name="o" select="''" tunnel="yes" />
@@ -279,7 +287,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="m" tunnel="yes" />
         <xsl:param name="i" tunnel="yes" />
         <xsl:call-template name="assert">
-            <xsl:with-param name="triples" select="($e,'rdf:type','&fabio;Expression','frbr:realizationOf',$w,'frbr:embodiment',$m,'fabio:hasRepresentation',$i)" />
+            <xsl:with-param name="triples" select="($e, 
+              'rdf:type', '&fabio;Expression', 
+              'frbr:realizationOf', $w,
+              'frbr:embodiment', $m,
+              'fabio:hasRepresentation', $i)" />
         </xsl:call-template>
         <xsl:call-template name="goahead">
             <xsl:with-param name="s" select="$e" tunnel="yes"/>
@@ -305,8 +317,8 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:template match="award-id">
         <xsl:param name="s" tunnel="yes" />
-        <xsl:variable name="agent" select="concat('funding-agent-',$s)" />
-        <xsl:variable name="award" select="concat('award-',$s)" />
+        <xsl:variable name="agent" select="f:getBlankChildLabel($s, 'funding-agent')" />
+        <xsl:variable name="award" select="f:getBlankChildLabel($s, 'award')" />
 
         <xsl:call-template name="single">
             <xsl:with-param name="s" select="$agent" tunnel="yes" />
@@ -321,7 +333,8 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:template match="award-group">
         <xsl:param name="e" tunnel="yes" />
-        <xsl:variable name="investigation" select="concat('investigation-',count(preceding-sibling::award-group)+1,'-',$e)" />
+        <xsl:variable name="investigation" 
+          select="concat('_:investigation-',count(preceding-sibling::award-group)+1)" />
         <xsl:call-template name="single">
             <xsl:with-param name="p" select="'frapo:isOutputOf'" tunnel="yes" />
             <xsl:with-param name="o" select="$investigation" tunnel="yes" />
@@ -472,7 +485,8 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:template match="contrib">
         <xsl:param name="w" tunnel="yes" />
-        <xsl:variable name="agent" select="concat('agent-',count(preceding-sibling::contrib)+1,'-',$w)" />
+        <xsl:variable name="agent" 
+          select="f:getBlankChildLabel($w, concat('agent-', count(preceding-sibling::contrib) + 1))" />
         <xsl:call-template name="single">
             <xsl:with-param name="s" select="$w" tunnel="yes" />
             <xsl:with-param name="p" select="'dcterms:contributor'" tunnel="yes" />
@@ -664,7 +678,8 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:template match="funding-source">
         <xsl:param name="s" tunnel="yes" />
-        <xsl:variable name="agent" select="concat('funding-agent-',$s)" />
+        <xsl:variable name="agent" select="f:getBlankChildLabel($s, 'funding-agent')" />
+        <!--<xsl:variable name="agent" select="concat('funding-agent-',$s)" />-->
         <xsl:call-template name="assert">
             <xsl:with-param name="triples" select="($agent,'rdf:type','&foaf;Agent','foaf:name',concat('&quot;',.,'&quot;'),'frapo:funds',$s)" />
         </xsl:call-template>
@@ -718,7 +733,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="issue" tunnel="yes" />
         <xsl:param name="volume" tunnel="yes" />
         <xsl:variable name="issue" select="concat($issue,'-',$e)" />
-        <xsl:variable name="volume" select="concat($volume,'-',$e)" />
+        <!--<xsl:variable name="volume" select="concat($volume,'-',$e)" /> -->
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples" select="(
@@ -844,7 +859,6 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="issue" tunnel="yes" />
         <xsl:param name="volume" tunnel="yes" />
         <xsl:param name="journal" tunnel="yes" />
-        <xsl:variable name="journal" select="concat($journal,'-',$e)" />
 
         <xsl:call-template name="single">
             <xsl:with-param name="p" select="'frbr:partOf'" tunnel="yes"/>
@@ -852,7 +866,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         </xsl:call-template>
 
         <xsl:if test="//article-meta/volume">
-            <xsl:variable name="volume" select="concat($volume,'-',$e)" />
+            <!--<xsl:variable name="volume" select="concat($volume,'-',$e)" />-->
         </xsl:if>
 
         <xsl:if test="//article-meta/issue">
@@ -1524,7 +1538,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="issue" tunnel="yes" />
         <xsl:param name="volume" tunnel="yes" />
         <xsl:variable name="issue" select="concat($issue,'-',$e)" />
-        <xsl:variable name="volume" select="concat($volume,'-',$e)" />
+        <!--<xsl:variable name="volume" select="concat($volume,'-',$e)" />-->
 
         <xsl:call-template name="single">
             <xsl:with-param name="s" select="if (../issue) then $issue else $e" tunnel="yes" />
@@ -2997,13 +3011,16 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <!-- END - Mapping attributes -->
 
     <!-- BEGIN - Named templates -->
-    <!-- It takes as input a sequence of strings like (s,p1,o1,p2,o2,...) where s is the subjects of the statements while p_i and o_i represents respectively the predicates and the objects of each statement. It is possible to activate a reification strategy using the o_i as empty strings. -->
+    <!-- It takes as input a sequence of strings like (s,p1,o1,p2,o2,...) where s is the subjects 
+      of the statements while p_i and o_i represents respectively the predicates and the objects 
+      of each statement. It is possible to activate a reification strategy using the o_i as empty 
+      strings. -->
     <xsl:template name="assert">
         <xsl:param name="triples" as="xs:string*" />
         <xsl:param name="prev-subject" as="xs:string*" />
         <xsl:param name="reification" select="false()" as="xs:boolean" />
 
-        <!-- Go ahead only if the have three resources to make the statement -->
+        <!-- Go ahead only if we have at least three resources to make the statement -->
         <xsl:if test="count($triples) >= 3">
             <xsl:variable name="subject" select="$triples[1]" as="xs:string" />
             <xsl:choose>
@@ -3016,12 +3033,21 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                 <!-- Create a new description for the subject -->
                 <xsl:otherwise>
                     <rdf:Description>
-                        <!-- Add @rdf:about if the subject is not a blank node (i.e. an empty string) -->
-                        <xsl:if test="$subject">
-                            <xsl:attribute name="rdf:about">
-                                <xsl:value-of select="$subject" />
+                        <!--
+                          Add either @rdf:about (normally), @rdf:nodeID (if this is a named blank node), or
+                          nothing (if the subject is a blank node with no name) -->
+                        <xsl:choose>
+                          <xsl:when test="starts-with($subject, '_:')">
+                            <xsl:attribute name="rdf:nodeID">
+                              <xsl:value-of select="substring($subject, 3)" />
                             </xsl:attribute>
-                        </xsl:if>
+                          </xsl:when>
+                          <xsl:when test="$subject">
+                            <xsl:attribute name="rdf:about">
+                              <xsl:value-of select="$subject" />
+                            </xsl:attribute>
+                          </xsl:when>
+                        </xsl:choose>
                         <xsl:call-template name="create-structure">
                             <xsl:with-param name="triples" select="$triples" />
                         </xsl:call-template>
@@ -3069,12 +3095,21 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                             </xsl:if>
                             <xsl:value-of select="$value" />
                         </xsl:when>
+
+                        <!-- Create the object as a named blank node, with @rdf:nodeID -->
+                        <xsl:when test="starts-with($object, '_:')">
+                          <xsl:attribute name="rdf:nodeID">
+                            <xsl:value-of select="substring($object, 3)" />
+                          </xsl:attribute>
+                        </xsl:when>
+                        
                         <!-- Create the object as a resource -->
                         <xsl:when test="$object">
                             <xsl:attribute name="rdf:resource">
                                 <xsl:value-of select="$object" />
                             </xsl:attribute>
                         </xsl:when>
+                      
                         <!-- Create a reification (i.e. the object is an empty string) -->
                         <xsl:otherwise>
                             <xsl:call-template name="assert">
@@ -3318,5 +3353,17 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         </xsl:variable>
         <xsl:value-of select="concat('&quot;',$result,'&quot;')" />
     </xsl:function>
+  
+  <!-- 
+    This function generates a new label for a blank node child of a blank node.
+    So, for example, given "_:investigation-1" and "funding-agent", this will
+    produce "_:funding-agent-investigation-1".
+  -->
+  <xsl:function name="f:getBlankChildLabel" as="xs:string">
+    <xsl:param name="parent-label" as="xs:string" />
+    <xsl:param name='child-label' as="xs:string"/>
+    <xsl:value-of select='concat("_:", $child-label, "-", substring($parent-label, 3))'/>      
+  </xsl:function>
+
     <!-- END: functions -->
 </xsl:stylesheet>

@@ -32,7 +32,6 @@
 @prefix datacite: <http://purl.org/spar/datacite/>.
 @prefix lmm: <http://ontologydesignpatterns.org/ont/lmm/LMM_L2.owl>.
 
-
 :agent-1-conceptual-work pro:holdsRoleInTime _:bnode1138344704,
     _:bnode1828768896;
   a foaf:Agent,
