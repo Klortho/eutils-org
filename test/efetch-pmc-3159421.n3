@@ -1,0 +1,102 @@
+@prefix tvc: <http://www.essepuntato.it/2012/04/tvc/>.
+@prefix biro: <http://purl.org/spar/biro/>.
+@prefix prism: <http://prismstandard.org/namespaces/basic/2.0/>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix literal: <http://www.essepuntato.it/2010/06/literalreification/>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix co: <http://purl.org/co/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix deo: <http://purl.org/spar/deo/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix swanrel: <http://purl.org/swan/2.0/discourse-relationships/>.
+@prefix swrc: <http://swrc.ontoware.org/ontology#>.
+@prefix scoro: <http://purl.org/spar/scoro/>.
+@prefix frbr: <http://purl.org/vocab/frbr/core#>.
+@prefix pso: <http://purl.org/spar/pso/>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix cito: <http://purl.org/spar/cito/>.
+@prefix mediatypes: <http://purl.org/NET/mediatypes/>.
+@prefix dqm: <http://purl.org/dqm-vocabulary/v1/dqm#>.
+@prefix frapo: <http://purl.org/cerif/frapo/>.
+@prefix pro: <http://purl.org/spar/pro/>.
+@prefix pwo: <http://purl.org/spar/pwo/>.
+@prefix swc: <http://data.semanticweb.org/ns/swc/ontology#>.
+@prefix fabio: <http://purl.org/spar/fabio/>.
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#>.
+@prefix trait: <http://contextus.net/ontology/ontomedia/ext/common/trait#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix datacite: <http://purl.org/spar/datacite/>.
+@prefix lmm: <http://ontologydesignpatterns.org/ont/lmm/LMM_L2.owl>.
+<http://www.essepuntato.it/resource/agent-1-conceptual-work> pro:holdsRoleInTime _:bnode1138344704,
+    _:bnode1828768896;
+  a foaf:Agent,
+    foaf:Person;
+  foaf:familyName "Maloney";
+  foaf:givenName "Chris".
+<http://www.essepuntato.it/resource/award-investigation-1-textual-entity> frapo:funds <http://www.essepuntato.it/resource/investigation-1-textual-entity>;
+  frapo:hasGrantNumber "NIH0014214169 || PHS";
+  a frapo:Grant.
+<http://www.essepuntato.it/resource/conceptual-work> dcterms:contributor <http://www.essepuntato.it/resource/agent-1-conceptual-work>;
+  dcterms:creator <http://www.essepuntato.it/resource/agent-1-conceptual-work>;
+  a fabio:RapidCommunication.
+<http://www.essepuntato.it/resource/digital-embodiment-d1e91> prism:publicationDate "2011"^^xsd:gYear;
+  a fabio:PrintObject.
+<http://www.essepuntato.it/resource/funding-agent-investigation-1-textual-entity> frapo:awards <http://www.essepuntato.it/resource/award-investigation-1-textual-entity>;
+  frapo:country "United States";
+  frapo:funds <http://www.essepuntato.it/resource/investigation-1-textual-entity>;
+  a foaf:Agent;
+  foaf:name "NIH Intramural Employee : PHS".
+<http://www.essepuntato.it/resource/investigation-1-textual-entity> a frapo:Investigation.
+<http://www.essepuntato.it/resource/journal-textual-entity> prism:issn "1947-2609";
+  datacite:hasIdentifier _:bnode915446208,
+    _:bnode770239424,
+    _:bnode1304640832;
+  frbr:realizationOf _:bnode1449847616;
+  a fabio:Journal.
+<http://www.essepuntato.it/resource/periodical-volume-textual-entity> prism:volume "7";
+  frbr:partOf _:bnode1200451776;
+  a fabio:PeriodicalVolume.
+<http://www.essepuntato.it/resource/textual-entity> prism:doi "10.4242/BalisageVol7.Maloney01";
+  frapo:isOutputOf <http://www.essepuntato.it/resource/investigation-1-textual-entity>;
+  dcterms:language _:bnode1076334336;
+  dcterms:title "JATSPack and JATSPAN, a packaging format and infrastructure for the NLM/NISO Journal Archiving Tag Suite (JATS)";
+  datacite:hasIdentifier _:bnode2036082752;
+  fabio:hasPubMedId "21866248";
+  fabio:hasRepresentation <http://www.essepuntato.it/resource/digital-item>;
+  fabio:hasSubjectTerm <http://www.essepuntato.it/resource/textual-entity-term1>;
+  frbr:embodiment <http://www.essepuntato.it/resource/digital-embodiment>,
+    _:bnode874428480;
+  frbr:partOf <http://www.essepuntato.it/resource/journal-textual-entity>,
+    <http://www.essepuntato.it/resource/periodical-volume-textual-entity>;
+  frbr:realizationOf <http://www.essepuntato.it/resource/conceptual-work>;
+  a fabio:Article,
+    fabio:Expression.
+<http://www.essepuntato.it/resource/textual-entity-term1> a fabio:SubjectTerm;
+  rdfs:label "Article".
+_:bnode1076334336 dcterms:description "en"^^dcterms:RFC5646;
+  a dcterms:LinguisticSystem.
+_:bnode1138344704 pro:relatesToDocument <http://www.essepuntato.it/resource/conceptual-work>;
+  pro:withRole pro:author.
+_:bnode1200451776 a fabio:Periodical.
+_:bnode1304640832 a <literal:hasLiteralValue>.
+_:bnode1449847616 a fabio:WorkCollection.
+_:bnode1828768896 pro:relatesToDocument <http://www.essepuntato.it/resource/conceptual-work>;
+  pro:withRole _:bnode391318144.
+_:bnode2036082752 datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme;
+  literal:hasLiteralValue "NIHMS311352";
+  a datacite:Identifier.
+_:bnode391318144 a pro:Role;
+  rdfs:label "NCBI / NLM / NIH (Contractor)".
+_:bnode640713984 a prov:Agent,
+    foaf:Organization;
+  rdfs:label "PubMed".
+_:bnode770239424 a <literal:hasLiteralValue>.
+_:bnode874428480 fabio:hasDigitalArticleIdentifier "BalisageVol7.Maloney01";
+  a fabio:Manifestation.
+_:bnode915446208 datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme;
+  literal:hasLiteralValue "Balisage Ser Markup Technol";
+  a datacite:Identifier;
+  prov:wasAttributedTo _:bnode640713984.
