@@ -116,8 +116,6 @@
       <xsl:call-template name="goahead">
         <xsl:with-param name="w" select="$this-work" tunnel="yes"/>
         <xsl:with-param name="e" select="$this-expression" tunnel="yes"/>
-        <xsl:with-param name="m" select="'digital-embodiment'" tunnel="yes"/>
-        <xsl:with-param name="i" select="'digital-item'" tunnel="yes"/>
         <xsl:with-param name="issue" select="'periodical-issue'" tunnel="yes"/>
         <xsl:with-param name="collection" select="'conceptual-papers-collection'" tunnel="yes"/>
         <xsl:with-param name="volume" select="'_:volume'" tunnel="yes"/>
@@ -296,9 +294,7 @@
       <xsl:with-param name="triples"
         select="($e, 
           'rdf:type', '&fabio;Expression', 
-          'frbr:realizationOf', $w,
-          'frbr:embodiment', $m,
-          'fabio:hasRepresentation', $i)"/>
+          'frbr:realizationOf', $w)"/>
     </xsl:call-template>
     <xsl:call-template name="goahead">
       <xsl:with-param name="s" select="$e" tunnel="yes"/>
@@ -1003,8 +999,7 @@
 
   <xsl:template match="page-range|fpage|lpage">
     <xsl:param name="e" tunnel="yes"/>
-    <xsl:param name="m" tunnel="yes"/>
-    <xsl:variable name="me" select="concat($m,'-',generate-id(..))"/>
+    <xsl:variable name="me" select="'_:manifestation'"/>
     <xsl:if
       test="not(following-sibling::page-range|following-sibling::fpage|following-sibling::lpage)">
       <xsl:call-template name="single">
@@ -1484,7 +1479,11 @@
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="($se,'rdf:type','&fabio;Expression','frbr:realizationOf',$sw,'frbr:embodiment',$m,'fabio:hasRepresentation',$i,'frbr:partOf',$e)"
+        select="($se,
+          'rdf:type', '&fabio;Expression',
+          'frbr:realizationOf',$sw,
+          'fabio:hasRepresentation',$i,
+          'frbr:partOf',$e)"
       />
     </xsl:call-template>
     <xsl:call-template name="single">
