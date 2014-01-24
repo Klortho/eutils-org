@@ -89,7 +89,6 @@
                 version="2.0">
 
   <xsl:output encoding="UTF-8" indent="yes"/>
-  <xsl:param name="default" select="'http://www.essepuntato.it/resource/'"/>
 
   <!--
     The full URI of the Semantic Web resource that this JATS document is a representation of,
@@ -112,10 +111,11 @@
                       swc swrc trait tvc vcard xsd", "\s+")'/>
 
   <xsl:template match="/">
-    <rdf:RDF xml:base="{$default}">
+    <rdf:RDF>
       <xsl:call-template name="goahead">
         <xsl:with-param name="w" select="$this-work" tunnel="yes"/>
         <xsl:with-param name="e" select="$this-expression" tunnel="yes"/>
+        <xsl:with-param name="m" select='"_:manifestation"' tunnel="yes"/>
         <xsl:with-param name="issue" select="'periodical-issue'" tunnel="yes"/>
         <xsl:with-param name="collection" select="'conceptual-papers-collection'" tunnel="yes"/>
         <xsl:with-param name="volume" select="'_:volume'" tunnel="yes"/>
@@ -999,7 +999,8 @@
 
   <xsl:template match="page-range|fpage|lpage">
     <xsl:param name="e" tunnel="yes"/>
-    <xsl:variable name="me" select="'_:manifestation'"/>
+    <xsl:param name="m" tunnel="yes"/>
+    <xsl:variable name="me" select="f:getBlankChildLabel($m, 'page-range')"/>
     <xsl:if
       test="not(following-sibling::page-range|following-sibling::fpage|following-sibling::lpage)">
       <xsl:call-template name="single">
@@ -2321,7 +2322,7 @@
   <xsl:template match="@date-type[. = 'pub']">
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
-    <xsl:variable name="me" select="concat($m,'-',generate-id(..))"/>
+    <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="single">
       <xsl:with-param name="s" select="$e" tunnel="yes"/>
@@ -2576,7 +2577,7 @@
   <xsl:template match="@publication-format">
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
-    <xsl:variable name="me" select="concat($m,'-',generate-id(..))"/>
+    <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="set-manifestation-date">
       <xsl:with-param name="s" select="$e" tunnel="yes"/>
@@ -2598,7 +2599,7 @@
   <xsl:template match="@publication-format[. = 'print']">
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
-    <xsl:variable name="me" select="concat($m,'-',generate-id(..))"/>
+    <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="set-manifestation-date">
       <xsl:with-param name="s" select="$e" tunnel="yes"/>
@@ -2611,7 +2612,7 @@
   <xsl:template match="@publication-format[. = 'electronic']">
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
-    <xsl:variable name="me" select="concat($m,'-',generate-id(..))"/>
+    <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="set-manifestation-date">
       <xsl:with-param name="s" select="$e" tunnel="yes"/>
@@ -2624,7 +2625,7 @@
   <xsl:template match="@publication-format[. = 'book']">
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
-    <xsl:variable name="me" select="concat($m,'-',generate-id(..))"/>
+    <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="single">
       <xsl:with-param name="s" select="$e" tunnel="yes"/>
@@ -2643,7 +2644,7 @@
   <xsl:template match="@publication-format[. = 'video']">
     <xsl:param name="w" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
-    <xsl:variable name="me" select="concat($m,'-',generate-id(..))"/>
+    <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="single">
       <xsl:with-param name="s" select="$w" tunnel="yes"/>
@@ -2662,7 +2663,7 @@
   <xsl:template match="@publication-format[. = 'audio']">
     <xsl:param name="w" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
-    <xsl:variable name="me" select="concat($m,'-',generate-id(..))"/>
+    <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="single">
       <xsl:with-param name="s" select="$w" tunnel="yes"/>
@@ -2681,7 +2682,7 @@
   <xsl:template match="@publication-format[. = 'online']">
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
-    <xsl:variable name="me" select="concat($m,'-',generate-id(..))"/>
+    <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="set-manifestation-date">
       <xsl:with-param name="s" select="$e" tunnel="yes"/>
@@ -2703,7 +2704,7 @@
   <xsl:template match="@publication-format[. = 'web']">
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
-    <xsl:variable name="me" select="concat($m,'-',generate-id(..))"/>
+    <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="set-manifestation-date">
       <xsl:with-param name="s" select="$e" tunnel="yes"/>
@@ -2943,7 +2944,7 @@
   <xsl:template match="@pub-type[. = 'epub']">
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
-    <xsl:variable name="me" select="concat($m,'-',generate-id(..))"/>
+    <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="set-manifestation">
       <xsl:with-param name="s" select="$e" tunnel="yes"/>
@@ -2962,7 +2963,7 @@
   <xsl:template match="@pub-type[. = 'ppub']">
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
-    <xsl:variable name="me" select="concat($m,'-',generate-id(..))"/>
+    <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="set-manifestation">
       <xsl:with-param name="s" select="$e" tunnel="yes"/>
@@ -3015,8 +3016,8 @@
     <xsl:param name="w" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
-    <xsl:variable name="ee" select="concat($e,'-',generate-id(..))"/>
-    <xsl:variable name="me" select="concat($m,'-',generate-id(..))"/>
+    <xsl:variable name="ee" select="f:getBlankChildLabel($e, generate-id(..))"/>
+    <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="single">
       <xsl:with-param name="s" select="$w" tunnel="yes"/>
@@ -3048,8 +3049,8 @@
     <xsl:param name="w" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
-    <xsl:variable name="ee" select="concat($e,'-',generate-id(..))"/>
-    <xsl:variable name="me" select="concat($m,'-',generate-id(..))"/>
+    <xsl:variable name="ee" select="f:getBlankChildLabel($e, generate-id(..))"/>
+    <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="single">
       <xsl:with-param name="s" select="$w" tunnel="yes"/>
@@ -3122,7 +3123,7 @@
   <xsl:template match="@pub-type[. = 'eretracted']">
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
-    <xsl:variable name="me" select="concat($m,'-',generate-id(..))"/>
+    <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="set-manifestation">
       <xsl:with-param name="s" select="$e" tunnel="yes"/>
@@ -3141,7 +3142,7 @@
   <xsl:template match="@pub-type[. = 'pretracted']">
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
-    <xsl:variable name="me" select="concat($m,'-',generate-id(..))"/>
+    <xsl:variable name="me" select="f:getBlankChildLabel($e, generate-id(..))"/>
 
     <xsl:call-template name="set-manifestation">
       <xsl:with-param name="s" select="$e" tunnel="yes"/>
@@ -3469,7 +3470,7 @@
     <xsl:param name="o" as="xs:string" tunnel="yes"/>
 
     <xsl:call-template name="assert">
-      <xsl:with-param name="triples" select="($s,$p,$o)"/>
+      <xsl:with-param name="triples" select="($s, $p, $o)"/>
     </xsl:call-template>
   </xsl:template>
   <!-- END - Named templates -->
@@ -3547,7 +3548,8 @@
 
   <!-- 
     This function generates a new label for a blank node child of a blank node.
-    So, for example, given "_:investigation-1" and "funding-agent", this will
+    So, for example, given "_:investigation-1" (the parent) and "funding-agent"
+    (a label for the child), this will
     produce "_:funding-agent-investigation-1".
   -->
   <xsl:function name="f:getBlankChildLabel" as="xs:string">

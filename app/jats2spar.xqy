@@ -19,7 +19,7 @@ try {
   return
     if ($response/xh:code = 200) then
         let $params := map:map()
-        let $_put := map:put($params, "this-expression", concat("http://rdf.ncbi.nlm.nih.gov/pmc/PMC", $id))
+        let $_put := map:put($params, "this-work", concat("http://rdf.ncbi.nlm.nih.gov/pmc/PMC", $id))
       (:
         let $_put := map:put($params, "db", $db)
       :)
