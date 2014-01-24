@@ -1,227 +1,193 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rdf:RDF xmlns:biro="http://purl.org/spar/biro/"
-         xmlns:cito="http://purl.org/spar/cito/"
-         xmlns:co="http://purl.org/co/"
-         xmlns:datacite="http://purl.org/spar/datacite/"
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
-         xmlns:dcterms="http://purl.org/dc/terms/"
-         xmlns:deo="http://purl.org/spar/deo/"
-         xmlns:dqm="http://purl.org/dqm-vocabulary/v1/dqm#"
-         xmlns:fabio="http://purl.org/spar/fabio/"
-         xmlns:foaf="http://xmlns.com/foaf/0.1/"
-         xmlns:frapo="http://purl.org/cerif/frapo/"
-         xmlns:frbr="http://purl.org/vocab/frbr/core#"
-         xmlns:literal="http://www.essepuntato.it/2010/06/literalreification/"
-         xmlns:lmm="http://ontologydesignpatterns.org/ont/lmm/LMM_L2.owl"
-         xmlns:mediatypes="http://purl.org/NET/mediatypes/"
-         xmlns:owl="http://www.w3.org/2002/07/owl#"
-         xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/"
-         xmlns:pro="http://purl.org/spar/pro/"
-         xmlns:prov="http://www.w3.org/ns/prov#"
-         xmlns:pso="http://purl.org/spar/pso/"
-         xmlns:pwo="http://purl.org/spar/pwo/"
-         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-         xmlns:scoro="http://purl.org/spar/scoro/"
-         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-         xmlns:swanrel="http://purl.org/swan/2.0/discourse-relationships/"
-         xmlns:swc="http://data.semanticweb.org/ns/swc/ontology#"
-         xmlns:swrc="http://swrc.ontoware.org/ontology#"
-         xmlns:trait="http://contextus.net/ontology/ontomedia/ext/common/trait#"
-         xmlns:tvc="http://www.essepuntato.it/2012/04/tvc/"
-         xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
-         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-         xml:base="http://www.essepuntato.it/resource/">
-   <rdf:Description rdf:nodeID="this-expression">
-      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
-      <frbr:realizationOf rdf:nodeID="this-work"/>
-      <frbr:embodiment rdf:resource="digital-embodiment"/>
-      <fabio:hasRepresentation rdf:resource="digital-item"/>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <rdf:type rdf:resource="http://purl.org/spar/fabio/Article"/>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <rdf:type rdf:resource="http://purl.org/spar/fabio/RapidCommunication"/>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <dcterms:language>
-         <rdf:Description>
-            <rdf:type rdf:resource="http://purl.org/dc/terms/LinguisticSystem"/>
-            <dcterms:description rdf:datatype="http://purl.org/dc/terms/RFC5646">en</dcterms:description>
-         </rdf:Description>
-      </dcterms:language>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <frbr:partOf rdf:nodeID="journal"/>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="journal">
-      <rdf:type rdf:resource="http://purl.org/spar/fabio/Journal"/>
-      <frbr:realizationOf>
-         <rdf:Description>
-            <rdf:type rdf:resource="http://purl.org/spar/fabio/WorkCollection"/>
-         </rdf:Description>
-      </frbr:realizationOf>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="journal">
-      <datacite:hasIdentifier>
-         <rdf:Description>
-            <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
-            <literal:hasLiteralValue>101566482</literal:hasLiteralValue>
-            <datacite:usesIdentifierScheme>
-               <rdf:Description>
-                  <rdf:type rdf:resource="http://purl.org/spar/datacite/IdentifierScheme"/>
-                  <rdfs:label>nlm-journal-id</rdfs:label>
-               </rdf:Description>
-            </datacite:usesIdentifierScheme>
-         </rdf:Description>
-      </datacite:hasIdentifier>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="journal">
-      <datacite:hasIdentifier>
-         <rdf:Description>
-            <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
-            <literal:hasLiteralValue>39470</literal:hasLiteralValue>
-            <datacite:usesIdentifierScheme>
-               <rdf:Description>
-                  <rdf:type rdf:resource="http://purl.org/spar/datacite/IdentifierScheme"/>
-                  <rdfs:label>pubmed-jr-id</rdfs:label>
-               </rdf:Description>
-            </datacite:usesIdentifierScheme>
-         </rdf:Description>
-      </datacite:hasIdentifier>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="journal">
-      <datacite:hasIdentifier>
-         <rdf:Description>
-            <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
-            <datacite:usesIdentifierScheme rdf:resource="http://purl.org/spar/datacite/local-resource-identifier-scheme"/>
-            <literal:hasLiteralValue>Balisage Ser Markup Technol</literal:hasLiteralValue>
-            <prov:wasAttributedTo>
-               <rdf:Description>
-                  <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
-                  <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
-                  <rdfs:label>PubMed</rdfs:label>
-               </rdf:Description>
-            </prov:wasAttributedTo>
-         </rdf:Description>
-      </datacite:hasIdentifier>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="journal">
-      <prism:issn>1947-2609</prism:issn>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <fabio:hasPubMedId>21866248</fabio:hasPubMedId>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <prism:doi>10.4242/BalisageVol7.Maloney01</prism:doi>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <datacite:hasIdentifier>
-         <rdf:Description>
-            <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
-            <datacite:usesIdentifierScheme rdf:resource="http://purl.org/spar/datacite/local-resource-identifier-scheme"/>
-            <literal:hasLiteralValue>NIHMS311352</literal:hasLiteralValue>
-         </rdf:Description>
-      </datacite:hasIdentifier>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <fabio:hasSubjectTerm rdf:nodeID="this-expression-term1"/>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-term1">
-      <rdf:type rdf:resource="http://purl.org/spar/fabio/SubjectTerm"/>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-term1">
-      <rdfs:label>Article</rdfs:label>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <dcterms:title>JATSPack and JATSPAN, a packaging format and infrastructure for the NLM/NISO Journal Archiving Tag Suite (JATS)</dcterms:title>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <dcterms:contributor rdf:nodeID="agent-1-this-work"/>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-1-this-work">
-      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <dcterms:creator rdf:nodeID="agent-1-this-work"/>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-1-this-work">
-      <pro:holdsRoleInTime>
-         <rdf:Description>
-            <pro:relatesToDocument rdf:nodeID="this-work"/>
-            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
-         </rdf:Description>
-      </pro:holdsRoleInTime>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-1-this-work">
-      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-1-this-work">
-      <foaf:familyName>Maloney</foaf:familyName>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-1-this-work">
-      <foaf:givenName>Chris</foaf:givenName>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-1-this-work">
-      <pro:holdsRoleInTime>
-         <rdf:Description>
-            <pro:relatesToDocument rdf:nodeID="this-work"/>
-            <pro:withRole>
-               <rdf:Description>
-                  <rdf:type rdf:resource="http://purl.org/spar/pro/Role"/>
-                  <rdfs:label>NCBI / NLM / NIH (Contractor)</rdfs:label>
-               </rdf:Description>
-            </pro:withRole>
-         </rdf:Description>
-      </pro:holdsRoleInTime>
-   </rdf:Description>
-   <rdf:Description rdf:about="digital-embodiment-d1e91">
-      <rdf:type rdf:resource="http://purl.org/spar/fabio/PrintObject"/>
-   </rdf:Description>
-   <rdf:Description rdf:about="digital-embodiment-d1e91">
-      <prism:publicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">2011</prism:publicationDate>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <frbr:partOf rdf:nodeID="volume"/>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="volume">
-      <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalVolume"/>
-      <prism:volume>7</prism:volume>
-      <frbr:partOf>
-         <rdf:Description>
-            <rdf:type rdf:resource="http://purl.org/spar/fabio/Periodical"/>
-         </rdf:Description>
-      </frbr:partOf>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <frbr:embodiment>
-         <rdf:Description>
-            <rdf:type rdf:resource="http://purl.org/spar/fabio/Manifestation"/>
-            <fabio:hasDigitalArticleIdentifier>BalisageVol7.Maloney01</fabio:hasDigitalArticleIdentifier>
-         </rdf:Description>
-      </frbr:embodiment>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <frapo:isOutputOf rdf:nodeID="investigation-1"/>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="investigation-1">
-      <rdf:type rdf:resource="http://purl.org/cerif/frapo/Investigation"/>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="funding-agent-investigation-1">
-      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
-      <foaf:name>NIH Intramural Employee : PHS</foaf:name>
-      <frapo:funds rdf:nodeID="investigation-1"/>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="funding-agent-investigation-1">
-      <frapo:country>United States</frapo:country>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="funding-agent-investigation-1">
-      <frapo:awards rdf:nodeID="award-investigation-1"/>
-   </rdf:Description>
-   <rdf:Description rdf:nodeID="award-investigation-1">
-      <rdf:type rdf:resource="http://purl.org/cerif/frapo/Grant"/>
-      <frapo:hasGrantNumber>NIH0014214169 || PHS</frapo:hasGrantNumber>
-      <frapo:funds rdf:nodeID="investigation-1"/>
-   </rdf:Description>
+<rdf:RDF xml:base="http://www.essepuntato.it/resource/" xmlns:biro="http://purl.org/spar/biro/" xmlns:cito="http://purl.org/spar/cito/" xmlns:co="http://purl.org/co/" xmlns:datacite="http://purl.org/spar/datacite/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:deo="http://purl.org/spar/deo/" xmlns:dqm="http://purl.org/dqm-vocabulary/v1/dqm#" xmlns:fabio="http://purl.org/spar/fabio/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:frapo="http://purl.org/cerif/frapo/" xmlns:frbr="http://purl.org/vocab/frbr/core#" xmlns:literal="http://www.essepuntato.it/2010/06/literalreification/" xmlns:lmm="http://ontologydesignpatterns.org/ont/lmm/LMM_L2.owl" xmlns:mediatypes="http://purl.org/NET/mediatypes/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/" xmlns:pro="http://purl.org/spar/pro/" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:pso="http://purl.org/spar/pso/" xmlns:pwo="http://purl.org/spar/pwo/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:scoro="http://purl.org/spar/scoro/" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:swanrel="http://purl.org/swan/2.0/discourse-relationships/" xmlns:swc="http://data.semanticweb.org/ns/swc/ontology#" xmlns:swrc="http://swrc.ontoware.org/ontology#" xmlns:trait="http://contextus.net/ontology/ontomedia/ext/common/trait#" xmlns:tvc="http://www.essepuntato.it/2012/04/tvc/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <rdf:Description rdf:nodeID="this-expression">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+    <frbr:realizationOf rdf:nodeID="this-work"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="this-expression">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/Article"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="this-work">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/RapidCommunication"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="this-expression">
+    <dcterms:language>
+      <rdf:Description>
+	<rdf:type rdf:resource="http://purl.org/dc/terms/LinguisticSystem"/>
+	<dcterms:description rdf:datatype="http://purl.org/dc/terms/RFC5646">en</dcterms:description>
+      </rdf:Description>
+    </dcterms:language>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="this-expression">
+    <frbr:partOf rdf:nodeID="journal"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="journal">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/Journal"/>
+    <frbr:realizationOf>
+      <rdf:Description>
+	<rdf:type rdf:resource="http://purl.org/spar/fabio/WorkCollection"/>
+      </rdf:Description>
+    </frbr:realizationOf>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="journal">
+    <datacite:hasIdentifier>
+      <rdf:Description>
+	<rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+	<literal:hasLiteralValue>101566482</literal:hasLiteralValue>
+	<datacite:usesIdentifierScheme>
+	  <rdf:Description>
+	    <rdf:type rdf:resource="http://purl.org/spar/datacite/IdentifierScheme"/>
+	    <rdfs:label>nlm-journal-id</rdfs:label>
+	  </rdf:Description>
+	</datacite:usesIdentifierScheme>
+      </rdf:Description>
+    </datacite:hasIdentifier>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="journal">
+    <datacite:hasIdentifier>
+      <rdf:Description>
+	<rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+	<literal:hasLiteralValue>39470</literal:hasLiteralValue>
+	<datacite:usesIdentifierScheme>
+	  <rdf:Description>
+	    <rdf:type rdf:resource="http://purl.org/spar/datacite/IdentifierScheme"/>
+	    <rdfs:label>pubmed-jr-id</rdfs:label>
+	  </rdf:Description>
+	</datacite:usesIdentifierScheme>
+      </rdf:Description>
+    </datacite:hasIdentifier>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="journal">
+    <datacite:hasIdentifier>
+      <rdf:Description>
+	<rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+	<datacite:usesIdentifierScheme rdf:resource="http://purl.org/spar/datacite/local-resource-identifier-scheme"/>
+	<literal:hasLiteralValue>Balisage Ser Markup Technol</literal:hasLiteralValue>
+	<prov:wasAttributedTo>
+	  <rdf:Description>
+	    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+	    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+	    <rdfs:label>PubMed</rdfs:label>
+	  </rdf:Description>
+	</prov:wasAttributedTo>
+      </rdf:Description>
+    </datacite:hasIdentifier>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="journal">
+    <prism:issn>1947-2609</prism:issn>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="this-expression">
+    <fabio:hasPubMedId>21866248</fabio:hasPubMedId>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="this-expression">
+    <prism:doi>10.4242/BalisageVol7.Maloney01</prism:doi>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="this-expression">
+    <datacite:hasIdentifier>
+      <rdf:Description>
+	<rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+	<datacite:usesIdentifierScheme rdf:resource="http://purl.org/spar/datacite/local-resource-identifier-scheme"/>
+	<literal:hasLiteralValue>NIHMS311352</literal:hasLiteralValue>
+      </rdf:Description>
+    </datacite:hasIdentifier>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="this-expression">
+    <fabio:hasSubjectTerm rdf:nodeID="this-expression-term1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="this-expression-term1">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/SubjectTerm"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="this-expression-term1">
+    <rdfs:label>Article</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="this-expression">
+    <dcterms:title>JATSPack and JATSPAN, a packaging format and infrastructure for the NLM/NISO Journal Archiving Tag Suite (JATS)</dcterms:title>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="this-work">
+    <dcterms:contributor rdf:nodeID="agent-1-this-work"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="agent-1-this-work">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="this-work">
+    <dcterms:creator rdf:nodeID="agent-1-this-work"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="agent-1-this-work">
+    <pro:holdsRoleInTime>
+      <rdf:Description>
+	<pro:relatesToDocument rdf:nodeID="this-work"/>
+	<pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+      </rdf:Description>
+    </pro:holdsRoleInTime>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="agent-1-this-work">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="agent-1-this-work">
+    <foaf:familyName>Maloney</foaf:familyName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="agent-1-this-work">
+    <foaf:givenName>Chris</foaf:givenName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="agent-1-this-work">
+    <pro:holdsRoleInTime>
+      <rdf:Description>
+	<pro:relatesToDocument rdf:nodeID="this-work"/>
+	<pro:withRole>
+	  <rdf:Description>
+	    <rdf:type rdf:resource="http://purl.org/spar/pro/Role"/>
+	    <rdfs:label>NCBI / NLM / NIH (Contractor)</rdfs:label>
+	  </rdf:Description>
+	</pro:withRole>
+      </rdf:Description>
+    </pro:holdsRoleInTime>
+  </rdf:Description>
+  <rdf:Description rdf:about="-nf072ea9ec4838d2f">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/PrintObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="-nf072ea9ec4838d2f">
+    <prism:publicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">2011</prism:publicationDate>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="this-expression">
+    <frbr:partOf rdf:nodeID="volume"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="volume">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalVolume"/>
+    <prism:volume>7</prism:volume>
+    <frbr:partOf>
+      <rdf:Description>
+	<rdf:type rdf:resource="http://purl.org/spar/fabio/Periodical"/>
+      </rdf:Description>
+    </frbr:partOf>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="this-expression">
+    <frbr:embodiment>
+      <rdf:Description>
+	<rdf:type rdf:resource="http://purl.org/spar/fabio/Manifestation"/>
+	<fabio:hasDigitalArticleIdentifier>BalisageVol7.Maloney01</fabio:hasDigitalArticleIdentifier>
+      </rdf:Description>
+    </frbr:embodiment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="this-expression">
+    <frapo:isOutputOf rdf:nodeID="investigation-1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="investigation-1">
+    <rdf:type rdf:resource="http://purl.org/cerif/frapo/Investigation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="funding-agent-investigation-1">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <foaf:name>NIH Intramural Employee : PHS</foaf:name>
+    <frapo:funds rdf:nodeID="investigation-1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="funding-agent-investigation-1">
+    <frapo:country>United States</frapo:country>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="funding-agent-investigation-1">
+    <frapo:awards rdf:nodeID="award-investigation-1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="award-investigation-1">
+    <rdf:type rdf:resource="http://purl.org/cerif/frapo/Grant"/>
+    <frapo:hasGrantNumber>NIH0014214169 || PHS</frapo:hasGrantNumber>
+    <frapo:funds rdf:nodeID="investigation-1"/>
+  </rdf:Description>
 </rdf:RDF>
