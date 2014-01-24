@@ -1831,7 +1831,12 @@
     <xsl:variable name="issue" select="concat($issue,'-',$e)"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="($s,'rdf:type','&fabio;InBrief','frbr:partOf',$issue,'rdf:summarizationOf','','rdf:type','&fabio;Article','frbr:partOf',$issue)"
+        select="($s,
+          'rdf:type', '&fabio;InBrief',
+          'frbr:partOf', $issue,
+          'rdf:summarizationOf', '',
+          'rdf:type', '&fabio;Article',
+          'frbr:partOf', $issue)"
       />
     </xsl:call-template>
     <xsl:call-template name="single">
