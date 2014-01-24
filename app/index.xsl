@@ -100,7 +100,7 @@
           <tr>
             <td>✓</td>
             <td><a href='/data?format=rdf'>/?format=rdf</a></td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi">einfo.fcgi</a></td>
+            <td>einfo.fcgi</td>
             <td>Same, RDF format</td>
           </tr>
 
@@ -113,7 +113,7 @@
           <tr>
             <td>✓</td>
             <td><a href='/data/pubmed?format=rdf'>/pubmed?format=rdf</a></td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=pubmed">einfo.fcgi?db=pubmed</a></td>
+            <td>einfo.fcgi?db=pubmed</td>
             <td>Same, RDF format</td>
           </tr>
 
@@ -146,7 +146,7 @@
           <tr>
             <td>✓</td>
             <td><a href='/data/pmc/14900?format=rdf'>/pmc/14900?format=rdf</a></td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900">esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</a></td>
+            <td>esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</td>
             <td>Same, RDF format</td>
           </tr>
 
@@ -160,7 +160,7 @@
           <tr>
             <td>&#160;</td>
             <td>/pubmed/24006159?format=rdf</td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159</a></td>
+            <td>esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159</td>
             <td>Same, RDF format</td>
           </tr>
 
@@ -173,7 +173,7 @@
           <tr>
             <td>&#160;</td>
             <td>/pubmed/24006159,24006160?format=rdf</td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159,24006160</a></td>
+            <td>esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159,24006160</td>
             <td>Same, RDF format</td>
           </tr>
 
@@ -206,7 +206,7 @@
           <tr>
             <td>&#160;</td>
             <td>/pubmed?term=cat&amp;page=5&amp;report=idlist</td>
-            <td><a href="http://iwebdev2/staff/mjohnson/proj/eutilities/eutils.cgi?CMD=esearch+pubmed+cat+retstart=100+retmax=20">esearch pubmed cat retstart=100 retmax=20</a></td>
+            <td>esearch pubmed cat retstart=100 retmax=20</td>
             <td>Note that first line is database, second line is list of IDs.
               A list of ids without db is meaningless.</td>
           </tr>
