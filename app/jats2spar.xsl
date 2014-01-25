@@ -1954,7 +1954,7 @@
     <xsl:call-template name="single">
       <xsl:with-param name="s" select="$w" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
-      <xsl:with-param name="o" select="'&fabio;RapidCommunication'" tunnel="yes"/>
+      <xsl:with-param name="o" select="'&fabio;ResearchPaper'" tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
 
