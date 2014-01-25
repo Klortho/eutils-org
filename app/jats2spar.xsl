@@ -3547,15 +3547,30 @@
   </xsl:function>
 
   <!-- 
-    This function generates a new label for a blank node child of a blank node.
+    This function generates a new label for a blank node child.  The parent label
+    can either be a full http URI or a blank node.
     So, for example, given "_:investigation-1" (the parent) and "funding-agent"
     (a label for the child), this will
     produce "_:funding-agent-investigation-1".
   -->
   <xsl:function name="f:getBlankChildLabel" as="xs:string">
-    <xsl:param name="parent-label" as="xs:string"/>
+    <xsl:param name="parent" as="xs:string"/>
     <xsl:param name="child-label" as="xs:string"/>
-    <xsl:value-of select='concat("_:", $child-label, "-", substring($parent-label, 3))'/>
+    
+    <xsl:variable name='p'>
+      <xsl:choose>
+        <xsl:when test="starts-with($parent, 'http://')">
+          <xsl:value-of select='replace(substring-after($parent, "http://"), "/", "-")'/>
+        </xsl:when>
+        <xsl:when test="starts-with($parent, '_:')">
+          <xsl:value-of select="substring($parent, 3)"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="$parent"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:value-of select='concat("_:", $child-label, "-", $p)'/>
   </xsl:function>
 
   <!-- END: functions -->
