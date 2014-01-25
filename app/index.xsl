@@ -40,8 +40,7 @@
           <a href='https://github.com/Klortho/eutils-org'>Klortho/eutils-org</a>.
           It is implemented as an XQuery application on the <a
           href='http://developer.marklogic.com/learn/technical-overview'>MarkLogic Server</a>,
-          hosted on Amazon Web Services (AWS) on
-          <a href='http://ec2-54-204-255-139.compute-1.amazonaws.com/'>this AMI</a>.
+          hosted on Amazon Web Services (AWS).
           See the <a href='https://github.com/Klortho/eutils-org'>README file</a> in the GitHub repository
           for more details.
         </p>
@@ -77,6 +76,12 @@
           href='https://github.com/Klortho/rdf-uri-resolver/wiki/NCBI-RDF-URI-Standards'>NCBI
           RDF URI Standards</a>, and are dereferenced, to provide useful RDF data,
           by the <a href='https://github.com/Klortho/rdf-uri-resolver'>rdf-uri-resolver</a>.
+        </p>
+        <p>
+          PMC documents are available in RDF form.  For example,
+          <a href='/data/pmc/3159421?format=rdf'>PMC3159421 in RDF</a>.  The data is derived from
+          the JATS2RDF transformation developed by David Shotton, Silvio Peroni, and Debbie
+          Lapeyre.
         </p>
 
         <h2>API Examples</h2>

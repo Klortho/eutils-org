@@ -1502,8 +1502,8 @@
     <xsl:param name="s" tunnel="yes"/>
 
     <xsl:for-each select="subject">
-      <xsl:variable name="subject-counting" select="count(preceding::subject)+1"/>
-      <xsl:variable name="subject-uri" select="concat($s,'-term',$subject-counting)"/>
+      <xsl:variable name="subject-counting" select="count(preceding::subject) + 1"/>
+      <xsl:variable name="subject-uri" select="concat($s, '-term', $subject-counting)"/>
       <xsl:call-template name="single">
         <xsl:with-param name="p" select="'fabio:hasSubjectTerm'" tunnel="yes"/>
         <xsl:with-param name="o" select="$subject-uri" tunnel="yes"/>
