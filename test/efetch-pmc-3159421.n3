@@ -30,12 +30,15 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix datacite: <http://purl.org/spar/datacite/>.
 @prefix lmm: <http://ontologydesignpatterns.org/ont/lmm/LMM_L2.owl>.
+
 <http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421> dcterms:contributor _:agent-1-rdf.ncbi.nlm.nih.gov-pmc-PMC3159421;
     dcterms:creator _:agent-1-rdf.ncbi.nlm.nih.gov-pmc-PMC3159421;
+    fabio:hasPubMedCentralId "PMC3159421";
+    fabio:hasPubMedId "21866248";
     a fabio:RapidCommunication.
 
-_:agent-1-rdf.ncbi.nlm.nih.gov-pmc-PMC3159421 pro:holdsRoleInTime _:bnode147870336,
-        _:bnode1927009920;
+_:agent-1-rdf.ncbi.nlm.nih.gov-pmc-PMC3159421 pro:holdsRoleInTime _:bnode959009344,
+        _:bnode1115870912;
     a foaf:Agent,
         foaf:Person;
     foaf:familyName "Maloney";
@@ -45,51 +48,51 @@ _:award-investigation-1 frapo:funds _:investigation-1;
     frapo:hasGrantNumber "NIH0014214169 || PHS";
     a frapo:Grant.
 
-_:bnode1140909632 a fabio:WorkCollection.
+_:bnode1115870912 pro:relatesToDocument <http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421>;
+    pro:withRole _:bnode2141656256.
 
-_:bnode1330517248 a pro:Role;
-    rdfs:label "NCBI / NLM / NIH (Contractor)".
-
-_:bnode147870336 pro:relatesToDocument <http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421>;
-    pro:withRole pro:author.
-
-_:bnode1698703424 a prov:Agent,
-        foaf:Organization;
-    rdfs:label "PubMed".
-
-_:bnode1743104256 a datacite:IdentifierScheme;
-    rdfs:label "pubmed-jr-id".
-
-_:bnode186944064 datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme;
-    literal:hasLiteralValue "Balisage Ser Markup Technol";
-    a datacite:Identifier;
-    prov:wasAttributedTo _:bnode1698703424.
-
-_:bnode1927009920 pro:relatesToDocument <http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421>;
-    pro:withRole _:bnode1330517248.
-
-_:bnode1994444096 a fabio:Periodical.
-
-_:bnode2116617536 datacite:usesIdentifierScheme _:bnode560457344;
+_:bnode1177977984 datacite:usesIdentifierScheme _:bnode1560829120;
     literal:hasLiteralValue "101566482";
     a datacite:Identifier.
 
-_:bnode516056512 datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme;
+_:bnode1187315840 datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme;
+    literal:hasLiteralValue "Balisage Ser Markup Technol";
+    a datacite:Identifier;
+    prov:wasAttributedTo _:bnode368844352.
+
+_:bnode140537856 a fabio:WorkCollection.
+
+_:bnode1489384192 a fabio:Periodical.
+
+_:bnode1551491264 a datacite:IdentifierScheme;
+    rdfs:label "pubmed-jr-id".
+
+_:bnode1560829120 a datacite:IdentifierScheme;
+    rdfs:label "nlm-journal-id".
+
+_:bnode1768142976 fabio:hasDigitalArticleIdentifier "BalisageVol7.Maloney01";
+    a fabio:Manifestation.
+
+_:bnode1934342400 dcterms:description "en"^^dcterms:RFC5646;
+    a dcterms:LinguisticSystem.
+
+_:bnode2141656256 a pro:Role;
+    rdfs:label "NCBI / NLM / NIH (Contractor)".
+
+_:bnode295082496 datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme;
     literal:hasLiteralValue "NIHMS311352";
     a datacite:Identifier.
 
-_:bnode560457344 a datacite:IdentifierScheme;
-    rdfs:label "nlm-journal-id".
+_:bnode368844352 a prov:Agent,
+        foaf:Organization;
+    rdfs:label "PubMed".
 
-_:bnode933970624 dcterms:description "en"^^dcterms:RFC5646;
-    a dcterms:LinguisticSystem.
-
-_:bnode957003968 fabio:hasDigitalArticleIdentifier "BalisageVol7.Maloney01";
-    a fabio:Manifestation.
-
-_:bnode995702848 datacite:usesIdentifierScheme _:bnode1743104256;
+_:bnode4668928 datacite:usesIdentifierScheme _:bnode1551491264;
     literal:hasLiteralValue "39470";
     a datacite:Identifier.
+
+_:bnode959009344 pro:relatesToDocument <http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421>;
+    pro:withRole pro:author.
 
 _:funding-agent-investigation-1 frapo:awards _:award-investigation-1;
     frapo:country "United States";
@@ -100,23 +103,22 @@ _:funding-agent-investigation-1 frapo:awards _:award-investigation-1;
 _:investigation-1 a frapo:Investigation.
 
 _:journal prism:issn "1947-2609";
-    datacite:hasIdentifier _:bnode2116617536,
-        _:bnode186944064,
-        _:bnode995702848;
-    frbr:realizationOf _:bnode1140909632;
+    datacite:hasIdentifier _:bnode1187315840,
+        _:bnode4668928,
+        _:bnode1177977984;
+    frbr:realizationOf _:bnode140537856;
     a fabio:Journal.
 
-_:n7bec3ca7b61a1f25-manifestation prism:publicationDate "2011"^^xsd:gYear;
+_:nbe9190bf63efd189-manifestation prism:publicationDate "2011"^^xsd:gYear;
     a fabio:PrintObject.
 
 _:this-expression prism:doi "10.4242/BalisageVol7.Maloney01";
     frapo:isOutputOf _:investigation-1;
-    dcterms:language _:bnode933970624;
+    dcterms:language _:bnode1934342400;
     dcterms:title "JATSPack and JATSPAN, a packaging format and infrastructure for the NLM/NISO Journal Archiving Tag Suite (JATS)";
-    datacite:hasIdentifier _:bnode516056512;
-    fabio:hasPubMedId "21866248";
+    datacite:hasIdentifier _:bnode295082496;
     fabio:hasSubjectTerm _:this-expression-term1;
-    frbr:embodiment _:bnode957003968;
+    frbr:embodiment _:bnode1768142976;
     frbr:partOf _:journal,
         _:volume;
     frbr:realizationOf <http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421>;
@@ -127,5 +129,5 @@ _:this-expression-term1 a fabio:SubjectTerm;
     rdfs:label "Article".
 
 _:volume prism:volume "7";
-    frbr:partOf _:bnode1994444096;
+    frbr:partOf _:bnode1489384192;
     a fabio:PeriodicalVolume.
