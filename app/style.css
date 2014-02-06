@@ -39,9 +39,11 @@ table {
   border: solid grey 1px;
   vertical-align: top;
 }
+
 tr:nth-child(odd) {
   background: #ddd;
 }
+
 td, th {
   padding: 5px;
   border: solid grey 1px;
