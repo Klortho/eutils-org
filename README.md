@@ -74,4 +74,3 @@ behind it, and details about how it worked:
 [EutilsRDF Web Service: an RDF interface to NCBI Entrez
 Utilities](https://github.com/Klortho/eutils-org/raw/master/docs/EutilsRDFWebService.docx).
 
-
