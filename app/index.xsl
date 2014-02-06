@@ -40,8 +40,7 @@
           <a href='https://github.com/Klortho/eutils-org'>Klortho/eutils-org</a>.
           It is implemented as an XQuery application on the <a
           href='http://developer.marklogic.com/learn/technical-overview'>MarkLogic Server</a>,
-          hosted on Amazon Web Services (AWS) on
-          <a href='http://ec2-54-204-255-139.compute-1.amazonaws.com/'>this AMI</a>.
+          hosted on Amazon Web Services (AWS).
           See the <a href='https://github.com/Klortho/eutils-org'>README file</a> in the GitHub repository
           for more details.
         </p>
@@ -78,6 +77,12 @@
           RDF URI Standards</a>, and are dereferenced, to provide useful RDF data,
           by the <a href='https://github.com/Klortho/rdf-uri-resolver'>rdf-uri-resolver</a>.
         </p>
+        <p>
+          PMC documents are available in RDF form.  For example,
+          <a href='/data/pmc/3159421?format=rdf'>PMC3159421 in RDF</a>.  The data is derived from
+          the JATS2RDF transformation developed by David Shotton, Silvio Peroni, and Debbie
+          Lapeyre.
+        </p>
 
         <h2>API Examples</h2>
         <p>
@@ -100,7 +105,7 @@
           <tr>
             <td>✓</td>
             <td><a href='/data?format=rdf'>/?format=rdf</a></td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi">einfo.fcgi</a></td>
+            <td>einfo.fcgi</td>
             <td>Same, RDF format</td>
           </tr>
 
@@ -113,7 +118,7 @@
           <tr>
             <td>✓</td>
             <td><a href='/data/pubmed?format=rdf'>/pubmed?format=rdf</a></td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=pubmed">einfo.fcgi?db=pubmed</a></td>
+            <td>einfo.fcgi?db=pubmed</td>
             <td>Same, RDF format</td>
           </tr>
 
@@ -146,7 +151,7 @@
           <tr>
             <td>✓</td>
             <td><a href='/data/pmc/14900?format=rdf'>/pmc/14900?format=rdf</a></td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900">esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</a></td>
+            <td>esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</td>
             <td>Same, RDF format</td>
           </tr>
 
@@ -160,7 +165,7 @@
           <tr>
             <td>&#160;</td>
             <td>/pubmed/24006159?format=rdf</td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159</a></td>
+            <td>esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159</td>
             <td>Same, RDF format</td>
           </tr>
 
@@ -173,7 +178,7 @@
           <tr>
             <td>&#160;</td>
             <td>/pubmed/24006159,24006160?format=rdf</td>
-            <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159,24006160</a></td>
+            <td>esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159,24006160</td>
             <td>Same, RDF format</td>
           </tr>
 
@@ -206,7 +211,7 @@
           <tr>
             <td>&#160;</td>
             <td>/pubmed?term=cat&amp;page=5&amp;report=idlist</td>
-            <td><a href="http://iwebdev2/staff/mjohnson/proj/eutilities/eutils.cgi?CMD=esearch+pubmed+cat+retstart=100+retmax=20">esearch pubmed cat retstart=100 retmax=20</a></td>
+            <td>esearch pubmed cat retstart=100 retmax=20</td>
             <td>Note that first line is database, second line is list of IDs.
               A list of ids without db is meaningless.</td>
           </tr>

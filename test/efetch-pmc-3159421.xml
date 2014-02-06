@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "http://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="en">
+  <!--The publisher of this article does not allow downloading of the full text in XML form.-->
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">101566482</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">39470</journal-id>
+      <journal-id journal-id-type="nlm-ta">Balisage Ser Markup Technol</journal-id>
+      <journal-title-group>
+        <journal-title>Balisage series on markup technologies</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1947-2609</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">21866248</article-id>
+      <article-id pub-id-type="pmc">3159421</article-id>
+      <article-id pub-id-type="doi">10.4242/BalisageVol7.Maloney01</article-id>
+      <article-id pub-id-type="manuscript">NIHMS311352</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>JATSPack and JATSPAN, a packaging format and infrastructure for the NLM/NISO Journal Archiving Tag Suite (JATS)</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Maloney</surname>
+            <given-names>Chris</given-names>
+          </name>
+          <role>NCBI / NLM / NIH (Contractor)</role>
+        </contrib>
+      </contrib-group>
+      <pub-date pub-type="nihms-submitted">
+        <day>13</day>
+        <month>8</month>
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <year>2011</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>22</day>
+        <month>8</month>
+        <year>2011</year>
+      </pub-date>
+      <volume>7</volume>
+      <elocation-id>BalisageVol7.Maloney01</elocation-id>
+      <abstract>
+        <p id="P1">The NISO Journal Archiving Tag Suite (JATS, formerly known as &#x2018;the NLM DTD&#x2019;) is a common format used in publication of scientific literature. JATSPack, a proposal based on the new EXPath Packaging System, provides a way to package schema customizations and software libraries associated with any of the JATS schemas, thus making it easier for developers to distribute JATS-related resources and easier for users to acquire, install, and use them. JATSPAN (the JATSPack Archive Network) is a website allowing users to share and collaborate on JATSPacks. A client-side command line tool, jatspan, interacts with the site and eases the task of maintaining local repositories of JATSPacks.</p>
+      </abstract>
+      <funding-group>
+        <award-group>
+          <funding-source country="United States">NIH Intramural Employee : PHS</funding-source>
+          <award-id>NIH0014214169 || PHS</award-id>
+        </award-group>
+      </funding-group>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>
