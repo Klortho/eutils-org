@@ -22,11 +22,13 @@ See [GitHub issues](https://github.com/Klortho/eutils-org/issues).
 
 Download the [eXist database server](http://exist-db.org/).
 
-Run the installer, accepting all the defaults.
+Run the installer:
 
 ```
 java -jar eXist-db-setup-2.1-rev18721.jar
 ```
+
+Accept all the defaults.
 
 Change to the *webapp* directory under the eXist installation, and then clone this repo:
 
