@@ -27,19 +27,10 @@
         <h1>Eutils.org</h1>
         <p>
           This site hosts a RESTful API to NCBI's Entrez Utilities (E-utilities).
-          It is the combination of two projects:
-        </p>
-        <ol>
-          <li>An effort to provide an RDF output format for E-utilities (started by
-            Chris Maloney), and</li>
-          <li>A proof-of-concept to provide a RESTful interface (designed and led by
-            Mark Johnson).</li>
-        </ol>
-        <p>
-          The project is hosted on GitHub at
+          The project is a collaborative effort, hosted on GitHub at
           <a href='https://github.com/Klortho/eutils-org'>Klortho/eutils-org</a>.
           It is implemented as an XQuery application on the <a
-          href='http://developer.marklogic.com/learn/technical-overview'>MarkLogic Server</a>,
+            href='http://exist-db.org/'>eXist XML Database Server</a>,
           hosted on Amazon Web Services (AWS).
           See the <a href='https://github.com/Klortho/eutils-org'>README file</a> in the GitHub repository
           for more details.
@@ -86,8 +77,7 @@
 
         <h2>API Examples</h2>
         <p>
-          In the following table, "RESTful URL"s are relative to the "/data" directory
-          of this application,
+          In the following table, "RESTful URL"s are relative to "http://eutils.org/",
           and "Eutilities URL" are relative to http://eutils.ncbi.nlm.nih.gov/entrez/eutils/.
         </p>
         <table>
@@ -98,26 +88,26 @@
             <th>Comments</th></tr>
           <tr>
             <td>✓</td>
-            <td><a href='/data'>/</a></td>
+            <td><a href='data'>/data</a></td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi">einfo.fcgi</a></td>
             <td>What databases are available?</td>
           </tr>
           <tr>
             <td>✓</td>
-            <td><a href='/data?format=rdf'>/?format=rdf</a></td>
+            <td><a href='/data?format=rdf'>/data?format=rdf</a></td>
             <td>einfo.fcgi</td>
             <td>Same, RDF format</td>
           </tr>
 
           <tr>
             <td>✓</td>
-            <td><a href='/data/pubmed'>/pubmed</a></td>
+            <td><a href='/data/pubmed'>/data/pubmed</a></td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=pubmed">einfo.fcgi?db=pubmed</a></td>
             <td>Tell me about this database</td>
           </tr>
           <tr>
             <td>✓</td>
-            <td><a href='/data/pubmed?format=rdf'>/pubmed?format=rdf</a></td>
+            <td><a href='/data/pubmed?format=rdf'>/data/pubmed?format=rdf</a></td>
             <td>einfo.fcgi?db=pubmed</td>
             <td>Same, RDF format</td>
           </tr>
@@ -125,32 +115,32 @@
 
           <tr>
             <td>&#160;</td>
-            <td>/pubmed?term=cat</td>
+            <td>/data/pubmed?term=cat</td>
             <td>esearch pubmed cat | esummary</td>
             <td>Default return type is esummary version 2.0 (report=summary)</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/pubmed?term=cat&amp;report=idlist</td>
+            <td>/data/pubmed?term=cat&amp;report=idlist</td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?term=cat">esearch.fcgi?term=cat</a></td>
             <td>Edge case: give me ids</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/pubmed?term=cat&amp;report=full</td>
+            <td>/data/pubmed?term=cat&amp;report=full</td>
             <td>esearch pubmed cat | efetch</td>
             <td>Less common case: full record</td>
           </tr>
 
           <tr>
             <td>✓</td>
-            <td><a href='/data/pmc/14900'>/pmc/14900</a></td>
+            <td><a href='/data/pmc/14900'>/data/pmc/14900</a></td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900">esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</a></td>
             <td>ESummary for a particular record</td>
           </tr>
           <tr>
             <td>✓</td>
-            <td><a href='/data/pmc/14900?format=rdf'>/pmc/14900?format=rdf</a></td>
+            <td><a href='/data/pmc/14900?format=rdf'>/data/pmc/14900?format=rdf</a></td>
             <td>esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</td>
             <td>Same, RDF format</td>
           </tr>
@@ -158,26 +148,26 @@
 
           <tr>
             <td>✓</td>
-            <td><a href='/data/pubmed/24006159'>/pubmed/24006159</a></td>
+            <td><a href='/data/pubmed/24006159'>/data/pubmed/24006159</a></td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159</a></td>
             <td>ESummary for a particular record</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/pubmed/24006159?format=rdf</td>
+            <td>/data/pubmed/24006159?format=rdf</td>
             <td>esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159</td>
             <td>Same, RDF format</td>
           </tr>
 
           <tr>
             <td>&#160;</td>
-            <td><a href='/data/pubmed/24006159,24006160'>/pubmed/24006159,24006160</a></td>
+            <td><a href='/data/pubmed/24006159,24006160'>/data/pubmed/24006159,24006160</a></td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159,24006160</a></td>
             <td>ESummary for multiple IDs</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/pubmed/24006159,24006160?format=rdf</td>
+            <td>/data/pubmed/24006159,24006160?format=rdf</td>
             <td>esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159,24006160</td>
             <td>Same, RDF format</td>
           </tr>
@@ -186,31 +176,31 @@
 
           <tr>
             <td>&#160;</td>
-            <td>/pubmed/24006159?report=full</td>
+            <td>/data/pubmed/24006159?report=full</td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&amp;retmode=xml&amp;id=24006159">efetch.fcgi?db=pubmed&amp;retmode=xml&amp;id=24006159</a></td>
             <td>Less common full record</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/pubmed?term=cat&amp;page=2</td>
+            <td>/data/pubmed?term=cat&amp;page=2</td>
             <td>esearch pubmed cat | esummary retstart=20 retmax=20</td>
             <td>Note that it returns esummary v2</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/pubmed?term=cat&amp;page=2&amp;report=full</td>
+            <td>/data/pubmed?term=cat&amp;page=2&amp;report=full</td>
             <td>esearch pubmed cat | efetch retstart=20 retmax=20</td>
             <td>Full records, page 2</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/pubmed?term=cat&amp;page=3&amp;pagesize=10</td>
+            <td>/data/pubmed?term=cat&amp;page=3&amp;pagesize=10</td>
             <td>esearch pubmed cat | esummary retstart=30 retmax=10</td>
             <td>esummary v2 again</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/pubmed?term=cat&amp;page=5&amp;report=idlist</td>
+            <td>/data/pubmed?term=cat&amp;page=5&amp;report=idlist</td>
             <td>esearch pubmed cat retstart=100 retmax=20</td>
             <td>Note that first line is database, second line is list of IDs.
               A list of ids without db is meaningless.</td>
@@ -220,7 +210,7 @@
           <tr>
             <td>&#160;</td>
             <td><a
-              href='/data/pubmed/24108202/links/pubmed_pubmed_five'>/pubmed/24108202/links/pubmed_pubmed_five</a></td>
+              href='/data/pubmed/24108202/links/pubmed_pubmed_five'>/data/pubmed/24108202/links/pubmed_pubmed_five</a></td>
             <td>
               <a href='http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&amp;id=24108202&amp;linkname=pubmed_pubmed_five'>elink.fcgi?dbfrom=pubmed&amp;id=24108202&amp;linkname=pubmed_pubmed_five</a>
               | esummary
@@ -230,33 +220,33 @@
           <tr>
             <td>&#160;</td>
             <td><a
-              href='/data/pubmed/24108202/links/pubmed_pubmed_five?format=rdf'>/pubmed/24108202/links/pubmed_pubmed_five?format=rdf</a></td>
+              href='/data/pubmed/24108202/links/pubmed_pubmed_five?format=rdf'>/data/pubmed/24108202/links/pubmed_pubmed_five?format=rdf</a></td>
             <td>elink pubmed_pubmed_five | esummary</td>
             <td>Same, RDF format</td>
           </tr>
 
           <tr>
             <td>&#160;</td>
-            <td>/pubmed/24108202/links/pubmed_pubmed_five?report=idlist</td>
+            <td>/data/pubmed/24108202/links/pubmed_pubmed_five?report=idlist</td>
             <td>esearch pubmed 24108202 | elink pubmed_pubmed_five</td>
             <td>&#160;</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/pubmed/24108202/links/pubmed_pubmed_five?report=full</td>
+            <td>/data/pubmed/24108202/links/pubmed_pubmed_five?report=full</td>
             <td>esearch pubmed 24108202 | elink pubmed_pubmed_five | efetch</td>
             <td>&#160;</td>
           </tr>
 
           <tr>
             <td>&#160;</td>
-            <td><a href='/data/gene/672/links/gene_nuccore'>/gene/672/links/gene_nuccore</a></td>
+            <td><a href='/data/gene/672/links/gene_nuccore'>/data/gene/672/links/gene_nuccore</a></td>
             <td>esearch gene 672 | elink ids gene_nuccore | esummary</td>
             <td>Link returns summaries by default.   (Right now, it just returns the link, so this is not finished)</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td><a href='/data/gene/672/links/gene_nuccore?format=rdf'>/gene/672/links/gene_nuccore?format=rdf</a></td>
+            <td><a href='/data/gene/672/links/gene_nuccore?format=rdf'>/data/gene/672/links/gene_nuccore?format=rdf</a></td>
             <td>esearch gene 672 | elink ids gene_nuccore | esummary</td>
             <td>Same, RDF format</td>
           </tr>
@@ -272,61 +262,61 @@
 
           <tr>
             <td>&#160;</td>
-            <td>/gene/672/links/gene_nuccore?report=full</td>
+            <td>/data/gene/672/links/gene_nuccore?report=full</td>
             <td>esearch gene 672 | elink ids gene_nuccore | efetch</td>
             <td>report=full means "fetch"</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/gene/672/links/gene_nuccore?report=gbwithparts</td>
+            <td>/data/gene/672/links/gene_nuccore?report=gbwithparts</td>
             <td>esearch gene 672 | elink ids gene_nuccore | efetch - rettype=gbwithparts</td>
             <td>report=gbwithparts means "fetch, rettype=gbwithparts". rettype is no longer necessary; they're just report=.</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/gene/672/links/gene_nuccore_refseqgene?report=fasta&amp;format=text</td>
+            <td>/data/gene/672/links/gene_nuccore_refseqgene?report=fasta&amp;format=text</td>
             <td>esearch gene 672 | elink ids gene_nuccore_refseq_gene | efetch rettype=fasta retmode=text</td>
             <td>This means "the refseqgene FASTA sequence for gene 672."</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/gene/672/links</td>
+            <td>/data/gene/672/links</td>
             <td>(no equivalent)</td>
             <td>List the links available for this record (linkname, dbto, optionally count)</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/pubmed/links</td>
+            <td>/data/pubmed/links</td>
             <td>(no equivalent)</td>
             <td>List all links available for pubmed to other dbs</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/pubmed/field</td>
+            <td>/data/pubmed/field</td>
             <td>(no equivalent)</td>
             <td>Field metadata, subset of einfo</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/links</td>
+            <td>/data/links</td>
             <td><a href="http://www.ncbi.nlm.nih.gov/query/static/entrezlinks.html">http://www.ncbi.nlm.nih.gov/query/static/entrezlinks.html</a></td>
             <td>Metadata about all Entrez links</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/pubmed/field/journal</td>
+            <td>/data/pubmed/field/journal</td>
             <td>(no equivalent)</td>
             <td>Index data about field "journal", returns first 20 items.</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/pubmed/field/journal?page=1&amp;pagesize=1000</td>
+            <td>/data/pubmed/field/journal?page=1&amp;pagesize=1000</td>
             <td>(no equivalent)</td>
             <td>Return first 1000 index values</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td>/pubmed/field/journal?term=Journal+of+the+American</td>
+            <td>/data/pubmed/field/journal?term=Journal+of+the+American</td>
             <td>(no equivalent)</td>
             <td>Search field "journal" for index values containing query string</td>
           </tr>

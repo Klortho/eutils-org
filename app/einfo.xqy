@@ -1,13 +1,15 @@
-xquery version "1.0-ml";
+xquery version "1.0";
 
-xdmp:set-response-content-type("text/xml"),
+declare namespace transform="http://exist-db.org/xquery/transform";
+declare option exist:serialize "media-type=text/xml";
 
-let $format := xdmp:get-request-field("format")
-let $results := xdmp:http-get("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?tool=eutils.org&amp;email=voldrani@gmail.com")[2]
+(:let $format := xdmp:get-request-field("format"):)
+let $format := "rdf"
+let $results := doc("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?tool=eutils.org&amp;email=voldrani@gmail.com")
 
 return
   if ($format = 'rdf') then
-    xdmp:xslt-invoke("einfo.xsl", document{$results})
+    transform:transform($results, "einfo.xsl", ())
   else
     $results
 

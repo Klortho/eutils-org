@@ -20,8 +20,29 @@ See [GitHub issues](https://github.com/Klortho/eutils-org/issues).
 
 ## Installation
 
-This is installed to a MarkLogic Server instance, version 7.0, on an Amazon
-Machine Instance (AMI).
+Download the [eXist database server](http://exist-db.org/).
+
+Run the installer, accepting all the defaults.
+
+```
+java -jar eXist-db-setup-2.1-rev18721.jar
+```
+
+Change to the *webapp* directory under the eXist installation, and then clone this repo:
+
+```
+cd *exist-install-dir*/webapp
+git clone https://github.com/Klortho/eutils-org.git
+```
+
+Start the server:
+
+```
+cd *exist-install-dir*
+bin/startup.sh
+```
+
+Point your browser at http://localhost:8080/exist/eutils-org/app/.
 
 
 ## Outstanding API design issues
