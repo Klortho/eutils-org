@@ -1,11 +1,19 @@
-xquery version "1.0-ml";
+xquery version "1.0";
 
-xdmp:set-response-content-type("text/xml"),
+declare namespace request="http://exist-db.org/xquery/request";
+declare namespace transform="http://exist-db.org/xquery/transform";
+declare option exist:serialize "media-type=text/xml";
 
-let $format := xdmp:get-request-field("format")
-let $dbfrom := xdmp:get-request-field("dbfrom")
-let $id := xdmp:get-request-field("id")
-let $linkname := xdmp:get-request-field("linkname")
+let $base_url := 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?tool=eutils.org&amp;email=voldrani@gmail.com'
+let $format := request:get-parameter("format", ())
+
+(: Parse the URI.  It will be '.../data/<dbfrom>/<id>/links/<linkname>'  :)
+let $uri := request:get-uri()
+let $path-segs := tokenize($uri, "/")
+let $data-seg-num := index-of($path-segs, "data")[1]
+let $dbfrom   := $path-segs[$data-seg-num + 1]
+let $id       := $path-segs[$data-seg-num + 2]
+let $linkname := $path-segs[$data-seg-num + 4]
 
 (:
   Handle the case of multiple IDs entered like this, "id=312836839,24475906".  We can't
@@ -17,15 +25,12 @@ let $id_params :=
   return concat("id=", $idval)
 let $id_params_str := string-join($id_params, "&amp;")
 
-
-let $results := xdmp:http-get(
-  concat("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?tool=eutils.org&amp;email=voldrani@gmail.com&amp;dbfrom=", $dbfrom,
-         "&amp;", $id_params_str, "&amp;linkname=", $linkname)
-)[2]
+let $results := doc(concat($base_url, "&amp;dbfrom=", $dbfrom, "&amp;", $id_params_str,
+  "&amp;linkname=", $linkname))
 
 return
   if ($format = 'rdf') then
-    xdmp:xslt-invoke("elink.xsl", document{$results})
+    transform:transform($results, "elink.xsl", ())
   else
     $results
 

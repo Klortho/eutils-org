@@ -145,10 +145,8 @@
             <td>esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</td>
             <td>Same, RDF format</td>
           </tr>
-
-
           <tr>
-            <td></td>
+            <td>✓</td>
             <td><a href='data/pubmed/24006159'>/data/pubmed/24006159</a></td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159</a></td>
             <td>ESummary for a particular record</td>

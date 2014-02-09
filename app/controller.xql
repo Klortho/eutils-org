@@ -38,15 +38,21 @@ return
     </dispatch>
   
   
-  (: /data/pmc/14900 - esummary
-    let $url := fn:replace($url, "^/data/([a-z]+)/([0-9,]+)(\?(.*))?$", "/esummary.xqy?db=$1&amp;id=$2&amp;$4") :)
+  (: /data/pmc/14900 - esummary :)
   else if (matches($exist:path, "^/data/[a-z]+/[0-9]+$")) then
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
       <forward url="../../esummary.xqy"/>
     </dispatch>
   
-  
-  
+  (: /pubmed/24108202/links/pubmed_pubmed_five 
+  let $url := fn:replace($url, "^/data/([a-z]+)/([0-9,]+)/links/([a-z_]+)(\?(.*))?$",
+                             "/elink.xqy?dbfrom=$1&amp;id=$2&amp;linkname=$3&amp;$5")  :)
+  else if (matches($exist:path, "^/data/[a-z]+/[0-9]+/links/[a-z_]+$")) then
+    <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
+      <forward url="../../../../elink.xqy"/>
+    </dispatch>
+
+(:  
   else if (ends-with($exist:resource, ".html")) then
     (: the html page is run through view.xql to expand templates :)
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
@@ -66,7 +72,8 @@ return
         <set-header name="Cache-Control" value="max-age=3600, must-revalidate"/>
       </forward>
     </dispatch>
-  
+:)
+
   else
     (: everything else is passed through :)
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
