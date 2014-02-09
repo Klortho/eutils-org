@@ -60,6 +60,17 @@ Point your browser at http://localhost:8080/exist/eutils-org/app/.
   /data/gene/?term=cat&amp;search=entrez|solr, etc.)
 
 
+## Anatomy of the app
+
+The application is designed to be deployed under the eXist database, and is written in
+XQuery and XSLT.
+
+The main controller is [controller.xql](app/controller.xql), and uses features of eXist
+described in the documentation, [URL Rewriting and MVC 
+Framework](http://exist-db.org/exist/apps/doc/urlrewrite.xml).
+
+
+
 
 ## References
 

@@ -13,7 +13,7 @@ if ($exist:path eq "/") then
   </dispatch>
 
 (: let $url := fn:replace($url, "^/data/?(\?.*)?$", "/einfo.xqy$1") :)
-else if (matches($exist:path, "^/data/?(\?.*)?$")) then
+else if (matches($exist:path, "^/data$")) then
   <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
     <forward url="einfo.xqy"/>
   </dispatch>

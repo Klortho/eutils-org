@@ -100,13 +100,13 @@
           </tr>
 
           <tr>
-            <td>✓</td>
+            <td></td>
             <td><a href='/data/pubmed'>/data/pubmed</a></td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=pubmed">einfo.fcgi?db=pubmed</a></td>
             <td>Tell me about this database</td>
           </tr>
           <tr>
-            <td>✓</td>
+            <td></td>
             <td><a href='/data/pubmed?format=rdf'>/data/pubmed?format=rdf</a></td>
             <td>einfo.fcgi?db=pubmed</td>
             <td>Same, RDF format</td>
@@ -133,13 +133,13 @@
           </tr>
 
           <tr>
-            <td>✓</td>
+            <td></td>
             <td><a href='/data/pmc/14900'>/data/pmc/14900</a></td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900">esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</a></td>
             <td>ESummary for a particular record</td>
           </tr>
           <tr>
-            <td>✓</td>
+            <td></td>
             <td><a href='/data/pmc/14900?format=rdf'>/data/pmc/14900?format=rdf</a></td>
             <td>esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</td>
             <td>Same, RDF format</td>
@@ -147,7 +147,7 @@
 
 
           <tr>
-            <td>✓</td>
+            <td></td>
             <td><a href='/data/pubmed/24006159'>/data/pubmed/24006159</a></td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159</a></td>
             <td>ESummary for a particular record</td>
