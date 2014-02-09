@@ -16,8 +16,8 @@ let $path-segs := tokenize($uri, "/")
 let $data-seg-num := index-of($path-segs, "data")[1]
 let $db := $path-segs[$data-seg-num + 1]
 let $id := $path-segs[$data-seg-num + 2]
-let $results := doc(concat($base_url, "&amp;db=", $db, "&amp;id=", $id))
 
+let $results := doc(concat($base_url, "&amp;db=", $db, "&amp;id=", $id))
 
 return
   transform:transform(

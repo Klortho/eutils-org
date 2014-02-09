@@ -38,6 +38,14 @@ return
     </dispatch>
   
   
+  (: /data/pmc/14900 - esummary
+    let $url := fn:replace($url, "^/data/([a-z]+)/([0-9,]+)(\?(.*))?$", "/esummary.xqy?db=$1&amp;id=$2&amp;$4") :)
+  else if (matches($exist:path, "^/data/[a-z]+/[0-9]+$")) then
+    <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
+      <forward url="../../esummary.xqy"/>
+    </dispatch>
+  
+  
   
   else if (ends-with($exist:resource, ".html")) then
     (: the html page is run through view.xql to expand templates :)

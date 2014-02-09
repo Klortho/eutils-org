@@ -114,7 +114,6 @@
             <td>Same, RDF format</td>
           </tr>
 
-
           <tr>
             <td>&#160;</td>
             <td>/data/pubmed?term=cat</td>
@@ -135,13 +134,13 @@
           </tr>
 
           <tr>
-            <td></td>
+            <td>✓</td>
             <td><a href='data/pmc/14900'>/data/pmc/14900</a></td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900">esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</a></td>
             <td>ESummary for a particular record</td>
           </tr>
           <tr>
-            <td></td>
+            <td>✓</td>
             <td><a href='data/pmc/14900?format=rdf'>/data/pmc/14900?format=rdf</a></td>
             <td>esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</td>
             <td>Same, RDF format</td>
