@@ -44,7 +44,8 @@ cd *exist-install-dir*
 bin/startup.sh
 ```
 
-Point your browser at http://localhost:8080/exist/eutils-org/app/.
+Point your browser at
+[http://localhost:8080/exist/eutils-org/app/](http://localhost:8080/exist/eutils-org/app/).
 
 
 ## Outstanding API design issues
@@ -66,7 +67,7 @@ The application is designed to be deployed under the eXist database, and is writ
 XQuery and XSLT.
 
 The main controller is [controller.xql](app/controller.xql), and uses features of eXist
-described in the documentation, [URL Rewriting and MVC 
+described in the documentation, [URL Rewriting and MVC
 Framework](http://exist-db.org/exist/apps/doc/urlrewrite.xml).
 
 
