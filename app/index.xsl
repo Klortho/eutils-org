@@ -94,20 +94,20 @@
           </tr>
           <tr>
             <td>✓</td>
-            <td><a href='/data?format=rdf'>/data?format=rdf</a></td>
+            <td><a href='data?format=rdf'>/data?format=rdf</a></td>
             <td>einfo.fcgi</td>
             <td>Same, RDF format</td>
           </tr>
 
           <tr>
-            <td></td>
-            <td><a href='/data/pubmed'>/data/pubmed</a></td>
+            <td>✓</td>
+            <td><a href='data/pubmed'>/data/pubmed</a></td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=pubmed">einfo.fcgi?db=pubmed</a></td>
             <td>Tell me about this database</td>
           </tr>
           <tr>
-            <td></td>
-            <td><a href='/data/pubmed?format=rdf'>/data/pubmed?format=rdf</a></td>
+            <td>✓</td>
+            <td><a href='data/pubmed?format=rdf'>/data/pubmed?format=rdf</a></td>
             <td>einfo.fcgi?db=pubmed</td>
             <td>Same, RDF format</td>
           </tr>
@@ -134,13 +134,13 @@
 
           <tr>
             <td></td>
-            <td><a href='/data/pmc/14900'>/data/pmc/14900</a></td>
+            <td><a href='data/pmc/14900'>/data/pmc/14900</a></td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900">esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</a></td>
             <td>ESummary for a particular record</td>
           </tr>
           <tr>
             <td></td>
-            <td><a href='/data/pmc/14900?format=rdf'>/data/pmc/14900?format=rdf</a></td>
+            <td><a href='data/pmc/14900?format=rdf'>/data/pmc/14900?format=rdf</a></td>
             <td>esummary.fcgi?db=pmc&amp;version=2.0&amp;id=14900</td>
             <td>Same, RDF format</td>
           </tr>
@@ -148,7 +148,7 @@
 
           <tr>
             <td></td>
-            <td><a href='/data/pubmed/24006159'>/data/pubmed/24006159</a></td>
+            <td><a href='data/pubmed/24006159'>/data/pubmed/24006159</a></td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159</a></td>
             <td>ESummary for a particular record</td>
           </tr>
@@ -161,7 +161,7 @@
 
           <tr>
             <td>&#160;</td>
-            <td><a href='/data/pubmed/24006159,24006160'>/data/pubmed/24006159,24006160</a></td>
+            <td><a href='data/pubmed/24006159,24006160'>/data/pubmed/24006159,24006160</a></td>
             <td><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159">esummary.fcgi?db=pubmed&amp;version=2.0&amp;id=24006159,24006160</a></td>
             <td>ESummary for multiple IDs</td>
           </tr>
@@ -209,8 +209,7 @@
 
           <tr>
             <td>&#160;</td>
-            <td><a
-              href='/data/pubmed/24108202/links/pubmed_pubmed_five'>/data/pubmed/24108202/links/pubmed_pubmed_five</a></td>
+            <td><a href='data/pubmed/24108202/links/pubmed_pubmed_five'>/data/pubmed/24108202/links/pubmed_pubmed_five</a></td>
             <td>
               <a href='http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&amp;id=24108202&amp;linkname=pubmed_pubmed_five'>elink.fcgi?dbfrom=pubmed&amp;id=24108202&amp;linkname=pubmed_pubmed_five</a>
               | esummary
@@ -219,8 +218,7 @@
           </tr>
           <tr>
             <td>&#160;</td>
-            <td><a
-              href='/data/pubmed/24108202/links/pubmed_pubmed_five?format=rdf'>/data/pubmed/24108202/links/pubmed_pubmed_five?format=rdf</a></td>
+            <td><a href='data/pubmed/24108202/links/pubmed_pubmed_five?format=rdf'>/data/pubmed/24108202/links/pubmed_pubmed_five?format=rdf</a></td>
             <td>elink pubmed_pubmed_five | esummary</td>
             <td>Same, RDF format</td>
           </tr>
@@ -240,20 +238,20 @@
 
           <tr>
             <td>&#160;</td>
-            <td><a href='/data/gene/672/links/gene_nuccore'>/data/gene/672/links/gene_nuccore</a></td>
+            <td><a href='data/gene/672/links/gene_nuccore'>/data/gene/672/links/gene_nuccore</a></td>
             <td>esearch gene 672 | elink ids gene_nuccore | esummary</td>
             <td>Link returns summaries by default.   (Right now, it just returns the link, so this is not finished)</td>
           </tr>
           <tr>
             <td>&#160;</td>
-            <td><a href='/data/gene/672/links/gene_nuccore?format=rdf'>/data/gene/672/links/gene_nuccore?format=rdf</a></td>
+            <td><a href='data/gene/672/links/gene_nuccore?format=rdf'>/data/gene/672/links/gene_nuccore?format=rdf</a></td>
             <td>esearch gene 672 | elink ids gene_nuccore | esummary</td>
             <td>Same, RDF format</td>
           </tr>
 
           <tr>
             <td>&#160;</td>
-            <td><a href='/data/gene/672,22018/links/gene_nuccore?format=rdf'>/data/gene/672,22018/links/gene_nuccore?format=rdf</a></td>
+            <td><a href='data/gene/672,22018/links/gene_nuccore?format=rdf'>/data/gene/672,22018/links/gene_nuccore?format=rdf</a></td>
             <td>esearch gene 672 | elink ids gene_nuccore | esummary</td>
             <td>Link from multiple IDs</td>
           </tr>

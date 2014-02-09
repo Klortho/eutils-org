@@ -1,33 +1,18 @@
-xquery version "1.0-ml";
+xquery version "1.0";
 
-xdmp:set-response-content-type("text/xml"),
+declare namespace request="http://exist-db.org/xquery/request";
+declare namespace transform="http://exist-db.org/xquery/transform";
+declare option exist:serialize "media-type=text/xml";
 
+let $format := request:get-parameter("format", ())
+let $db := request:get-parameter("db", ())
+let $base_url := 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi'
 
-try {
-  let $format := xdmp:get-request-field("format")
-  let $db := xdmp:get-request-field("db")
-  (:let $base_url := 'http://chrisbaloney.com/einfo-mock.cgi':)
-  (:let $base_url := 'http://chrisbaloney.com/einfo-pubmed.xml':)
-  let $base_url := 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi'
-  (:let $base_url := 'http://127.0.0.1:8009/entrez/eutils/einfo.fcgi':)
+let $results := doc(concat($base_url, "?tool=eutils.org&amp;email=voldrani@gmail.com&amp;db=", $db))
 
-  let $results := xdmp:http-get(
-    concat($base_url, "?tool=eutils.org&amp;email=voldrani@gmail.com&amp;db=", $db)
-  )[2]
-
-  return
-    if ($format = 'rdf') then
-      xdmp:xslt-invoke("einfo.xsl", document{$results})
-    else
-      $results
-}
-catch ($e) {
-  <error>{ $e }</error>
-}
-
-(:
-let $results := xdmp:http-get(
-  'http://chrisbaloney.com/einfo-pubmed.xml'
-)[2]
-:)
+return
+  if ($format = 'rdf') then
+    transform:transform($results, "einfo.xsl", ())
+  else
+    $results
 

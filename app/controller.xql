@@ -6,18 +6,24 @@ declare variable $exist:controller external;
 declare variable $exist:prefix external;
 declare variable $exist:root external;
 
+
 if ($exist:path eq "/") then
   (: forward root path to index.xql :)
   <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
     <forward url="index.xql"/>
   </dispatch>
 
-(: let $url := fn:replace($url, "^/data/?(\?.*)?$", "/einfo.xqy$1") :)
+(: /data :)
 else if (matches($exist:path, "^/data$")) then
   <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
     <forward url="einfo.xqy"/>
   </dispatch>
 
+(: /data/pubmed :)
+else if (matches($exist:path, "^/data/[a-z]+$")) then
+  <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
+    <forward url="../einfo-db.xqy"/>
+  </dispatch>
 
 
 else if (ends-with($exist:resource, ".html")) then
