@@ -1,41 +1,29 @@
-xquery version "1.0-ml";
+xquery version "1.0";
 (:
   This runs a JATS journal article through jats2spar.xsl
 :)
 
-declare namespace xh = "xdmp:http";
+declare namespace request="http://exist-db.org/xquery/request";
+declare namespace transform="http://exist-db.org/xquery/transform";
+declare namespace http="http://expath.org/ns/http-client";
+declare option exist:serialize "media-type=text/xml";
 
-xdmp:set-response-content-type("text/xml"),
+let $base_url := 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?tool=eutils.org&amp;email=voldrani@gmail.com'
 
-try {
-  let $id := xdmp:get-request-field("id")
-  let $resp := xdmp:http-get(
-    concat("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?tool=eutils.org&amp;email=voldrani@gmail.com&amp;db=pmc", 
-           "&amp;id=", $id)
+(: Parse the URI.  It will be '.../data/pmc/<id>'  :)
+let $uri := request:get-uri()
+let $path-segs := tokenize($uri, "/")
+let $data-seg-num := index-of($path-segs, "data")[1]
+let $db := $path-segs[$data-seg-num + 1]
+let $id := $path-segs[$data-seg-num + 2]
+let $results := doc(concat($base_url, "&amp;db=", $db, "&amp;id=", $id))
+
+
+return
+  transform:transform(
+    $results, "jats2spar.xsl", 
+    <parameters>
+      <param name="this-work" value="{concat("http://rdf.ncbi.nlm.nih.gov/pmc/PMC", $id)}"/>
+    </parameters>
   )
-  let $response := $resp[1]
-  let $content := $resp[2]
-  
-  return
-    if ($response/xh:code = 200) then
-        let $params := map:map()
-        let $_put := map:put($params, "this-work", concat("http://rdf.ncbi.nlm.nih.gov/pmc/PMC", $id))
-      (:
-        let $_put := map:put($params, "db", $db)
-      :)
-      return
-        xdmp:xslt-invoke("jats2spar.xsl", document{$content}, $params)
-
-    else
-      <error>
-        <message>Bad response from E-utilities</message>
-        <response>{
-          $response
-        }</response>
-      </error>
-}
-
-catch ($e) {
-  <error>{ $e }</error>
-}
 

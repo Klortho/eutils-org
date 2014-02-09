@@ -6,6 +6,8 @@
   <!-- script_url, for example, http://chrismaloney.org/eutils/.
     Let's try to keep it blank (resulting in relative URLs -->
   <xsl:variable name='script_url' select='""'/>
+  
+  <xsl:variable name='eutils-base' select='"http://eutils.ncbi.nlm.nih.gov/entrez/eutils/"'/>
 
   <xsl:template match='/'>
     <html xml:lang="en">
