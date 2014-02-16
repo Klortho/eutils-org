@@ -90,10 +90,12 @@
 
   <xsl:output encoding="UTF-8" indent="yes"/>
 
+  <xsl:param name='base-uri' select='"http://rdf.ncbi.nlm.nih.gov/"'/>
+
   <!--
     The full URI of the Semantic Web resource that this JATS document is a representation of,
-    if known.  This should be the URI of the FRBR expression, which corresponds to, for example,
-    a specific article version.
+    if known.  This should be the URI of the FRBR *expression*, which corresponds to, for example,
+    a specific article *version*.
     The default is to use a 'blank node', and this option is signalled by using the "_:" prefix
     followed by a text string.  This is translated into the @rdf:nodeID attribute (instead of
     @rdf:about) on <rdf:Description> elements.
@@ -104,6 +106,7 @@
     Similarly, this is the URI of the FRBR work, if known.
   -->
   <xsl:param name="this-work" select='"_:this-work"'/>
+
 
   <xsl:variable name="prefixes"
     select='tokenize("biro cito co datacite dc dcterms deo dqm fabio foaf frapo frbr literal 
@@ -3192,10 +3195,12 @@
   <!-- END - Mapping attributes -->
 
   <!-- BEGIN - Named templates -->
-  <!-- It takes as input a sequence of strings like (s,p1,o1,p2,o2,...) where s is the subjects 
-      of the statements while p_i and o_i represents respectively the predicates and the objects 
-      of each statement. It is possible to activate a reification strategy using the o_i as empty 
-      strings. -->
+  <!-- 
+    assert takes as input a sequence of strings like (s, p1, o1, p2, o2, ...), where s is the subject
+    of the statements, while p_i and o_i represent respectively the predicates and the objects
+    of each statement. It is possible to activate a reification strategy using the o_i as empty
+    strings. 
+  -->
   <xsl:template name="assert">
     <xsl:param name="triples" as="xs:string*"/>
     <xsl:param name="prev-subject" as="xs:string*"/>
