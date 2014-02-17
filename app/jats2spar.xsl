@@ -115,6 +115,26 @@
 
   <xsl:template match="/">
     <rdf:RDF>
+      <xsl:variable name='article' select='//article[1]'/>
+      <xsl:variable name='journal-meta' select='$article/front/journal-meta'/>
+  
+      <xsl:variable name='journal'>
+        <xsl:choose>
+          <xsl:when test="$journal-meta/journal-id[@journal-id-type='nlm-journal-id']">
+            <xsl:value-of select='concat($base-uri, "nlmcatalog/", 
+              $journal-meta/journal-id[@journal-id-type="nlm-journal-id"])'/>
+          </xsl:when>
+          <xsl:when test='$journal-meta/issn'>
+            <xsl:value-of select='concat($this-expression, "/journal/issn/", 
+              $journal-meta/issn[1])'/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select='concat($this-expression, "/journal/name/",
+              f:makeSlug($journal-meta//journal-title[1]))'/>
+          </xsl:otherwise>
+        </xsl:choose>  
+      </xsl:variable>
+      
       <xsl:call-template name="goahead">
         <xsl:with-param name="w" select="$this-work" tunnel="yes"/>
         <xsl:with-param name="e" select="$this-expression" tunnel="yes"/>
@@ -122,7 +142,7 @@
         <xsl:with-param name="issue" select="'periodical-issue'" tunnel="yes"/>
         <xsl:with-param name="collection" select="'conceptual-papers-collection'" tunnel="yes"/>
         <xsl:with-param name="volume" select="'_:volume'" tunnel="yes"/>
-        <xsl:with-param name="journal" select="'_:journal'" tunnel="yes"/>
+        <xsl:with-param name="journal" select="$journal" tunnel="yes"/>
         <xsl:with-param name="s" select="''" tunnel="yes"/>
         <xsl:with-param name="p" select="''" tunnel="yes"/>
         <xsl:with-param name="o" select="''" tunnel="yes"/>
@@ -3592,6 +3612,18 @@
       </xsl:choose>
     </xsl:variable>
     <xsl:value-of select='concat("_:", $child-label, "-", $p)'/>
+  </xsl:function>
+
+  <!-- 
+    This function makes a slug from a string, suitable for inserting into a newly
+    minted URI.  It converts everything to lowercase, then replaces all special characters
+    with spaces, normalizes spaces, converts spaces to '-'.
+  -->
+  <xsl:function name='f:makeSlug' as='xs:string'>
+    <xsl:param name='orig' as='xs:string'/>
+    <xsl:value-of select='translate(normalize-space(lower-case(
+      replace($orig, "[^A-Za-z0-9]", " ")
+    )), " ", "-")'/>
   </xsl:function>
 
   <!-- END: functions -->
