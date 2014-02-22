@@ -88,53 +88,14 @@
                 exclude-result-prefixes="xs f xlink" 
                 version="2.0">
 
+  <xsl:import href="jats2spar-utils.xsl"/>
+  <xsl:import href='jats2spar-foo.xsl'/>
   <xsl:output encoding="UTF-8" indent="yes"/>
 
-  <xsl:param name='base-uri' select='"http://rdf.ncbi.nlm.nih.gov/"'/>
-
-  <!--
-    The full URI of the Semantic Web resource that this JATS document is a representation of,
-    if known.  This should be the URI of the FRBR *expression*, which corresponds to, for example,
-    a specific article *version*.
-    The default is to use a 'blank node', and this option is signalled by using the "_:" prefix
-    followed by a text string.  This is translated into the @rdf:nodeID attribute (instead of
-    @rdf:about) on <rdf:Description> elements.
-  -->
-  <xsl:param name="this-expression" select='"_:this-expression"'/>
-
-  <!--
-    Similarly, this is the URI of the FRBR work, if known.
-  -->
-  <xsl:param name="this-work" select='"_:this-work"'/>
-
-
-  <xsl:variable name="prefixes"
-    select='tokenize("biro cito co datacite dc dcterms deo dqm fabio foaf frapo frbr literal 
-                      lmm mediatypes owl prism pro prov pso pwo rdf rdfs scoro skos swanrel 
-                      swc swrc trait tvc vcard xsd", "\s+")'/>
 
   <xsl:template match="/">
     <rdf:RDF>
-      <xsl:variable name='article' select='//article[1]'/>
-      <xsl:variable name='journal-meta' select='$article/front/journal-meta'/>
-  
-      <xsl:variable name='journal'>
-        <xsl:choose>
-          <xsl:when test="$journal-meta/journal-id[@journal-id-type='nlm-journal-id']">
-            <xsl:value-of select='concat($base-uri, "nlmcatalog/", 
-              $journal-meta/journal-id[@journal-id-type="nlm-journal-id"])'/>
-          </xsl:when>
-          <xsl:when test='$journal-meta/issn'>
-            <xsl:value-of select='concat($this-expression, "/journal/issn/", 
-              $journal-meta/issn[1])'/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select='concat($this-expression, "/journal/name/",
-              f:makeSlug($journal-meta//journal-title[1]))'/>
-          </xsl:otherwise>
-        </xsl:choose>  
-      </xsl:variable>
-      
+   
       <xsl:call-template name="goahead">
         <xsl:with-param name="w" select="$this-work" tunnel="yes"/>
         <xsl:with-param name="e" select="$this-expression" tunnel="yes"/>
@@ -3614,17 +3575,6 @@
     <xsl:value-of select='concat("_:", $child-label, "-", $p)'/>
   </xsl:function>
 
-  <!-- 
-    This function makes a slug from a string, suitable for inserting into a newly
-    minted URI.  It converts everything to lowercase, then replaces all special characters
-    with spaces, normalizes spaces, converts spaces to '-'.
-  -->
-  <xsl:function name='f:makeSlug' as='xs:string'>
-    <xsl:param name='orig' as='xs:string'/>
-    <xsl:value-of select='translate(normalize-space(lower-case(
-      replace($orig, "[^A-Za-z0-9]", " ")
-    )), " ", "-")'/>
-  </xsl:function>
 
   <!-- END: functions -->
 </xsl:stylesheet>
