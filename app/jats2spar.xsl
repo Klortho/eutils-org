@@ -89,13 +89,12 @@
                 version="2.0">
 
   <xsl:import href="jats2spar-utils.xsl"/>
-  <xsl:import href='jats2spar-foo.xsl'/>
+  <xsl:import href="jats2spar-meta.xsl"/>
   <xsl:output encoding="UTF-8" indent="yes"/>
 
 
   <xsl:template match="/">
     <rdf:RDF>
-   
       <xsl:call-template name="goahead">
         <xsl:with-param name="w" select="$this-work" tunnel="yes"/>
         <xsl:with-param name="e" select="$this-expression" tunnel="yes"/>
@@ -339,7 +338,6 @@
       <xsl:with-param name="s" select="$investigation" tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
-
 
   <xsl:template match="bio">
     <xsl:param name="s" tunnel="yes"/>
@@ -3394,17 +3392,6 @@
     <xsl:apply-templates select=".">
       <xsl:with-param name="lang"
         select="if (not(self::article) and @xml:lang) then @xml:lang else $lang" tunnel="yes"/>
-    </xsl:apply-templates>
-  </xsl:template>
-
-  <xsl:template name="goahead">
-    <xsl:param name="lang" tunnel="yes"/>
-    <xsl:param name="nodes" select="."/>
-    <xsl:apply-templates select="$nodes/attribute()"/>
-    <xsl:apply-templates select="$nodes/element()">
-      <xsl:with-param name="lang"
-        select="if (not($nodes/self::article) and $nodes/@xml:lang) then $nodes/@xml:lang else $lang"
-        tunnel="yes"/>
     </xsl:apply-templates>
   </xsl:template>
 

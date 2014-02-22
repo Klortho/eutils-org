@@ -116,6 +116,28 @@
   </xsl:variable>
 
   <!-- 
+    This utility template is used in place of 'apply-templates' in many places.  It recursively
+    applies templates, and turns the @xml:lang attribute into a tunneling parameter.
+
+    FIXME:  Question:  wouldn't it be easier to just define a function that finds the nearest
+    ancestor @xml:lang, and call that whenever needed?
+  -->
+  <xsl:template name="goahead">
+    <xsl:param name="lang" tunnel="yes"/>
+    <xsl:param name="nodes" select="."/>
+    <xsl:apply-templates select="$nodes/attribute()"/>
+    <xsl:apply-templates select="$nodes/element()">
+      <xsl:with-param name="lang"
+        select="if (not($nodes/self::article) and $nodes/@xml:lang) then $nodes/@xml:lang else $lang"
+        tunnel="yes"/>
+    </xsl:apply-templates>
+  </xsl:template>
+  
+  
+  <!--===================================================================-->
+  <!-- Functions -->
+  
+  <!-- 
     This function makes a slug from a string, suitable for inserting into a newly
     minted URI.  It converts everything to lowercase, then replaces all special characters
     with spaces, normalizes spaces, converts spaces to '-'.
