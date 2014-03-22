@@ -51,6 +51,8 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+                xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+
                 xmlns:biro="&biro;" 
                 xmlns:cito="&cito;"
                 xmlns:co="&co;" 
@@ -85,7 +87,7 @@
                 xmlns:xsd="&xsd;" 
                 xmlns:f="http://www.essepuntato.it/xslt/function/"
                 xmlns:xlink="http://www.w3.org/1999/xlink" 
-                exclude-result-prefixes="xs f xlink" 
+                exclude-result-prefixes="xs f xlink xd" 
                 version="2.0">
 
   <xsl:import href="jats2spar-utils.xsl"/>
@@ -292,7 +294,7 @@
     <xsl:call-template name="goahead"/>
   </xsl:template>
 
-  <xsl:template match="article-title|jorunal-title">
+  <xsl:template match="article-title|journal-title">
     <xsl:param name="lang" tunnel="yes"/>
     <xsl:call-template name="attribute">
       <xsl:with-param name="p" select="'dcterms:title'" tunnel="yes"/>
@@ -984,11 +986,14 @@
     </xsl:call-template>
   </xsl:template>
 
-  <!-- 
-    Page number will produce a manifestation node.
-    FIXME:  the manifestation here should be the same as is defined by the print publication
-    date.
-  -->
+
+  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+    <desc>
+      <p>Page number will produce a manifestation node.</p>
+      <p>FIXME:  the manifestation here should be the same as is defined by the print publication
+        date.</p>
+    </desc>
+  </doc>
   <xsl:template match="page-range|fpage|lpage">
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
@@ -2364,59 +2369,6 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="@product-type[. = 'book']">
-    <xsl:call-template name="single">
-      <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
-      <xsl:with-param name="o" select="'&fabio;Book'" tunnel="yes"/>
-    </xsl:call-template>
-  </xsl:template>
-
-  <xsl:template match="@product-type[. = 'software']">
-    <xsl:call-template name="single">
-      <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
-      <xsl:with-param name="o" select="'&fabio;ComputerProgram'" tunnel="yes"/>
-    </xsl:call-template>
-  </xsl:template>
-
-  <xsl:template match="@product-type[. = 'article']">
-    <xsl:call-template name="single">
-      <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
-      <xsl:with-param name="o" select="'&fabio;Article'" tunnel="yes"/>
-    </xsl:call-template>
-  </xsl:template>
-
-  <xsl:template match="@product-type[. = 'issue']">
-    <xsl:call-template name="single">
-      <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
-      <xsl:with-param name="o" select="'&fabio;PeriodicalIssue'" tunnel="yes"/>
-    </xsl:call-template>
-  </xsl:template>
-
-  <xsl:template match="@product-type[. = 'website']">
-    <xsl:call-template name="single">
-      <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
-      <xsl:with-param name="o" select="'&fabio;WebSite'" tunnel="yes"/>
-    </xsl:call-template>
-  </xsl:template>
-
-  <xsl:template match="@product-type[. = 'film']">
-    <xsl:call-template name="single">
-      <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
-      <xsl:with-param name="o" select="'&fabio;Film'" tunnel="yes"/>
-    </xsl:call-template>
-  </xsl:template>
-
-  <xsl:template match="@product-type">
-    <xsl:param name="s" tunnel="yes"/>
-    <xsl:call-template name="assert">
-      <xsl:with-param name="triples"
-        select="($s,
-          'rdf:type', '',
-          'rdf:type', '&owl;Class',
-          'rdfs:label', concat('&quot;', ., '&quot;'))"/>
-    </xsl:call-template>
-  </xsl:template>
-
   <xsl:template match="@id|@object-id[@object-id-type != 'doi']">
     <xsl:call-template name="attribute">
       <xsl:with-param name="p" select="'dcterms:identifier'" tunnel="yes"/>
@@ -2444,9 +2396,7 @@
     </xsl:call-template>
   </xsl:template>
 
-  <xsl:template
-    match="@journal-id-type[some $l in ('archive', 'aggregator', 'doaj', 'index','nlm-ta', 'pmc', 'publisher-id') 
-                            satisfies . = $l]">
+  <xsl:template match="@journal-id-type[. = ('archive', 'aggregator', 'doaj', 'index', 'pmc', 'publisher-id')]">
     <xsl:param name="s" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
@@ -2462,12 +2412,28 @@
     </xsl:call-template>
   </xsl:template>
 
-  <xsl:template match="@journal-id-type[some $l in ('doi','issn') satisfies . = $l]">
+  <xsl:template match="@journal-id-type[. = ('doi', 'issn')]">
     <xsl:call-template name="attribute">
-      <xsl:with-param name="p" select="concat('prism:',.)" tunnel="yes"/>
+      <xsl:with-param name="p" select="concat('prism:', .)" tunnel="yes"/>
       <xsl:with-param name="o" select=".." tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
+
+  <xsl:template match="@journal-id-type[. = 'nlm-journal-id']">
+    <xsl:call-template name='attribute'>
+      <xsl:with-param name="p" select="'fabio:hasNationalLibraryOfMedicineJournalId'" tunnel="yes"/>
+      <xsl:with-param name="o" select=".." tunnel="yes"/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  <xsl:template match="@journal-id-type[. = 'nlm-ta']">
+    <xsl:call-template name='attribute'>
+      <xsl:with-param name="p" select="'fabio:hasNlmJournalTitleAbbr'" tunnel="yes"/>
+      <xsl:with-param name="o" select=".." tunnel="yes"/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  
 
   <xsl:template match="@mimetype">
     <xsl:param name="e" tunnel="yes"/>
@@ -2489,8 +2455,7 @@
     </xsl:call-template>
   </xsl:template>
 
-  <xsl:template 
-    match="@person-group-type[some $translator in ('translator','translators') satisfies . = $translator]">
+  <xsl:template match="@person-group-type[. = ('translator', 'translators')]">
     <xsl:param name="s" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
 
@@ -2511,8 +2476,7 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template
-    match="@person-group-type[some $author in ('author','authors') satisfies . = $author]">
+  <xsl:template match="@person-group-type[. = ('author','authors')]">
     <xsl:param name="s" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
 
@@ -2556,6 +2520,59 @@
     </xsl:if>
   </xsl:template>
 
+  <xsl:template match="@product-type[. = 'book']">
+    <xsl:call-template name="single">
+      <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
+      <xsl:with-param name="o" select="'&fabio;Book'" tunnel="yes"/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  <xsl:template match="@product-type[. = 'software']">
+    <xsl:call-template name="single">
+      <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
+      <xsl:with-param name="o" select="'&fabio;ComputerProgram'" tunnel="yes"/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  <xsl:template match="@product-type[. = 'article']">
+    <xsl:call-template name="single">
+      <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
+      <xsl:with-param name="o" select="'&fabio;Article'" tunnel="yes"/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  <xsl:template match="@product-type[. = 'issue']">
+    <xsl:call-template name="single">
+      <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
+      <xsl:with-param name="o" select="'&fabio;PeriodicalIssue'" tunnel="yes"/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  <xsl:template match="@product-type[. = 'website']">
+    <xsl:call-template name="single">
+      <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
+      <xsl:with-param name="o" select="'&fabio;WebSite'" tunnel="yes"/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  <xsl:template match="@product-type[. = 'film']">
+    <xsl:call-template name="single">
+      <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
+      <xsl:with-param name="o" select="'&fabio;Film'" tunnel="yes"/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  <xsl:template match="@product-type">
+    <xsl:param name="s" tunnel="yes"/>
+    <xsl:call-template name="assert">
+      <xsl:with-param name="triples"
+        select="($s,
+        'rdf:type', '',
+        'rdf:type', '&owl;Class',
+        'rdfs:label', concat('&quot;', ., '&quot;'))"/>
+    </xsl:call-template>
+  </xsl:template>
+  
   <xsl:template match="@publication-format">
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
@@ -3148,8 +3165,7 @@
     </xsl:call-template>
   </xsl:template>
 
-  <xsl:template
-    match="@rid[parent::contrib and (some $a in //(aff|aff-alternatives) satisfies $a/@id = .)]">
+  <xsl:template match="@rid[parent::contrib and (some $a in //(aff|aff-alternatives) satisfies $a/@id = .)]">
     <xsl:variable name="type" select="."/>
     <xsl:apply-templates select="//(aff|aff-alternatives)[@id = $type]" mode="xref"/>
   </xsl:template>
@@ -3162,11 +3178,15 @@
   </xsl:template>
 
   <xsl:template match="@xml:lang[parent::article]">
-    <xsl:param name="s" tunnel="yes"/>
+    <xsl:param name="e" tunnel="yes"/>
+    <xsl:variable name='language' select='concat($e, "/language")'/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="($s,
-          'dcterms:language', '',
+        select="($e, 'dcterms:language', $language)"/>
+    </xsl:call-template>
+    <xsl:call-template name='assert'>
+      <xsl:with-param name='triples'
+        select="($language,
           'rdf:type', '&dcterms;LinguisticSystem',
           'dcterms:description', concat('&quot;', ., '&quot;', '^^&dcterms;RFC5646'))"/>
     </xsl:call-template>

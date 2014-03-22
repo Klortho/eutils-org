@@ -36,6 +36,8 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+
   xmlns:biro="&biro;" 
   xmlns:cito="&cito;"
   xmlns:co="&co;" 
@@ -70,7 +72,7 @@
   xmlns:xsd="&xsd;" 
   xmlns:f="http://www.essepuntato.it/xslt/function/"
   xmlns:xlink="http://www.w3.org/1999/xlink" 
-  exclude-result-prefixes="xs f xlink" 
+  exclude-result-prefixes="xs f xlink xd"
   version="2.0">
   
 

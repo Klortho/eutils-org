@@ -72,7 +72,7 @@
   xmlns:xsd="&xsd;" 
   xmlns:f="http://www.essepuntato.it/xslt/function/"
   xmlns:xlink="http://www.w3.org/1999/xlink" 
-  exclude-result-prefixes="xs f xlink" 
+  exclude-result-prefixes="xs f xlink xd" 
   version="2.0">
   
   <xsl:param name='base-uri' select='"http://rdf.ncbi.nlm.nih.gov/"'/>
@@ -297,7 +297,7 @@
     
   <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
     <desc>
-      <p>This template instantiates a triple whose object is a data value.</p>
+      <p>The attribute template instantiates a triple whose object is a literal data value.</p>
     </desc>
   </doc>
   <xsl:template name="attribute">
