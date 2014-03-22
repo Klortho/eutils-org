@@ -2737,13 +2737,6 @@
     </xsl:call-template>
   </xsl:template>
 
-  <xsl:template match="@publication-type[. = 'book']">
-    <xsl:call-template name="single">
-      <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
-      <xsl:with-param name="o" select="'&fabio;Book'" tunnel="yes"/>
-    </xsl:call-template>
-  </xsl:template>
-
   <xsl:template match="@publication-type[. = 'standard']">
     <xsl:param name="w" tunnel="yes"/>
     <xsl:call-template name="single">
