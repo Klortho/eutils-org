@@ -1,0 +1,2430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:biro="http://purl.org/spar/biro/"
+         xmlns:cito="http://purl.org/spar/cito/"
+         xmlns:co="http://purl.org/co/"
+         xmlns:datacite="http://purl.org/spar/datacite/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:deo="http://purl.org/spar/deo/"
+         xmlns:dqm="http://purl.org/dqm-vocabulary/v1/dqm#"
+         xmlns:fabio="http://purl.org/spar/fabio/"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:frapo="http://purl.org/cerif/frapo/"
+         xmlns:frbr="http://purl.org/vocab/frbr/core#"
+         xmlns:literal="http://www.essepuntato.it/2010/06/literalreification/"
+         xmlns:lmm="http://ontologydesignpatterns.org/ont/lmm/LMM_L2.owl"
+         xmlns:mediatypes="http://purl.org/NET/mediatypes/"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/"
+         xmlns:pro="http://purl.org/spar/pro/"
+         xmlns:prov="http://www.w3.org/ns/prov#"
+         xmlns:pso="http://purl.org/spar/pso/"
+         xmlns:pwo="http://purl.org/spar/pwo/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:scoro="http://purl.org/spar/scoro/"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:swanrel="http://purl.org/swan/2.0/discourse-relationships/"
+         xmlns:swc="http://data.semanticweb.org/ns/swc/ontology#"
+         xmlns:swrc="http://swrc.ontoware.org/ontology#"
+         xmlns:trait="http://contextus.net/ontology/ontomedia/ext/common/trait#"
+         xmlns:tvc="http://www.essepuntato.it/2012/04/tvc/"
+         xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+   <rdf:Description rdf:nodeID="this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+      <frbr:realizationOf rdf:nodeID="this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Article"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/ResearchPaper"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <frbr:partOf rdf:nodeID="this-expression/journal/issn/0305-1048"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression/journal/issn/0305-1048">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Journal"/>
+      <frbr:realizationOf>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/fabio/WorkCollection"/>
+         </rdf:Description>
+      </frbr:realizationOf>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression/journal/issn/0305-1048">
+      <datacite:hasIdentifier>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+            <datacite:usesIdentifierScheme rdf:resource="http://purl.org/spar/datacite/local-resource-identifier-scheme"/>
+            <literal:hasLiteralValue>Nucleic Acids Res</literal:hasLiteralValue>
+            <prov:wasAttributedTo>
+               <rdf:Description>
+                  <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+                  <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+                  <rdfs:label>PubMed</rdfs:label>
+               </rdf:Description>
+            </prov:wasAttributedTo>
+         </rdf:Description>
+      </datacite:hasIdentifier>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression/journal/issn/0305-1048">
+      <datacite:hasIdentifier>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+            <literal:hasLiteralValue>Nucleic Acids Res</literal:hasLiteralValue>
+            <datacite:usesIdentifierScheme>
+               <rdf:Description>
+                  <rdf:type rdf:resource="http://purl.org/spar/datacite/IdentifierScheme"/>
+                  <rdfs:label>iso-abbrev</rdfs:label>
+               </rdf:Description>
+            </datacite:usesIdentifierScheme>
+         </rdf:Description>
+      </datacite:hasIdentifier>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression/journal/issn/0305-1048">
+      <datacite:hasIdentifier>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+            <datacite:usesIdentifierScheme rdf:resource="http://purl.org/spar/datacite/local-resource-identifier-scheme"/>
+            <literal:hasLiteralValue>nar</literal:hasLiteralValue>
+            <prov:wasAttributedTo>
+               <rdf:Description>
+                  <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+                  <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+                  <rdfs:label>A publisher</rdfs:label>
+               </rdf:Description>
+            </prov:wasAttributedTo>
+         </rdf:Description>
+      </datacite:hasIdentifier>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression/journal/issn/0305-1048">
+      <datacite:hasIdentifier>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+            <literal:hasLiteralValue>nar</literal:hasLiteralValue>
+            <datacite:usesIdentifierScheme>
+               <rdf:Description>
+                  <rdf:type rdf:resource="http://purl.org/spar/datacite/IdentifierScheme"/>
+                  <rdfs:label>hwp</rdfs:label>
+               </rdf:Description>
+            </datacite:usesIdentifierScheme>
+         </rdf:Description>
+      </datacite:hasIdentifier>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression/journal/issn/0305-1048">
+      <prism:issn>0305-1048</prism:issn>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression/journal/issn/0305-1048">
+      <prism:issn>1362-4962</prism:issn>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression/journal/issn/0305-1048">
+      <dcterms:publisher rdf:resource="publisher-_:this-expression/journal/issn/0305-1048"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="publisher-_:this-expression/journal/issn/0305-1048">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="publisher-_:this-expression/journal/issn/0305-1048">
+      <foaf:name>Oxford University Press</foaf:name>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <fabio:hasPubMedId>23193287</fabio:hasPubMedId>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <fabio:hasPubMedCentralId>PMC3531190</fabio:hasPubMedCentralId>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <prism:doi>10.1093/nar/gks1195</prism:doi>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <datacite:hasIdentifier>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+            <datacite:usesIdentifierScheme rdf:resource="http://purl.org/spar/datacite/local-resource-identifier-scheme"/>
+            <literal:hasLiteralValue>gks1195</literal:hasLiteralValue>
+            <prov:wasAttributedTo>
+               <rdf:Description>
+                  <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+                  <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+                  <rdfs:label>A publisher</rdfs:label>
+               </rdf:Description>
+            </prov:wasAttributedTo>
+         </rdf:Description>
+      </datacite:hasIdentifier>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <fabio:hasSubjectTerm rdf:nodeID="this-expression-term1"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-term1">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/SubjectTerm"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-term1">
+      <rdfs:label>Articles</rdfs:label>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <dcterms:title>GenBank</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <dcterms:contributor rdf:nodeID="agent-1-this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-1-this-work">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <dcterms:creator rdf:nodeID="agent-1-this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-1-this-work">
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:relatesToDocument rdf:nodeID="this-work"/>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-1-this-work">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-1-this-work">
+      <foaf:familyName>Benson</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-1-this-work">
+      <foaf:givenName>Dennis A.</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <dcterms:contributor rdf:nodeID="agent-2-this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-2-this-work">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <dcterms:creator rdf:nodeID="agent-2-this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-2-this-work">
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:relatesToDocument rdf:nodeID="this-work"/>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-2-this-work">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-2-this-work">
+      <foaf:familyName>Cavanaugh</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-2-this-work">
+      <foaf:givenName>Mark</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <dcterms:contributor rdf:nodeID="agent-3-this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-3-this-work">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <dcterms:creator rdf:nodeID="agent-3-this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-3-this-work">
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:relatesToDocument rdf:nodeID="this-work"/>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-3-this-work">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-3-this-work">
+      <foaf:familyName>Clark</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-3-this-work">
+      <foaf:givenName>Karen</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <dcterms:contributor rdf:nodeID="agent-4-this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-4-this-work">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <dcterms:creator rdf:nodeID="agent-4-this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-4-this-work">
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:relatesToDocument rdf:nodeID="this-work"/>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-4-this-work">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-4-this-work">
+      <foaf:familyName>Karsch-Mizrachi</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-4-this-work">
+      <foaf:givenName>Ilene</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <dcterms:contributor rdf:nodeID="agent-5-this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-5-this-work">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <dcterms:creator rdf:nodeID="agent-5-this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-5-this-work">
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:relatesToDocument rdf:nodeID="this-work"/>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-5-this-work">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-5-this-work">
+      <foaf:familyName>Lipman</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-5-this-work">
+      <foaf:givenName>David J.</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <dcterms:contributor rdf:nodeID="agent-6-this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-6-this-work">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <dcterms:creator rdf:nodeID="agent-6-this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-6-this-work">
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:relatesToDocument rdf:nodeID="this-work"/>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-6-this-work">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-6-this-work">
+      <foaf:familyName>Ostell</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-6-this-work">
+      <foaf:givenName>James</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <dcterms:contributor rdf:nodeID="agent-7-this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-7-this-work">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <dcterms:creator rdf:nodeID="agent-7-this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-7-this-work">
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:relatesToDocument rdf:nodeID="this-work"/>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-7-this-work">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-7-this-work">
+      <foaf:familyName>Sayers</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="agent-7-this-work">
+      <foaf:givenName>Eric W.</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <dcterms:identifier>gks1195-COR1</dcterms:identifier>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <vcard:tel>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://www.w3.org/2006/vcard/ns#Tel"/>
+            <literal:hasLiteralValue>+1 301
+            496 2475</literal:hasLiteralValue>
+         </rdf:Description>
+      </vcard:tel>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <vcard:tel>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://www.w3.org/2006/vcard/ns#Fax"/>
+            <literal:hasLiteralValue>+1 301 480 9241</literal:hasLiteralValue>
+         </rdf:Description>
+      </vcard:tel>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <vcard:email rdf:resource="sayers@ncbi.nlm.nih.gov"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="d3e191-manifestation">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/PrintObject"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="d3e191-manifestation">
+      <prism:publicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYearMonth">2013-1</prism:publicationDate>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="d3e200-manifestation">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/DigitalManifestation"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="d3e200-manifestation">
+      <prism:publicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-11-26</prism:publicationDate>
+   </rdf:Description>
+   <rdf:Description rdf:about="periodical-issue-_:this-expression">
+      <frbr:partOf rdf:nodeID="volume"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="volume">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalVolume"/>
+      <prism:volume>41</prism:volume>
+      <frbr:partOf>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/fabio/Periodical"/>
+         </rdf:Description>
+      </frbr:partOf>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <frbr:partOf rdf:resource="periodical-issue-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="periodical-issue-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalIssue"/>
+      <frbr:realizationOf rdf:resource="conceptual-papers-collection-_:this-work"/>
+      <prism:issueIdentifier rdf:resource="D1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="conceptual-papers-collection-_:this-work">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/WorkCollection"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="periodical-issue-_:this-expression">
+      <dcterms:title>Database issue</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="page-range-manifestation">
+      <prism:startingPage rdf:resource="D36"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <frbr:realization rdf:nodeID="this-expression-d3e244"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-d3e244">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-d3e244">
+      <fabio:hasDateReceived rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-9-28</fabio:hasDateReceived>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <frbr:realization>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+            <frbr:revision rdf:nodeID="this-expression-d3e256"/>
+         </rdf:Description>
+      </frbr:realization>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-d3e256">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-d3e256">
+      <fabio:hasDateReceived rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-10-29</fabio:hasDateReceived>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-work">
+      <frbr:realization rdf:nodeID="this-expression-d3e268"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-d3e268">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-d3e268">
+      <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-10-29</dcterms:dateAccepted>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <dcterms:rights>Published by Oxford University Press 2012.</dcterms:rights>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <fabio:hasCopyrightYear>2012</fabio:hasCopyrightYear>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <dcterms:license rdf:resource="http://creativecommons.org/licenses/by-nc/3.0"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <frbr:part rdf:nodeID="this-expression-reference-list"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-reference-list">
+      <rdf:type rdf:resource="http://purl.org/spar/biro/ReferenceList"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-reference-list">
+      <co:item rdf:resource="reference-item-1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-1">
+      <rdf:type rdf:resource="http://purl.org/co/ListItem"/>
+      <co:itemContent rdf:resource="reference-1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-1">
+      <co:nextItem rdf:resource="reference-item-2"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-1">
+      <co:index>1</co:index>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-1">
+      <dcterms:bibliographicCitation>1 Benson DA Karsch-Mizrachi I Clark K Lipman DJ Ostell J Sayers EW GenBank Nucleic Acids Res. 2012 40 D48 D53 22144687</dcterms:bibliographicCitation>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-1">
+      <rdf:type rdf:resource="http://purl.org/spar/biro/BibliographicReference"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-1">
+      <dcterms:identifier>gks1195-B1</dcterms:identifier>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-1">
+      <biro:references rdf:resource="reference-1-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <cito:cites rdf:resource="reference-1-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-1-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+      <frbr:realizationOf rdf:resource="reference-1-_:this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-1-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+            <pro:relatesToDocument rdf:resource="reference-1-_:this-expression"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1">
+      <foaf:member rdf:resource="group-1-agent-1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-1">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-1">
+      <foaf:familyName>Benson</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-1">
+      <foaf:givenName>DA</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1">
+      <foaf:member rdf:resource="group-1-agent-2"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-2">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-2">
+      <foaf:familyName>Karsch-Mizrachi</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-2">
+      <foaf:givenName>I</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1">
+      <foaf:member rdf:resource="group-1-agent-3"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-3">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-3">
+      <foaf:familyName>Clark</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-3">
+      <foaf:givenName>K</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1">
+      <foaf:member rdf:resource="group-1-agent-4"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-4">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-4">
+      <foaf:familyName>Lipman</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-4">
+      <foaf:givenName>DJ</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1">
+      <foaf:member rdf:resource="group-1-agent-5"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-5">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-5">
+      <foaf:familyName>Ostell</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-5">
+      <foaf:givenName>J</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1">
+      <foaf:member rdf:resource="group-1-agent-6"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-6">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-6">
+      <foaf:familyName>Sayers</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-1-agent-6">
+      <foaf:givenName>EW</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-1-_:this-expression">
+      <dcterms:title>GenBank</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-1-_:this-expression-source">
+      <dcterms:title>Nucleic Acids Res.</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-1-_:this-expression">
+      <frbr:partOf rdf:resource="reference-1-_:this-expression-source"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-1-_:this-expression">
+      <fabio:hasPublicationYear>2012</fabio:hasPublicationYear>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-1-_:this-expression">
+      <frbr:partOf rdf:nodeID="volume"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="volume">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalVolume"/>
+      <prism:volume>40</prism:volume>
+      <frbr:partOf>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/fabio/Periodical"/>
+         </rdf:Description>
+      </frbr:partOf>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-1-_:this-expression">
+      <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="page-range-manifestation">
+      <prism:startingPage rdf:resource="D48"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-1-_:this-work">
+      <fabio:hasPubMedId>22144687</fabio:hasPubMedId>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-reference-list">
+      <co:item rdf:resource="reference-item-2"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-2">
+      <rdf:type rdf:resource="http://purl.org/co/ListItem"/>
+      <co:itemContent rdf:resource="reference-2"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-2">
+      <co:nextItem rdf:resource="reference-item-3"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-2">
+      <co:index>2</co:index>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-2">
+      <dcterms:bibliographicCitation>2 Leinonen R Akhtar R Birney E Bower L Cerdeno-Tarraga A Cheng Y Cleland I Faruque N Goodgame N Gibson R The European Nucleotide Archive Nucleic Acids Res. 2011 39 D28 D31 20972220</dcterms:bibliographicCitation>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-2">
+      <rdf:type rdf:resource="http://purl.org/spar/biro/BibliographicReference"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-2">
+      <dcterms:identifier>gks1195-B2</dcterms:identifier>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-2">
+      <biro:references rdf:resource="reference-2-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <cito:cites rdf:resource="reference-2-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-2-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+      <frbr:realizationOf rdf:resource="reference-2-_:this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-2-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+            <pro:relatesToDocument rdf:resource="reference-2-_:this-expression"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2">
+      <foaf:member rdf:resource="group-2-agent-1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-1">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-1">
+      <foaf:familyName>Leinonen</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-1">
+      <foaf:givenName>R</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2">
+      <foaf:member rdf:resource="group-2-agent-2"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-2">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-2">
+      <foaf:familyName>Akhtar</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-2">
+      <foaf:givenName>R</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2">
+      <foaf:member rdf:resource="group-2-agent-3"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-3">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-3">
+      <foaf:familyName>Birney</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-3">
+      <foaf:givenName>E</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2">
+      <foaf:member rdf:resource="group-2-agent-4"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-4">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-4">
+      <foaf:familyName>Bower</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-4">
+      <foaf:givenName>L</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2">
+      <foaf:member rdf:resource="group-2-agent-5"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-5">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-5">
+      <foaf:familyName>Cerdeno-Tarraga</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-5">
+      <foaf:givenName>A</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2">
+      <foaf:member rdf:resource="group-2-agent-6"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-6">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-6">
+      <foaf:familyName>Cheng</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-6">
+      <foaf:givenName>Y</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2">
+      <foaf:member rdf:resource="group-2-agent-7"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-7">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-7">
+      <foaf:familyName>Cleland</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-7">
+      <foaf:givenName>I</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2">
+      <foaf:member rdf:resource="group-2-agent-8"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-8">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-8">
+      <foaf:familyName>Faruque</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-8">
+      <foaf:givenName>N</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2">
+      <foaf:member rdf:resource="group-2-agent-9"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-9">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-9">
+      <foaf:familyName>Goodgame</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-9">
+      <foaf:givenName>N</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2">
+      <foaf:member rdf:resource="group-2-agent-10"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-10">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-10">
+      <foaf:familyName>Gibson</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-2-agent-10">
+      <foaf:givenName>R</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-2-_:this-expression">
+      <dcterms:title>The European Nucleotide Archive</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-2-_:this-expression-source">
+      <dcterms:title>Nucleic Acids Res.</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-2-_:this-expression">
+      <frbr:partOf rdf:resource="reference-2-_:this-expression-source"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-2-_:this-expression">
+      <fabio:hasPublicationYear>2011</fabio:hasPublicationYear>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-2-_:this-expression">
+      <frbr:partOf rdf:nodeID="volume"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="volume">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalVolume"/>
+      <prism:volume>39</prism:volume>
+      <frbr:partOf>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/fabio/Periodical"/>
+         </rdf:Description>
+      </frbr:partOf>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-2-_:this-expression">
+      <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="page-range-manifestation">
+      <prism:startingPage rdf:resource="D28"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-2-_:this-work">
+      <fabio:hasPubMedId>20972220</fabio:hasPubMedId>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-reference-list">
+      <co:item rdf:resource="reference-item-3"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-3">
+      <rdf:type rdf:resource="http://purl.org/co/ListItem"/>
+      <co:itemContent rdf:resource="reference-3"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-3">
+      <co:nextItem rdf:resource="reference-item-4"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-3">
+      <co:index>3</co:index>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-3">
+      <dcterms:bibliographicCitation>3 Kaminuma E Kosuge T Kodama Y Aono H Mashima J Gojobori T Sugawara H Ogasawara O Takagi T Okubo K DDBJ progress report Nucleic Acids Res. 2011 39 D22 D27 21062814</dcterms:bibliographicCitation>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-3">
+      <rdf:type rdf:resource="http://purl.org/spar/biro/BibliographicReference"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-3">
+      <dcterms:identifier>gks1195-B3</dcterms:identifier>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-3">
+      <biro:references rdf:resource="reference-3-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <cito:cites rdf:resource="reference-3-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-3-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+      <frbr:realizationOf rdf:resource="reference-3-_:this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-3-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+            <pro:relatesToDocument rdf:resource="reference-3-_:this-expression"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3">
+      <foaf:member rdf:resource="group-3-agent-1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-1">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-1">
+      <foaf:familyName>Kaminuma</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-1">
+      <foaf:givenName>E</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3">
+      <foaf:member rdf:resource="group-3-agent-2"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-2">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-2">
+      <foaf:familyName>Kosuge</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-2">
+      <foaf:givenName>T</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3">
+      <foaf:member rdf:resource="group-3-agent-3"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-3">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-3">
+      <foaf:familyName>Kodama</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-3">
+      <foaf:givenName>Y</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3">
+      <foaf:member rdf:resource="group-3-agent-4"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-4">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-4">
+      <foaf:familyName>Aono</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-4">
+      <foaf:givenName>H</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3">
+      <foaf:member rdf:resource="group-3-agent-5"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-5">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-5">
+      <foaf:familyName>Mashima</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-5">
+      <foaf:givenName>J</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3">
+      <foaf:member rdf:resource="group-3-agent-6"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-6">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-6">
+      <foaf:familyName>Gojobori</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-6">
+      <foaf:givenName>T</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3">
+      <foaf:member rdf:resource="group-3-agent-7"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-7">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-7">
+      <foaf:familyName>Sugawara</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-7">
+      <foaf:givenName>H</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3">
+      <foaf:member rdf:resource="group-3-agent-8"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-8">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-8">
+      <foaf:familyName>Ogasawara</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-8">
+      <foaf:givenName>O</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3">
+      <foaf:member rdf:resource="group-3-agent-9"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-9">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-9">
+      <foaf:familyName>Takagi</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-9">
+      <foaf:givenName>T</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3">
+      <foaf:member rdf:resource="group-3-agent-10"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-10">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-10">
+      <foaf:familyName>Okubo</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-3-agent-10">
+      <foaf:givenName>K</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-3-_:this-expression">
+      <dcterms:title>DDBJ progress report</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-3-_:this-expression-source">
+      <dcterms:title>Nucleic Acids Res.</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-3-_:this-expression">
+      <frbr:partOf rdf:resource="reference-3-_:this-expression-source"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-3-_:this-expression">
+      <fabio:hasPublicationYear>2011</fabio:hasPublicationYear>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-3-_:this-expression">
+      <frbr:partOf rdf:nodeID="volume"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="volume">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalVolume"/>
+      <prism:volume>39</prism:volume>
+      <frbr:partOf>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/fabio/Periodical"/>
+         </rdf:Description>
+      </frbr:partOf>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-3-_:this-expression">
+      <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="page-range-manifestation">
+      <prism:startingPage rdf:resource="D22"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-3-_:this-work">
+      <fabio:hasPubMedId>21062814</fabio:hasPubMedId>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-reference-list">
+      <co:item rdf:resource="reference-item-4"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-4">
+      <rdf:type rdf:resource="http://purl.org/co/ListItem"/>
+      <co:itemContent rdf:resource="reference-4"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-4">
+      <co:nextItem rdf:resource="reference-item-5"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-4">
+      <co:index>4</co:index>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-4">
+      <dcterms:bibliographicCitation>4 NCBI Resource Coordinators. Database resources at the National Center for Biotechnology Information Nucleic Acids Res. 2013 41 D8 D20 23193264</dcterms:bibliographicCitation>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-4">
+      <rdf:type rdf:resource="http://purl.org/spar/biro/BibliographicReference"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-4">
+      <dcterms:identifier>gks1195-B4</dcterms:identifier>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-4">
+      <biro:references rdf:resource="reference-4-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <cito:cites rdf:resource="reference-4-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-4-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+      <frbr:realizationOf rdf:resource="reference-4-_:this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-4-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-4">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+            <pro:relatesToDocument rdf:resource="reference-4-_:this-expression"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-4">
+      <foaf:name>
+            NCBI Resource Coordinators.
+          </foaf:name>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-4">
+      <foaf:name>NCBI Resource Coordinators.</foaf:name>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-4">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-4-_:this-expression">
+      <dcterms:title>Database resources at the National Center for Biotechnology
+            Information</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-4-_:this-expression-source">
+      <dcterms:title>Nucleic Acids Res.</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-4-_:this-expression">
+      <frbr:partOf rdf:resource="reference-4-_:this-expression-source"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-4-_:this-expression">
+      <fabio:hasPublicationYear>2013</fabio:hasPublicationYear>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-4-_:this-expression">
+      <frbr:partOf rdf:nodeID="volume"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="volume">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalVolume"/>
+      <prism:volume>41</prism:volume>
+      <frbr:partOf>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/fabio/Periodical"/>
+         </rdf:Description>
+      </frbr:partOf>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-4-_:this-expression">
+      <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="page-range-manifestation">
+      <prism:startingPage rdf:resource="D8"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-4-_:this-work">
+      <fabio:hasPubMedId>23193264</fabio:hasPubMedId>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-reference-list">
+      <co:item rdf:resource="reference-item-5"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-5">
+      <rdf:type rdf:resource="http://purl.org/co/ListItem"/>
+      <co:itemContent rdf:resource="reference-5"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-5">
+      <co:nextItem rdf:resource="reference-item-6"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-5">
+      <co:index>5</co:index>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-5">
+      <dcterms:bibliographicCitation>5 Federhen S The NCBI Taxonomy database Nucleic Acids Res. 2012 40 D136 D143 22139910</dcterms:bibliographicCitation>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-5">
+      <rdf:type rdf:resource="http://purl.org/spar/biro/BibliographicReference"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-5">
+      <dcterms:identifier>gks1195-B5</dcterms:identifier>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-5">
+      <biro:references rdf:resource="reference-5-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <cito:cites rdf:resource="reference-5-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-5-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+      <frbr:realizationOf rdf:resource="reference-5-_:this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-5-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-5">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+            <pro:relatesToDocument rdf:resource="reference-5-_:this-expression"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-5">
+      <foaf:member rdf:resource="group-5-agent-1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-5-agent-1">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-5-agent-1">
+      <foaf:familyName>Federhen</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-5-agent-1">
+      <foaf:givenName>S</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-5-_:this-expression">
+      <dcterms:title>The NCBI Taxonomy database</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-5-_:this-expression-source">
+      <dcterms:title>Nucleic Acids Res.</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-5-_:this-expression">
+      <frbr:partOf rdf:resource="reference-5-_:this-expression-source"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-5-_:this-expression">
+      <fabio:hasPublicationYear>2012</fabio:hasPublicationYear>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-5-_:this-expression">
+      <frbr:partOf rdf:nodeID="volume"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="volume">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalVolume"/>
+      <prism:volume>40</prism:volume>
+      <frbr:partOf>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/fabio/Periodical"/>
+         </rdf:Description>
+      </frbr:partOf>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-5-_:this-expression">
+      <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="page-range-manifestation">
+      <prism:startingPage rdf:resource="D136"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-5-_:this-work">
+      <fabio:hasPubMedId>22139910</fabio:hasPubMedId>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-reference-list">
+      <co:item rdf:resource="reference-item-6"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-6">
+      <rdf:type rdf:resource="http://purl.org/co/ListItem"/>
+      <co:itemContent rdf:resource="reference-6"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-6">
+      <co:nextItem rdf:resource="reference-item-7"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-6">
+      <co:index>6</co:index>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-6">
+      <dcterms:bibliographicCitation>6 Kodama Y Shumway M Leinonen R The Sequence Read Archive: explosive growth of sequencing data Nucleic Acids Res. 2012 40 D54 D56 22009675</dcterms:bibliographicCitation>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-6">
+      <rdf:type rdf:resource="http://purl.org/spar/biro/BibliographicReference"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-6">
+      <dcterms:identifier>gks1195-B6</dcterms:identifier>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-6">
+      <biro:references rdf:resource="reference-6-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <cito:cites rdf:resource="reference-6-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-6-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+      <frbr:realizationOf rdf:resource="reference-6-_:this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-6-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-6">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+            <pro:relatesToDocument rdf:resource="reference-6-_:this-expression"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-6">
+      <foaf:member rdf:resource="group-6-agent-1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-6-agent-1">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-6-agent-1">
+      <foaf:familyName>Kodama</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-6-agent-1">
+      <foaf:givenName>Y</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-6">
+      <foaf:member rdf:resource="group-6-agent-2"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-6-agent-2">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-6-agent-2">
+      <foaf:familyName>Shumway</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-6-agent-2">
+      <foaf:givenName>M</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-6">
+      <foaf:member rdf:resource="group-6-agent-3"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-6-agent-3">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-6-agent-3">
+      <foaf:familyName>Leinonen</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-6-agent-3">
+      <foaf:givenName>R</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-6-_:this-expression">
+      <dcterms:title>The Sequence Read Archive: explosive growth of sequencing
+            data</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-6-_:this-expression-source">
+      <dcterms:title>Nucleic Acids Res.</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-6-_:this-expression">
+      <frbr:partOf rdf:resource="reference-6-_:this-expression-source"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-6-_:this-expression">
+      <fabio:hasPublicationYear>2012</fabio:hasPublicationYear>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-6-_:this-expression">
+      <frbr:partOf rdf:nodeID="volume"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="volume">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalVolume"/>
+      <prism:volume>40</prism:volume>
+      <frbr:partOf>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/fabio/Periodical"/>
+         </rdf:Description>
+      </frbr:partOf>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-6-_:this-expression">
+      <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="page-range-manifestation">
+      <prism:startingPage rdf:resource="D54"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-6-_:this-work">
+      <fabio:hasPubMedId>22009675</fabio:hasPubMedId>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-reference-list">
+      <co:item rdf:resource="reference-item-7"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-7">
+      <rdf:type rdf:resource="http://purl.org/co/ListItem"/>
+      <co:itemContent rdf:resource="reference-7"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-7">
+      <co:nextItem rdf:resource="reference-item-8"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-7">
+      <co:index>7</co:index>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-7">
+      <dcterms:bibliographicCitation>7 Boguski MS Lowe TM Tolstoshev CM dbEST—database for “expressed sequence tags” Nat. Genet. 1993 4 332 333 8401577</dcterms:bibliographicCitation>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-7">
+      <rdf:type rdf:resource="http://purl.org/spar/biro/BibliographicReference"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-7">
+      <dcterms:identifier>gks1195-B7</dcterms:identifier>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-7">
+      <biro:references rdf:resource="reference-7-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <cito:cites rdf:resource="reference-7-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-7-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+      <frbr:realizationOf rdf:resource="reference-7-_:this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-7-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-7">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+            <pro:relatesToDocument rdf:resource="reference-7-_:this-expression"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-7">
+      <foaf:member rdf:resource="group-7-agent-1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-7-agent-1">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-7-agent-1">
+      <foaf:familyName>Boguski</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-7-agent-1">
+      <foaf:givenName>MS</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-7">
+      <foaf:member rdf:resource="group-7-agent-2"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-7-agent-2">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-7-agent-2">
+      <foaf:familyName>Lowe</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-7-agent-2">
+      <foaf:givenName>TM</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-7">
+      <foaf:member rdf:resource="group-7-agent-3"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-7-agent-3">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-7-agent-3">
+      <foaf:familyName>Tolstoshev</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-7-agent-3">
+      <foaf:givenName>CM</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-7-_:this-expression">
+      <dcterms:title>dbEST—database for “expressed sequence
+            tags”</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-7-_:this-expression-source">
+      <dcterms:title>Nat. Genet.</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-7-_:this-expression">
+      <frbr:partOf rdf:resource="reference-7-_:this-expression-source"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-7-_:this-expression">
+      <fabio:hasPublicationYear>1993</fabio:hasPublicationYear>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-7-_:this-expression">
+      <frbr:partOf rdf:nodeID="volume"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="volume">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalVolume"/>
+      <prism:volume>4</prism:volume>
+      <frbr:partOf>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/fabio/Periodical"/>
+         </rdf:Description>
+      </frbr:partOf>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-7-_:this-expression">
+      <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="page-range-manifestation">
+      <prism:startingPage rdf:resource="332"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-7-_:this-work">
+      <fabio:hasPubMedId>8401577</fabio:hasPubMedId>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-reference-list">
+      <co:item rdf:resource="reference-item-8"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-8">
+      <rdf:type rdf:resource="http://purl.org/co/ListItem"/>
+      <co:itemContent rdf:resource="reference-8"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-8">
+      <co:nextItem rdf:resource="reference-item-9"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-8">
+      <co:index>8</co:index>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-8">
+      <dcterms:bibliographicCitation>8 Kans JA Ouellette BFF Baxevanis AD Ouellette BFF Submitting DNA Sequences to the Databases Bioinformatics: A Practical Guide to the Analysis of Genes and Proteins 2001 New York, NY John Wiley and Sons, Inc. 65 81</dcterms:bibliographicCitation>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-8">
+      <rdf:type rdf:resource="http://purl.org/spar/biro/BibliographicReference"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-8">
+      <dcterms:identifier>gks1195-B8</dcterms:identifier>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-8">
+      <biro:references rdf:resource="reference-8-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <cito:cites rdf:resource="reference-8-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-8-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+      <frbr:realizationOf rdf:resource="reference-8-_:this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-8-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Book"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-8">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+            <pro:relatesToDocument rdf:resource="reference-8-_:this-expression"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-8">
+      <foaf:member rdf:resource="group-8-agent-1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-8-agent-1">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-8-agent-1">
+      <foaf:familyName>Kans</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-8-agent-1">
+      <foaf:givenName>JA</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-8">
+      <foaf:member rdf:resource="group-8-agent-2"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-8-agent-2">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-8-agent-2">
+      <foaf:familyName>Ouellette</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-8-agent-2">
+      <foaf:givenName>BFF</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-9">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:relatesToDocument rdf:resource="reference-8-_:this-expression"/>
+            <pro:withRole>
+               <rdf:Description>
+                  <rdf:type rdf:resource="http://purl.org/spar/pro/Role"/>
+                  <rdfs:label>editor</rdfs:label>
+               </rdf:Description>
+            </pro:withRole>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-9">
+      <foaf:member rdf:resource="group-9-agent-1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-9-agent-1">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-9-agent-1">
+      <foaf:familyName>Baxevanis</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-9-agent-1">
+      <foaf:givenName>AD</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-9">
+      <foaf:member rdf:resource="group-9-agent-2"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-9-agent-2">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-9-agent-2">
+      <foaf:familyName>Ouellette</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-9-agent-2">
+      <foaf:givenName>BFF</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-8-_:this-expression">
+      <dcterms:title>Submitting DNA Sequences to the Databases</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-8-_:this-expression-source">
+      <dcterms:title>Bioinformatics: A Practical Guide to the Analysis of Genes and Proteins</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-8-_:this-expression">
+      <frbr:partOf rdf:resource="reference-8-_:this-expression-source"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-8-_:this-expression">
+      <fabio:hasPublicationYear>2001</fabio:hasPublicationYear>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-8-_:this-expression">
+      <tvc:hasValueInTime>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://www.essepuntato.it/2012/04/tvc/ValueInTime"/>
+            <tvc:withinContext rdf:resource="reference-8-_:this-expression"/>
+            <tvc:withValue>
+               <rdf:Description>
+                  <rdf:type rdf:resource="http://www.w3.org/2006/vcard/ns#VCard"/>
+                  <vcard:addr>
+                     <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2006/vcard/ns#Address"/>
+                        <vcard:locality>New York, NY</vcard:locality>
+                     </rdf:Description>
+                  </vcard:addr>
+               </rdf:Description>
+            </tvc:withValue>
+         </rdf:Description>
+      </tvc:hasValueInTime>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-8-_:this-expression">
+      <dcterms:publisher rdf:resource="publisher-reference-8-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="publisher-reference-8-_:this-expression">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-8-_:this-expression">
+      <foaf:name>John Wiley and Sons, Inc.</foaf:name>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-8-_:this-expression">
+      <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="page-range-manifestation">
+      <prism:startingPage rdf:resource="65"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-reference-list">
+      <co:item rdf:resource="reference-item-9"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-9">
+      <rdf:type rdf:resource="http://purl.org/co/ListItem"/>
+      <co:itemContent rdf:resource="reference-9"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-9">
+      <co:nextItem rdf:resource="reference-item-10"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-9">
+      <co:index>9</co:index>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-9">
+      <dcterms:bibliographicCitation>9 Kawai J Shinagawa A Shibata K Yoshino M Itoh M Ishii Y Arakawa T Hara A Fukunishi Y Konno H Functional annotation of a full-length mouse cDNA collection Nature 2001 409 685 690 11217851</dcterms:bibliographicCitation>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-9">
+      <rdf:type rdf:resource="http://purl.org/spar/biro/BibliographicReference"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-9">
+      <dcterms:identifier>gks1195-B9</dcterms:identifier>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-9">
+      <biro:references rdf:resource="reference-9-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <cito:cites rdf:resource="reference-9-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-9-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+      <frbr:realizationOf rdf:resource="reference-9-_:this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-9-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+            <pro:relatesToDocument rdf:resource="reference-9-_:this-expression"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10">
+      <foaf:member rdf:resource="group-10-agent-1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-1">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-1">
+      <foaf:familyName>Kawai</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-1">
+      <foaf:givenName>J</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10">
+      <foaf:member rdf:resource="group-10-agent-2"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-2">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-2">
+      <foaf:familyName>Shinagawa</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-2">
+      <foaf:givenName>A</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10">
+      <foaf:member rdf:resource="group-10-agent-3"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-3">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-3">
+      <foaf:familyName>Shibata</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-3">
+      <foaf:givenName>K</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10">
+      <foaf:member rdf:resource="group-10-agent-4"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-4">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-4">
+      <foaf:familyName>Yoshino</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-4">
+      <foaf:givenName>M</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10">
+      <foaf:member rdf:resource="group-10-agent-5"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-5">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-5">
+      <foaf:familyName>Itoh</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-5">
+      <foaf:givenName>M</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10">
+      <foaf:member rdf:resource="group-10-agent-6"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-6">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-6">
+      <foaf:familyName>Ishii</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-6">
+      <foaf:givenName>Y</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10">
+      <foaf:member rdf:resource="group-10-agent-7"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-7">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-7">
+      <foaf:familyName>Arakawa</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-7">
+      <foaf:givenName>T</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10">
+      <foaf:member rdf:resource="group-10-agent-8"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-8">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-8">
+      <foaf:familyName>Hara</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-8">
+      <foaf:givenName>A</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10">
+      <foaf:member rdf:resource="group-10-agent-9"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-9">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-9">
+      <foaf:familyName>Fukunishi</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-9">
+      <foaf:givenName>Y</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10">
+      <foaf:member rdf:resource="group-10-agent-10"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-10">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-10">
+      <foaf:familyName>Konno</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-10-agent-10">
+      <foaf:givenName>H</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-9-_:this-expression">
+      <dcterms:title>Functional annotation of a full-length mouse cDNA
+            collection</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-9-_:this-expression-source">
+      <dcterms:title>Nature</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-9-_:this-expression">
+      <frbr:partOf rdf:resource="reference-9-_:this-expression-source"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-9-_:this-expression">
+      <fabio:hasPublicationYear>2001</fabio:hasPublicationYear>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-9-_:this-expression">
+      <frbr:partOf rdf:nodeID="volume"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="volume">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalVolume"/>
+      <prism:volume>409</prism:volume>
+      <frbr:partOf>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/fabio/Periodical"/>
+         </rdf:Description>
+      </frbr:partOf>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-9-_:this-expression">
+      <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="page-range-manifestation">
+      <prism:startingPage rdf:resource="685"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-9-_:this-work">
+      <fabio:hasPubMedId>11217851</fabio:hasPubMedId>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-reference-list">
+      <co:item rdf:resource="reference-item-10"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-10">
+      <rdf:type rdf:resource="http://purl.org/co/ListItem"/>
+      <co:itemContent rdf:resource="reference-10"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-10">
+      <co:nextItem rdf:resource="reference-item-11"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-10">
+      <co:index>10</co:index>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-10">
+      <dcterms:bibliographicCitation>10 Barrett T Clark K Gevorgyan R Gorelenkov V Gribov E Karsch-Mizrachi I Kimelman M Pruitt KD Resenchuk S Tatusova T BioProject and BioSample databases at NCBI: facilitating capture and organization of metadata Nucleic Acids Res. 2012 40 D57 D63 22139929</dcterms:bibliographicCitation>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-10">
+      <rdf:type rdf:resource="http://purl.org/spar/biro/BibliographicReference"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-10">
+      <dcterms:identifier>gks1195-B10</dcterms:identifier>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-10">
+      <biro:references rdf:resource="reference-10-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <cito:cites rdf:resource="reference-10-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-10-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+      <frbr:realizationOf rdf:resource="reference-10-_:this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-10-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+            <pro:relatesToDocument rdf:resource="reference-10-_:this-expression"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11">
+      <foaf:member rdf:resource="group-11-agent-1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-1">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-1">
+      <foaf:familyName>Barrett</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-1">
+      <foaf:givenName>T</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11">
+      <foaf:member rdf:resource="group-11-agent-2"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-2">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-2">
+      <foaf:familyName>Clark</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-2">
+      <foaf:givenName>K</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11">
+      <foaf:member rdf:resource="group-11-agent-3"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-3">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-3">
+      <foaf:familyName>Gevorgyan</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-3">
+      <foaf:givenName>R</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11">
+      <foaf:member rdf:resource="group-11-agent-4"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-4">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-4">
+      <foaf:familyName>Gorelenkov</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-4">
+      <foaf:givenName>V</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11">
+      <foaf:member rdf:resource="group-11-agent-5"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-5">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-5">
+      <foaf:familyName>Gribov</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-5">
+      <foaf:givenName>E</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11">
+      <foaf:member rdf:resource="group-11-agent-6"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-6">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-6">
+      <foaf:familyName>Karsch-Mizrachi</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-6">
+      <foaf:givenName>I</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11">
+      <foaf:member rdf:resource="group-11-agent-7"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-7">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-7">
+      <foaf:familyName>Kimelman</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-7">
+      <foaf:givenName>M</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11">
+      <foaf:member rdf:resource="group-11-agent-8"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-8">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-8">
+      <foaf:familyName>Pruitt</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-8">
+      <foaf:givenName>KD</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11">
+      <foaf:member rdf:resource="group-11-agent-9"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-9">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-9">
+      <foaf:familyName>Resenchuk</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-9">
+      <foaf:givenName>S</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11">
+      <foaf:member rdf:resource="group-11-agent-10"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-10">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-10">
+      <foaf:familyName>Tatusova</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-11-agent-10">
+      <foaf:givenName>T</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-10-_:this-expression">
+      <dcterms:title>BioProject and BioSample databases at NCBI: facilitating capture and
+            organization of metadata</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-10-_:this-expression-source">
+      <dcterms:title>Nucleic Acids Res.</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-10-_:this-expression">
+      <frbr:partOf rdf:resource="reference-10-_:this-expression-source"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-10-_:this-expression">
+      <fabio:hasPublicationYear>2012</fabio:hasPublicationYear>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-10-_:this-expression">
+      <frbr:partOf rdf:nodeID="volume"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="volume">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalVolume"/>
+      <prism:volume>40</prism:volume>
+      <frbr:partOf>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/fabio/Periodical"/>
+         </rdf:Description>
+      </frbr:partOf>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-10-_:this-expression">
+      <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="page-range-manifestation">
+      <prism:startingPage rdf:resource="D57"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-10-_:this-work">
+      <fabio:hasPubMedId>22139929</fabio:hasPubMedId>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-reference-list">
+      <co:item rdf:resource="reference-item-11"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-11">
+      <rdf:type rdf:resource="http://purl.org/co/ListItem"/>
+      <co:itemContent rdf:resource="reference-11"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-11">
+      <co:nextItem rdf:resource="reference-item-12"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-11">
+      <co:index>11</co:index>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-11">
+      <dcterms:bibliographicCitation>11 Altschul SF Madden TL Schaffer AA Zhang J Zhang Z Miller W Lipman DJ Gapped BLAST and PSI-BLAST: a new generation of protein database search programs Nucleic Acids Res. 1997 25 3389 3402 9254694</dcterms:bibliographicCitation>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-11">
+      <rdf:type rdf:resource="http://purl.org/spar/biro/BibliographicReference"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-11">
+      <dcterms:identifier>gks1195-B11</dcterms:identifier>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-11">
+      <biro:references rdf:resource="reference-11-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <cito:cites rdf:resource="reference-11-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-11-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+      <frbr:realizationOf rdf:resource="reference-11-_:this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-11-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+            <pro:relatesToDocument rdf:resource="reference-11-_:this-expression"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12">
+      <foaf:member rdf:resource="group-12-agent-1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-1">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-1">
+      <foaf:familyName>Altschul</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-1">
+      <foaf:givenName>SF</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12">
+      <foaf:member rdf:resource="group-12-agent-2"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-2">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-2">
+      <foaf:familyName>Madden</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-2">
+      <foaf:givenName>TL</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12">
+      <foaf:member rdf:resource="group-12-agent-3"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-3">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-3">
+      <foaf:familyName>Schaffer</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-3">
+      <foaf:givenName>AA</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12">
+      <foaf:member rdf:resource="group-12-agent-4"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-4">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-4">
+      <foaf:familyName>Zhang</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-4">
+      <foaf:givenName>J</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12">
+      <foaf:member rdf:resource="group-12-agent-5"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-5">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-5">
+      <foaf:familyName>Zhang</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-5">
+      <foaf:givenName>Z</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12">
+      <foaf:member rdf:resource="group-12-agent-6"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-6">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-6">
+      <foaf:familyName>Miller</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-6">
+      <foaf:givenName>W</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12">
+      <foaf:member rdf:resource="group-12-agent-7"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-7">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-7">
+      <foaf:familyName>Lipman</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-12-agent-7">
+      <foaf:givenName>DJ</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-11-_:this-expression">
+      <dcterms:title>Gapped BLAST and PSI-BLAST: a new generation of protein database search
+            programs</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-11-_:this-expression-source">
+      <dcterms:title>Nucleic Acids Res.</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-11-_:this-expression">
+      <frbr:partOf rdf:resource="reference-11-_:this-expression-source"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-11-_:this-expression">
+      <fabio:hasPublicationYear>1997</fabio:hasPublicationYear>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-11-_:this-expression">
+      <frbr:partOf rdf:nodeID="volume"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="volume">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalVolume"/>
+      <prism:volume>25</prism:volume>
+      <frbr:partOf>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/fabio/Periodical"/>
+         </rdf:Description>
+      </frbr:partOf>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-11-_:this-expression">
+      <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="page-range-manifestation">
+      <prism:startingPage rdf:resource="3389"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-11-_:this-work">
+      <fabio:hasPubMedId>9254694</fabio:hasPubMedId>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-reference-list">
+      <co:item rdf:resource="reference-item-12"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-12">
+      <rdf:type rdf:resource="http://purl.org/co/ListItem"/>
+      <co:itemContent rdf:resource="reference-12"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-12">
+      <co:nextItem rdf:resource="reference-item-13"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-12">
+      <co:index>12</co:index>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-12">
+      <dcterms:bibliographicCitation>12 Zhang Z Schaffer AA Miller W Madden TL Lipman DJ Koonin EV Altschul SF Protein sequence similarity searches using patterns as seeds Nucleic Acids Res. 1998 26 3986 3990 9705509</dcterms:bibliographicCitation>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-12">
+      <rdf:type rdf:resource="http://purl.org/spar/biro/BibliographicReference"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-12">
+      <dcterms:identifier>gks1195-B12</dcterms:identifier>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-12">
+      <biro:references rdf:resource="reference-12-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <cito:cites rdf:resource="reference-12-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-12-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+      <frbr:realizationOf rdf:resource="reference-12-_:this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-12-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+            <pro:relatesToDocument rdf:resource="reference-12-_:this-expression"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13">
+      <foaf:member rdf:resource="group-13-agent-1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-1">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-1">
+      <foaf:familyName>Zhang</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-1">
+      <foaf:givenName>Z</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13">
+      <foaf:member rdf:resource="group-13-agent-2"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-2">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-2">
+      <foaf:familyName>Schaffer</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-2">
+      <foaf:givenName>AA</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13">
+      <foaf:member rdf:resource="group-13-agent-3"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-3">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-3">
+      <foaf:familyName>Miller</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-3">
+      <foaf:givenName>W</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13">
+      <foaf:member rdf:resource="group-13-agent-4"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-4">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-4">
+      <foaf:familyName>Madden</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-4">
+      <foaf:givenName>TL</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13">
+      <foaf:member rdf:resource="group-13-agent-5"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-5">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-5">
+      <foaf:familyName>Lipman</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-5">
+      <foaf:givenName>DJ</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13">
+      <foaf:member rdf:resource="group-13-agent-6"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-6">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-6">
+      <foaf:familyName>Koonin</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-6">
+      <foaf:givenName>EV</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13">
+      <foaf:member rdf:resource="group-13-agent-7"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-7">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-7">
+      <foaf:familyName>Altschul</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-13-agent-7">
+      <foaf:givenName>SF</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-12-_:this-expression">
+      <dcterms:title>Protein sequence similarity searches using patterns as
+            seeds</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-12-_:this-expression-source">
+      <dcterms:title>Nucleic Acids Res.</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-12-_:this-expression">
+      <frbr:partOf rdf:resource="reference-12-_:this-expression-source"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-12-_:this-expression">
+      <fabio:hasPublicationYear>1998</fabio:hasPublicationYear>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-12-_:this-expression">
+      <frbr:partOf rdf:nodeID="volume"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="volume">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalVolume"/>
+      <prism:volume>26</prism:volume>
+      <frbr:partOf>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/fabio/Periodical"/>
+         </rdf:Description>
+      </frbr:partOf>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-12-_:this-expression">
+      <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="page-range-manifestation">
+      <prism:startingPage rdf:resource="3986"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-12-_:this-work">
+      <fabio:hasPubMedId>9705509</fabio:hasPubMedId>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression-reference-list">
+      <co:item rdf:resource="reference-item-13"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-13">
+      <rdf:type rdf:resource="http://purl.org/co/ListItem"/>
+      <co:itemContent rdf:resource="reference-13"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-item-13">
+      <co:index>13</co:index>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-13">
+      <dcterms:bibliographicCitation>13 Johnson M Zaretskaya I Raytselis Y Merezhuk Y McGinnis S Madden TL NCBI BLAST: a better web interface Nucleic Acids Res. 2008 36 W5 W9 18440982</dcterms:bibliographicCitation>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-13">
+      <rdf:type rdf:resource="http://purl.org/spar/biro/BibliographicReference"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-13">
+      <dcterms:identifier>gks1195-B13</dcterms:identifier>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-13">
+      <biro:references rdf:resource="reference-13-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="this-expression">
+      <cito:cites rdf:resource="reference-13-_:this-expression"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-13-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+      <frbr:realizationOf rdf:resource="reference-13-_:this-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-13-_:this-expression">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+            <pro:relatesToDocument rdf:resource="reference-13-_:this-expression"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14">
+      <foaf:member rdf:resource="group-14-agent-1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-1">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-1">
+      <foaf:familyName>Johnson</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-1">
+      <foaf:givenName>M</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14">
+      <foaf:member rdf:resource="group-14-agent-2"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-2">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-2">
+      <foaf:familyName>Zaretskaya</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-2">
+      <foaf:givenName>I</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14">
+      <foaf:member rdf:resource="group-14-agent-3"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-3">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-3">
+      <foaf:familyName>Raytselis</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-3">
+      <foaf:givenName>Y</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14">
+      <foaf:member rdf:resource="group-14-agent-4"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-4">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-4">
+      <foaf:familyName>Merezhuk</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-4">
+      <foaf:givenName>Y</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14">
+      <foaf:member rdf:resource="group-14-agent-5"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-5">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-5">
+      <foaf:familyName>McGinnis</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-5">
+      <foaf:givenName>S</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14">
+      <foaf:member rdf:resource="group-14-agent-6"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-6">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-6">
+      <foaf:familyName>Madden</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="group-14-agent-6">
+      <foaf:givenName>TL</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-13-_:this-expression">
+      <dcterms:title>NCBI BLAST: a better web interface</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-13-_:this-expression-source">
+      <dcterms:title>Nucleic Acids Res.</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-13-_:this-expression">
+      <frbr:partOf rdf:resource="reference-13-_:this-expression-source"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-13-_:this-expression">
+      <fabio:hasPublicationYear>2008</fabio:hasPublicationYear>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-13-_:this-expression">
+      <frbr:partOf rdf:nodeID="volume"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="volume">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalVolume"/>
+      <prism:volume>36</prism:volume>
+      <frbr:partOf>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/fabio/Periodical"/>
+         </rdf:Description>
+      </frbr:partOf>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-13-_:this-expression">
+      <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
+   </rdf:Description>
+   <rdf:Description rdf:nodeID="page-range-manifestation">
+      <prism:startingPage rdf:resource="W5"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="reference-13-_:this-work">
+      <fabio:hasPubMedId>18440982</fabio:hasPubMedId>
+   </rdf:Description>
+</rdf:RDF>
