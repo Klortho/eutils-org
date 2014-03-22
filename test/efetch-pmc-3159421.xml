@@ -6,7 +6,6 @@
   <front>
 
     <journal-meta>
-      <journal-id journal-id-type="doi">snokry</journal-id>
       <journal-id journal-id-type="nlm-journal-id">101566482</journal-id>
       <journal-id journal-id-type="pubmed-jr-id">39470</journal-id>
       <journal-id journal-id-type="nlm-ta">Balisage Ser Markup Technol</journal-id>
@@ -37,6 +36,7 @@
             <given-names>Chris</given-names>
           </name>
           <role>NCBI / NLM / NIH (Contractor)</role>
+          <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-6893-2635</contrib-id>
         </contrib>
       </contrib-group>
       <pub-date pub-type="nihms-submitted">

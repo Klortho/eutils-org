@@ -15,10 +15,12 @@
          xmlns:lmm="http://ontologydesignpatterns.org/ont/lmm/LMM_L2.owl"
          xmlns:mediatypes="http://purl.org/NET/mediatypes/"
          xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:pmc="http://rdf.ncbi.nlm.nih.gov/pmc/vocabulary#"
          xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/"
          xmlns:pro="http://purl.org/spar/pro/"
          xmlns:prov="http://www.w3.org/ns/prov#"
          xmlns:pso="http://purl.org/spar/pso/"
+         xmlns:pubmed="http://rdf.ncbi.nlm.nih.gov/pubmed/vocabulary#"
          xmlns:pwo="http://purl.org/spar/pwo/"
          xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -31,20 +33,20 @@
          xmlns:tvc="http://www.essepuntato.it/2012/04/tvc/"
          xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
          xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
-   <rdf:Description rdf:nodeID="this-expression">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
-      <frbr:realizationOf rdf:nodeID="this-work"/>
+      <frbr:realizationOf rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Article"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/ResearchPaper"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <frbr:partOf rdf:nodeID="this-expression/journal/issn/0305-1048"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <frbr:partOf rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1/journal/issn/0305-1048"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression/journal/issn/0305-1048">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1/journal/issn/0305-1048">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Journal"/>
       <frbr:realizationOf>
          <rdf:Description>
@@ -52,23 +54,10 @@
          </rdf:Description>
       </frbr:realizationOf>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression/journal/issn/0305-1048">
-      <datacite:hasIdentifier>
-         <rdf:Description>
-            <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
-            <datacite:usesIdentifierScheme rdf:resource="http://purl.org/spar/datacite/local-resource-identifier-scheme"/>
-            <literal:hasLiteralValue>Nucleic Acids Res</literal:hasLiteralValue>
-            <prov:wasAttributedTo>
-               <rdf:Description>
-                  <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
-                  <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
-                  <rdfs:label>PubMed</rdfs:label>
-               </rdf:Description>
-            </prov:wasAttributedTo>
-         </rdf:Description>
-      </datacite:hasIdentifier>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1/journal/issn/0305-1048">
+      <fabio:hasNlmJournalTitleAbbr>Nucleic Acids Res</fabio:hasNlmJournalTitleAbbr>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression/journal/issn/0305-1048">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1/journal/issn/0305-1048">
       <datacite:hasIdentifier>
          <rdf:Description>
             <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
@@ -82,7 +71,7 @@
          </rdf:Description>
       </datacite:hasIdentifier>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression/journal/issn/0305-1048">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1/journal/issn/0305-1048">
       <datacite:hasIdentifier>
          <rdf:Description>
             <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
@@ -98,7 +87,7 @@
          </rdf:Description>
       </datacite:hasIdentifier>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression/journal/issn/0305-1048">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1/journal/issn/0305-1048">
       <datacite:hasIdentifier>
          <rdf:Description>
             <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
@@ -112,31 +101,34 @@
          </rdf:Description>
       </datacite:hasIdentifier>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression/journal/issn/0305-1048">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1/journal/issn/0305-1048">
+      <dcterms:title>Nucleic Acids Research</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1/journal/issn/0305-1048">
       <prism:issn>0305-1048</prism:issn>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression/journal/issn/0305-1048">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1/journal/issn/0305-1048">
       <prism:issn>1362-4962</prism:issn>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression/journal/issn/0305-1048">
-      <dcterms:publisher rdf:resource="publisher-_:this-expression/journal/issn/0305-1048"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1/journal/issn/0305-1048">
+      <dcterms:publisher rdf:resource="publisher-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1/journal/issn/0305-1048"/>
    </rdf:Description>
-   <rdf:Description rdf:about="publisher-_:this-expression/journal/issn/0305-1048">
+   <rdf:Description rdf:about="publisher-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1/journal/issn/0305-1048">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
    </rdf:Description>
-   <rdf:Description rdf:about="publisher-_:this-expression/journal/issn/0305-1048">
+   <rdf:Description rdf:about="publisher-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1/journal/issn/0305-1048">
       <foaf:name>Oxford University Press</foaf:name>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <fabio:hasPubMedId>23193287</fabio:hasPubMedId>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <fabio:hasPubMedCentralId>PMC3531190</fabio:hasPubMedCentralId>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <prism:doi>10.1093/nar/gks1195</prism:doi>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <datacite:hasIdentifier>
          <rdf:Description>
             <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
@@ -152,204 +144,204 @@
          </rdf:Description>
       </datacite:hasIdentifier>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <fabio:hasSubjectTerm rdf:nodeID="this-expression-term1"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <fabio:hasSubjectTerm rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-term1"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-term1">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-term1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/SubjectTerm"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-term1">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-term1">
       <rdfs:label>Articles</rdfs:label>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:title>GenBank</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <dcterms:contributor rdf:nodeID="agent-1-this-work"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
+      <dcterms:contributor rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/benson-dennis-a"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-1-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/benson-dennis-a">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <dcterms:creator rdf:nodeID="agent-1-this-work"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
+      <dcterms:creator rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/benson-dennis-a"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-1-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/benson-dennis-a">
       <pro:holdsRoleInTime>
          <rdf:Description>
-            <pro:relatesToDocument rdf:nodeID="this-work"/>
+            <pro:relatesToDocument rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-1-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/benson-dennis-a">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-1-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/benson-dennis-a">
       <foaf:familyName>Benson</foaf:familyName>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-1-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/benson-dennis-a">
       <foaf:givenName>Dennis A.</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <dcterms:contributor rdf:nodeID="agent-2-this-work"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
+      <dcterms:contributor rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/cavanaugh-mark"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-2-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/cavanaugh-mark">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <dcterms:creator rdf:nodeID="agent-2-this-work"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
+      <dcterms:creator rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/cavanaugh-mark"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-2-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/cavanaugh-mark">
       <pro:holdsRoleInTime>
          <rdf:Description>
-            <pro:relatesToDocument rdf:nodeID="this-work"/>
+            <pro:relatesToDocument rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-2-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/cavanaugh-mark">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-2-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/cavanaugh-mark">
       <foaf:familyName>Cavanaugh</foaf:familyName>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-2-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/cavanaugh-mark">
       <foaf:givenName>Mark</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <dcterms:contributor rdf:nodeID="agent-3-this-work"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
+      <dcterms:contributor rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/clark-karen"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-3-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/clark-karen">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <dcterms:creator rdf:nodeID="agent-3-this-work"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
+      <dcterms:creator rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/clark-karen"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-3-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/clark-karen">
       <pro:holdsRoleInTime>
          <rdf:Description>
-            <pro:relatesToDocument rdf:nodeID="this-work"/>
+            <pro:relatesToDocument rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-3-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/clark-karen">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-3-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/clark-karen">
       <foaf:familyName>Clark</foaf:familyName>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-3-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/clark-karen">
       <foaf:givenName>Karen</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <dcterms:contributor rdf:nodeID="agent-4-this-work"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
+      <dcterms:contributor rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/karsch-mizrachi-ilene"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-4-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/karsch-mizrachi-ilene">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <dcterms:creator rdf:nodeID="agent-4-this-work"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
+      <dcterms:creator rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/karsch-mizrachi-ilene"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-4-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/karsch-mizrachi-ilene">
       <pro:holdsRoleInTime>
          <rdf:Description>
-            <pro:relatesToDocument rdf:nodeID="this-work"/>
+            <pro:relatesToDocument rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-4-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/karsch-mizrachi-ilene">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-4-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/karsch-mizrachi-ilene">
       <foaf:familyName>Karsch-Mizrachi</foaf:familyName>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-4-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/karsch-mizrachi-ilene">
       <foaf:givenName>Ilene</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <dcterms:contributor rdf:nodeID="agent-5-this-work"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
+      <dcterms:contributor rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/lipman-david-j"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-5-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/lipman-david-j">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <dcterms:creator rdf:nodeID="agent-5-this-work"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
+      <dcterms:creator rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/lipman-david-j"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-5-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/lipman-david-j">
       <pro:holdsRoleInTime>
          <rdf:Description>
-            <pro:relatesToDocument rdf:nodeID="this-work"/>
+            <pro:relatesToDocument rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-5-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/lipman-david-j">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-5-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/lipman-david-j">
       <foaf:familyName>Lipman</foaf:familyName>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-5-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/lipman-david-j">
       <foaf:givenName>David J.</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <dcterms:contributor rdf:nodeID="agent-6-this-work"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
+      <dcterms:contributor rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/ostell-james"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-6-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/ostell-james">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <dcterms:creator rdf:nodeID="agent-6-this-work"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
+      <dcterms:creator rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/ostell-james"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-6-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/ostell-james">
       <pro:holdsRoleInTime>
          <rdf:Description>
-            <pro:relatesToDocument rdf:nodeID="this-work"/>
+            <pro:relatesToDocument rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-6-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/ostell-james">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-6-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/ostell-james">
       <foaf:familyName>Ostell</foaf:familyName>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-6-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/ostell-james">
       <foaf:givenName>James</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <dcterms:contributor rdf:nodeID="agent-7-this-work"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
+      <dcterms:contributor rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/sayers-eric-w"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-7-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/sayers-eric-w">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <dcterms:creator rdf:nodeID="agent-7-this-work"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
+      <dcterms:creator rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/sayers-eric-w"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-7-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/sayers-eric-w">
       <pro:holdsRoleInTime>
          <rdf:Description>
-            <pro:relatesToDocument rdf:nodeID="this-work"/>
+            <pro:relatesToDocument rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-7-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/sayers-eric-w">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-7-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/sayers-eric-w">
       <foaf:familyName>Sayers</foaf:familyName>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="agent-7-this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421/contrib/sayers-eric-w">
       <foaf:givenName>Eric W.</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:identifier>gks1195-COR1</dcterms:identifier>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <vcard:tel>
          <rdf:Description>
             <rdf:type rdf:resource="http://www.w3.org/2006/vcard/ns#Tel"/>
@@ -358,7 +350,7 @@
          </rdf:Description>
       </vcard:tel>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <vcard:tel>
          <rdf:Description>
             <rdf:type rdf:resource="http://www.w3.org/2006/vcard/ns#Fax"/>
@@ -366,7 +358,7 @@
          </rdf:Description>
       </vcard:tel>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <vcard:email rdf:resource="sayers@ncbi.nlm.nih.gov"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="d3e191-manifestation">
@@ -381,7 +373,7 @@
    <rdf:Description rdf:nodeID="d3e200-manifestation">
       <prism:publicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-11-26</prism:publicationDate>
    </rdf:Description>
-   <rdf:Description rdf:about="periodical-issue-_:this-expression">
+   <rdf:Description rdf:about="periodical-issue-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:partOf rdf:nodeID="volume"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="volume">
@@ -393,74 +385,74 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <frbr:partOf rdf:resource="periodical-issue-_:this-expression"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <frbr:partOf rdf:resource="periodical-issue-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:about="periodical-issue-_:this-expression">
+   <rdf:Description rdf:about="periodical-issue-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalIssue"/>
-      <frbr:realizationOf rdf:resource="conceptual-papers-collection-_:this-work"/>
+      <frbr:realizationOf rdf:resource="conceptual-papers-collection-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
       <prism:issueIdentifier rdf:resource="D1"/>
    </rdf:Description>
-   <rdf:Description rdf:about="conceptual-papers-collection-_:this-work">
+   <rdf:Description rdf:about="conceptual-papers-collection-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/WorkCollection"/>
    </rdf:Description>
-   <rdf:Description rdf:about="periodical-issue-_:this-expression">
+   <rdf:Description rdf:about="periodical-issue-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:title>Database issue</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="page-range-manifestation">
       <prism:startingPage rdf:resource="D36"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <frbr:realization rdf:nodeID="this-expression-d3e244"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
+      <frbr:realization rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-d3e244"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-d3e244">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-d3e244">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-d3e244">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-d3e244">
       <fabio:hasDateReceived rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-9-28</fabio:hasDateReceived>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <frbr:realization>
          <rdf:Description>
             <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
-            <frbr:revision rdf:nodeID="this-expression-d3e256"/>
+            <frbr:revision rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-d3e256"/>
          </rdf:Description>
       </frbr:realization>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-d3e256">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-d3e256">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-d3e256">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-d3e256">
       <fabio:hasDateReceived rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-10-29</fabio:hasDateReceived>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-work">
-      <frbr:realization rdf:nodeID="this-expression-d3e268"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
+      <frbr:realization rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-d3e268"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-d3e268">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-d3e268">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-d3e268">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-d3e268">
       <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-10-29</dcterms:dateAccepted>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:rights>Published by Oxford University Press 2012.</dcterms:rights>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <fabio:hasCopyrightYear>2012</fabio:hasCopyrightYear>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:license rdf:resource="http://creativecommons.org/licenses/by-nc/3.0"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <frbr:part rdf:nodeID="this-expression-reference-list"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <frbr:part rdf:resource="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-reference-list"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-reference-list">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-reference-list">
       <rdf:type rdf:resource="http://purl.org/spar/biro/ReferenceList"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-reference-list">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-reference-list">
       <co:item rdf:resource="reference-item-1"/>
    </rdf:Description>
    <rdf:Description rdf:about="reference-item-1">
@@ -483,16 +475,16 @@
       <dcterms:identifier>gks1195-B1</dcterms:identifier>
    </rdf:Description>
    <rdf:Description rdf:about="reference-1">
-      <biro:references rdf:resource="reference-1-_:this-expression"/>
+      <biro:references rdf:resource="reference-1-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <cito:cites rdf:resource="reference-1-_:this-expression"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <cito:cites rdf:resource="reference-1-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-1-_:this-expression">
+   <rdf:Description rdf:about="reference-1-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
-      <frbr:realizationOf rdf:resource="reference-1-_:this-work"/>
+      <frbr:realizationOf rdf:resource="reference-1-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-1-_:this-expression">
+   <rdf:Description rdf:about="reference-1-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
    </rdf:Description>
    <rdf:Description rdf:about="group-1">
@@ -500,7 +492,7 @@
       <pro:holdsRoleInTime>
          <rdf:Description>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
-            <pro:relatesToDocument rdf:resource="reference-1-_:this-expression"/>
+            <pro:relatesToDocument rdf:resource="reference-1-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
@@ -576,19 +568,19 @@
    <rdf:Description rdf:about="group-1-agent-6">
       <foaf:givenName>EW</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-1-_:this-expression">
+   <rdf:Description rdf:about="reference-1-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:title>GenBank</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-1-_:this-expression-source">
+   <rdf:Description rdf:about="reference-1-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source">
       <dcterms:title>Nucleic Acids Res.</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-1-_:this-expression">
-      <frbr:partOf rdf:resource="reference-1-_:this-expression-source"/>
+   <rdf:Description rdf:about="reference-1-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <frbr:partOf rdf:resource="reference-1-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-1-_:this-expression">
+   <rdf:Description rdf:about="reference-1-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <fabio:hasPublicationYear>2012</fabio:hasPublicationYear>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-1-_:this-expression">
+   <rdf:Description rdf:about="reference-1-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:partOf rdf:nodeID="volume"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="volume">
@@ -600,16 +592,16 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-1-_:this-expression">
+   <rdf:Description rdf:about="reference-1-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="page-range-manifestation">
       <prism:startingPage rdf:resource="D48"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-1-_:this-work">
+   <rdf:Description rdf:about="reference-1-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <fabio:hasPubMedId>22144687</fabio:hasPubMedId>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-reference-list">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-reference-list">
       <co:item rdf:resource="reference-item-2"/>
    </rdf:Description>
    <rdf:Description rdf:about="reference-item-2">
@@ -632,16 +624,16 @@
       <dcterms:identifier>gks1195-B2</dcterms:identifier>
    </rdf:Description>
    <rdf:Description rdf:about="reference-2">
-      <biro:references rdf:resource="reference-2-_:this-expression"/>
+      <biro:references rdf:resource="reference-2-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <cito:cites rdf:resource="reference-2-_:this-expression"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <cito:cites rdf:resource="reference-2-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-2-_:this-expression">
+   <rdf:Description rdf:about="reference-2-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
-      <frbr:realizationOf rdf:resource="reference-2-_:this-work"/>
+      <frbr:realizationOf rdf:resource="reference-2-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-2-_:this-expression">
+   <rdf:Description rdf:about="reference-2-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
    </rdf:Description>
    <rdf:Description rdf:about="group-2">
@@ -649,7 +641,7 @@
       <pro:holdsRoleInTime>
          <rdf:Description>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
-            <pro:relatesToDocument rdf:resource="reference-2-_:this-expression"/>
+            <pro:relatesToDocument rdf:resource="reference-2-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
@@ -773,19 +765,19 @@
    <rdf:Description rdf:about="group-2-agent-10">
       <foaf:givenName>R</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-2-_:this-expression">
+   <rdf:Description rdf:about="reference-2-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:title>The European Nucleotide Archive</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-2-_:this-expression-source">
+   <rdf:Description rdf:about="reference-2-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source">
       <dcterms:title>Nucleic Acids Res.</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-2-_:this-expression">
-      <frbr:partOf rdf:resource="reference-2-_:this-expression-source"/>
+   <rdf:Description rdf:about="reference-2-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <frbr:partOf rdf:resource="reference-2-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-2-_:this-expression">
+   <rdf:Description rdf:about="reference-2-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <fabio:hasPublicationYear>2011</fabio:hasPublicationYear>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-2-_:this-expression">
+   <rdf:Description rdf:about="reference-2-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:partOf rdf:nodeID="volume"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="volume">
@@ -797,16 +789,16 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-2-_:this-expression">
+   <rdf:Description rdf:about="reference-2-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="page-range-manifestation">
       <prism:startingPage rdf:resource="D28"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-2-_:this-work">
+   <rdf:Description rdf:about="reference-2-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <fabio:hasPubMedId>20972220</fabio:hasPubMedId>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-reference-list">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-reference-list">
       <co:item rdf:resource="reference-item-3"/>
    </rdf:Description>
    <rdf:Description rdf:about="reference-item-3">
@@ -829,16 +821,16 @@
       <dcterms:identifier>gks1195-B3</dcterms:identifier>
    </rdf:Description>
    <rdf:Description rdf:about="reference-3">
-      <biro:references rdf:resource="reference-3-_:this-expression"/>
+      <biro:references rdf:resource="reference-3-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <cito:cites rdf:resource="reference-3-_:this-expression"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <cito:cites rdf:resource="reference-3-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-3-_:this-expression">
+   <rdf:Description rdf:about="reference-3-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
-      <frbr:realizationOf rdf:resource="reference-3-_:this-work"/>
+      <frbr:realizationOf rdf:resource="reference-3-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-3-_:this-expression">
+   <rdf:Description rdf:about="reference-3-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
    </rdf:Description>
    <rdf:Description rdf:about="group-3">
@@ -846,7 +838,7 @@
       <pro:holdsRoleInTime>
          <rdf:Description>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
-            <pro:relatesToDocument rdf:resource="reference-3-_:this-expression"/>
+            <pro:relatesToDocument rdf:resource="reference-3-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
@@ -970,19 +962,19 @@
    <rdf:Description rdf:about="group-3-agent-10">
       <foaf:givenName>K</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-3-_:this-expression">
+   <rdf:Description rdf:about="reference-3-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:title>DDBJ progress report</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-3-_:this-expression-source">
+   <rdf:Description rdf:about="reference-3-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source">
       <dcterms:title>Nucleic Acids Res.</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-3-_:this-expression">
-      <frbr:partOf rdf:resource="reference-3-_:this-expression-source"/>
+   <rdf:Description rdf:about="reference-3-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <frbr:partOf rdf:resource="reference-3-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-3-_:this-expression">
+   <rdf:Description rdf:about="reference-3-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <fabio:hasPublicationYear>2011</fabio:hasPublicationYear>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-3-_:this-expression">
+   <rdf:Description rdf:about="reference-3-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:partOf rdf:nodeID="volume"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="volume">
@@ -994,16 +986,16 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-3-_:this-expression">
+   <rdf:Description rdf:about="reference-3-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="page-range-manifestation">
       <prism:startingPage rdf:resource="D22"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-3-_:this-work">
+   <rdf:Description rdf:about="reference-3-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <fabio:hasPubMedId>21062814</fabio:hasPubMedId>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-reference-list">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-reference-list">
       <co:item rdf:resource="reference-item-4"/>
    </rdf:Description>
    <rdf:Description rdf:about="reference-item-4">
@@ -1026,16 +1018,16 @@
       <dcterms:identifier>gks1195-B4</dcterms:identifier>
    </rdf:Description>
    <rdf:Description rdf:about="reference-4">
-      <biro:references rdf:resource="reference-4-_:this-expression"/>
+      <biro:references rdf:resource="reference-4-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <cito:cites rdf:resource="reference-4-_:this-expression"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <cito:cites rdf:resource="reference-4-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-4-_:this-expression">
+   <rdf:Description rdf:about="reference-4-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
-      <frbr:realizationOf rdf:resource="reference-4-_:this-work"/>
+      <frbr:realizationOf rdf:resource="reference-4-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-4-_:this-expression">
+   <rdf:Description rdf:about="reference-4-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
    </rdf:Description>
    <rdf:Description rdf:about="group-4">
@@ -1043,7 +1035,7 @@
       <pro:holdsRoleInTime>
          <rdf:Description>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
-            <pro:relatesToDocument rdf:resource="reference-4-_:this-expression"/>
+            <pro:relatesToDocument rdf:resource="reference-4-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
@@ -1058,20 +1050,20 @@
    <rdf:Description rdf:about="group-4">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-4-_:this-expression">
+   <rdf:Description rdf:about="reference-4-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:title>Database resources at the National Center for Biotechnology
             Information</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-4-_:this-expression-source">
+   <rdf:Description rdf:about="reference-4-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source">
       <dcterms:title>Nucleic Acids Res.</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-4-_:this-expression">
-      <frbr:partOf rdf:resource="reference-4-_:this-expression-source"/>
+   <rdf:Description rdf:about="reference-4-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <frbr:partOf rdf:resource="reference-4-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-4-_:this-expression">
+   <rdf:Description rdf:about="reference-4-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <fabio:hasPublicationYear>2013</fabio:hasPublicationYear>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-4-_:this-expression">
+   <rdf:Description rdf:about="reference-4-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:partOf rdf:nodeID="volume"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="volume">
@@ -1083,16 +1075,16 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-4-_:this-expression">
+   <rdf:Description rdf:about="reference-4-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="page-range-manifestation">
       <prism:startingPage rdf:resource="D8"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-4-_:this-work">
+   <rdf:Description rdf:about="reference-4-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <fabio:hasPubMedId>23193264</fabio:hasPubMedId>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-reference-list">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-reference-list">
       <co:item rdf:resource="reference-item-5"/>
    </rdf:Description>
    <rdf:Description rdf:about="reference-item-5">
@@ -1115,16 +1107,16 @@
       <dcterms:identifier>gks1195-B5</dcterms:identifier>
    </rdf:Description>
    <rdf:Description rdf:about="reference-5">
-      <biro:references rdf:resource="reference-5-_:this-expression"/>
+      <biro:references rdf:resource="reference-5-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <cito:cites rdf:resource="reference-5-_:this-expression"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <cito:cites rdf:resource="reference-5-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-5-_:this-expression">
+   <rdf:Description rdf:about="reference-5-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
-      <frbr:realizationOf rdf:resource="reference-5-_:this-work"/>
+      <frbr:realizationOf rdf:resource="reference-5-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-5-_:this-expression">
+   <rdf:Description rdf:about="reference-5-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
    </rdf:Description>
    <rdf:Description rdf:about="group-5">
@@ -1132,7 +1124,7 @@
       <pro:holdsRoleInTime>
          <rdf:Description>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
-            <pro:relatesToDocument rdf:resource="reference-5-_:this-expression"/>
+            <pro:relatesToDocument rdf:resource="reference-5-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
@@ -1148,19 +1140,19 @@
    <rdf:Description rdf:about="group-5-agent-1">
       <foaf:givenName>S</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-5-_:this-expression">
+   <rdf:Description rdf:about="reference-5-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:title>The NCBI Taxonomy database</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-5-_:this-expression-source">
+   <rdf:Description rdf:about="reference-5-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source">
       <dcterms:title>Nucleic Acids Res.</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-5-_:this-expression">
-      <frbr:partOf rdf:resource="reference-5-_:this-expression-source"/>
+   <rdf:Description rdf:about="reference-5-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <frbr:partOf rdf:resource="reference-5-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-5-_:this-expression">
+   <rdf:Description rdf:about="reference-5-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <fabio:hasPublicationYear>2012</fabio:hasPublicationYear>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-5-_:this-expression">
+   <rdf:Description rdf:about="reference-5-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:partOf rdf:nodeID="volume"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="volume">
@@ -1172,16 +1164,16 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-5-_:this-expression">
+   <rdf:Description rdf:about="reference-5-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="page-range-manifestation">
       <prism:startingPage rdf:resource="D136"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-5-_:this-work">
+   <rdf:Description rdf:about="reference-5-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <fabio:hasPubMedId>22139910</fabio:hasPubMedId>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-reference-list">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-reference-list">
       <co:item rdf:resource="reference-item-6"/>
    </rdf:Description>
    <rdf:Description rdf:about="reference-item-6">
@@ -1204,16 +1196,16 @@
       <dcterms:identifier>gks1195-B6</dcterms:identifier>
    </rdf:Description>
    <rdf:Description rdf:about="reference-6">
-      <biro:references rdf:resource="reference-6-_:this-expression"/>
+      <biro:references rdf:resource="reference-6-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <cito:cites rdf:resource="reference-6-_:this-expression"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <cito:cites rdf:resource="reference-6-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-6-_:this-expression">
+   <rdf:Description rdf:about="reference-6-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
-      <frbr:realizationOf rdf:resource="reference-6-_:this-work"/>
+      <frbr:realizationOf rdf:resource="reference-6-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-6-_:this-expression">
+   <rdf:Description rdf:about="reference-6-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
    </rdf:Description>
    <rdf:Description rdf:about="group-6">
@@ -1221,7 +1213,7 @@
       <pro:holdsRoleInTime>
          <rdf:Description>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
-            <pro:relatesToDocument rdf:resource="reference-6-_:this-expression"/>
+            <pro:relatesToDocument rdf:resource="reference-6-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
@@ -1261,20 +1253,20 @@
    <rdf:Description rdf:about="group-6-agent-3">
       <foaf:givenName>R</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-6-_:this-expression">
+   <rdf:Description rdf:about="reference-6-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:title>The Sequence Read Archive: explosive growth of sequencing
             data</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-6-_:this-expression-source">
+   <rdf:Description rdf:about="reference-6-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source">
       <dcterms:title>Nucleic Acids Res.</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-6-_:this-expression">
-      <frbr:partOf rdf:resource="reference-6-_:this-expression-source"/>
+   <rdf:Description rdf:about="reference-6-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <frbr:partOf rdf:resource="reference-6-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-6-_:this-expression">
+   <rdf:Description rdf:about="reference-6-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <fabio:hasPublicationYear>2012</fabio:hasPublicationYear>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-6-_:this-expression">
+   <rdf:Description rdf:about="reference-6-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:partOf rdf:nodeID="volume"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="volume">
@@ -1286,16 +1278,16 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-6-_:this-expression">
+   <rdf:Description rdf:about="reference-6-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="page-range-manifestation">
       <prism:startingPage rdf:resource="D54"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-6-_:this-work">
+   <rdf:Description rdf:about="reference-6-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <fabio:hasPubMedId>22009675</fabio:hasPubMedId>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-reference-list">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-reference-list">
       <co:item rdf:resource="reference-item-7"/>
    </rdf:Description>
    <rdf:Description rdf:about="reference-item-7">
@@ -1318,16 +1310,16 @@
       <dcterms:identifier>gks1195-B7</dcterms:identifier>
    </rdf:Description>
    <rdf:Description rdf:about="reference-7">
-      <biro:references rdf:resource="reference-7-_:this-expression"/>
+      <biro:references rdf:resource="reference-7-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <cito:cites rdf:resource="reference-7-_:this-expression"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <cito:cites rdf:resource="reference-7-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-7-_:this-expression">
+   <rdf:Description rdf:about="reference-7-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
-      <frbr:realizationOf rdf:resource="reference-7-_:this-work"/>
+      <frbr:realizationOf rdf:resource="reference-7-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-7-_:this-expression">
+   <rdf:Description rdf:about="reference-7-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
    </rdf:Description>
    <rdf:Description rdf:about="group-7">
@@ -1335,7 +1327,7 @@
       <pro:holdsRoleInTime>
          <rdf:Description>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
-            <pro:relatesToDocument rdf:resource="reference-7-_:this-expression"/>
+            <pro:relatesToDocument rdf:resource="reference-7-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
@@ -1375,20 +1367,20 @@
    <rdf:Description rdf:about="group-7-agent-3">
       <foaf:givenName>CM</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-7-_:this-expression">
+   <rdf:Description rdf:about="reference-7-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:title>dbEST—database for “expressed sequence
             tags”</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-7-_:this-expression-source">
+   <rdf:Description rdf:about="reference-7-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source">
       <dcterms:title>Nat. Genet.</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-7-_:this-expression">
-      <frbr:partOf rdf:resource="reference-7-_:this-expression-source"/>
+   <rdf:Description rdf:about="reference-7-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <frbr:partOf rdf:resource="reference-7-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-7-_:this-expression">
+   <rdf:Description rdf:about="reference-7-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <fabio:hasPublicationYear>1993</fabio:hasPublicationYear>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-7-_:this-expression">
+   <rdf:Description rdf:about="reference-7-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:partOf rdf:nodeID="volume"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="volume">
@@ -1400,16 +1392,16 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-7-_:this-expression">
+   <rdf:Description rdf:about="reference-7-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="page-range-manifestation">
       <prism:startingPage rdf:resource="332"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-7-_:this-work">
+   <rdf:Description rdf:about="reference-7-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <fabio:hasPubMedId>8401577</fabio:hasPubMedId>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-reference-list">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-reference-list">
       <co:item rdf:resource="reference-item-8"/>
    </rdf:Description>
    <rdf:Description rdf:about="reference-item-8">
@@ -1432,16 +1424,16 @@
       <dcterms:identifier>gks1195-B8</dcterms:identifier>
    </rdf:Description>
    <rdf:Description rdf:about="reference-8">
-      <biro:references rdf:resource="reference-8-_:this-expression"/>
+      <biro:references rdf:resource="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <cito:cites rdf:resource="reference-8-_:this-expression"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <cito:cites rdf:resource="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-8-_:this-expression">
+   <rdf:Description rdf:about="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
-      <frbr:realizationOf rdf:resource="reference-8-_:this-work"/>
+      <frbr:realizationOf rdf:resource="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-8-_:this-expression">
+   <rdf:Description rdf:about="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Book"/>
    </rdf:Description>
    <rdf:Description rdf:about="group-8">
@@ -1449,7 +1441,7 @@
       <pro:holdsRoleInTime>
          <rdf:Description>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
-            <pro:relatesToDocument rdf:resource="reference-8-_:this-expression"/>
+            <pro:relatesToDocument rdf:resource="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
@@ -1481,7 +1473,7 @@
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
       <pro:holdsRoleInTime>
          <rdf:Description>
-            <pro:relatesToDocument rdf:resource="reference-8-_:this-expression"/>
+            <pro:relatesToDocument rdf:resource="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
             <pro:withRole>
                <rdf:Description>
                   <rdf:type rdf:resource="http://purl.org/spar/pro/Role"/>
@@ -1515,23 +1507,23 @@
    <rdf:Description rdf:about="group-9-agent-2">
       <foaf:givenName>BFF</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-8-_:this-expression">
+   <rdf:Description rdf:about="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:title>Submitting DNA Sequences to the Databases</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-8-_:this-expression-source">
+   <rdf:Description rdf:about="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source">
       <dcterms:title>Bioinformatics: A Practical Guide to the Analysis of Genes and Proteins</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-8-_:this-expression">
-      <frbr:partOf rdf:resource="reference-8-_:this-expression-source"/>
+   <rdf:Description rdf:about="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <frbr:partOf rdf:resource="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-8-_:this-expression">
+   <rdf:Description rdf:about="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <fabio:hasPublicationYear>2001</fabio:hasPublicationYear>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-8-_:this-expression">
+   <rdf:Description rdf:about="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <tvc:hasValueInTime>
          <rdf:Description>
             <rdf:type rdf:resource="http://www.essepuntato.it/2012/04/tvc/ValueInTime"/>
-            <tvc:withinContext rdf:resource="reference-8-_:this-expression"/>
+            <tvc:withinContext rdf:resource="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
             <tvc:withValue>
                <rdf:Description>
                   <rdf:type rdf:resource="http://www.w3.org/2006/vcard/ns#VCard"/>
@@ -1546,22 +1538,22 @@
          </rdf:Description>
       </tvc:hasValueInTime>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-8-_:this-expression">
-      <dcterms:publisher rdf:resource="publisher-reference-8-_:this-expression"/>
+   <rdf:Description rdf:about="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <dcterms:publisher rdf:resource="publisher-reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:about="publisher-reference-8-_:this-expression">
+   <rdf:Description rdf:about="publisher-reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-8-_:this-expression">
+   <rdf:Description rdf:about="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <foaf:name>John Wiley and Sons, Inc.</foaf:name>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-8-_:this-expression">
+   <rdf:Description rdf:about="reference-8-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="page-range-manifestation">
       <prism:startingPage rdf:resource="65"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-reference-list">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-reference-list">
       <co:item rdf:resource="reference-item-9"/>
    </rdf:Description>
    <rdf:Description rdf:about="reference-item-9">
@@ -1584,16 +1576,16 @@
       <dcterms:identifier>gks1195-B9</dcterms:identifier>
    </rdf:Description>
    <rdf:Description rdf:about="reference-9">
-      <biro:references rdf:resource="reference-9-_:this-expression"/>
+      <biro:references rdf:resource="reference-9-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <cito:cites rdf:resource="reference-9-_:this-expression"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <cito:cites rdf:resource="reference-9-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-9-_:this-expression">
+   <rdf:Description rdf:about="reference-9-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
-      <frbr:realizationOf rdf:resource="reference-9-_:this-work"/>
+      <frbr:realizationOf rdf:resource="reference-9-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-9-_:this-expression">
+   <rdf:Description rdf:about="reference-9-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
    </rdf:Description>
    <rdf:Description rdf:about="group-10">
@@ -1601,7 +1593,7 @@
       <pro:holdsRoleInTime>
          <rdf:Description>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
-            <pro:relatesToDocument rdf:resource="reference-9-_:this-expression"/>
+            <pro:relatesToDocument rdf:resource="reference-9-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
@@ -1725,20 +1717,20 @@
    <rdf:Description rdf:about="group-10-agent-10">
       <foaf:givenName>H</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-9-_:this-expression">
+   <rdf:Description rdf:about="reference-9-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:title>Functional annotation of a full-length mouse cDNA
             collection</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-9-_:this-expression-source">
+   <rdf:Description rdf:about="reference-9-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source">
       <dcterms:title>Nature</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-9-_:this-expression">
-      <frbr:partOf rdf:resource="reference-9-_:this-expression-source"/>
+   <rdf:Description rdf:about="reference-9-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <frbr:partOf rdf:resource="reference-9-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-9-_:this-expression">
+   <rdf:Description rdf:about="reference-9-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <fabio:hasPublicationYear>2001</fabio:hasPublicationYear>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-9-_:this-expression">
+   <rdf:Description rdf:about="reference-9-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:partOf rdf:nodeID="volume"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="volume">
@@ -1750,16 +1742,16 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-9-_:this-expression">
+   <rdf:Description rdf:about="reference-9-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="page-range-manifestation">
       <prism:startingPage rdf:resource="685"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-9-_:this-work">
+   <rdf:Description rdf:about="reference-9-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <fabio:hasPubMedId>11217851</fabio:hasPubMedId>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-reference-list">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-reference-list">
       <co:item rdf:resource="reference-item-10"/>
    </rdf:Description>
    <rdf:Description rdf:about="reference-item-10">
@@ -1782,16 +1774,16 @@
       <dcterms:identifier>gks1195-B10</dcterms:identifier>
    </rdf:Description>
    <rdf:Description rdf:about="reference-10">
-      <biro:references rdf:resource="reference-10-_:this-expression"/>
+      <biro:references rdf:resource="reference-10-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <cito:cites rdf:resource="reference-10-_:this-expression"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <cito:cites rdf:resource="reference-10-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-10-_:this-expression">
+   <rdf:Description rdf:about="reference-10-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
-      <frbr:realizationOf rdf:resource="reference-10-_:this-work"/>
+      <frbr:realizationOf rdf:resource="reference-10-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-10-_:this-expression">
+   <rdf:Description rdf:about="reference-10-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
    </rdf:Description>
    <rdf:Description rdf:about="group-11">
@@ -1799,7 +1791,7 @@
       <pro:holdsRoleInTime>
          <rdf:Description>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
-            <pro:relatesToDocument rdf:resource="reference-10-_:this-expression"/>
+            <pro:relatesToDocument rdf:resource="reference-10-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
@@ -1923,20 +1915,20 @@
    <rdf:Description rdf:about="group-11-agent-10">
       <foaf:givenName>T</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-10-_:this-expression">
+   <rdf:Description rdf:about="reference-10-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:title>BioProject and BioSample databases at NCBI: facilitating capture and
             organization of metadata</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-10-_:this-expression-source">
+   <rdf:Description rdf:about="reference-10-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source">
       <dcterms:title>Nucleic Acids Res.</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-10-_:this-expression">
-      <frbr:partOf rdf:resource="reference-10-_:this-expression-source"/>
+   <rdf:Description rdf:about="reference-10-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <frbr:partOf rdf:resource="reference-10-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-10-_:this-expression">
+   <rdf:Description rdf:about="reference-10-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <fabio:hasPublicationYear>2012</fabio:hasPublicationYear>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-10-_:this-expression">
+   <rdf:Description rdf:about="reference-10-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:partOf rdf:nodeID="volume"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="volume">
@@ -1948,16 +1940,16 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-10-_:this-expression">
+   <rdf:Description rdf:about="reference-10-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="page-range-manifestation">
       <prism:startingPage rdf:resource="D57"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-10-_:this-work">
+   <rdf:Description rdf:about="reference-10-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <fabio:hasPubMedId>22139929</fabio:hasPubMedId>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-reference-list">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-reference-list">
       <co:item rdf:resource="reference-item-11"/>
    </rdf:Description>
    <rdf:Description rdf:about="reference-item-11">
@@ -1980,16 +1972,16 @@
       <dcterms:identifier>gks1195-B11</dcterms:identifier>
    </rdf:Description>
    <rdf:Description rdf:about="reference-11">
-      <biro:references rdf:resource="reference-11-_:this-expression"/>
+      <biro:references rdf:resource="reference-11-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <cito:cites rdf:resource="reference-11-_:this-expression"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <cito:cites rdf:resource="reference-11-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-11-_:this-expression">
+   <rdf:Description rdf:about="reference-11-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
-      <frbr:realizationOf rdf:resource="reference-11-_:this-work"/>
+      <frbr:realizationOf rdf:resource="reference-11-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-11-_:this-expression">
+   <rdf:Description rdf:about="reference-11-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
    </rdf:Description>
    <rdf:Description rdf:about="group-12">
@@ -1997,7 +1989,7 @@
       <pro:holdsRoleInTime>
          <rdf:Description>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
-            <pro:relatesToDocument rdf:resource="reference-11-_:this-expression"/>
+            <pro:relatesToDocument rdf:resource="reference-11-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
@@ -2085,20 +2077,20 @@
    <rdf:Description rdf:about="group-12-agent-7">
       <foaf:givenName>DJ</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-11-_:this-expression">
+   <rdf:Description rdf:about="reference-11-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:title>Gapped BLAST and PSI-BLAST: a new generation of protein database search
             programs</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-11-_:this-expression-source">
+   <rdf:Description rdf:about="reference-11-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source">
       <dcterms:title>Nucleic Acids Res.</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-11-_:this-expression">
-      <frbr:partOf rdf:resource="reference-11-_:this-expression-source"/>
+   <rdf:Description rdf:about="reference-11-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <frbr:partOf rdf:resource="reference-11-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-11-_:this-expression">
+   <rdf:Description rdf:about="reference-11-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <fabio:hasPublicationYear>1997</fabio:hasPublicationYear>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-11-_:this-expression">
+   <rdf:Description rdf:about="reference-11-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:partOf rdf:nodeID="volume"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="volume">
@@ -2110,16 +2102,16 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-11-_:this-expression">
+   <rdf:Description rdf:about="reference-11-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="page-range-manifestation">
       <prism:startingPage rdf:resource="3389"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-11-_:this-work">
+   <rdf:Description rdf:about="reference-11-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <fabio:hasPubMedId>9254694</fabio:hasPubMedId>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-reference-list">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-reference-list">
       <co:item rdf:resource="reference-item-12"/>
    </rdf:Description>
    <rdf:Description rdf:about="reference-item-12">
@@ -2142,16 +2134,16 @@
       <dcterms:identifier>gks1195-B12</dcterms:identifier>
    </rdf:Description>
    <rdf:Description rdf:about="reference-12">
-      <biro:references rdf:resource="reference-12-_:this-expression"/>
+      <biro:references rdf:resource="reference-12-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <cito:cites rdf:resource="reference-12-_:this-expression"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <cito:cites rdf:resource="reference-12-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-12-_:this-expression">
+   <rdf:Description rdf:about="reference-12-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
-      <frbr:realizationOf rdf:resource="reference-12-_:this-work"/>
+      <frbr:realizationOf rdf:resource="reference-12-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-12-_:this-expression">
+   <rdf:Description rdf:about="reference-12-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
    </rdf:Description>
    <rdf:Description rdf:about="group-13">
@@ -2159,7 +2151,7 @@
       <pro:holdsRoleInTime>
          <rdf:Description>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
-            <pro:relatesToDocument rdf:resource="reference-12-_:this-expression"/>
+            <pro:relatesToDocument rdf:resource="reference-12-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
@@ -2247,20 +2239,20 @@
    <rdf:Description rdf:about="group-13-agent-7">
       <foaf:givenName>SF</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-12-_:this-expression">
+   <rdf:Description rdf:about="reference-12-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:title>Protein sequence similarity searches using patterns as
             seeds</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-12-_:this-expression-source">
+   <rdf:Description rdf:about="reference-12-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source">
       <dcterms:title>Nucleic Acids Res.</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-12-_:this-expression">
-      <frbr:partOf rdf:resource="reference-12-_:this-expression-source"/>
+   <rdf:Description rdf:about="reference-12-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <frbr:partOf rdf:resource="reference-12-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-12-_:this-expression">
+   <rdf:Description rdf:about="reference-12-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <fabio:hasPublicationYear>1998</fabio:hasPublicationYear>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-12-_:this-expression">
+   <rdf:Description rdf:about="reference-12-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:partOf rdf:nodeID="volume"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="volume">
@@ -2272,16 +2264,16 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-12-_:this-expression">
+   <rdf:Description rdf:about="reference-12-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="page-range-manifestation">
       <prism:startingPage rdf:resource="3986"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-12-_:this-work">
+   <rdf:Description rdf:about="reference-12-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <fabio:hasPubMedId>9705509</fabio:hasPubMedId>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression-reference-list">
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-reference-list">
       <co:item rdf:resource="reference-item-13"/>
    </rdf:Description>
    <rdf:Description rdf:about="reference-item-13">
@@ -2301,16 +2293,16 @@
       <dcterms:identifier>gks1195-B13</dcterms:identifier>
    </rdf:Description>
    <rdf:Description rdf:about="reference-13">
-      <biro:references rdf:resource="reference-13-_:this-expression"/>
+      <biro:references rdf:resource="reference-13-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:nodeID="this-expression">
-      <cito:cites rdf:resource="reference-13-_:this-expression"/>
+   <rdf:Description rdf:about="http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <cito:cites rdf:resource="reference-13-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-13-_:this-expression">
+   <rdf:Description rdf:about="reference-13-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
-      <frbr:realizationOf rdf:resource="reference-13-_:this-work"/>
+      <frbr:realizationOf rdf:resource="reference-13-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-13-_:this-expression">
+   <rdf:Description rdf:about="reference-13-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
    </rdf:Description>
    <rdf:Description rdf:about="group-14">
@@ -2318,7 +2310,7 @@
       <pro:holdsRoleInTime>
          <rdf:Description>
             <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
-            <pro:relatesToDocument rdf:resource="reference-13-_:this-expression"/>
+            <pro:relatesToDocument rdf:resource="reference-13-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1"/>
          </rdf:Description>
       </pro:holdsRoleInTime>
    </rdf:Description>
@@ -2394,19 +2386,19 @@
    <rdf:Description rdf:about="group-14-agent-6">
       <foaf:givenName>TL</foaf:givenName>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-13-_:this-expression">
+   <rdf:Description rdf:about="reference-13-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <dcterms:title>NCBI BLAST: a better web interface</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-13-_:this-expression-source">
+   <rdf:Description rdf:about="reference-13-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source">
       <dcterms:title>Nucleic Acids Res.</dcterms:title>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-13-_:this-expression">
-      <frbr:partOf rdf:resource="reference-13-_:this-expression-source"/>
+   <rdf:Description rdf:about="reference-13-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
+      <frbr:partOf rdf:resource="reference-13-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1-source"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-13-_:this-expression">
+   <rdf:Description rdf:about="reference-13-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <fabio:hasPublicationYear>2008</fabio:hasPublicationYear>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-13-_:this-expression">
+   <rdf:Description rdf:about="reference-13-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:partOf rdf:nodeID="volume"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="volume">
@@ -2418,13 +2410,13 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-13-_:this-expression">
+   <rdf:Description rdf:about="reference-13-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421.1">
       <frbr:embodiment rdf:nodeID="page-range-manifestation"/>
    </rdf:Description>
    <rdf:Description rdf:nodeID="page-range-manifestation">
       <prism:startingPage rdf:resource="W5"/>
    </rdf:Description>
-   <rdf:Description rdf:about="reference-13-_:this-work">
+   <rdf:Description rdf:about="reference-13-http://rdf.ncbi.nlm.nih.gov/pmc/PMC3159421">
       <fabio:hasPubMedId>18440982</fabio:hasPubMedId>
    </rdf:Description>
 </rdf:RDF>

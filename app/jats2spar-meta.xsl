@@ -16,10 +16,12 @@
   <!ENTITY literal "http://www.essepuntato.it/2010/06/literalreification/">
   <!ENTITY mediatypes "http://purl.org/NET/mediatypes/">
   <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY pmc "http://rdf.ncbi.nlm.nih.gov/pmc/vocabulary#">
   <!ENTITY prism "http://prismstandard.org/namespaces/basic/2.0/">
   <!ENTITY pro "http://purl.org/spar/pro/">
   <!ENTITY prov "http://www.w3.org/ns/prov#">
   <!ENTITY pso "http://purl.org/spar/pso/">
+  <!ENTITY pubmed "http://rdf.ncbi.nlm.nih.gov/pubmed/vocabulary#">
   <!ENTITY pwo "http://purl.org/spar/pwo/">
   <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
@@ -54,10 +56,12 @@
   xmlns:lmm="&lmm;"
   xmlns:mediatypes="&mediatypes;" 
   xmlns:owl="&owl;" 
+  xmlns:pmc="&pmc;" 
   xmlns:prism="&prism;" 
   xmlns:pro="&pro;"
   xmlns:prov="&prov;"
   xmlns:pso="&pso;" 
+  xmlns:pubmed="&pubmed;"
   xmlns:pwo="&pwo;" 
   xmlns:rdf="&rdf;" 
   xmlns:rdfs="&rdfs;"

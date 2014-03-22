@@ -31,10 +31,12 @@
   <!ENTITY literal "http://www.essepuntato.it/2010/06/literalreification/">
   <!ENTITY mediatypes "http://purl.org/NET/mediatypes/">
   <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY pmc "http://rdf.ncbi.nlm.nih.gov/pmc/vocabulary#">
   <!ENTITY prism "http://prismstandard.org/namespaces/basic/2.0/">
   <!ENTITY pro "http://purl.org/spar/pro/">
   <!ENTITY prov "http://www.w3.org/ns/prov#">
   <!ENTITY pso "http://purl.org/spar/pso/">
+  <!ENTITY pubmed "http://rdf.ncbi.nlm.nih.gov/pubmed/vocabulary#">
   <!ENTITY pwo "http://purl.org/spar/pwo/">
   <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
@@ -69,10 +71,12 @@
                 xmlns:lmm="&lmm;"
                 xmlns:mediatypes="&mediatypes;" 
                 xmlns:owl="&owl;" 
+                xmlns:pmc="&pmc;" 
                 xmlns:prism="&prism;" 
                 xmlns:pro="&pro;"
                 xmlns:prov="&prov;"
                 xmlns:pso="&pso;" 
+                xmlns:pubmed="&pubmed;"
                 xmlns:pwo="&pwo;" 
                 xmlns:rdf="&rdf;" 
                 xmlns:rdfs="&rdfs;"
@@ -480,22 +484,38 @@
 
   <xsl:template match="contrib">
     <xsl:param name="w" tunnel="yes"/>
-    <xsl:variable name="agent"
+<!--    <xsl:variable name="agent"
       select="f:getBlankChildLabel($w, concat('agent-', count(preceding-sibling::contrib) + 1))"/>
+-->
+    <!-- FIXME:  this needs work to take care of all the possible ways that an agent's identifying
+      info can appear. -->
+    <xsl:variable name='contrib'>
+      <xsl:choose>
+        <xsl:when test="contrib-id[@contrib-id-type = 'orcid']">
+          <xsl:value-of select="contrib-id[@contrib-id-type = 'orcid']"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:variable name='contrib-name'
+            select='f:makeSlug(concat((.//surname)[1], "-", (.//given-names)[1]))'/>
+          <xsl:value-of select='concat($w, "/contrib/", $contrib-name)'/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    
     <xsl:call-template name="single">
       <xsl:with-param name="s" select="$w" tunnel="yes"/>
       <xsl:with-param name="p" select="'dcterms:contributor'" tunnel="yes"/>
-      <xsl:with-param name="o" select="$agent" tunnel="yes"/>
+      <xsl:with-param name="o" select="$contrib" tunnel="yes"/>
     </xsl:call-template>
 
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$agent" tunnel="yes"/>
+      <xsl:with-param name="s" select="$contrib" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&foaf;Agent'" tunnel="yes"/>
     </xsl:call-template>
 
     <xsl:call-template name="goahead">
-      <xsl:with-param name="s" select="$agent" tunnel="yes"/>
+      <xsl:with-param name="s" select="$contrib" tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -2432,10 +2452,15 @@
       <xsl:with-param name="o" select=".." tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
-  
-  
 
-  <xsl:template match="@mimetype">
+  <xsl:template match="@journal-id-type[. = 'pubmed-jr-id']">
+    <xsl:call-template name='attribute'>
+      <xsl:with-param name="p" select="'pubmed:journalId'" tunnel="yes"/>
+      <xsl:with-param name="o" select=".." tunnel="yes"/>
+    </xsl:call-template>
+  </xsl:template>
+  
+    <xsl:template match="@mimetype">
     <xsl:param name="e" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
@@ -2852,14 +2877,9 @@
   </xsl:template>
 
   <xsl:template match="@pub-id-type[. = 'manuscript']">
-    <xsl:param name="s" tunnel="yes"/>
-    <xsl:call-template name="assert">
-      <xsl:with-param name="triples"
-        select="($s,
-          'datacite:hasIdentifier', '',
-          'rdf:type', '&datacite;Identifier',
-          'datacite:usesIdentifierScheme', '&datacite;local-resource-identifier-scheme',
-          'literal:hasLiteralValue', concat('&quot;', .., '&quot;'))"/>
+    <xsl:call-template name='attribute'>
+      <xsl:with-param name="p" select="'pmc:manuscriptId'" tunnel="yes"/>
+      <xsl:with-param name="o" select=".." tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
 

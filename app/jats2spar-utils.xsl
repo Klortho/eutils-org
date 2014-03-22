@@ -16,10 +16,12 @@
   <!ENTITY literal "http://www.essepuntato.it/2010/06/literalreification/">
   <!ENTITY mediatypes "http://purl.org/NET/mediatypes/">
   <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY pmc "http://rdf.ncbi.nlm.nih.gov/pmc/vocabulary#">
   <!ENTITY prism "http://prismstandard.org/namespaces/basic/2.0/">
   <!ENTITY pro "http://purl.org/spar/pro/">
   <!ENTITY prov "http://www.w3.org/ns/prov#">
   <!ENTITY pso "http://purl.org/spar/pso/">
+  <!ENTITY pubmed "http://rdf.ncbi.nlm.nih.gov/pubmed/vocabulary#">
   <!ENTITY pwo "http://purl.org/spar/pwo/">
   <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
@@ -54,10 +56,12 @@
   xmlns:lmm="&lmm;"
   xmlns:mediatypes="&mediatypes;" 
   xmlns:owl="&owl;" 
+  xmlns:pmc="&pmc;" 
   xmlns:prism="&prism;" 
   xmlns:pro="&pro;"
   xmlns:prov="&prov;"
   xmlns:pso="&pso;" 
+  xmlns:pubmed="&pubmed;"
   xmlns:pwo="&pwo;" 
   xmlns:rdf="&rdf;" 
   xmlns:rdfs="&rdfs;"
@@ -94,7 +98,7 @@
 
   <xsl:variable name="prefixes"
     select='tokenize("biro cito co datacite dc dcterms deo dqm fabio foaf frapo frbr literal 
-    lmm mediatypes owl prism pro prov pso pwo rdf rdfs scoro skos swanrel 
+    lmm mediatypes owl pmc prism pro prov pso pubmed pwo rdf rdfs scoro skos swanrel 
     swc swrc trait tvc vcard xsd", "\s+")'/>
   
   <xsl:variable name='article' select='//article[1]'/>
@@ -567,6 +571,8 @@
         So, for example, given "_:investigation-1" (the parent) and "funding-agent"
         (a label for the child), this will
         produce "_:funding-agent-investigation-1".</p>
+      <p>This is DEPRECATED, since we want to move away from using blank nodes
+        altogether.</p>
     </desc>
   </doc>
   <xsl:function name="f:getBlankChildLabel" as="xs:string">
