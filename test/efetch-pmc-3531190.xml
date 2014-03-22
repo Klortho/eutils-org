@@ -1,0 +1,1320 @@
+<?xml version="1.0"?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" 
+  "http://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML"
+  article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Nucleic Acids Res</journal-id>
+      <journal-id journal-id-type="iso-abbrev">Nucleic Acids Res</journal-id>
+      <journal-id journal-id-type="publisher-id">nar</journal-id>
+      <journal-id journal-id-type="hwp">nar</journal-id>
+      <journal-title-group>
+        <journal-title>Nucleic Acids Research</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0305-1048</issn>
+      <issn pub-type="epub">1362-4962</issn>
+      <publisher>
+        <publisher-name>Oxford University Press</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">23193287</article-id>
+      <article-id pub-id-type="pmc">3531190</article-id>
+      <article-id pub-id-type="doi">10.1093/nar/gks1195</article-id>
+      <article-id pub-id-type="publisher-id">gks1195</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Articles</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>GenBank</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Benson</surname>
+            <given-names>Dennis A.</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cavanaugh</surname>
+            <given-names>Mark</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Clark</surname>
+            <given-names>Karen</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Karsch-Mizrachi</surname>
+            <given-names>Ilene</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lipman</surname>
+            <given-names>David J.</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ostell</surname>
+            <given-names>James</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sayers</surname>
+            <given-names>Eric W.</given-names>
+          </name>
+          <xref ref-type="corresp" rid="gks1195-COR1">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff>National Center for Biotechnology Information, National Library of Medicine, National
+        Institutes of Health, Building 38A, 8600 Rockville Pike, Bethesda, MD 20894, USA</aff>
+      <author-notes>
+        <corresp id="gks1195-COR1">*To whom correspondence should be addressed. Tel: <phone>+1 301
+            496 2475</phone>; Fax: <fax>+1 301 480 9241</fax>; Email:
+            <email>sayers@ncbi.nlm.nih.gov</email></corresp>
+      </author-notes>
+      <!--For NAR both ppub and collection dates generated for PMC processing 1/27/05 beck-->
+      <pub-date pub-type="collection">
+        <month>1</month>
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <month>1</month>
+        <year>2013</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>26</day>
+        <month>11</month>
+        <year>2012</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>26</day>
+        <month>11</month>
+        <year>2012</year>
+      </pub-date>
+      <!-- PMC Release delay is 0 months and 0 days and was based on the
+							<pub-date pub-type="epub"/>. -->
+      <volume>41</volume>
+      <issue>D1</issue>
+      <issue-title>Database issue</issue-title>
+      <fpage>D36</fpage>
+      <lpage>D42</lpage>
+      <history>
+        <date date-type="received">
+          <day>28</day>
+          <month>9</month>
+          <year>2012</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>29</day>
+          <month>10</month>
+          <year>2012</year>
+        </date>
+        <date date-type="accepted">
+          <day>29</day>
+          <month>10</month>
+          <year>2012</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Published by Oxford University Press 2012.</copyright-statement>
+        <copyright-year>2012</copyright-year>
+        <license license-type="creative-commons"
+          xlink:href="http://creativecommons.org/licenses/by-nc/3.0">
+          <license-p><!--CREATIVE COMMONS-->This is an Open Access article distributed under the
+            terms of the Creative Commons Attribution License (<ext-link ext-link-type="uri"
+              xlink:href="http://creativecommons.org/licenses/by-nc/3.0/"
+              >http://creativecommons.org/licenses/by-nc/3.0/</ext-link>), which permits
+            non-commercial reuse, distribution, and reproduction in any medium, provided the
+            original work is properly cited. For commercial re-use, please contact
+            journals.permissions@oup.com.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>GenBank&#xAE; (<ext-link ext-link-type="uri" xlink:href="http://www.ncbi.nlm.nih.gov"
+            >http://www.ncbi.nlm.nih.gov</ext-link>) is a comprehensive database that contains
+          publicly available nucleotide sequences for almost 260 000 formally described species.
+          These sequences are obtained primarily through submissions from individual laboratories
+          and batch submissions from large-scale sequencing projects, including whole-genome shotgun
+          (WGS) and environmental sampling projects. Most submissions are made using the web-based
+          BankIt or standalone Sequin programs, and GenBank staff assigns accession numbers upon
+          data receipt. Daily data exchange with the European Nucleotide Archive (ENA) and the DNA
+          Data Bank of Japan (DDBJ) ensures worldwide coverage. GenBank is accessible through the
+          NCBI Entrez retrieval system, which integrates data from the major DNA and protein
+          sequence databases along with taxonomy, genome, mapping, protein structure and domain
+          information, and the biomedical journal literature via PubMed. BLAST provides sequence
+          similarity searches of GenBank and other sequence databases. Complete bimonthly releases
+          and daily updates of the GenBank database are available by FTP. To access GenBank and its
+          related retrieval and analysis services, begin at the NCBI home page: <ext-link
+            ext-link-type="uri" xlink:href="www.ncbi.nlm.nih.gov"
+          >www.ncbi.nlm.nih.gov</ext-link>.</p>
+      </abstract>
+      <counts>
+        <page-count count="7"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>INTRODUCTION</title>
+      <p>GenBank (<xref ref-type="bibr" rid="gks1195-B1">1</xref>) is a comprehensive public
+        database of nucleotide sequences and supporting bibliographic and biological annotation.
+        GenBank is built and distributed by the National Center for Biotechnology Information
+        (NCBI), a division of the National Library of Medicine (NLM), located at the campus of the
+        U.S. National Institutes of Health (NIH) in Bethesda, MD, USA.</p>
+      <p>NCBI builds GenBank primarily from the submission of sequence data from authors and from
+        the bulk submission of expressed sequence tag (EST), genome survey sequence (GSS),
+        whole-genome shotgun (WGS) and other high-throughput data from sequencing centres. The U.S.
+        Patent and Trademark Office also contributes sequences from issued patents. GenBank
+        participates with the European Molecular Biology Laboratory Nucleotide Sequence Database
+        (EMBL-Bank), part of the European Nucleotide Archive (ENA) (<xref ref-type="bibr"
+          rid="gks1195-B2">2</xref>), and the DNA Data Bank of Japan (DDBJ) (<xref ref-type="bibr"
+          rid="gks1195-B3">3</xref>) as a partner in the International Nucleotide Sequence Database
+        Collaboration (INSDC). The INSDC partners exchange data daily to ensure that a uniform and
+        comprehensive collection of sequence information is available worldwide. NCBI makes the
+        GenBank data available at no cost over the Internet, through FTP and a wide range of
+        web-based retrieval and analysis services (<xref ref-type="bibr" rid="gks1195-B4"
+        >4</xref>).</p>
+    </sec>
+    <sec>
+      <title>RECENT DEVELOPMENTS</title>
+      <sec>
+        <title>Submission portal</title>
+        <p>NCBI is in the process of creating a unified submission portal that will provide a single
+          access point for data submitters (submit.ncbi.nlm.nih.gov). Submitters will be able to
+          create accounts that will track and display all of their submissions and will facilitate
+          communication with relevant NCBI staff. With respect to GenBank, the portal now supports
+          submissions of whole genome shotgun (WGS) and transcriptome shotgun assembly (TSA)
+          sequences and, in the near future, complete microbial genomes. Submitters may continue to
+          use standard GenBank submission tools (see below) for other GenBank submissions.</p>
+      </sec>
+      <sec>
+        <title>New submission wizards</title>
+        <p>The Sequin program, a popular tool for preparing electronic submissions (see below), now
+          contains a variety of &#x2018;wizards&#x2019; to assist users when submitting particular
+          types of sequences. The current release of Sequin (version 12.21) contains wizards for
+          submitting viral sequences; uncultured sequences; rRNA, internal transcribed spacer and
+          rRNA-intergenic spacer sequences (rRNA-ITS-IGS); TSA sequences and non-rRNA intergenic
+          spacer sequences (IGS). The BankIt web submission tool also has a special function to
+          assist with submitting 16S rRNA sequences. All of these tools guide users through the
+          process of submitting the required data and also assist with sequence annotation.</p>
+      </sec>
+      <sec>
+        <title>WGS browser</title>
+        <p>Within GenBank, WGS master records (see below) contain no sequence data, but rather show
+          the descriptive information and range of accession numbers of the contigs submitted as
+          part of that WGS project. NCBI is transitioning to a point where we will no longer assign
+          GI (GenInfo) numbers to these individual contigs, particularly for data from low coverage,
+          fragmented or unannotated assemblies of eukaryotic genomes. Contigs without GI numbers
+          will not be available from the Nucleotide database; instead, users may view these records
+          in the WGS browser linked from the WGS feature of any WGS master record. The WGS browser
+          provides the complete descriptive information from the master record of the project,
+          interactive views of the FASTA of every contig record and also provides links to the FTP
+          files for all the contigs of the entire project.</p>
+      </sec>
+      <sec>
+        <title>New TSA accessions</title>
+        <p>NCBI is now formatting and releasing TSA records similarly to what has been done for WGS
+          data (see below). Like WGS, TSA projects will now contain a master record, in addition to
+          records representing each of the assembled contigs. TSA will be using a similar accession
+          number scheme to WGS as well. Like WGS accessions, the new TSA accessions have a
+          four-letter prefix, representing the TSA project, followed by a two-digit version number
+          and a six-digit contig number. For example, GAAA01000020 is contig 20 from the first
+          version of TSA project GAAA. In the future, the individual TSA contigs will not be indexed
+          in Entrez, but will be available in the WGS browser. The TSA project master records have
+          accessions that begin with the four-letter prefix followed by eight zeroes (e.g.
+          GAAA00000000) and are indexed in the Nucleotide database.</p>
+        <p>Both TSA and WGS records will now also contain an Assembly block in the COMMENT section
+          of their GenBank reports. The Assembly block contains, as available, information about the
+          assembly method, the assembly name, the genome coverage achieved and the sequencing
+          technology used to generate the data. A sample Assembly block from GAAA00000000 is shown
+          below:</p>
+        <p>
+          <monospace>##Assembly-Data-START##</monospace>
+        </p>
+        <p><monospace>Assembly Method</monospace>&#x2003;&#x2003;&#x2003;&#x2003;&#x2002;
+            <monospace>::</monospace><monospace> Trinity v. r2011-07-13</monospace></p>
+        <p><monospace>Assembly
+            Name</monospace>&#x2003;&#x2003;&#x2003;&#x2003;&#x2003;&#x2003;<monospace>::</monospace><monospace>
+            LatCha_Muscle767971_v1.0</monospace></p>
+        <p><monospace>Coverage</monospace>&#x2003;&#x2003;&#x2003;&#x2003;&#x2003;&#x2003;&#x2003;&#x2003;&#x2002;
+            <monospace>::</monospace>
+          <monospace>590x</monospace></p>
+        <p><monospace>Sequencing Technology</monospace> &#x2003;<monospace>::</monospace>
+          <monospace>Illumina Hi-Seq</monospace></p>
+        <p>
+          <monospace>##Assembly-Data-END##</monospace>
+        </p>
+      </sec>
+    </sec>
+    <sec>
+      <title>ORGANIZATION OF THE DATABASE</title>
+      <sec>
+        <title>GenBank divisions</title>
+        <p>GenBank assigns sequence records to various divisions based either on the source taxonomy
+          or the sequencing strategy used to obtain the data. There are 12 &#x2018;taxonomic&#x2019;
+          divisions that correspond roughly to the source organisms of the sequence data (BCT, ENV,
+          INV, MAM, PHG, PLN, PRI, ROD, SYN, UNA, VRL, VRT) and 8 &#x2018;functional&#x2019;
+          divisions (EST, GSS, HTC, HTG, PAT, STS, TSA, WGS) that collect sequences generated by a
+          particular method. The size and growth of these divisions, and of GenBank as a whole, are
+          shown in <xref ref-type="table" rid="gks1195-T1">Table 1</xref>. <table-wrap
+            id="gks1195-T1" position="float"><label>Table 1.</label><caption><p>Growth of GenBank
+                divisions (nucleotide base pairs)</p></caption><table frame="hsides" rules="groups"
+                ><thead align="left"><tr><th rowspan="1" colspan="1">Division</th><th rowspan="1"
+                    colspan="1">Description</th><th rowspan="1" colspan="1">Release 191
+                    (8/2012)</th><th rowspan="1" colspan="1">Annual increase (%)<xref
+                      ref-type="table-fn" rid="gks1195-TF1"
+                ><sup>a</sup></xref></th></tr></thead><tbody align="left"><tr><td colspan="4"
+                    rowspan="1">Taxnomic divisons</td></tr><tr><td rowspan="1" colspan="1"
+                    >SYN</td><td rowspan="1" colspan="1">Synthetic</td><td rowspan="1" colspan="1"
+                    >928 200 038</td><td rowspan="1" colspan="1">494.2%</td></tr><tr><td rowspan="1"
+                    colspan="1">PHG</td><td rowspan="1" colspan="1">Phages</td><td rowspan="1"
+                    colspan="1">84 079 451</td><td rowspan="1" colspan="1">34.4%</td></tr><tr><td
+                    rowspan="1" colspan="1">ENV</td><td rowspan="1" colspan="1">Environmental
+                    samples</td><td rowspan="1" colspan="1">3 374 433 548</td><td rowspan="1"
+                    colspan="1">32.1%</td></tr><tr><td rowspan="1" colspan="1">VRL</td><td
+                    rowspan="1" colspan="1">Viruses</td><td rowspan="1" colspan="1">1 429 464
+                    786</td><td rowspan="1" colspan="1">21.1%</td></tr><tr><td rowspan="1"
+                    colspan="1">BCT</td><td rowspan="1" colspan="1">Bacteria</td><td rowspan="1"
+                    colspan="1">8 439 854 434</td><td rowspan="1" colspan="1">21.0%</td></tr><tr><td
+                    rowspan="1" colspan="1">PLN</td><td rowspan="1" colspan="1">Plants</td><td
+                    rowspan="1" colspan="1">5 481 470 133</td><td rowspan="1" colspan="1"
+                  >15.6%</td></tr><tr><td rowspan="1" colspan="1">MAM</td><td rowspan="1"
+                    colspan="1">Other mammals</td><td rowspan="1" colspan="1">863 036 872</td><td
+                    rowspan="1" colspan="1">6.9%</td></tr><tr><td rowspan="1" colspan="1"
+                    >VRT</td><td rowspan="1" colspan="1">Other vertebrates</td><td rowspan="1"
+                    colspan="1">2 886 594 595</td><td rowspan="1" colspan="1">6.7%</td></tr><tr><td
+                    rowspan="1" colspan="1">PRI</td><td rowspan="1" colspan="1">Primates</td><td
+                    rowspan="1" colspan="1">6 317 656 773</td><td rowspan="1" colspan="1"
+                  >3.3%</td></tr><tr><td rowspan="1" colspan="1">UNA</td><td rowspan="1" colspan="1"
+                    >Unannotated</td><td rowspan="1" colspan="1">127 803</td><td rowspan="1"
+                    colspan="1">1.5%</td></tr><tr><td rowspan="1" colspan="1">ROD</td><td
+                    rowspan="1" colspan="1">Rodents</td><td rowspan="1" colspan="1">4 435 106
+                    948</td><td rowspan="1" colspan="1">0.9%</td></tr><tr><td rowspan="1"
+                    colspan="1">INV</td><td rowspan="1" colspan="1">Invertebrates</td><td
+                    rowspan="1" colspan="1">2 493 058 927</td><td rowspan="1" colspan="1"
+                    >&#x2212;1.7%</td></tr><tr><td colspan="4" rowspan="1">Functional
+                  divisions</td></tr><tr><td rowspan="1" colspan="1">TSA</td><td rowspan="1"
+                    colspan="1">Transcriptome shotgun data</td><td rowspan="1" colspan="1">5 759 588
+                    580</td><td rowspan="1" colspan="1">207.3%</td></tr><tr><td rowspan="1"
+                    colspan="1">WGS</td><td rowspan="1" colspan="1">Whole-genome shotgun
+                    data</td><td rowspan="1" colspan="1">308 196 411 905</td><td rowspan="1"
+                    colspan="1">47.9%</td></tr><tr><td rowspan="1" colspan="1">PAT</td><td
+                    rowspan="1" colspan="1">Patented sequences</td><td rowspan="1" colspan="1">12
+                    118 622 726</td><td rowspan="1" colspan="1">8.6%</td></tr><tr><td rowspan="1"
+                    colspan="1">GSS</td><td rowspan="1" colspan="1">Genome survey sequences</td><td
+                    rowspan="1" colspan="1">21 947 780 105</td><td rowspan="1" colspan="1"
+                  >5.7%</td></tr><tr><td rowspan="1" colspan="1">EST</td><td rowspan="1" colspan="1"
+                    >Expressed sequence tags</td><td rowspan="1" colspan="1">40 888 051 100</td><td
+                    rowspan="1" colspan="1">4.8%</td></tr><tr><td rowspan="1" colspan="1"
+                    >HTG</td><td rowspan="1" colspan="1">High-throughput genomic</td><td rowspan="1"
+                    colspan="1">24 359 210 558</td><td rowspan="1" colspan="1">0.1%</td></tr><tr><td
+                    rowspan="1" colspan="1">STS</td><td rowspan="1" colspan="1">Sequence tagged
+                    sites</td><td rowspan="1" colspan="1">636 262 446</td><td rowspan="1"
+                    colspan="1">0.1%</td></tr><tr><td rowspan="1" colspan="1">HTC</td><td
+                    rowspan="1" colspan="1">High-throughput cDNA</td><td rowspan="1" colspan="1">639
+                    165 410</td><td rowspan="1" colspan="1">&#x2212;3.5%</td></tr><tr><td
+                    rowspan="1" colspan="1"/><td rowspan="1" colspan="1"/><td rowspan="1"
+                    colspan="1"/><td rowspan="1" colspan="1"/></tr><tr><td rowspan="1" colspan="1"
+                    >TOTAL</td><td rowspan="1" colspan="1">All GenBank sequences</td><td rowspan="1"
+                    colspan="1">451 278 177 138</td><td rowspan="1" colspan="1"
+                >33.1%</td></tr></tbody></table><table-wrap-foot><fn id="gks1195-TF1"
+                    ><p><sup>a</sup>Measured relative to Release 185
+              (8/2011).</p></fn></table-wrap-foot></table-wrap></p>
+      </sec>
+      <sec>
+        <title>Sequence-based taxonomy</title>
+        <p>Database sequences are classified and can be queried using a comprehensive sequence-based
+          taxonomy (<ext-link ext-link-type="uri" xlink:href="www.ncbi.nlm.nih.gov/taxonomy/"
+            >www.ncbi.nlm.nih.gov/taxonomy/</ext-link>) developed by NCBI in collaboration with
+          EMBL-Bank and DDBJ and with the valuable assistance of external advisers and curators
+            (<xref ref-type="bibr" rid="gks1195-B5">5</xref>). Almost 260 000 formally described
+          species are represented in GenBank, and the top species in the non-WGS GenBank divisions
+          are listed in <xref ref-type="table" rid="gks1195-T2">Table 2</xref>. <table-wrap
+            id="gks1195-T2" position="float"><label>Table 2.</label><caption><p>Top organisms in
+                GenBank (Release 191)</p></caption><table frame="hsides" rules="groups"><thead
+                align="left"><tr><th rowspan="1" colspan="1">Organism</th><th rowspan="1"
+                    colspan="1">Non-WGS base pairs</th></tr></thead><tbody align="left"><tr><td
+                    rowspan="1" colspan="1"><italic>Homo sapiens</italic></td><td rowspan="1"
+                    colspan="1">16 310 774 187</td></tr><tr><td rowspan="1" colspan="1"><italic>Mus
+                      musculus</italic></td><td rowspan="1" colspan="1">9 974 977
+                    889</td></tr><tr><td rowspan="1" colspan="1"><italic>Rattus
+                    norvegicus</italic></td><td rowspan="1" colspan="1">6 521 253
+                    272</td></tr><tr><td rowspan="1" colspan="1"><italic>Bos taurus</italic></td><td
+                    rowspan="1" colspan="1">5 386 258 455</td></tr><tr><td rowspan="1" colspan="1"
+                      ><italic>Zea mays</italic></td><td rowspan="1" colspan="1">5 062 731
+                  057</td></tr><tr><td rowspan="1" colspan="1"><italic>Sus scrofa</italic></td><td
+                    rowspan="1" colspan="1">4 887 861 860</td></tr><tr><td rowspan="1" colspan="1"
+                      ><italic>Danio rerio</italic></td><td rowspan="1" colspan="1">3 120 857
+                    462</td></tr><tr><td rowspan="1" colspan="1"><italic>Strongylocentrotus
+                      purpuratus</italic></td><td rowspan="1" colspan="1">1 435 236
+                    534</td></tr><tr><td rowspan="1" colspan="1"><italic>Macaca
+                    mulatta</italic></td><td rowspan="1" colspan="1">1 256 203 101</td></tr><tr><td
+                    rowspan="1" colspan="1"><italic>Oryza sativa Japonica Group</italic></td><td
+                    rowspan="1" colspan="1">1 255 686 573</td></tr><tr><td rowspan="1" colspan="1"
+                      ><italic>Xenopus (Silurana) tropicalis</italic></td><td rowspan="1"
+                    colspan="1">1 249 938 611</td></tr><tr><td rowspan="1" colspan="1"
+                      ><italic>Nicotiana tabacum</italic></td><td rowspan="1" colspan="1">1 197 357
+                    811</td></tr><tr><td rowspan="1" colspan="1"><italic>Arabidopsis
+                      thaliana</italic></td><td rowspan="1" colspan="1">1 144 226
+                    616</td></tr><tr><td rowspan="1" colspan="1"><italic>Drosophila
+                      melanogaster</italic></td><td rowspan="1" colspan="1">1 119 965
+                    220</td></tr><tr><td rowspan="1" colspan="1"><italic>Pan
+                    troglodytes</italic></td><td rowspan="1" colspan="1">1 008 323
+                    292</td></tr><tr><td rowspan="1" colspan="1"><italic>Vitis
+                    vinifera</italic></td><td rowspan="1" colspan="1">999 010 073</td></tr><tr><td
+                    rowspan="1" colspan="1"><italic>Canis lupus familiaris</italic></td><td
+                    rowspan="1" colspan="1">951 238 343</td></tr><tr><td rowspan="1" colspan="1"
+                      ><italic>Glycine max</italic></td><td rowspan="1" colspan="1">906 638
+                  854</td></tr><tr><td rowspan="1" colspan="1"><italic>Gallus
+                    gallus</italic></td><td rowspan="1" colspan="1">899 631 338</td></tr><tr><td
+                    rowspan="1" colspan="1"><italic>Triticum aestivum</italic></td><td rowspan="1"
+                    colspan="1">898 689 329</td></tr></tbody></table></table-wrap></p>
+      </sec>
+      <sec>
+        <title>Sequence identifiers and accession numbers</title>
+        <p>Each GenBank record, consisting of both a sequence and its annotations, is assigned a
+          unique identifier called an accession number that is shared across the three collaborating
+          databases (GenBank, DDBJ, EMBL-Bank). The accession number appears on the ACCESSION line
+          of a GenBank record and remains constant over the lifetime of the record, even when there
+          is a change to the sequence or annotation. Changes to the sequence data are tracked by an
+          integer extension of the accession number, and this <italic>Accession.version</italic>
+          identifier appears on the VERSION line of the GenBank flat file. Other changes, such as
+          revised annotations or additions of publications, that do not affect the sequence data
+          will not result in a new version number. The initial version of a sequence has the
+          extension &#x2018;.1&#x2019;. In addition, each version of the DNA sequence is also
+          assigned a unique NCBI identifier called a GI number that also appears on the VERSION line
+          following the <italic>Accession.version</italic>:</p>
+        <p>
+          <monospace>ACCESSION AF000001</monospace>
+        </p>
+        <p>
+          <monospace>VERSION AF000001.5 GI</monospace>
+          <monospace>: 7274584</monospace>
+        </p>
+        <p>Each GI number corresponds to a unique <italic>Accession.version</italic> identifier.
+          When a change is made to a sequence in a GenBank record, a new GI number is issued to the
+          updated sequence and the version extension of the <italic>Accession.version</italic>
+          identifier is incremented. The accession number for the record as a whole remains
+          unchanged, and will always retrieve the most recent version of the record; the older
+          versions remain available under the old <italic>Accession.version</italic> identifiers and
+          their original GI numbers. The Revision History report, available from the &#x2018;Display
+          Settings&#x2019; menu on the sequence record view, summarizes the various updates for that
+          GenBank record, both those that resulted in a new version (updates to sequence data) and
+          those that did not (updates to non-sequence data).</p>
+        <p>A similar system tracks changes in the corresponding protein translations. These
+          identifiers appear as qualifiers for coding sequence (CDS) features in the FEATURES
+          portion of a GenBank entry, e.g. /protein_id=&#x2018;AAF14809.1&#x2019;. Protein sequence
+          translations also receive their own unique GI number, which appears as a second qualifier
+          on the CDS feature:</p>
+        <p>
+          <monospace>/db_xref = </monospace>
+          <monospace>'</monospace>
+          <monospace>GI</monospace>
+          <monospace>:</monospace>
+          <monospace>6513858</monospace>
+          <monospace>'</monospace>
+        </p>
+      </sec>
+      <sec>
+        <title>Citing GenBank records</title>
+        <p>Besides being the primary identifier of a GenBank sequence record, GenBank accessions are
+          also the most efficient and reliable way to cite a sequence record in publications. We
+          certainly encourage submitters and other authors to cite GenBank data using these
+          accessions. However, as discussed above, since searching with a GenBank accession number
+          will retrieve the most recent version of the sequence data for a record, the sequence data
+          returned from such searches will change over time if the record is updated. It is quite
+          possible, therefore, for the sequence data retrieved today by an accession to be different
+          from that discussed or analysed in an article published several years ago. We therefore
+          recommend that authors include the version suffix when citing a GenBank accession (e.g.
+          AF000001.5), particularly in cases where the sequence coordinates are critical to the work
+          being described.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>BUILDING THE DATABASE</title>
+      <p>The data in GenBank and the collaborating databases, EMBL-Bank and DDBJ, are submitted
+        either by individual authors to one of the three databases or by sequencing centres as
+        batches of EST, STS, GSS, HTC, TSA, WGS or HTG sequences. Data are exchanged daily with DDBJ
+        and EMBL-Bank so that the daily updates from NCBI servers incorporate the most recently
+        available sequence data from all sources.</p>
+      <sec>
+        <title>Direct electronic submission</title>
+        <p>Virtually all records enter GenBank as direct electronic submissions (<ext-link
+            ext-link-type="uri" xlink:href="www.ncbi.nlm.nih.gov/genbank/"
+            >www.ncbi.nlm.nih.gov/genbank/</ext-link>), with the majority of authors using the
+          BankIt or Sequin programs. An online table (<ext-link ext-link-type="uri"
+            xlink:href="www.ncbi.nlm.nih.gov/guide/howto/submit-sequence-data/"
+            >www.ncbi.nlm.nih.gov/guide/howto/submit-sequence-data/</ext-link>) provides general
+          guidance and links to appropriate tools for submitting a variety of sequence data. Many
+          journals require authors with sequence data to submit the data to a public sequence
+          database as a condition of publication. GenBank staff can usually assign an accession
+          number to a sequence submission within two working days of receipt, and do so at a rate of
+          &#x223C;3500 per day. The accession number serves as confirmation that the sequence has
+          been submitted and provides a means for readers of articles in which the sequence is cited
+          to retrieve the data. Direct submissions receive a quality assurance review that includes
+          checks for vector contamination, proper translation of coding regions, correct taxonomy
+          and correct bibliographic citations. A draft of the GenBank record is passed back to the
+          author for review before it enters the database.</p>
+        <p>Authors may ask that their sequences be kept confidential until the time of publication.
+          Since GenBank policy requires that the deposited sequence data be made public when the
+          sequence or accession number is published, authors are instructed to inform GenBank staff
+          of the publication date of the article in which the sequence is cited to ensure a timely
+          release of the data. Although only the submitter is permitted to modify sequence data or
+          annotations, all users are encouraged to report lags in releasing data or possible errors
+          or omissions to GenBank at <email>update@ncbi.nlm.nih.gov</email>.</p>
+        <p>NCBI works closely with sequencing centres to ensure timely incorporation of bulk data
+          into GenBank for public release. GenBank offers special batch procedures for large-scale
+          sequencing groups to facilitate data submission, including the program
+            <italic>tbl2asn</italic>, described at <ext-link ext-link-type="uri"
+            xlink:href="www.ncbi.nlm.nih.gov/genbank/tbl2asn2.html"
+            >www.ncbi.nlm.nih.gov/genbank/tbl2asn2.html</ext-link>.</p>
+        <sec>
+          <title>Submission using BankIt</title>
+          <p>About a third of author submissions are received through an NCBI web-based data
+            submission tool named BankIt. Using BankIt, authors enter sequence information and
+            biological annotations, such as coding regions or mRNA features, directly into a series
+            of tabbed forms that allow the submitter to describe the sequence further without having
+            to learn formatting rules or controlled vocabularies. Additionally, BankIt allows
+            submitters to upload source and annotation data using tab-delimited tables. Before
+            creating a draft record in the GenBank flat file format for the submitter to review,
+            BankIt validates the submissions by flagging many common errors and checking for vector
+            contamination using a variant of BLAST called Vecscreen.</p>
+        </sec>
+        <sec>
+          <title>Submission using Sequin and tbl2asn</title>
+          <p>NCBI also offers a standalone multi-platform submission program called Sequin
+              (<ext-link ext-link-type="uri" xlink:href="www.ncbi.nlm.nih.gov/projects/Sequin/"
+              >www.ncbi.nlm.nih.gov/projects/Sequin/</ext-link>) that can be used interactively with
+            other NCBI sequence retrieval and analysis tools. Sequin handles simple sequences (such
+            as a single cDNA), phylogenetic studies, population studies, mutation studies,
+            environmental samples with or without alignments and sequences with complex annotation.
+            Sequin has convenient editing and complex annotation capabilities and contains a number
+            of built-in validation functions for quality assurance. Sequin is able to accommodate
+            sequences such as the 5.6 Mb <italic>E. coli</italic> genome and read in a full
+            complement of annotations from simple tables. The most recent version, Sequin 12.2, was
+            released in June 2012 and is available for Macintosh, PC and Unix computers via
+            anonymous FTP at <ext-link ext-link-type="uri" xlink:href="ftp.ncbi.nlm.nih.gov/sequin"
+              >ftp.ncbi.nlm.nih.gov/sequin</ext-link>. Once a submission is completed, submitters
+            can email the Sequin file to <email>gb-sub@ncbi.nlm.nih.gov</email>. Submitters of
+            large, heavily annotated genomes are encouraged to use the command line tool
+              <italic>tbl2asn</italic> to convert a table of annotations generated from an
+            annotation pipeline into an ASN.1 (Abstract Syntax Notation One) record suitable for
+            submission to GenBank.</p>
+        </sec>
+        <sec>
+          <title>Submission of Barcode sequences</title>
+          <p>The Consortium for the Barcode of Life (CBOL, <ext-link ext-link-type="uri"
+              xlink:href="www.barcoding.si.edu/">www.barcoding.si.edu/</ext-link>) is an
+            international initiative to develop DNA barcoding as a tool for characterizing species
+            of organisms using a short DNA sequence. For animal species, a 648-base pair fragment of
+            the gene for cytochrome oxidase subunit I is used as the barcode. The plant and fungal
+            communities are using other loci. NCBI provides an online tool (BarSTool) for the bulk
+            submission of barcode sequences to GenBank (<ext-link ext-link-type="uri"
+              xlink:href="www.ncbi.nlm.nih.gov/WebSub/?tool=barcode"
+              >www.ncbi.nlm.nih.gov/WebSub/?tool=barcode</ext-link>) that allows users to upload
+            files containing a batch of sequences with associated source information. Barcode
+            sequences can be retrieved from the Nucleotide database with the query
+            &#x2018;barcode[keyword]&#x2019;.</p>
+        </sec>
+      </sec>
+      <sec>
+        <title>Additional notes on special divisions and record types</title>
+        <sec>
+          <title>Transcriptome Shotgun Assembly (TSA) sequences</title>
+          <p>The TSA division contains transcriptome shotgun assembly sequences that are assembled
+            from sequences deposited in the NCBI Trace Archive, the Sequence Read Archive (SRA) and
+            the EST division of GenBank. Although neither the Trace Archive nor SRA is a part of
+            GenBank, they are part of the INSDC and provide access to the data underlying these
+            assemblies (<xref ref-type="bibr" rid="gks1195-B4">4</xref>,<xref ref-type="bibr"
+              rid="gks1195-B6">6</xref>). TSA records have &#x2018;TSA&#x2019; as their keyword and
+            can be retrieved with the query &#x2018;tsa[properties]&#x2019;. TSA continues to be one
+            of the most rapidly growing divisions of GenBank, more than tripling in size over the
+            past year (<xref ref-type="table" rid="gks1195-T1">Table 1</xref>).</p>
+        </sec>
+        <sec>
+          <title>Environmental sample sequences (ENV)</title>
+          <p>The ENV division of GenBank accommodates sequences obtained via environmental sampling
+            methods in which the source organism is unknown. Many ENV sequences arise from
+            metagenome samples derived from microbiota in various animal tissues, such as within the
+            gut or skin, or from particular environments, such as freshwater sediment, hot springs
+            or areas of mine drainage. Records in the ENV division contain &#x2018;ENV&#x2019; in
+            the keyword field and use an &#x2018;/environmental_sample&#x2019; qualifier in the
+            source feature. Environmental sample sequences are generally submitted for whole
+            metagenomic shotgun sequencing experiments or surveys of sequences from targeted genes,
+            like 16S rRNA. NCBI continues to support BLAST searches (see below) of metagenomic ENV
+            sequences, but sequences within WGS projects are now part of the WGS BLAST database.</p>
+        </sec>
+        <sec>
+          <title>Whole-Genome Shotgun sequences</title>
+          <p>Whole-Genome Shotgun (WGS) sequences appear in GenBank as groups of sequence-overlap
+            contigs collected under a master WGS record. Each master record represents a WGS project
+            and has an accession number in the Nucleotide database consisting of a four-letter
+            prefix followed by eight zeroes and a version suffix as found in standard GenBank
+            records. The number of zeroes increases to nine for WGS projects with one million or
+            more contigs. Master records contain no sequence data; rather, they are linked to their
+            set of individual contigs that can be viewed using the new WGS browser (see above).
+            Contig records have accessions consisting of the same four-letter prefix as their master
+            accession, followed by a two-digit version number and a six-digit contig ID. For
+            example, the WGS accession number &#x2018;AAAA02002744&#x2019; is assigned to contig
+            number &#x2018;002744&#x2019; of the second version of project &#x2018;AAAA&#x2019;,
+            whose accession number is &#x2018;AAAA00000000.2&#x2019;. Currently, there are &gt;6000
+            WGS sequencing projects, many of whose data have been used to build almost 12 million
+            scaffolds and chromosomes for genome assemblies. For a complete list of WGS projects
+            with links to the data, see <ext-link ext-link-type="uri"
+              xlink:href="www.ncbi.nlm.nih.gov/Traces/wgs/"
+              >www.ncbi.nlm.nih.gov/Traces/wgs/</ext-link>.</p>
+          <p>Although WGS project sequences may be annotated, many low-coverage genome projects do
+            not contain annotation. Because these sequence projects are ongoing and incomplete,
+            these annotations may not be tracked from one assembly version to the next and should be
+            considered preliminary. Submitters of genomic sequences, including WGS sequences, are
+            urged to use evidence tags of the form
+              &#x2018;/experimental=<italic>CATEGORY:text</italic>&#x2019; and
+              &#x2018;/inference=<italic>CATEGORY:TYPE</italic>:<italic>text</italic>&#x2019;, where
+              <italic>TYPE</italic> is one of a number of standard inference types,
+              <italic>text</italic> consists of structured text and the optional
+              <italic>CATEGORY</italic> label is one of the following:</p>
+          <p><italic>COORDINATES</italic>&#x2014;support for the annotated coordinates</p>
+          <p><italic>DESCRIPTION</italic><italic>&#x2014;</italic>support for a broad concept of
+            function such as that based on phenotype, genetic approach, biochemical function,
+            pathway information, etc.</p>
+          <p><italic>EXISTENCE</italic>&#x2014;support for the known or inferred existence of the
+            product.</p>
+        </sec>
+        <sec>
+          <title>Expressed sequence tags (ESTs)</title>
+          <p>ESTs continue to be a major source of data for gene expression and annotation studies,
+            and at almost 41 billion base pairs, it remains the largest non-WGS division in GenBank.
+            EST data are available for download from <ext-link ext-link-type="uri"
+              xlink:href="ftp.ncbi.nlm.nih.gov/repository/dbEST/"
+              >ftp.ncbi.nlm.nih.gov/repository/dbEST/</ext-link> (<xref ref-type="bibr"
+              rid="gks1195-B7">7</xref>) as well as from the GenBank FTP site. The data in dbEST are
+            clustered using the BLAST programs to produce the UniGene database (<ext-link
+              ext-link-type="uri" xlink:href="www.ncbi.nlm.nih.gov/unigene"
+              >www.ncbi.nlm.nih.gov/unigene</ext-link>) of &gt;5.8 million gene-oriented sequence
+            clusters representing 142 organisms (<xref ref-type="bibr" rid="gks1195-B4"
+            >4</xref>).</p>
+        </sec>
+        <sec>
+          <title>High-throughput genomic (HTG) and high-throughput cDNA (HTC) sequences</title>
+          <p>The HTG division of GenBank (<ext-link ext-link-type="uri"
+              xlink:href="www.ncbi.nlm.nih.gov/genbank/htgs/"
+              >www.ncbi.nlm.nih.gov/genbank/htgs/</ext-link>) contains unfinished large-scale
+            genomic records, which are in transition to a finished state (<xref ref-type="bibr"
+              rid="gks1195-B8">8</xref>). These records are designated as belonging to Phases 0 to 3
+            depending on the quality of the data, with Phase 3 being the finished state. On reaching
+            Phase 3, HTG records are moved into the appropriate organism division of GenBank.</p>
+          <p>The HTC division of GenBank contains high-throughput cDNA sequences that are of draft
+            quality but may contain 5&#x2032; untranslated regions (UTRs), 3&#x2032; UTRs, partial
+            coding regions and introns. HTC sequences that are finished and of high quality are
+            moved to the appropriate organism division of GenBank. A project generating HTC data is
+            described in (<xref ref-type="bibr" rid="gks1195-B9">9</xref>).</p>
+        </sec>
+        <sec>
+          <title>Third Party Annotation</title>
+          <p>Third Party Annotation (TPA) records are sequence annotations published by someone
+            other than the original submitter of the primary sequence record in DDBJ/ENA/GenBank
+              (<ext-link ext-link-type="uri" xlink:href="www.ncbi.nlm.nih.gov/genbank/TPA"
+              >www.ncbi.nlm.nih.gov/genbank/TPA</ext-link>). Each of the current 164 000 TPA records
+            falls into one of three categories: <italic>experimental</italic>, in which case there
+            is direct experimental evidence for the existence of the annotated molecule;
+              <italic>inferential</italic>, in which case the experimental evidence is indirect; and
+              <italic>reassembly</italic>, where the focus is on providing a better assembly of the
+            raw reads. TPA sequences may be created by assembling a number of primary sequences. The
+            format of a TPA record (e.g. BK000016) is similar to that of a conventional GenBank
+            record but includes the label &#x2018;TPA_exp:&#x2019;, &#x2018;TPA_inf:&#x2019; or
+            &#x2018;TPA_reasm:&#x2019; at the beginning of each Definition Line as well as
+            corresponding keywords. TPA experimental and inferential records also contain a Primary
+            block that provides the base ranges and identifier for the sequences used to build the
+            TPA. TPA sequences are not released to the public until their accession numbers or
+            sequence data and annotation appear in a peer-reviewed biological journal. TPA
+            submissions to GenBank may be made using either BankIt or Sequin.</p>
+        </sec>
+        <sec>
+          <title>Contig (CON) records for assemblies of smaller records</title>
+          <p>Within GenBank, CON records are used to represent very long sequences, such as a
+            eukaryotic chromosome, where the sequence is not complete but consists of several contig
+            records with uncharacterized gaps between them. Rather than listing the sequence itself,
+            CON records contain assembly instructions involving the several component sequences. An
+            example of such a CON record is CM000663 for human chromosome 1.</p>
+        </sec>
+      </sec>
+    </sec>
+    <sec>
+      <title>RETRIEVING GENBANK DATA</title>
+      <sec>
+        <title>The Entrez system</title>
+        <p>The sequence records in GenBank are accessible through the NCBI Entrez retrieval system
+            (<xref ref-type="bibr" rid="gks1195-B4">4</xref>). Records from the EST and GSS
+          divisions of GenBank are stored in the EST and GSS databases, whereas all other GenBank
+          records are stored in the Nucleotide database (<xref ref-type="table" rid="gks1195-T3"
+            >Table 3</xref>). GenBank sequences that are part of population or phylogenetic studies
+          are also collected together in the PopSet database, and conceptual translations of CDS
+          sequences annotated on GenBank records are available in the Protein database. Each of
+          these databases is linked to the scientific literature in PubMed and PubMed Central.
+          Additional information about conducting Entrez searches is found in the NCBI Help Manual
+            (<ext-link ext-link-type="uri" xlink:href="www.ncbi.nlm.nih.gov/books/NBK3831/"
+            >www.ncbi.nlm.nih.gov/books/NBK3831/</ext-link>) and links to related tutorials are
+          provided on the NCBI Education page (<ext-link ext-link-type="uri"
+            xlink:href="www.ncbi.nlm.nih.gov/education/"
+          >www.ncbi.nlm.nih.gov/education/</ext-link>). <table-wrap id="gks1195-T3" position="float"
+              ><label>Table 3.</label><caption><p>Retrieval databases containing GenBank
+              data</p></caption><table frame="hsides" rules="groups"><thead align="left"><tr><th
+                    rowspan="1" colspan="1">Division</th><th rowspan="1" colspan="1">Entrez
+                    database</th><th rowspan="1" colspan="1">BLAST database</th></tr></thead><tbody
+                align="left"><tr><td rowspan="1" colspan="1">BCT, ENV, INV, MAM, PHG, PLN, PRI, ROD,
+                    SYN, UNA, VRL, VRT</td><td rowspan="1" colspan="1">nucleotide</td><td
+                    rowspan="1" colspan="1">nr</td></tr><tr><td rowspan="1" colspan="1">EST</td><td
+                    rowspan="1" colspan="1">est</td><td rowspan="1" colspan="1">est</td></tr><tr><td
+                    rowspan="1" colspan="1">GSS</td><td rowspan="1" colspan="1">gss</td><td
+                    rowspan="1" colspan="1">gss</td></tr><tr><td rowspan="1" colspan="1">HTC</td><td
+                    rowspan="1" colspan="1">nucleotide</td><td rowspan="1" colspan="1"
+                    >nr</td></tr><tr><td rowspan="1" colspan="1">HTG</td><td rowspan="1" colspan="1"
+                    >nucleotide</td><td rowspan="1" colspan="1">htg</td></tr><tr><td rowspan="1"
+                    colspan="1">PAT</td><td rowspan="1" colspan="1">nucleotide</td><td rowspan="1"
+                    colspan="1">pat</td></tr><tr><td rowspan="1" colspan="1">STS</td><td rowspan="1"
+                    colspan="1">nucleotide</td><td rowspan="1" colspan="1">dbsts</td></tr><tr><td
+                    rowspan="1" colspan="1">TSA</td><td rowspan="1" colspan="1">nucleotide</td><td
+                    rowspan="1" colspan="1">tsa</td></tr><tr><td rowspan="1" colspan="1">WGS</td><td
+                    rowspan="1" colspan="1">nucleotide</td><td rowspan="1" colspan="1"
+                >wgs</td></tr></tbody></table></table-wrap></p>
+      </sec>
+      <sec>
+        <title>Associating sequence records with sequencing projects</title>
+        <p>The ability to identify all GenBank records submitted by a specific group or those with a
+          particular focus, such as metagenomic surveys, is essential for the analysis of large
+          volumes of sequence data. The use of organism or submitter names as a means to define such
+          a set of sequences is unreliable. The BioProject database (<ext-link ext-link-type="uri"
+            xlink:href="www.ncbi.nlm.nih.gov/bioproject"
+          >www.ncbi.nlm.nih.gov/bioproject</ext-link>), developed at NCBI and subsequently adopted
+          across the INSDC, allows submitters to register large-scale sequencing projects under a
+          unique project identifier, enabling reliable linkage between sequencing projects and the
+          data they produce (<xref ref-type="bibr" rid="gks1195-B10">10</xref>). BioProject includes
+          pointers to data from a wide variety of projects deposited in any NCBI primary data
+          archive. Sequencing projects focus on genomes, metagenomes, transcriptomes, comparative
+          genomics as well as on particular loci, such as 16S ribosomal RNA. A
+          &#x2018;DBLINK&#x2019; line appearing in GenBank flat files identifies the sequencing
+          projects with which a GenBank sequence record is associated. In addition, sequence records
+          may now have a link to the BioSample database (<xref ref-type="bibr" rid="gks1195-B10"
+            >10</xref>) that provides additional information about the biological materials used in
+          the study that produced the sequence data. Such studies include genome-wide association
+          studies, high-throughput sequencing, microarrays and epigenomic analyses. As an example,
+          the TSA project GAAA (see above) contains DBLINK lines that associate the GenBank sequence
+          record with BioProject record PRJNA54005 and BioSample record SRS283232, as well as the
+          SRA record containing the raw data, SRR401852:</p>
+        <p>
+          <monospace>BioProject: PRJNA77699</monospace>
+        </p>
+        <p>
+          <monospace>BioSample: SRS283232</monospace>
+        </p>
+        <p>
+          <monospace>Sequence Read Archive: SRR401852</monospace>
+        </p>
+        <p>Another example is the Human Microbiome Project (HMP) that is represented by the umbrella
+          BioProject 43021 (<ext-link ext-link-type="uri"
+            xlink:href="www.ncbi.nlm.nih.gov/bioproject/43021"
+            >www.ncbi.nlm.nih.gov/bioproject/43021</ext-link>). Users can then find sequence data by
+          following links to the various subprojects listed on this record.</p>
+      </sec>
+      <sec>
+        <title>BLAST sequence-similarity searching</title>
+        <p>Sequence-similarity searches are the most fundamental and frequent type of analysis
+          performed on GenBank data. NCBI offers the BLAST family of programs
+          (blast.ncbi.nlm.nih.gov) to detect similarities between a query sequence and database
+          sequences (<xref ref-type="bibr" rid="gks1195-B11">11</xref>,<xref ref-type="bibr"
+            rid="gks1195-B12">12</xref>). BLAST searches may be performed on the NCBI website (<xref
+            ref-type="bibr" rid="gks1195-B13">13</xref>) or by using a set of standalone programs
+          distributed by FTP (<xref ref-type="bibr" rid="gks1195-B4">4</xref>). <xref
+            ref-type="table" rid="gks1195-T3">Table 3</xref> displays the appropriate BLAST
+          databases for the various divisions of GenBank.</p>
+      </sec>
+      <sec>
+        <title>Obtaining GenBank by FTP</title>
+        <p>NCBI distributes GenBank releases in the traditional flat file format as well as in the
+          ASN.1 format used for internal maintenance. The full bimonthly GenBank release along with
+          the daily updates, which incorporate sequence data from EMBL-Bank and DDBJ, is available
+          by anonymous FTP from NCBI at <ext-link ext-link-type="uri"
+            xlink:href="ftp.ncbi.nlm.nih.gov/genbank">ftp.ncbi.nlm.nih.gov/genbank</ext-link>.
+          GenBank is also available for high-speed download using an Aspera client at <ext-link
+            ext-link-type="uri" xlink:href="www.ncbi.nlm.nih.gov/public/"
+            >www.ncbi.nlm.nih.gov/public/</ext-link>. The full release in flat file format is
+          available as a set of compressed files with a non-cumulative set of updates at <ext-link
+            ext-link-type="uri" xlink:href="ftp.ncbi.nlm.nih.gov/genbank/daily-nc/"
+            >ftp.ncbi.nlm.nih.gov/genbank/daily-nc/</ext-link>. For convenience in file transfer,
+          the data are partitioned into multiple files; for release 191, there are 1852 files
+          requiring 604 GB of uncompressed disk storage. A script is provided in <ext-link
+            ext-link-type="uri" xlink:href="ftp.ncbi.nlm.nih.gov/genbank/tools/"
+            >ftp.ncbi.nlm.nih.gov/genbank/tools/</ext-link> to convert a set of daily updates into a
+          cumulative update.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>FOR MORE INFORMATION</title>
+      <p>Additional information about GenBank is available on the main GenBank web page (<ext-link
+          ext-link-type="uri" xlink:href="www.ncbi.nlm.nih.gov/genbank"
+          >www.ncbi.nlm.nih.gov/genbank</ext-link>) and the Entrez Sequences Help Manual (<ext-link
+          ext-link-type="uri" xlink:href="www.ncbi.nlm.nih.gov/books/NBK44864/"
+          >www.ncbi.nlm.nih.gov/books/NBK44864/</ext-link>). The NCBI Education page (<ext-link
+          ext-link-type="uri" xlink:href="www.ncbi.nlm.nih.gov/Education/"
+          >www.ncbi.nlm.nih.gov/Education/</ext-link>) lists links to NCBI documentation, tutorials
+        and educational tools along with links to outreach initiatives including Discovery
+        Workshops, webinars and upcoming conference exhibits. NCBI provides updates to GenBank and
+        other resources by RSS (<ext-link ext-link-type="uri"
+          xlink:href="www.ncbi.nlm.nih.gov/feed/">www.ncbi.nlm.nih.gov/feed/</ext-link>) and on
+        Twitter and Facebook (links are in the common footer of NCBI pages). Users may also want to
+        consult the bionet GenBank newsgroup (<ext-link ext-link-type="uri"
+          xlink:href="www.bio.net/bionet/mm/genbankb/">www.bio.net/bionet/mm/genbankb/</ext-link>).
+        This newsgroup is not managed by NCBI, but NCBI staff are regular contributors. Finally, a
+        complete description of each GenBank release is provided in the gbrel.txt file distributed
+        as part of the release, and an archive of these files is provided at <ext-link
+          ext-link-type="uri" xlink:href="ftp.ncbi.nlm.nih.gov/genbank/release.notes/"
+          >ftp.ncbi.nlm.nih.gov/genbank/release.notes/</ext-link>.</p>
+    </sec>
+    <sec>
+      <title>MAILING ADDRESS</title>
+      <p>GenBank, National Center for Biotechnology Information, Building 45, Room 6AN12D-37, 45
+        Center Drive, Bethesda, MD 20892, USA.</p>
+    </sec>
+    <sec>
+      <title>ELECTRONIC ADDRESSES</title>
+      <p><ext-link ext-link-type="uri" xlink:href="www.ncbi.nlm.nih.gov"
+          >www.ncbi.nlm.nih.gov</ext-link>&#x2014;NCBI Home Page.</p>
+      <p>gb-sub@ncbi.nlm.nih.gov&#x2014;Submission of sequence data to GenBank.</p>
+      <p>update@ncbi.nlm.nih.gov&#x2014;Revisions to, or notification of release of,
+        &#x2018;confidential&#x2019; GenBank entries.</p>
+      <p>info@ncbi.nlm.nih.gov&#x2014;General information about NCBI resources.</p>
+    </sec>
+    <sec>
+      <title>CITING GENBANK</title>
+      <p>If you use the GenBank database in your published research, we ask that this article be
+        cited.</p>
+    </sec>
+    <sec>
+      <title>FUNDING</title>
+      <p>Funding for open access charge: Intramural Research Program of the <funding-source>National
+          Institutes of Health; National Library of Medicine</funding-source>.</p>
+      <p><italic>Conflict of interest statement</italic>. None declared.</p>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <title>REFERENCES</title>
+      <ref id="gks1195-B1">
+        <label>1</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Benson</surname>
+              <given-names>DA</given-names>
+            </name>
+            <name>
+              <surname>Karsch-Mizrachi</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Clark</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Lipman</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Ostell</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Sayers</surname>
+              <given-names>EW</given-names>
+            </name>
+          </person-group>
+          <article-title>GenBank</article-title>
+          <source>Nucleic Acids Res.</source>
+          <year>2012</year>
+          <volume>40</volume>
+          <fpage>D48</fpage>
+          <lpage>D53</lpage>
+          <pub-id pub-id-type="pmid">22144687</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="gks1195-B2">
+        <label>2</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Leinonen</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Akhtar</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Birney</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Bower</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Cerdeno-Tarraga</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Cheng</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Cleland</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Faruque</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Goodgame</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Gibson</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The European Nucleotide Archive</article-title>
+          <source>Nucleic Acids Res.</source>
+          <year>2011</year>
+          <volume>39</volume>
+          <fpage>D28</fpage>
+          <lpage>D31</lpage>
+          <pub-id pub-id-type="pmid">20972220</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="gks1195-B3">
+        <label>3</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kaminuma</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Kosuge</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kodama</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Aono</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Mashima</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Gojobori</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Sugawara</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Ogasawara</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Takagi</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Okubo</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>DDBJ progress report</article-title>
+          <source>Nucleic Acids Res.</source>
+          <year>2011</year>
+          <volume>39</volume>
+          <fpage>D22</fpage>
+          <lpage>D27</lpage>
+          <pub-id pub-id-type="pmid">21062814</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="gks1195-B4">
+        <label>4</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <collab>NCBI Resource Coordinators.</collab>
+          </person-group>
+          <article-title>Database resources at the National Center for Biotechnology
+            Information</article-title>
+          <source>Nucleic Acids Res.</source>
+          <year>2013</year>
+          <volume>41</volume>
+          <fpage>D8</fpage>
+          <lpage>D20</lpage>
+          <pub-id pub-id-type="pmid">23193264</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="gks1195-B5">
+        <label>5</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Federhen</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>The NCBI Taxonomy database</article-title>
+          <source>Nucleic Acids Res.</source>
+          <year>2012</year>
+          <volume>40</volume>
+          <fpage>D136</fpage>
+          <lpage>D143</lpage>
+          <pub-id pub-id-type="pmid">22139910</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="gks1195-B6">
+        <label>6</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kodama</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Shumway</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Leinonen</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>The Sequence Read Archive: explosive growth of sequencing
+            data</article-title>
+          <source>Nucleic Acids Res.</source>
+          <year>2012</year>
+          <volume>40</volume>
+          <fpage>D54</fpage>
+          <lpage>D56</lpage>
+          <pub-id pub-id-type="pmid">22009675</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="gks1195-B7">
+        <label>7</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Boguski</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name>
+              <surname>Lowe</surname>
+              <given-names>TM</given-names>
+            </name>
+            <name>
+              <surname>Tolstoshev</surname>
+              <given-names>CM</given-names>
+            </name>
+          </person-group>
+          <article-title>dbEST&#x2014;database for &#x201C;expressed sequence
+            tags&#x201D;</article-title>
+          <source>Nat. Genet.</source>
+          <year>1993</year>
+          <volume>4</volume>
+          <fpage>332</fpage>
+          <lpage>333</lpage>
+          <pub-id pub-id-type="pmid">8401577</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="gks1195-B8">
+        <label>8</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kans</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Ouellette</surname>
+              <given-names>BFF</given-names>
+            </name>
+          </person-group>
+          <person-group person-group-type="editor">
+            <name>
+              <surname>Baxevanis</surname>
+              <given-names>AD</given-names>
+            </name>
+            <name>
+              <surname>Ouellette</surname>
+              <given-names>BFF</given-names>
+            </name>
+          </person-group>
+          <article-title>Submitting DNA Sequences to the Databases</article-title>
+          <source>Bioinformatics: A Practical Guide to the Analysis of Genes and Proteins</source>
+          <year>2001</year>
+          <publisher-loc>New York, NY</publisher-loc>
+          <publisher-name>John Wiley and Sons, Inc.</publisher-name>
+          <fpage>65</fpage>
+          <lpage>81</lpage>
+        </element-citation>
+      </ref>
+      <ref id="gks1195-B9">
+        <label>9</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kawai</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Shinagawa</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Shibata</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Yoshino</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Itoh</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ishii</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Arakawa</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Hara</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Fukunishi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Konno</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Functional annotation of a full-length mouse cDNA
+            collection</article-title>
+          <source>Nature</source>
+          <year>2001</year>
+          <volume>409</volume>
+          <fpage>685</fpage>
+          <lpage>690</lpage>
+          <pub-id pub-id-type="pmid">11217851</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="gks1195-B10">
+        <label>10</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Barrett</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Clark</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Gevorgyan</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Gorelenkov</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Gribov</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Karsch-Mizrachi</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Kimelman</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Pruitt</surname>
+              <given-names>KD</given-names>
+            </name>
+            <name>
+              <surname>Resenchuk</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Tatusova</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>BioProject and BioSample databases at NCBI: facilitating capture and
+            organization of metadata</article-title>
+          <source>Nucleic Acids Res.</source>
+          <year>2012</year>
+          <volume>40</volume>
+          <fpage>D57</fpage>
+          <lpage>D63</lpage>
+          <pub-id pub-id-type="pmid">22139929</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="gks1195-B11">
+        <label>11</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Altschul</surname>
+              <given-names>SF</given-names>
+            </name>
+            <name>
+              <surname>Madden</surname>
+              <given-names>TL</given-names>
+            </name>
+            <name>
+              <surname>Schaffer</surname>
+              <given-names>AA</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Miller</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Lipman</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Gapped BLAST and PSI-BLAST: a new generation of protein database search
+            programs</article-title>
+          <source>Nucleic Acids Res.</source>
+          <year>1997</year>
+          <volume>25</volume>
+          <fpage>3389</fpage>
+          <lpage>3402</lpage>
+          <pub-id pub-id-type="pmid">9254694</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="gks1195-B12">
+        <label>12</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Schaffer</surname>
+              <given-names>AA</given-names>
+            </name>
+            <name>
+              <surname>Miller</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Madden</surname>
+              <given-names>TL</given-names>
+            </name>
+            <name>
+              <surname>Lipman</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Koonin</surname>
+              <given-names>EV</given-names>
+            </name>
+            <name>
+              <surname>Altschul</surname>
+              <given-names>SF</given-names>
+            </name>
+          </person-group>
+          <article-title>Protein sequence similarity searches using patterns as
+            seeds</article-title>
+          <source>Nucleic Acids Res.</source>
+          <year>1998</year>
+          <volume>26</volume>
+          <fpage>3986</fpage>
+          <lpage>3990</lpage>
+          <pub-id pub-id-type="pmid">9705509</pub-id>
+        </element-citation>
+      </ref>
+      <ref id="gks1195-B13">
+        <label>13</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Johnson</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Zaretskaya</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Raytselis</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Merezhuk</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>McGinnis</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Madden</surname>
+              <given-names>TL</given-names>
+            </name>
+          </person-group>
+          <article-title>NCBI BLAST: a better web interface</article-title>
+          <source>Nucleic Acids Res.</source>
+          <year>2008</year>
+          <volume>36</volume>
+          <fpage>W5</fpage>
+          <lpage>W9</lpage>
+          <pub-id pub-id-type="pmid">18440982</pub-id>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
