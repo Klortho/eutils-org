@@ -88,30 +88,10 @@
                 exclude-result-prefixes="xs f xlink" 
                 version="2.0">
 
+  <xsl:import href="jats2spar-utils.xsl"/>
+  <xsl:import href="jats2spar-meta.xsl"/>
   <xsl:output encoding="UTF-8" indent="yes"/>
 
-  <xsl:param name='base-uri' select='"http://rdf.ncbi.nlm.nih.gov/"'/>
-
-  <!--
-    The full URI of the Semantic Web resource that this JATS document is a representation of,
-    if known.  This should be the URI of the FRBR *expression*, which corresponds to, for example,
-    a specific article *version*.
-    The default is to use a 'blank node', and this option is signalled by using the "_:" prefix
-    followed by a text string.  This is translated into the @rdf:nodeID attribute (instead of
-    @rdf:about) on <rdf:Description> elements.
-  -->
-  <xsl:param name="this-expression" select='"_:this-expression"'/>
-
-  <!--
-    Similarly, this is the URI of the FRBR work, if known.
-  -->
-  <xsl:param name="this-work" select='"_:this-work"'/>
-
-
-  <xsl:variable name="prefixes"
-    select='tokenize("biro cito co datacite dc dcterms deo dqm fabio foaf frapo frbr literal 
-                      lmm mediatypes owl prism pro prov pso pwo rdf rdfs scoro skos swanrel 
-                      swc swrc trait tvc vcard xsd", "\s+")'/>
 
   <xsl:template match="/">
     <rdf:RDF>
@@ -122,7 +102,7 @@
         <xsl:with-param name="issue" select="'periodical-issue'" tunnel="yes"/>
         <xsl:with-param name="collection" select="'conceptual-papers-collection'" tunnel="yes"/>
         <xsl:with-param name="volume" select="'_:volume'" tunnel="yes"/>
-        <xsl:with-param name="journal" select="'_:journal'" tunnel="yes"/>
+        <xsl:with-param name="journal" select="$journal" tunnel="yes"/>
         <xsl:with-param name="s" select="''" tunnel="yes"/>
         <xsl:with-param name="p" select="''" tunnel="yes"/>
         <xsl:with-param name="o" select="''" tunnel="yes"/>
@@ -358,7 +338,6 @@
       <xsl:with-param name="s" select="$investigation" tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
-
 
   <xsl:template match="bio">
     <xsl:param name="s" tunnel="yes"/>
@@ -1005,10 +984,17 @@
     </xsl:call-template>
   </xsl:template>
 
+  <!-- 
+    Page number will produce a manifestation node.
+    FIXME:  the manifestation here should be the same as is defined by the print publication
+    date.
+  -->
   <xsl:template match="page-range|fpage|lpage">
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
     <xsl:variable name="me" select="f:getBlankChildLabel($m, 'page-range')"/>
+    
+    <!-- This will only produce output when we encounter the last <page-range>, <fpage>, or <lpage> -->
     <xsl:if test="not(following-sibling::page-range | following-sibling::fpage | following-sibling::lpage)">
       <xsl:call-template name="single">
         <xsl:with-param name="p" select="'frbr:embodiment'" tunnel="yes"/>
@@ -2758,13 +2744,6 @@
     </xsl:call-template>
   </xsl:template>
 
-  <xsl:template match="@publication-type[. = 'book']">
-    <xsl:call-template name="single">
-      <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
-      <xsl:with-param name="o" select="'&fabio;Book'" tunnel="yes"/>
-    </xsl:call-template>
-  </xsl:template>
-
   <xsl:template match="@publication-type[. = 'standard']">
     <xsl:param name="w" tunnel="yes"/>
     <xsl:call-template name="single">
@@ -3192,407 +3171,30 @@
           'dcterms:description', concat('&quot;', ., '&quot;', '^^&dcterms;RFC5646'))"/>
     </xsl:call-template>
   </xsl:template>
-  <!-- END - Mapping attributes -->
-
-  <!-- BEGIN - Named templates -->
-  <!-- 
-    assert takes as input a sequence of strings like (s, p1, o1, p2, o2, ...), where s is the subject
-    of the statements, while p_i and o_i represent respectively the predicates and the objects
-    of each statement. It is possible to activate a reification strategy using the o_i as empty
-    strings. 
-  -->
-  <xsl:template name="assert">
-    <xsl:param name="triples" as="xs:string*"/>
-    <xsl:param name="prev-subject" as="xs:string*"/>
-    <xsl:param name="reification" select="false()" as="xs:boolean"/>
-
-    <!-- Go ahead only if we have at least three resources to make the statement -->
-    <xsl:if test="count($triples) >= 3">
-      <xsl:variable name="subject" select="$triples[1]" as="xs:string"/>
-      <xsl:choose>
-        <!-- Use the parent description -->
-        <xsl:when test="$prev-subject = $subject and not($reification)">
-          <xsl:call-template name="create-structure">
-            <xsl:with-param name="triples" select="$triples"/>
-          </xsl:call-template>
-        </xsl:when>
-        <!-- Create a new description for the subject -->
-        <xsl:otherwise>
-          <rdf:Description>
-            <!--
-              Add either @rdf:about (normally), @rdf:nodeID (if this is a named blank node), or
-              nothing (if the subject is a blank node with no name) 
-            -->
-            <xsl:choose>
-              <xsl:when test="starts-with($subject, '_:')">
-                <xsl:attribute name="rdf:nodeID">
-                  <xsl:value-of select="substring($subject, 3)"/>
-                </xsl:attribute>
-              </xsl:when>
-              <xsl:when test="$subject">
-                <xsl:attribute name="rdf:about">
-                  <xsl:value-of select="$subject"/>
-                </xsl:attribute>
-              </xsl:when>
-            </xsl:choose>
-            <xsl:call-template name="create-structure">
-              <xsl:with-param name="triples" select="$triples"/>
-            </xsl:call-template>
-          </rdf:Description>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:if>
-  </xsl:template>
-
-  <xsl:template name="create-structure">
-    <xsl:param name="triples" as="xs:string*"/>
-
-    <xsl:variable name="subject" select="$triples[1]" as="xs:string"/>
-    <xsl:variable name="predicate" select="$triples[2]" as="xs:string"/>
-    <xsl:variable name="object" select="$triples[3]" as="xs:string"/>
-
-    <!-- Create the predicate -->
-    <!--
-      There were some problems here, so I [cfm] added this choose.
-    -->
-    <xsl:variable name="prefix" select='substring-before($predicate, ":")'/>
-    <xsl:choose>
-      <xsl:when test="not($prefix = $prefixes)">
-        <xsl:message> Warning: unrecognized prefix '<xsl:value-of select="$prefix"/>' </xsl:message>
-        <!--
-          <warning>
-            <prefix><xsl:value-of select='$prefix'/></prefix>
-            <subject><xsl:copy-of select='$subject'/></subject>
-            <predicate><xsl:copy-of select='$predicate'/></predicate>
-            <object><xsl:copy-of select='$object'/></object>
-            <triples><xsl:value-of select='string-join($triples, ", ")'/></triples>
-          </warning>
-        -->
-      </xsl:when>
-
-      <xsl:otherwise>
-        <xsl:element name="{$predicate}">
-          <xsl:choose>
-            <!-- Create the object as a literal -->
-            <xsl:when test="starts-with($object,'&quot;')">
-              <xsl:variable name="value"
-                select="substring-before(substring-after($object,'&quot;'),'&quot;')"/>
-              <xsl:variable name="lang" select="substring-after($object,'@')"/>
-              <xsl:variable name="type" select="substring-after($object,'^^')"/>
-              <xsl:if test="$lang">
-                <xsl:attribute name="xml:lang">
-                  <xsl:value-of select="$lang"/>
-                </xsl:attribute>
-              </xsl:if>
-              <xsl:if test="$type">
-                <xsl:attribute name="rdf:datatype" select="$type"/>
-              </xsl:if>
-              <xsl:value-of select="$value"/>
-            </xsl:when>
-
-            <!-- Create the object as a named blank node, with @rdf:nodeID -->
-            <xsl:when test="starts-with($object, '_:')">
-              <xsl:attribute name="rdf:nodeID">
-                <xsl:value-of select="substring($object, 3)"/>
-              </xsl:attribute>
-            </xsl:when>
-
-            <!-- Create the object as a resource -->
-            <xsl:when test="$object">
-              <xsl:attribute name="rdf:resource">
-                <xsl:value-of select="$object"/>
-              </xsl:attribute>
-            </xsl:when>
-
-            <!-- Create a reification (i.e. the object is an empty string) -->
-            <xsl:otherwise>
-              <xsl:call-template name="assert">
-                <xsl:with-param name="triples" select="('',subsequence($triples,4))" as="xs:string*"/>
-                <xsl:with-param name="prev-subject" select="$subject"/>
-                <xsl:with-param name="reification" select="true()"/>
-              </xsl:call-template>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:element>
-      </xsl:otherwise>
-    </xsl:choose>
-
-    <!-- If the object exists, create another statement (according to $triples) using the same subject -->
-    <xsl:if test="$object">
-      <xsl:call-template name="assert">
-        <xsl:with-param name="triples" select="($subject,subsequence($triples,4))" as="xs:string*"/>
-        <xsl:with-param name="prev-subject" select="$subject"/>
-      </xsl:call-template>
-    </xsl:if>
-  </xsl:template>
-
-  <!--
-    This template instantiates a triple whose object is a data value.
-  -->
-  <xsl:template name="attribute">
-    <xsl:param name="s" as="xs:string" tunnel="yes"/>
-    <xsl:param name="p" as="xs:string" tunnel="yes"/>
-    <xsl:param name="o" as="xs:string" tunnel="yes"/>
-    <xsl:param name="type" as="xs:string" select="''" tunnel="yes"/>
-    <xsl:param name="lang" as="xs:string" select="''" tunnel="yes"/>
-
-    <xsl:call-template name="assert">
-      <xsl:with-param name="triples"
-        select="($s,
-          $p, concat('&quot;', $o, '&quot;',
-                     if ($lang) then concat('@', $lang) else '', 
-                     if ($type) then concat('^^', $type) else ''))"/>
-    </xsl:call-template>
-  </xsl:template>
 
   <xsl:template match="author-comment">
     <xsl:param name="s" tunnel="yes"/>
     <xsl:param name="w" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
     <xsl:variable name="comment" select="concat($s,'-comment')"/>
-
+    
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($s,
-          'pro:holdsRoleInTime', '',
-          'pro:relatesToDocument', $comment,
-          'pro:withRole', '&pro;author')"/>
+        'pro:holdsRoleInTime', '',
+        'pro:relatesToDocument', $comment,
+        'pro:withRole', '&pro;author')"/>
     </xsl:call-template>
-
+    
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($comment,
-          'rdf:type', '&fabio;Comment',
-          'frbr:partOf', $e,
-          'dcterms:creator', $s,
-          'dcterms:description', concat('&quot;', ., '&quot;'))"/>
+        'rdf:type', '&fabio;Comment',
+        'frbr:partOf', $e,
+        'dcterms:creator', $s,
+        'dcterms:description', concat('&quot;', ., '&quot;'))"/>
     </xsl:call-template>
   </xsl:template>
+  
 
-  <xsl:template name="date-assert">
-    <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="p" tunnel="yes"/>
-    <xsl:param name="o" tunnel="yes"/>
-    <xsl:param name="date"/>
-    <xsl:choose>
-      <xsl:when test="@calendar | season">
-        <xsl:call-template name="assert">
-          <xsl:with-param name="triples"
-            select="($s,
-              'literal:hasLiteral', '',
-              'rdf:type', $o,
-              'literal:hasLiteralValue', concat('&quot;', $date, '&quot;'))"/>
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:call-template name="assert">
-          <xsl:with-param name="triples" select="($s, $p, $date)"/>
-        </xsl:call-template>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-
-  <xsl:template name="double">
-    <xsl:param name="s" as="xs:string" tunnel="yes"/>
-    <xsl:param name="p" as="xs:string" tunnel="yes"/>
-    <xsl:param name="o" as="xs:string" tunnel="yes"/>
-    <xsl:param name="p2" as="xs:string" tunnel="yes"/>
-    <xsl:param name="o2" as="xs:string" tunnel="yes"/>
-
-    <xsl:call-template name="assert">
-      <xsl:with-param name="triples" 
-        select="($s,
-          $p, $o, 
-          if ($p2 = '') then $p else $p2, $o2)"/>
-    </xsl:call-template>
-  </xsl:template>
-
-  <xsl:template name="apply">
-    <xsl:param name="lang" tunnel="yes"/>
-    <xsl:apply-templates select="attribute()"/>
-    <xsl:apply-templates select=".">
-      <xsl:with-param name="lang"
-        select="if (not(self::article) and @xml:lang) then @xml:lang else $lang" tunnel="yes"/>
-    </xsl:apply-templates>
-  </xsl:template>
-
-  <xsl:template name="goahead">
-    <xsl:param name="lang" tunnel="yes"/>
-    <xsl:param name="nodes" select="."/>
-    <xsl:apply-templates select="$nodes/attribute()"/>
-    <xsl:apply-templates select="$nodes/element()">
-      <xsl:with-param name="lang"
-        select="if (not($nodes/self::article) and $nodes/@xml:lang) then $nodes/@xml:lang else $lang"
-        tunnel="yes"/>
-    </xsl:apply-templates>
-  </xsl:template>
-
-  <xsl:template name="set-date">
-    <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="p" tunnel="yes"/>
-    <xsl:param name="o" tunnel="yes"/>
-    <xsl:param name="el" select=".."/>
-    <xsl:choose>
-      <xsl:when test="$el/(season|@calendar)">
-        <xsl:variable name="date" select="concat($s,'-date')"/>
-        <xsl:call-template name="single">
-          <xsl:with-param name="p" select="'literal:hasLiteral'" tunnel="yes"/>
-          <xsl:with-param name="o" select="$date" tunnel="yes"/>
-        </xsl:call-template>
-        <xsl:call-template name="attribute">
-          <xsl:with-param name="p" select="'literal:hasLiteralValue'" tunnel="yes"/>
-          <xsl:with-param name="o" select="f:getDate($el)" tunnel="yes"/>
-          <xsl:with-param name="type" select="f:getDatetype($el)" tunnel="yes"/>
-        </xsl:call-template>
-        <xsl:apply-templates select="@calendar|season">
-          <xsl:with-param name="s" select="$date" tunnel="yes"/>
-        </xsl:apply-templates>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:call-template name="attribute">
-          <xsl:with-param name="o" select="f:getDate($el)" tunnel="yes"/>
-          <xsl:with-param name="type" select="f:getDatetype($el)" tunnel="yes"/>
-        </xsl:call-template>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-
-  <xsl:template name="set-manifestation">
-    <xsl:param name="m" tunnel="yes"/>
-    <!-- current manifestation -->
-    <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$m" tunnel="yes"/>
-      <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
-    </xsl:call-template>
-    <xsl:if test="../@date-type != 'pub'">
-      <xsl:call-template name="single">
-        <!-- set Work/Expression relation to the current manifestation -->
-        <xsl:with-param name="o" select="$m" tunnel="yes"/>
-      </xsl:call-template>
-    </xsl:if>
-  </xsl:template>
-
-  <xsl:template name="set-manifestation-date">
-    <xsl:param name="m" tunnel="yes"/>
-    <!-- current manifestation -->
-    <xsl:call-template name="set-manifestation"/>
-    <xsl:if test="empty(../@data-type)">
-      <xsl:call-template name="set-date">
-        <xsl:with-param name="s" select="$m" tunnel="yes"/>
-        <xsl:with-param name="p" select="dcterms:date" tunnel="yes"/>
-        <xsl:with-param name="o" select="'&dcterms;date'" tunnel="yes"/>
-      </xsl:call-template>
-    </xsl:if>
-  </xsl:template>
-
-  <xsl:template name="single">
-    <xsl:param name="s" as="xs:string" tunnel="yes"/>
-    <xsl:param name="p" as="xs:string" tunnel="yes"/>
-    <xsl:param name="o" as="xs:string" tunnel="yes"/>
-
-    <xsl:call-template name="assert">
-      <xsl:with-param name="triples" select="($s, $p, $o)"/>
-    </xsl:call-template>
-  </xsl:template>
-  <!-- END - Named templates -->
-
-  <!-- BEGIN: functions -->
-  <xsl:function name="f:getDatetype" as="xs:string">
-    <xsl:param name="el" as="element()"/>
-    <xsl:choose>
-      <xsl:when test="$el/month">
-        <xsl:choose>
-          <xsl:when test="$el/day">
-            <xsl:value-of select="'&xsd;date'"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="'&xsd;gYearMonth'"/>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="'&xsd;gYear'"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:function>
-
-  <xsl:function name="f:getDate" as="xs:string">
-    <xsl:param name="el" as="element()"/>
-    <xsl:variable name="date">
-      <xsl:if test="$el/year">
-        <xsl:value-of select="$el/year"/>
-      </xsl:if>
-      <xsl:if test="$el/month">
-        <xsl:text>-</xsl:text>
-        <xsl:value-of select="$el/month"/>
-      </xsl:if>
-      <xsl:if test="$el/day">
-        <xsl:text>-</xsl:text>
-        <xsl:value-of select="$el/day"/>
-      </xsl:if>
-    </xsl:variable>
-    <xsl:value-of select="$date"/>
-  </xsl:function>
-
-  <xsl:function name="f:getLabelForId" as="xs:string">
-    <xsl:param name="id" as="xs:string"/>
-    <xsl:variable name="result" as="xs:string">
-      <xsl:choose>
-        <xsl:when test="$id = 'archive'">
-          <xsl:value-of select="'An archive'"/>
-        </xsl:when>
-        <xsl:when test="$id = 'aggregator'">
-          <xsl:value-of select="'An aggregator'"/>
-        </xsl:when>
-        <xsl:when test="$id = 'doaj'">
-          <xsl:value-of select="'DOAJ'"/>
-        </xsl:when>
-        <xsl:when test="$id = 'index'">
-          <xsl:value-of select="'An indexing service'"/>
-        </xsl:when>
-        <xsl:when test="$id = 'nlm-ta'">
-          <xsl:value-of select="'PubMed'"/>
-        </xsl:when>
-        <xsl:when test="$id = 'pmc'">
-          <xsl:value-of select="'PubMed Central'"/>
-        </xsl:when>
-        <xsl:when test="$id = 'publisher-id'">
-          <xsl:value-of select="'A publisher'"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="''"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-    <xsl:value-of select="concat('&quot;', $result, '&quot;')"/>
-  </xsl:function>
-
-  <!-- 
-    This function generates a new label for a blank node child.  The parent label
-    can either be a full http URI or a blank node.
-    So, for example, given "_:investigation-1" (the parent) and "funding-agent"
-    (a label for the child), this will
-    produce "_:funding-agent-investigation-1".
-  -->
-  <xsl:function name="f:getBlankChildLabel" as="xs:string">
-    <xsl:param name="parent" as="xs:string"/>
-    <xsl:param name="child-label" as="xs:string"/>
-    
-    <xsl:variable name='p'>
-      <xsl:choose>
-        <xsl:when test="starts-with($parent, 'http://')">
-          <xsl:value-of select='replace(substring-after($parent, "http://"), "/", "-")'/>
-        </xsl:when>
-        <xsl:when test="starts-with($parent, '_:')">
-          <xsl:value-of select="substring($parent, 3)"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="$parent"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-    <xsl:value-of select='concat("_:", $child-label, "-", $p)'/>
-  </xsl:function>
-
-  <!-- END: functions -->
 </xsl:stylesheet>
