@@ -119,7 +119,7 @@
         <xsl:with-param name="m" select='"_:manifestation"' tunnel="yes"/>
         <xsl:with-param name="issue" select="'periodical-issue'" tunnel="yes"/>
         <xsl:with-param name="collection" select="'conceptual-papers-collection'" tunnel="yes"/>
-        <xsl:with-param name="volume" select="'_:volume'" tunnel="yes"/>
+        <xsl:with-param name="volume" select="$volume" tunnel="yes"/>
         <xsl:with-param name="journal" select="$journal" tunnel="yes"/>
         <xsl:with-param name="s" select="''" tunnel="yes"/>
         <xsl:with-param name="p" select="''" tunnel="yes"/>

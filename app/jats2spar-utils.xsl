@@ -128,6 +128,10 @@
     </xsl:choose>  
   </xsl:variable>
 
+  <xsl:variable name='volume' select='concat($journal, "/", /article/front/article-meta/volume)'/>
+    
+  
+
   <!--===================================================================-->
   <!-- Named templates -->
   
@@ -164,7 +168,7 @@
       <pre>&lt;xsl:with-param name="triples" select="($s, 
     'tvc:hasValueInTime', '',
     'rdf:type', '&tvc;ValueInTime',
-    'tvc:withinContext', $w,
+    'tvc:withinContext', $work,
     'rdfs:label', concat('&quot;', 'That Seventies Show', '&quot;', '^^xsd:string'),
     'dcterms:description', concat('&quot;', ., '&quot;'))"/&gt;</pre>
     </desc>

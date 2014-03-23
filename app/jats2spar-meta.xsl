@@ -83,5 +83,4 @@
 
   <xsl:import href='jats2spar-utils.xsl'/>
 
-
 </xsl:stylesheet>
