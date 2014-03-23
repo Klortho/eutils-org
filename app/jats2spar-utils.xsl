@@ -33,12 +33,13 @@
   <!ENTITY trait "http://contextus.net/ontology/ontomedia/ext/common/trait#">
   <!ENTITY tvc "http://www.essepuntato.it/2012/04/tvc/">
   <!ENTITY vcard "http://www.w3.org/2006/vcard/ns#">
+  <!ENTITY xd "http://www.oxygenxml.com/ns/doc/xsl">
   <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-  xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+  xmlns:xd="&xd;"
   
   xmlns:biro="&biro;" 
   xmlns:cito="&cito;"
@@ -81,19 +82,25 @@
   
   <xsl:param name='base-uri' select='"http://rdf.ncbi.nlm.nih.gov/"'/>
   
-  <!--
-    The full URI of the Semantic Web resource that this JATS document is a representation of,
-    if known.  This should be the URI of the FRBR *expression*, which corresponds to, for example,
-    a specific article *version*.
-    The default is to use a 'blank node', and this option is signalled by using the "_:" prefix
-    followed by a text string.  This is translated into the @rdf:nodeID attribute (instead of
-    @rdf:about) on <rdf:Description> elements.
-  -->
+  <doc xmlns='&xd;'>
+    <desc>
+      <p>
+        The full URI of the Semantic Web resource that this JATS document is a representation of,
+        if known.  This should be the URI of the FRBR *expression*, which corresponds to, for example,
+        a specific article *version*.
+        The default is to use a 'blank node', and this option is signalled by using the "_:" prefix
+        followed by a text string.  This is translated into the @rdf:nodeID attribute (instead of
+        @rdf:about) on &lt;rdf:Description> elements.
+      </p>
+    </desc>
+  </doc>
   <xsl:param name="this-expression" select='"_:this-expression"'/>
   
-  <!--
-    Similarly, this is the URI of the FRBR work, if known.
-  -->
+  <doc xmlns='&xd;'>
+    <desc>
+      <p>This is the URI of the FRBR work, if known.</p>
+    </desc>
+  </doc>
   <xsl:param name="this-work" select='"_:this-work"'/>
 
   <xsl:variable name="prefixes"
@@ -124,16 +131,12 @@
   <!--===================================================================-->
   <!-- Named templates -->
   
-  
-  <!-- 
-    This utility template is used in place of 'apply-templates' in many places.  It recursively
-    applies templates, and turns the @xml:lang attribute into a tunneling parameter.
-
-    FIXME:  Question:  wouldn't it be easier to just define a function that finds the nearest
-    ancestor @xml:lang, and call that whenever needed?
-  -->
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
+      <p>This utility template is used in place of 'apply-templates' in many places.  It recursively
+        applies templates, and turns the @xml:lang attribute into a tunneling parameter.</p>
+      <p>FIXME:  Question:  wouldn't it be easier to just define a function that finds the nearest
+        ancestor @xml:lang, and call that whenever needed?</p>
     </desc>
   </doc>
   <xsl:template name="goahead">
@@ -147,7 +150,7 @@
     </xsl:apply-templates>
   </xsl:template>
   
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
       <p>assert takes, as the $triples parameter, a sequence of strings like (s, p1, o1, p2, o2, ...), 
         where s is the subject, and the pi, oi pairs are predicates and the objects, and produces a 
@@ -209,7 +212,7 @@
     </xsl:if>
   </xsl:template>
   
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
       <p>create-structure is a helper template for assert. This also takes, as 
         the $triples parameter, a sequence of strings like (s, p1, o1, p2, o2, ...).
@@ -299,7 +302,7 @@
     </xsl:if>
   </xsl:template>
     
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
       <p>The attribute template instantiates a triple whose object is a literal data value.</p>
     </desc>
@@ -321,7 +324,7 @@
   </xsl:template>
 
 
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
     </desc>
   </doc>
@@ -348,7 +351,7 @@
     </xsl:choose>
   </xsl:template>
   
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
     </desc>
   </doc>
@@ -367,7 +370,7 @@
     </xsl:call-template>
   </xsl:template>
   
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
     </desc>
   </doc>
@@ -380,7 +383,7 @@
     </xsl:apply-templates>
   </xsl:template>
   
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
     </desc>
   </doc>
@@ -414,7 +417,7 @@
     </xsl:choose>
   </xsl:template>
   
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
     </desc>
   </doc>
@@ -433,7 +436,7 @@
     </xsl:if>
   </xsl:template>
   
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
     </desc>
   </doc>
@@ -450,7 +453,7 @@
     </xsl:if>
   </xsl:template>
   
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
     </desc>
   </doc>
@@ -467,7 +470,7 @@
   <!--===================================================================-->
   <!-- Functions -->
   
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
       <p>This function makes a slug from a string, suitable for inserting into a newly
         minted URI.  It converts everything to lowercase, then replaces all special characters
@@ -482,7 +485,7 @@
   </xsl:function>
   
   
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
     </desc>
   </doc>
@@ -505,7 +508,7 @@
     </xsl:choose>
   </xsl:function>
   
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
     </desc>
   </doc>
@@ -527,7 +530,7 @@
     <xsl:value-of select="$date"/>
   </xsl:function>
   
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
     </desc>
   </doc>
@@ -564,7 +567,7 @@
     <xsl:value-of select="concat('&quot;', $result, '&quot;')"/>
   </xsl:function>
   
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
       <p>This function generates a new label for a blank node child.  The parent label
         can either be a full http URI or a blank node.

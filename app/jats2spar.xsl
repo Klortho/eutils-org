@@ -48,12 +48,13 @@
   <!ENTITY trait "http://contextus.net/ontology/ontomedia/ext/common/trait#">
   <!ENTITY tvc "http://www.essepuntato.it/2012/04/tvc/">
   <!ENTITY vcard "http://www.w3.org/2006/vcard/ns#">
+  <!ENTITY xd "http://www.oxygenxml.com/ns/doc/xsl">
   <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-                xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+                xmlns:xd="&xd;"
 
                 xmlns:biro="&biro;" 
                 xmlns:cito="&cito;"
@@ -381,7 +382,7 @@
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($bio,
-          'frbr:realiazationOf', '&fabio;Biography',
+          'frbr:realizationOf', '&fabio;Biography',
           'frbr:partOf', $e,
           'dcterms:description', concat('&quot;', ., '&quot;'),
           'frbr:subject', '',
@@ -1035,7 +1036,7 @@
   </xsl:template>
 
 
-  <doc xmlns='http://www.oxygenxml.com/ns/doc/xsl'>
+  <doc xmlns='&xd;'>
     <desc>
       <p>Page number will produce a manifestation node.</p>
       <p>FIXME:  the manifestation here should be the same as is defined by the print publication
