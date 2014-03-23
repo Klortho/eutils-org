@@ -94,16 +94,27 @@
                 xmlns:xlink="http://www.w3.org/1999/xlink" 
                 exclude-result-prefixes="xs f xlink xd" 
                 version="2.0">
-
+  
   <xsl:import href="jats2spar-utils.xsl"/>
   <xsl:import href="jats2spar-meta.xsl"/>
   <xsl:output encoding="UTF-8" indent="yes"/>
 
-
+  <doc xmlns='&xd;'>
+    <desc>
+      <h1>Some notes on the architecture of this stylesheet.</h1>
+      <p>Parameters and variables that are global are defined in jats2spar-utils.xsl.</p>
+      <p>Any values that can change depending on the context are sent through the
+        templates as tunnelling parameters.  This includes, for example, $work, even
+        though it might seem that there would only ever be one work per JATS document.
+        In fact, each sub-article will have it's own work (although, I'm not sure this 
+        is the correct way to do it).</p>
+    </desc>
+  </doc>
+  
   <xsl:template match="/">
     <xsl:variable name='content'>
       <xsl:call-template name="goahead">
-        <xsl:with-param name="w" select="$this-work" tunnel="yes"/>
+        <xsl:with-param name="work" select="$this-work" tunnel="yes"/>
         <xsl:with-param name="e" select="$this-expression" tunnel="yes"/>
         <xsl:with-param name="m" select='"_:manifestation"' tunnel="yes"/>
         <xsl:with-param name="issue" select="'periodical-issue'" tunnel="yes"/>
@@ -166,13 +177,13 @@
 
   <xsl:template match="address">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:variable name="contact-info" select="concat('contact-info-',$s)"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples" select="($s, 
         'tvc:hasValueInTime', '',
         'rdf:type', '&tvc;ValueInTime',
-        'tvc:withinContext', $w,
+        'tvc:withinContext', $work,
         'tvc:withValue', $contact-info)"/>
     </xsl:call-template>
 
@@ -237,7 +248,7 @@
 
   <xsl:template name="affiliation">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:variable name="organization" select="concat('organization-', generate-id())"/>
     <xsl:variable name="current-affiliation" 
       select="concat('affiliation-', $organization, '-', $s)"/>
@@ -248,7 +259,7 @@
           'pro:holdsRoleInTime', '',
           'pro:withRole', 'scoro:affiliate',
           'pro:relatesToOrganization', $organization,
-          'pro:relatesToDocument', $w,
+          'pro:relatesToDocument', $work,
           'dcterms:description', concat('&quot;', ., '&quot;'))"/>
     </xsl:call-template>
 
@@ -258,7 +269,7 @@
         select="($organization,
           'tvc:hasValueInTime', '',
           'rdf:type', '&tvc;ValueInTime',
-          'tvc:withinContext', $w,
+          'tvc:withinContext', $work,
           'tvc:withValue', $contact-info)"/>
     </xsl:call-template>
 
@@ -304,7 +315,7 @@
   </xsl:template>
 
   <xsl:template match="article">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
     <xsl:param name="i" tunnel="yes"/>
@@ -312,7 +323,7 @@
       <xsl:with-param name="triples"
         select="($e, 
           'rdf:type', '&fabio;Expression', 
-          'frbr:realizationOf', $w)"/>
+          'frbr:realizationOf', $work)"/>
     </xsl:call-template>
     <xsl:call-template name="goahead">
       <xsl:with-param name="s" select="$e" tunnel="yes"/>
@@ -376,7 +387,7 @@
 
   <xsl:template match="bio">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
     <xsl:variable name="bio" select="concat($s,'-biography')"/>
     <xsl:call-template name="assert">
@@ -433,16 +444,16 @@
   </xsl:template>
 
   <xsl:template match="conference">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
-    <xsl:variable name="conference" select="concat('conference-',$w)"/>
+    <xsl:variable name="conference" select="concat('conference-', $work)"/>
     <xsl:call-template name="single">
       <xsl:with-param name="s" select="$e" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;ConferencePaper'" tunnel="yes"/>
     </xsl:call-template>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'swc:relatedToEvent'" tunnel="yes"/>
       <xsl:with-param name="o" select="$conference" tunnel="yes"/>
     </xsl:call-template>
@@ -512,9 +523,9 @@
   </xsl:template>
 
   <xsl:template match="contrib">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 <!--    <xsl:variable name="agent"
-      select="f:getBlankChildLabel($w, concat('agent-', count(preceding-sibling::contrib) + 1))"/>
+      select="f:getBlankChildLabel($work, concat('agent-', count(preceding-sibling::contrib) + 1))"/>
 -->
     <!-- FIXME:  this needs work to take care of all the possible ways that an agent's identifying
       info can appear. -->
@@ -526,13 +537,13 @@
         <xsl:otherwise>
           <xsl:variable name='contrib-name'
             select='f:makeSlug(concat((.//surname)[1], "-", (.//given-names)[1]))'/>
-          <xsl:value-of select='concat($w, "/contrib/", $contrib-name)'/>
+          <xsl:value-of select='concat($work, "/contrib/", $contrib-name)'/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'dcterms:contributor'" tunnel="yes"/>
       <xsl:with-param name="o" select="$contrib" tunnel="yes"/>
     </xsl:call-template>
@@ -626,9 +637,9 @@
   <xsl:template match="element-citation|mixed-citation">
     <xsl:param name="s" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:variable name="cited-document" select="concat($s,'-',$e)"/>
-    <xsl:variable name="cited-work" select="concat($s,'-',$w)"/>
+    <xsl:variable name="cited-work" select="concat($s,'-',$work)"/>
 
     <xsl:call-template name="single">
       <xsl:with-param name="p" select="'biro:references'" tunnel="yes"/>
@@ -652,7 +663,7 @@
     <xsl:call-template name="goahead">
       <xsl:with-param name="s" select="$cited-document" tunnel="yes"/>
       <xsl:with-param name="e" select="$cited-document" tunnel="yes"/>
-      <xsl:with-param name="w" select="$cited-work" tunnel="yes"/>
+      <xsl:with-param name="work" select="$cited-work" tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
 
@@ -760,9 +771,9 @@
 
   <xsl:template match="gov">
     <xsl:param name="e" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" tunnel="yes" select="$w"/>
+      <xsl:with-param name="s" tunnel="yes" select="$work"/>
       <xsl:with-param name="p" tunnel="yes" select="'rdf:type'"/>
       <xsl:with-param name="o" tunnel="yes" select="'&fabio;Report'"/>
     </xsl:call-template>
@@ -816,11 +827,11 @@
 
   <xsl:template match="issue">
     <xsl:param name="e" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:param name="issue" tunnel="yes"/>
     <xsl:param name="collection" tunnel="yes"/>
     <xsl:variable name="issue" select="concat($issue,'-',$e)"/>
-    <xsl:variable name="collection" select="concat($collection,'-',$w)"/>
+    <xsl:variable name="collection" select="concat($collection,'-',$work)"/>
 
     <xsl:call-template name="single">
       <xsl:with-param name="p" select="'frbr:partOf'" tunnel="yes"/>
@@ -843,7 +854,7 @@
 
     <xsl:call-template name="goahead">
       <xsl:with-param name="s" select="$issue" tunnel="yes"/>
-      <xsl:with-param name="w" select="$collection" tunnel="yes"/>
+      <xsl:with-param name="work" select="$collection" tunnel="yes"/>
       <xsl:with-param name="e" select="$issue" tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
@@ -881,9 +892,9 @@
   </xsl:template>
 
   <xsl:template match="issue-sponsor">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:param name="collection" tunnel="yes"/>
-    <xsl:variable name="collection" select="concat($collection,'-',$w)"/>
+    <xsl:variable name="collection" select="concat($collection, '-', $work)"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($collection,
@@ -893,7 +904,7 @@
     </xsl:call-template>
 
     <xsl:call-template name="goahead">
-      <xsl:with-param name="w" select="$collection" tunnel="yes"/>
+      <xsl:with-param name="work" select="$collection" tunnel="yes"/>
       <xsl:with-param name="s" select="$collection" tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
@@ -1010,7 +1021,7 @@
                        string-name[not(parent::name-alternatives)]
                          [parent::mixed-citation or parent::element-citation] |
                        name-alternatives[parent::mixed-citation or parent::element-citation]">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:variable name="agent"
       select="concat('reference-', count(ancestor::ref/preceding-sibling::ref) + 1,
@@ -1019,7 +1030,7 @@
                                       preceding-sibling::string-name) + 1)"/>
 
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'dcterms:creator'" tunnel="yes"/>
       <xsl:with-param name="o" select="$agent" tunnel="yes"/>
     </xsl:call-template>
@@ -1379,13 +1390,13 @@
 
   <xsl:template match="role">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($s,
           'pro:holdsRoleInTime', '',
-          'pro:relatesToDocument', $w,
+          'pro:relatesToDocument', $work,
           'pro:withRole', '',
           'rdf:type', '&pro;Role',
           'rdfs:label', concat('&quot;', ., '&quot;'))"/>
@@ -1394,52 +1405,52 @@
 
   <xsl:template match="role[. = 'editor-in-chief']">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($s,
           'pro:holdsRoleInTime', '',
-          'pro:relatesToDocument', $w,
+          'pro:relatesToDocument', $work,
           'pro:withRole', '&pro;editor-in-chief')"/>
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="role[. = 'chief scientist']">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($s,
           'pro:holdsRoleInTime', '',
-          'pro:relatesToDocument', $w,
+          'pro:relatesToDocument', $work,
           'pro:withRole', '&scoro;chief-scientist')"/>
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="role[. = 'photographer']">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($s,
           'pro:holdsRoleInTime', '',
-          'pro:relatesToDocument', $w,
+          'pro:relatesToDocument', $work,
           'pro:withRole', '&scoro;photographer')"/>
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="role[. = 'research associate']">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($s,
           'pro:holdsRoleInTime', '',
-          'pro:relatesToDocument', $w,
+          'pro:relatesToDocument', $work,
           'pro:withRole', '&scoro;postdoctoral-researcher')"/>
     </xsl:call-template>
   </xsl:template>
@@ -1479,9 +1490,9 @@
   </xsl:template>
 
   <xsl:template match="std">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;TechnicalStandard'" tunnel="yes"/>
     </xsl:call-template>
@@ -1490,10 +1501,10 @@
   </xsl:template>
 
   <xsl:template match="std-organization">
-    <xsl:param name="w" tunnel="yes"/>
-    <xsl:variable name="organization" select="concat($w,'standard-organization')"/>
+    <xsl:param name="work" tunnel="yes"/>
+    <xsl:variable name="organization" select="concat($work,'standard-organization')"/>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'dcterms:creator'" tunnel="yes"/>
       <xsl:with-param name="o" select="$organization" tunnel="yes"/>
     </xsl:call-template>
@@ -1505,19 +1516,19 @@
           'foaf:name', concat('&quot;',.,'&quot;'),
           'pro:holdsRoleInTime', '',
           'pro:withPro', '&pro;author',
-          'pro:relatesToDocument', $w)"/>
+          'pro:relatesToDocument', $work)"/>
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="sub-article">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
     <xsl:param name="i" tunnel="yes"/>
 
     <xsl:variable name="prefix" select="concat('sub',count(preceding::sub-article)+1,'-')"
       as="xs:string"/>
-    <xsl:variable name="sw" select="concat($prefix,$w)" as="xs:string"/>
+    <xsl:variable name="sw" select="concat($prefix,$work)" as="xs:string"/>
     <xsl:variable name="se" select="concat($prefix,$e)" as="xs:string"/>
 
     <xsl:call-template name="assert">
@@ -1532,10 +1543,10 @@
     <xsl:call-template name="single">
       <xsl:with-param name="s" select="$sw" tunnel="yes"/>
       <xsl:with-param name="p" select="'frbr:partOf'" tunnel="yes"/>
-      <xsl:with-param name="o" select="$w" tunnel="yes"/>
+      <xsl:with-param name="o" select="$work" tunnel="yes"/>
     </xsl:call-template>
     <xsl:call-template name="goahead">
-      <xsl:with-param name="w" select="$sw" tunnel="yes"/>
+      <xsl:with-param name="work" select="$sw" tunnel="yes"/>
       <xsl:with-param name="e" select="$se" tunnel="yes"/>
       <xsl:with-param name="s" select="$se" tunnel="yes"/>
     </xsl:call-template>
@@ -1657,7 +1668,7 @@
 
   <xsl:template match="volume">
     <xsl:param name="e" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:param name="issue" tunnel="yes"/>
     <xsl:param name="volume" tunnel="yes"/>
     <xsl:variable name="issue" select="concat($issue,'-',$e)"/>
@@ -1712,7 +1723,7 @@
   </xsl:template>
 
   <xsl:template match="year[parent::element-citation | parent::mixed-citation]">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="attribute">
       <xsl:with-param name="p" select="'fabio:hasPublicationYear'" tunnel="yes"/>
       <xsl:with-param name="o" select="." tunnel="yes"/>
@@ -1757,9 +1768,9 @@
   </xsl:template>
 
   <xsl:template match="@article-type[. = 'announcement']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;Announcement'" tunnel="yes"/>
     </xsl:call-template>
@@ -1788,10 +1799,10 @@
   </xsl:template>
 
   <xsl:template match="@article-type[. = 'books-received']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="($w,
+        select="($work,
           'rdf:type', '&fabio;NotificationOfReceipt',
           'swanrel:relatesTo', '',
           'rdf:type','&fabio;Book')"/>
@@ -1806,22 +1817,22 @@
   </xsl:template>
 
   <xsl:template match="@article-type[. = 'calendar']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;TimeTable'" tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="@article-type[. = 'case-report']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="single">
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;ReportDocument'" tunnel="yes"/>
     </xsl:call-template>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;CaseReport'" tunnel="yes"/>
     </xsl:call-template>
@@ -1835,18 +1846,18 @@
   </xsl:template>
 
   <xsl:template match="@article-type[. = 'correction']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;Correction'" tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="@article-type[. = 'discussion']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;Opinion'" tunnel="yes"/>
     </xsl:call-template>
@@ -1889,9 +1900,9 @@
   </xsl:template>
 
   <xsl:template match="@article-type[. = 'introduction']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&deo;Introduction'" tunnel="yes"/>
     </xsl:call-template>
@@ -1905,13 +1916,13 @@
   </xsl:template>
 
   <xsl:template match="@article-type[. = 'meeting-report']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="single">
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;ReportDocument'" tunnel="yes"/>
     </xsl:call-template>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;MeetingReport'" tunnel="yes"/>
     </xsl:call-template>
@@ -1925,9 +1936,9 @@
   </xsl:template>
 
   <xsl:template match="@article-type[. = 'obituary']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;Obituary'" tunnel="yes"/>
     </xsl:call-template>
@@ -1942,9 +1953,9 @@
 
   <xsl:template match="@article-type[. = 'partial-retraction']">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;Retraction'" tunnel="yes"/>
     </xsl:call-template>
@@ -1958,9 +1969,9 @@
   </xsl:template>
 
   <xsl:template match="@article-type[. = 'product-review']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;ProductReview'" tunnel="yes"/>
     </xsl:call-template>
@@ -1989,22 +2000,22 @@
   </xsl:template>
 
   <xsl:template match="@article-type[. = 'research-article']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="single">
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;Article'" tunnel="yes"/>
     </xsl:call-template>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;ResearchPaper'" tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="@article-type[. = 'retraction']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;Retraction'" tunnel="yes"/>
     </xsl:call-template>
@@ -2044,104 +2055,104 @@
 
   <xsl:template match="@collab-type[. = 'assignee']">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($s,
           'pro:holdsRoleInTime', '',
-          'pro:relatesToDocument', $w,
+          'pro:relatesToDocument', $work,
           'pro:withRole', '&scoro;patent-holder')"/>
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="@collab-type[. = 'authors']">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($s,
           'pro:holdsRoleInTime', '',
-          'pro:relatesToDocument', $w,
+          'pro:relatesToDocument', $work,
           'pro:withRole', '&pro;author')"/>
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="@collab-type[. = 'editors']">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($s,
           'pro:holdsRoleInTime', '',
-          'pro:relatesToDocument', $w,
+          'pro:relatesToDocument', $work,
           'pro:withRole', '&pro;editor')"/>
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="@collab-type[. = 'compilers']">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($s,
           'pro:holdsRoleInTime','',
-          'pro:relatesToDocument', $w,
+          'pro:relatesToDocument', $work,
           'pro:withRole', '&pro;compiler')"/>
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="@collab-type[. = 'guest-editor']">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($s,
           'pro:holdsRoleInTime', '',
-          'pro:relatesToDocument', $w,
+          'pro:relatesToDocument', $work,
           'pro:withRole', '&pro;guest-editor')"/>
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="@collab-type[. = 'inventors']">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($s,
           'pro:holdsRoleInTime', '',
-          'pro:relatesToDocument', $w,
+          'pro:relatesToDocument', $work,
           'pro:withRole', '&scoro;inventor')"/>
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="@collab-type[. = 'translators']">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($s,
           'pro:holdsRoleInTime', '',
-          'pro:relatesToDocument', $w,
+          'pro:relatesToDocument', $work,
           'pro:withRole', '&pro;translator')"/>
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="@contrib-type|@collab-type">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
         select="($s,
           'pro:holdsRoleInTime', '',
-          'pro:relatesToDocument', $w,
+          'pro:relatesToDocument', $work,
           'pro:withRole', '',
           'rdf:type', '&pro;Role',
           'rdf:label', .)"/>
@@ -2150,10 +2161,10 @@
 
   <xsl:template match="@contrib-type[. = 'author']">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'dcterms:creator'" tunnel="yes"/>
       <xsl:with-param name="o" select="$s" tunnel="yes"/>
     </xsl:call-template>
@@ -2162,7 +2173,7 @@
       <xsl:with-param name="triples"
         select="($s,
           'pro:holdsRoleInTime', '',
-          'pro:relatesToDocument', $w,
+          'pro:relatesToDocument', $work,
           'pro:withRole', '&pro;author')"/>
     </xsl:call-template>
   </xsl:template>
@@ -2225,11 +2236,11 @@
   </xsl:template>
 
   <xsl:template match="@date-type[. = 'accepted']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
     <xsl:variable name="se" select="concat($e,'-',generate-id(..))"/>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'frbr:realization'" tunnel="yes"/>
       <xsl:with-param name="o" select="$se" tunnel="yes"/>
     </xsl:call-template>
@@ -2249,17 +2260,17 @@
   </xsl:template>
 
   <xsl:template match="@date-type[. = 'corrected']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
     <xsl:variable name="se" select="concat($e,'-',generate-id(..))"/>
     <xsl:variable name="date" select="concat('&quot;',f:getDate(..),'&quot;^^',f:getDatetype(..))"/>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'frbr:realization'" tunnel="yes"/>
       <xsl:with-param name="o" select="$se" tunnel="yes"/>
     </xsl:call-template>
     <xsl:call-template name="set-date">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'fabio:hasCorrectionDate'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;hasCorrectionDate'" tunnel="yes"/>
     </xsl:call-template>
@@ -2296,11 +2307,11 @@
   </xsl:template>
 
   <xsl:template match="@date-type[. = 'received']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
     <xsl:variable name="se" select="concat($e,'-',generate-id(..))"/>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'frbr:realization'" tunnel="yes"/>
       <xsl:with-param name="o" select="$se" tunnel="yes"/>
     </xsl:call-template>
@@ -2320,12 +2331,12 @@
   </xsl:template>
 
   <xsl:template match="@date-type[. = 'rev-recd']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
     <xsl:variable name="se" select="concat($e,'-',generate-id(..))"/>
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="($w,
+        select="($work,
           'frbr:realization','',
           'rdf:type', '&fabio;Expression',
           'frbr:revision', $se)"/>
@@ -2346,9 +2357,9 @@
   </xsl:template>
 
   <xsl:template match="@date-type[. = 'rev-request']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="set-date">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'fabio:hasRevisionRequestDate'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;hasRevisionRequestDate'" tunnel="yes"/>
     </xsl:call-template>
@@ -2387,7 +2398,7 @@
 
   <xsl:template match="@equal-contrib">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:variable name="contribution"
       select="concat('contribution-',count(../preceding-sibling::contrib[@equal-contrib])+1)"/>
     <xsl:call-template name="single">
@@ -2400,7 +2411,7 @@
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&scoro;ContributionSituation'" tunnel="yes"/>
       <xsl:with-param name="p2" select="'scoro:hasContributionContext'" tunnel="yes"/>
-      <xsl:with-param name="o2" select="$w" tunnel="yes"/>
+      <xsl:with-param name="o2" select="$work" tunnel="yes"/>
     </xsl:call-template>
 
     <xsl:if test="@equal-contrib = 'yes'">
@@ -2694,18 +2705,18 @@
   </xsl:template>
 
   <xsl:template match="@publication-format[. = 'video']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
     <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;MovingImage'" tunnel="yes"/>
     </xsl:call-template>
 
     <xsl:call-template name="set-manifestation-date">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'fabio:hasManifestation'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;Manifestation'" tunnel="yes"/>
       <xsl:with-param name="m" select="$me" tunnel="yes"/>
@@ -2713,18 +2724,18 @@
   </xsl:template>
 
   <xsl:template match="@publication-format[. = 'audio']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
     <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;SoundRecording'" tunnel="yes"/>
     </xsl:call-template>
 
     <xsl:call-template name="set-manifestation-date">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'fabio:hasManifestation'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;Manifestation'" tunnel="yes"/>
       <xsl:with-param name="m" select="$me" tunnel="yes"/>
@@ -2816,9 +2827,9 @@
   </xsl:template>
 
   <xsl:template match="@publication-type[. = 'standard']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;Specification'" tunnel="yes"/>
     </xsl:call-template>
@@ -2913,9 +2924,9 @@
   </xsl:template>
 
   <xsl:template match="@pub-id-type[. = 'medline']">
-    <xsl:param name='w' tunnel="yes"/>
+    <xsl:param name='work' tunnel="yes"/>
     <xsl:call-template name="attribute">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'fabio:hasPubMedId'" tunnel="yes"/>
       <xsl:with-param name="o" select=".." tunnel="yes"/>
     </xsl:call-template>
@@ -2936,7 +2947,7 @@
   </xsl:template>
 
   <xsl:template match="@pub-id-type[. = 'pmcid' or . = 'pmc']">
-    <xsl:param name='w' tunnel="yes"/>
+    <xsl:param name='work' tunnel="yes"/>
     <xsl:variable name="pmcid">
       <xsl:choose>
         <xsl:when test="matches(.., 'PMC\d+')">
@@ -2948,16 +2959,16 @@
       </xsl:choose>
     </xsl:variable>
     <xsl:call-template name="attribute">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'fabio:hasPubMedCentralId'" tunnel="yes"/>
       <xsl:with-param name="o" select="$pmcid" tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="@pub-id-type[. = 'pmid']">
-    <xsl:param name='w' tunnel="yes"/>
+    <xsl:param name='work' tunnel="yes"/>
     <xsl:call-template name="attribute">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'fabio:hasPubMedId'" tunnel="yes"/>
       <xsl:with-param name="o" select=".." tunnel="yes"/>
     </xsl:call-template>
@@ -2987,9 +2998,9 @@
   </xsl:template>
 
   <xsl:template match="@pub-id-type[. = 'std-designation']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:call-template name="double">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;TechnicalStandard'" tunnel="yes"/>
       <xsl:with-param name="p2" select="'fabio:hasStandardNumber'" tunnel="yes"/>
@@ -3069,14 +3080,14 @@
   </xsl:template>
 
   <xsl:template match="@pub-type[. = 'epreprint']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
     <xsl:variable name="ee" select="f:getBlankChildLabel($e, generate-id(..))"/>
     <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'frbr:realization'" tunnel="yes"/>
       <xsl:with-param name="o" select="$ee" tunnel="yes"/>
     </xsl:call-template>
@@ -3102,14 +3113,14 @@
   </xsl:template>
 
   <xsl:template match="@pub-type[. = 'ppreprint']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
     <xsl:param name="m" tunnel="yes"/>
     <xsl:variable name="ee" select="f:getBlankChildLabel($e, generate-id(..))"/>
     <xsl:variable name="me" select="f:getBlankChildLabel($m, generate-id(..))"/>
 
     <xsl:call-template name="single">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'frbr:realization'" tunnel="yes"/>
       <xsl:with-param name="o" select="$ee" tunnel="yes"/>
     </xsl:call-template>
@@ -3135,17 +3146,17 @@
   </xsl:template>
 
   <xsl:template match="@pub-type[. = 'ecorrected']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:call-template name="set-date">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'fabio:hasCorrectionDate'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;hasCorrectionDate'" tunnel="yes"/>
     </xsl:call-template>
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="($w,
+        select="($work,
           'frbr:realization', '',
           'rdf:type', '&fabio;o;Expression',
           'frbr:revision', '',
@@ -3156,17 +3167,17 @@
   </xsl:template>
 
   <xsl:template match="@pub-type[. = 'pcorrected']">
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
 
     <xsl:call-template name="set-date">
-      <xsl:with-param name="s" select="$w" tunnel="yes"/>
+      <xsl:with-param name="s" select="$work" tunnel="yes"/>
       <xsl:with-param name="p" select="'fabio:hasCorrectionDate'" tunnel="yes"/>
       <xsl:with-param name="o" select="'&fabio;hasCorrectionDate'" tunnel="yes"/>
     </xsl:call-template>
 
     <xsl:call-template name="assert">
       <xsl:with-param name="triples"
-        select="($w,
+        select="($work,
           'frbr:realization', '',
           'rdf:type', '&fabio;Expression',
           'frbr:revision', '',
@@ -3243,7 +3254,7 @@
 
   <xsl:template match="author-comment">
     <xsl:param name="s" tunnel="yes"/>
-    <xsl:param name="w" tunnel="yes"/>
+    <xsl:param name="work" tunnel="yes"/>
     <xsl:param name="e" tunnel="yes"/>
     <xsl:variable name="comment" select="concat($s,'-comment')"/>
     
