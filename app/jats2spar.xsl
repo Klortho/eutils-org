@@ -100,7 +100,7 @@
 
 
   <xsl:template match="/">
-    <rdf:RDF>
+    <xsl:variable name='content'>
       <xsl:call-template name="goahead">
         <xsl:with-param name="w" select="$this-work" tunnel="yes"/>
         <xsl:with-param name="e" select="$this-expression" tunnel="yes"/>
@@ -116,9 +116,37 @@
         <xsl:with-param name="o2" select="''" tunnel="yes"/>
         <xsl:with-param name="lang" select="''" tunnel="yes"/>
       </xsl:call-template>
+    </xsl:variable>
+    
+    <rdf:RDF>
+<!--      <xsl:copy-of select='$content'/>-->
+      <xsl:for-each-group select="$content/rdf:Description" group-by="concat(@rdf:about, @rdf:nodeID)">
+        <xsl:text>&#10;&#10;</xsl:text>
+        <rdf:Description>
+          <xsl:choose>
+            <xsl:when test="current-group()[1][@rdf:about]">
+              <xsl:attribute name='rdf:about'>
+                <xsl:value-of select='current-group()[1]/@rdf:about'/>
+              </xsl:attribute>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:attribute name='rdf:nodeID'>
+                <xsl:value-of select='current-group()[1]/@rdf:nodeID'/>
+              </xsl:attribute>
+            </xsl:otherwise>
+          </xsl:choose>
+          <xsl:apply-templates select='current-group()/*' mode='group-content'/>
+        </rdf:Description>
+      </xsl:for-each-group>
     </rdf:RDF>
   </xsl:template>
 
+  <xsl:template match='@*|node()' mode='group-content'>
+    <xsl:copy>
+      <xsl:apply-templates select='@*|node()' mode='group-content'/>
+    </xsl:copy>
+  </xsl:template>
+  
   <xsl:template match="element()">
     <xsl:call-template name="goahead"/>
   </xsl:template>
