@@ -71,6 +71,11 @@ described in the documentation, [URL Rewriting and MVC
 Framework](http://exist-db.org/exist/apps/doc/urlrewrite.xml).
 
 
+## JATS2RDF
+
+This is a subproject of EUtils.org.  It is currently documented on the GitHub
+[JATS2RDF wiki page](https://github.com/Klortho/eutils-org/wiki/JATS2RDF).
+
 
 
 ## References

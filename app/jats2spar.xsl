@@ -2488,7 +2488,7 @@
   
   <xsl:template match="@journal-id-type[. = 'nlm-ta']">
     <xsl:call-template name='attribute'>
-      <xsl:with-param name="p" select="'fabio:hasNlmJournalTitleAbbr'" tunnel="yes"/>
+      <xsl:with-param name="p" select="'fabio:hasNLMJournalTitleAbbreviation'" tunnel="yes"/>
       <xsl:with-param name="o" select=".." tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
